@@ -45,11 +45,10 @@ Current prototype behavior:
 - `src/index.html` is the original v2 prototype shell with CSS, JS, and data separated.
 - `src/styles.css` contains the visual system and dashboard layout.
 - `src/app.js` loads `src/data/spx-flow-dashboard-v2.json` with `fetch` and renders the dashboard.
-- `src/data/spx-flow-dashboard-v2.json` contains the visible prototype data: header, level map, timeline, structures, monetization zones, and scenarios.
+- `src/data/spx-flow-dashboard-v2.json` uses the canonical `OptionFlowSession` shape: session metadata, market state, summary, aggregate flow, levels, timeline buckets, structures, monetization zones, scenarios, data quality, and optional layers.
 
 Next natural step:
 
-- align `src/data/spx-flow-dashboard-v2.json` with the canonical `OptionFlowSession` shape;
 - replace the prototype JSON file with a generated analysis file or API endpoint;
 - add click interactions that connect levels to `structures`, `monetization_zones`, and evidence;
 - add a replay mode by swapping `OptionFlowSession` snapshots through time.
