@@ -1,0 +1,352 @@
+{
+  "header": {
+    "eyebrow": "0DTE Option Flow / Session Map · v2",
+    "title": "SPX · 07 AUG 2026",
+    "subtitle": "Visible tape · premium ≥ $50k · RTH + premarket",
+    "spot": {
+      "value": "7751.8",
+      "state": "▲ reclaim"
+    },
+    "status_badge": "PIN / MILD UPSIDE BIAS",
+    "summary": [
+      {
+        "level": "7750",
+        "text": "main inventory pin"
+      },
+      {
+        "level": "7730",
+        "text": "reclaim / supportive pivot"
+      },
+      {
+        "level": "7770–7775",
+        "text": "fresh call-supply + put demand"
+      }
+    ]
+  },
+  "level_map": {
+    "controls": ["All", "Near spot", "Ex-complex"],
+    "legend": [
+      {
+        "label": "pin/pivot",
+        "color_var": "--cyan"
+      },
+      {
+        "label": "supply",
+        "color_var": "--red"
+      },
+      {
+        "label": "demand/support",
+        "color_var": "--green"
+      },
+      {
+        "label": "vol/complex",
+        "color_var": "--purple"
+      }
+    ],
+    "spot": {
+      "top": "39.8%",
+      "label": "SPOT"
+    },
+    "zones": [
+      {
+        "label": "upper friction",
+        "top": "14%",
+        "height": "10%",
+        "border_color": "rgba(252,129,129,.45)",
+        "background": "rgba(252,129,129,.05)",
+        "color": "#e8a0a0"
+      },
+      {
+        "label": "pin / churn",
+        "top": "37%",
+        "height": "10%",
+        "border_color": "rgba(79,209,197,.45)",
+        "background": "rgba(79,209,197,.05)",
+        "color": "#7ee1d8"
+      },
+      {
+        "label": "reclaim / breakdown",
+        "top": "63%",
+        "height": "11%",
+        "border_color": "rgba(104,211,145,.38)",
+        "background": "rgba(104,211,145,.04)",
+        "color": "#83c99a"
+      }
+    ],
+    "levels": [
+      {
+        "strike": "7805",
+        "top": "8%",
+        "width": "42%",
+        "color_var": "--purple",
+        "tag": "complex upper node",
+        "major": false
+      },
+      {
+        "strike": "7775",
+        "top": "18%",
+        "width": "72%",
+        "color_var": "--red",
+        "tag": "PUT DEMAND / CAP",
+        "major": true
+      },
+      {
+        "strike": "7770",
+        "top": "23%",
+        "width": "62%",
+        "color_var": "--red",
+        "tag": "call supply",
+        "major": false
+      },
+      {
+        "strike": "7760",
+        "top": "30%",
+        "width": "52%",
+        "color_var": "--green",
+        "tag": "call demand",
+        "major": false
+      },
+      {
+        "strike": "7750",
+        "top": "41%",
+        "width": "94%",
+        "color_var": "--cyan",
+        "tag": "MAIN PIN / INVENTORY",
+        "major": true
+      },
+      {
+        "strike": "7740",
+        "top": "52%",
+        "width": "45%",
+        "color_var": "--yellow",
+        "tag": "transition",
+        "major": false
+      },
+      {
+        "strike": "7730",
+        "top": "62%",
+        "width": "67%",
+        "color_var": "--green",
+        "tag": "RECLAIM SUPPORT",
+        "major": true
+      },
+      {
+        "strike": "7725",
+        "top": "69%",
+        "width": "47%",
+        "color_var": "--orange",
+        "tag": "breakdown trigger",
+        "major": false
+      },
+      {
+        "strike": "7720",
+        "top": "74%",
+        "width": "50%",
+        "color_var": "--orange",
+        "tag": "downside protection",
+        "major": false
+      },
+      {
+        "strike": "7700",
+        "top": "86%",
+        "width": "58%",
+        "color_var": "--purple",
+        "tag": "lower inventory pivot",
+        "major": true
+      },
+      {
+        "strike": "7650",
+        "top": "96%",
+        "width": "36%",
+        "color_var": "--green",
+        "tag": "old downside convexity",
+        "major": false
+      }
+    ]
+  },
+  "timeline": {
+    "subtitle": "price + classified option flow",
+    "spot_chart": {
+      "title": "SPX spot",
+      "range_label": "7720 → 7755 → 7741 → 7752",
+      "gradient": {
+        "start_color": "#4fd1c5",
+        "start_opacity": ".22",
+        "end_color": "#4fd1c5",
+        "end_opacity": "0"
+      },
+      "grid_y": [30, 75, 120, 165],
+      "area_path": "M0,128 C60,112 90,104 145,90 C195,78 220,53 270,42 C320,32 350,49 395,85 C430,110 470,140 510,153 C550,166 585,129 620,104 C660,77 700,64 740,58 C790,52 835,66 900,57 L900,180 L0,180 Z",
+      "line_path": "M0,128 C60,112 90,104 145,90 C195,78 220,53 270,42 C320,32 350,49 395,85 C430,110 470,140 510,153 C550,166 585,129 620,104 C660,77 700,64 740,58 C790,52 835,66 900,57",
+      "line_color": "#4fd1c5",
+      "reference_line": {
+        "y": 63,
+        "color": "#63b3ed",
+        "label": "7750 pin",
+        "label_y": 58
+      },
+      "event": {
+        "x": 510,
+        "y": 153,
+        "color": "#fc8181",
+        "label_x": 520,
+        "label_y": 151,
+        "label_color": "#d8a0a0",
+        "label": "7719 rejection / reclaim"
+      }
+    },
+    "flow_chart": {
+      "title": "Net premium by interval",
+      "legend": "calls / puts",
+      "zero_line_y": 68,
+      "bars": [
+        { "x": 35, "y": 68, "width": 46, "height": 23, "fill": "#fc8181" },
+        { "x": 84, "y": 68, "width": 46, "height": 12, "fill": "#b794f4" },
+        { "x": 190, "y": 43, "width": 46, "height": 25, "fill": "#68d391" },
+        { "x": 239, "y": 68, "width": 46, "height": 7, "fill": "#b794f4" },
+        { "x": 345, "y": 24, "width": 46, "height": 44, "fill": "#68d391" },
+        { "x": 394, "y": 68, "width": 46, "height": 39, "fill": "#fc8181" },
+        { "x": 500, "y": 31, "width": 46, "height": 37, "fill": "#68d391" },
+        { "x": 549, "y": 13, "width": 46, "height": 55, "fill": "#b794f4" },
+        { "x": 655, "y": 42, "width": 46, "height": 26, "fill": "#68d391" },
+        { "x": 704, "y": 68, "width": 46, "height": 22, "fill": "#fc8181" },
+        { "x": 810, "y": 51, "width": 36, "height": 17, "fill": "#68d391" },
+        { "x": 849, "y": 55, "width": 36, "height": 13, "fill": "#b794f4" }
+      ],
+      "labels": [
+        { "x": 33, "y": 122, "text": "open" },
+        { "x": 184, "y": 122, "text": "16:45" },
+        { "x": 338, "y": 122, "text": "17:00" },
+        { "x": 494, "y": 122, "text": "17:20" },
+        { "x": 650, "y": 122, "text": "18:00" },
+        { "x": 810, "y": 122, "text": "now" }
+      ]
+    },
+    "regimes": {
+      "title": "Regime strip",
+      "subtitle": "interpretation, not prediction",
+      "items": [
+        {
+          "label": "absorption",
+          "background": "rgba(246,200,95,.12)",
+          "color": "#e5cc83"
+        },
+        {
+          "label": "failed 7750",
+          "background": "rgba(252,129,129,.10)",
+          "color": "#e3a0a0"
+        },
+        {
+          "label": "7720 reclaim",
+          "background": "rgba(104,211,145,.11)",
+          "color": "#a1ddb2"
+        },
+        {
+          "label": "7750 pin",
+          "background": "rgba(79,209,197,.11)",
+          "color": "#8edfd7"
+        },
+        {
+          "label": "7775 test",
+          "background": "rgba(183,148,244,.11)",
+          "color": "#c9b3ee"
+        }
+      ]
+    }
+  },
+  "structures": {
+    "label": "interpreted",
+    "items": [
+      {
+        "name": "7750 Synthetic Long-like",
+        "confidence": "MED CONF",
+        "legs": ["BUY 7750C + SELL 7750P", "~550 matched contracts"],
+        "tags": ["bullish delta", "complex", "RTH"],
+        "impact": "Supports 7750 as active directional inventory, but not a standalone breakout signal."
+      },
+      {
+        "name": "7750 Long Vol-like",
+        "confidence": "MED CONF",
+        "legs": ["BUY 7750C + BUY 7750P", "matched mass after pullback"],
+        "tags": ["long vol", "pivot"],
+        "impact": "Turns 7750 into a volatility center rather than a simple resistance level."
+      },
+      {
+        "name": "7730 Straddle-like",
+        "confidence": "HIGHER CONF",
+        "legs": ["50x BUY 7730C", "50x BUY 7730P"],
+        "tags": ["movement bought", "reclaim"],
+        "impact": "Useful lower pivot: move realized upward after print; failure back below weakens tape."
+      },
+      {
+        "name": "7765 / 7805 Ratio Call",
+        "confidence": "MED CONF",
+        "legs": ["+200 7765C / -292 7805C"],
+        "tags": ["upside window", "tail monetization"],
+        "impact": "Suggests an upside monetization band rather than unlimited convex chase."
+      },
+      {
+        "name": "7795 / 7800 Put Spread",
+        "confidence": "MED CONF",
+        "legs": ["Repeated matched ITM put legs"],
+        "tags": ["defined risk", "discount directional"],
+        "impact": "Large raw put premium should not be treated as clean bearish protection."
+      }
+    ]
+  },
+  "monetization": {
+    "label": "who benefits where?",
+    "items": [
+      {
+        "range": "7800–7805",
+        "description": "Upper call structures begin to monetize / cap convexity.",
+        "beneficiary": "ratio / short upper calls"
+      },
+      {
+        "range": "7770–7775",
+        "description": "Fresh call supply and put demand create local friction.",
+        "beneficiary": "call sellers / hedgers"
+      },
+      {
+        "range": "7745–7755",
+        "description": "High churn, synthetic activity and balanced premium favor pinning.",
+        "beneficiary": "short decay / inventory"
+      },
+      {
+        "range": "7720–7730",
+        "description": "Reclaim zone; below it, protection begins to matter more than pin.",
+        "beneficiary": "downside hedges"
+      },
+      {
+        "range": "< 7700",
+        "description": "Old downside convexity becomes increasingly relevant on acceptance lower.",
+        "beneficiary": "put protection"
+      }
+    ],
+    "note": "Prototype logic: monetization zones are interpretive overlays derived from visible tape structures. They are not payoff-precise without confirmed opening/closing and complex-order linkage."
+  },
+  "scenarios": {
+    "label": "conditional",
+    "items": [
+      {
+        "label": "UPSIDE",
+        "color_var": "--green",
+        "trigger": "Acceptance > 7775",
+        "text": "+ continued absorption of call supply → 7800/7805 becomes the next active zone."
+      },
+      {
+        "label": "BASE",
+        "color_var": "--cyan",
+        "trigger": "7730–7775",
+        "text": "with 7750 as magnet → chop / pin / mean reversion around inventory center."
+      },
+      {
+        "label": "DOWNSIDE",
+        "color_var": "--red",
+        "trigger": "Loss of 7730",
+        "text": "→ 7725/7720 test. Acceptance below 7720 reactivates 7700 → 7650 downside map."
+      }
+    ],
+    "note": "A production version would make every strike clickable and let the time scrubber rebuild the map as-of any snapshot."
+  }
+}

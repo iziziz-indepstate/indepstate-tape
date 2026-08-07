@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SPX 0DTE Flow Map — Prototype v2</title>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand">
+      <div class="eyebrow" id="dashboardEyebrow"></div>
+      <h1 id="dashboardTitle"></h1>
+      <div class="sub" id="dashboardSubtitle"></div>
+    </div>
+    <div class="status">
+      <div class="eyebrow">Current spot</div>
+      <div class="spot"><span id="spotValue"></span> <small id="spotState"></small></div>
+      <div style="margin-top:7px"><span class="badge"><span class="dot"></span> <span id="statusBadge"></span></span></div>
+    </div>
+    <div class="summary">
+      <div class="eyebrow">Session state</div>
+      <div class="summary-lines" id="sessionSummary"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="panel">
+      <div class="panel-title">
+        <h2>LEVEL MAP</h2>
+        <div class="controls" id="levelControls"></div>
+      </div>
+      <div class="legend" id="levelLegend"></div>
+      <div class="levelmap" id="levelmap"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>FLOW TIMELINE</h2>
+        <div class="legend"><span id="timelineSubtitle"></span></div>
+      </div>
+      <div class="timeline">
+        <div class="chartbox spotbox">
+          <div class="chart-title"><span id="spotChartTitle"></span><span id="spotChartRange"></span></div>
+          <svg id="spotChart" viewBox="0 0 900 180" preserveAspectRatio="none"></svg>
+        </div>
+
+        <div class="chartbox flowbox">
+          <div class="chart-title"><span id="flowChartTitle"></span><span id="flowChartLegend"></span></div>
+          <svg id="flowChart" viewBox="0 0 900 135" preserveAspectRatio="none"></svg>
+        </div>
+
+        <div class="chartbox regimebox">
+          <div class="chart-title"><span id="regimeTitle"></span><span id="regimeSubtitle"></span></div>
+          <div class="regimes" id="regimes"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-title"><h2>SIGNIFICANT STRUCTURES</h2><span class="eyebrow" id="structuresLabel"></span></div>
+      <div class="books" id="books"></div>
+    </aside>
+  </div>
+
+  <div class="lower">
+    <section class="panel">
+      <div class="panel-title"><h2>MONETIZATION LANDSCAPE</h2><span class="eyebrow" id="monetizationLabel"></span></div>
+      <div class="monetization" id="monetization"></div>
+      <div class="footer-note" id="monetizationNote"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><h2>SCENARIO PANEL</h2><span class="eyebrow" id="scenariosLabel"></span></div>
+      <div id="scenarios"></div>
+      <div class="footer-note" id="scenariosNote"></div>
+    </section>
+  </div>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
