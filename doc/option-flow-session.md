@@ -81,6 +81,8 @@ Snapshot metadata and parsing assumptions.
 
 ```json
 {
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-08-07 12:20 NYT",
   "underlying": "SPX",
   "expiration": "2026-08-07",
   "dte": 0,
@@ -92,6 +94,10 @@ Snapshot metadata and parsing assumptions.
   "source_files": ["spotgamma-tape-profile-1-2026-08-07.csv"]
 }
 ```
+
+- `category` groups snapshots in the dashboard selector, for example `0DTE@SPX`, `1WEEK@SPX`, or `VIX`.
+- `snapshot_name` is the human-readable snapshot label and fallback display name when `snapshot_time` is unavailable.
+- Put `category` and `snapshot_name` under `session` in canonical payloads. Older payloads may contain these fields at the top level, but new files should use the canonical `session` location.
 
 ### `market_state`
 
