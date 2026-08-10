@@ -1,14 +1,11 @@
 {
   "0DTE@SPX": [
-    "0dte-spx-2026-07-07_16-25-nyt.json",
-    "0dte-spx-2026-08-10_15-22-cy.json",
-    "0dte-spx-2026-08-10_17_08-cy.json",
-    "0dte-spx-2026-08-10_18_08-cy.json"
+    "0DTE@SPX 2026-08-10 23_42 Cyprus.json"
   ],
   "1WEEK@SPX": [
-    "1week-spx-2026-08-10_20-22-cy.json"
+    "1WEEK@SPX 2026-08-10 23_20 Cyprus.json"
   ],
   "VIX": [
-    "vix-2026-08-07_23-02-cy.json"
+    "ALL@VIX 202026-08-10 23_25 Cyprus.json"
   ]
 }

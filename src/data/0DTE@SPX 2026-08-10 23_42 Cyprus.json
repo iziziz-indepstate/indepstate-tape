@@ -1,0 +1,735 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-08-10 23:42 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-08-11",
+    "dte": 1,
+    "snapshot_time": "2026-08-10T23:42:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "full_visible_session",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-10 (8).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7750.15,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed",
+    "bias": "mixed_to_bullish",
+    "confidence": "medium",
+    "main_pivot": 7750,
+    "upper_decision_level": 7765,
+    "lower_decision_level": 7725
+  },
+  "summary": {
+    "headline": "7745-7750 is the active inventory pivot; late flow tilts toward 7725 support and 7780-7785 upside realization",
+    "key_points": [
+      "Raw net call flow is strongly negative, but much of the selling is deep-ITM and spread-related rather than clean bearish call supply.",
+      "Within ±30 points of spot, calls are net bought by $396k while puts are net sold by $152k; the local book is far more balanced than the full-session aggregate.",
+      "7745-7750 is the main pivot zone, with strong call buying at 7745 and mixed inventory at 7750.",
+      "A fresh 7725/7720 put credit spread makes 7725 a conditional floor and 7720 the failure boundary.",
+      "A fresh 7780/7785 call debit spread creates an explicit upside realization zone above the 7760-7765 reclaim area.",
+      "The final post-23:00 Cyprus bucket turns materially more constructive: net calls +$941k and net puts +$136k."
+    ],
+    "daily_note": "Базово book смешанный: 7745-7750 — главный pivot, 7725/7720 — условный floor, 7760-7765 — reclaim/transition. Принятие выше 7765 открывает маршрут 7775 → 7780/7785 → 7800; потеря 7725, особенно 7720, ухудшает структуру и открывает 7710 → 7700."
+  },
+  "flow_aggregate": {
+    "gross_premium": 45359000,
+    "calls": {
+      "bought": 12830000,
+      "sold": 22098000,
+      "net": -9268000
+    },
+    "puts": {
+      "bought": 5951000,
+      "sold": 4480000,
+      "net": 1471000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 3325000,
+        "sold": 2929000,
+        "net": 396000
+      },
+      "puts": {
+        "bought": 2555000,
+        "sold": 2707000,
+        "net": -152000
+      }
+    },
+    "otm": {
+      "calls": {
+        "bought": 988000,
+        "sold": 1240000,
+        "net": -252000
+      },
+      "puts": {
+        "bought": 1506000,
+        "sold": 1624000,
+        "net": -118000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "c0c022ce-8dd6-4e32-8ae8-b91b8124195a",
+      "dominant_premium": 2000000,
+      "dominant_share": 0.0440926828,
+      "result": {
+        "net_calls": -7268000,
+        "net_puts": 1471000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest 7620C sell reduces the raw call deficit but does not reverse it. The more important adjustment is that deep-ITM and spread-related call selling dominates the session aggregate."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7745-7750",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7750,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center"
+      ],
+      "label": "MAIN PIVOT / LOCAL CONVEXITY CENTER",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -0.15,
+      "flow": {
+        "call_buy": 1629000,
+        "call_sell": 890000,
+        "put_buy": 809000,
+        "put_sell": 378000,
+        "net_calls": 739000,
+        "net_puts": 431000,
+        "gross": 3706000
+      },
+      "interpretation": "7745 carries strong local call buying while 7750 is mixed inventory. Together they form the active pivot around current spot rather than a clean directional resistance zone.",
+      "evidence": {
+        "trade_ids": [
+          "6f4c9cb3-515d-428e-a63c-62541d6a20f2",
+          "94d5436d-ba53-42dc-aefd-fb187e07cf3c",
+          "12889de6-35ee-4ce6-8bc2-b725cdbc1685",
+          "66d82b98-84b0-48c4-95fa-c77d724ad804"
+        ],
+        "structure_ids": [
+          "str-7750-call-sale-block"
+        ],
+        "notes": [
+          "Near-spot premium is much more balanced than full-session flow",
+          "7745 call demand strengthens after 23:00 Cyprus"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7760-7765",
+      "price": 7765,
+      "range_low": 7760,
+      "range_high": 7765,
+      "role": [
+        "transition",
+        "reclaim_support",
+        "potential_cap"
+      ],
+      "label": "UPPER RECLAIM / TRANSITION",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 14.85,
+      "flow": {
+        "call_buy": 434000,
+        "call_sell": 719000,
+        "put_buy": 767000,
+        "put_sell": 1077000,
+        "net_calls": -285000,
+        "net_puts": -310000,
+        "gross": 2997000
+      },
+      "interpretation": "Flow is internally conflicting. Reclaim and acceptance above 7765 would materially improve the upside path; failure keeps this zone as local friction.",
+      "evidence": {
+        "trade_ids": [
+          "87bd4705-7012-473d-a55e-9726febb8fab",
+          "2986e1e7-241c-4494-8a96-2ff330364e6b",
+          "711b4ed9-ea7b-4122-b474-29589a5a7265",
+          "070982d1-576f-4119-9965-9b4444ad67a8"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Large two-sided put activity prevents treating 7765 as a simple floor or cap"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720-7725",
+      "price": 7725,
+      "range_low": 7720,
+      "range_high": 7725,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "CONDITIONAL FLOOR / FAILURE BOUNDARY",
+      "strength": 0.88,
+      "basis": "inferred",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -25.15,
+      "flow": {
+        "call_buy": 238000,
+        "call_sell": 642000,
+        "put_buy": 290000,
+        "put_sell": 544000,
+        "net_calls": -404000,
+        "net_puts": -254000,
+        "gross": 1714000
+      },
+      "interpretation": "The fresh 250x 7725P sell versus 7720P buy is a clean put-credit-spread candidate. 7725 is supportive while held; below 7720 the structure loses its supportive interpretation.",
+      "evidence": {
+        "trade_ids": [
+          "bff76805-0130-43f0-88af-20e9e7cbb8c5",
+          "8c419383-090f-48ae-8449-fb77efcf8351"
+        ],
+        "structure_ids": [
+          "str-7725-7720-put-credit"
+        ],
+        "notes": [
+          "Same timestamp, same contract count, adjacent strikes, opposite put sides"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7775-7785",
+      "price": 7780,
+      "range_low": 7775,
+      "range_high": 7785,
+      "role": [
+        "upside_demand",
+        "transition"
+      ],
+      "label": "UPSIDE REALIZATION ZONE",
+      "strength": 0.76,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 29.85,
+      "flow": {
+        "call_buy": 382000,
+        "call_sell": 188000,
+        "put_buy": 152000,
+        "put_sell": 273000,
+        "net_calls": 194000,
+        "net_puts": -121000,
+        "gross": 995000
+      },
+      "interpretation": "Fresh 7780/7785 call debit-spread-like flow defines a paid upside path. The zone becomes active only after acceptance above 7765/7775.",
+      "evidence": {
+        "trade_ids": [
+          "e7f08046-a200-48fe-9b35-a7386600665e",
+          "8c787b60-88d5-46f7-b37a-dc8e6772f2b0",
+          "3094b8a4-402b-436d-b1af-3f9ded7aeb05",
+          "119ede98-4d02-42ae-87e6-adcfe943a19c"
+        ],
+        "structure_ids": [
+          "str-7780-7785-call-debit",
+          "str-7725-7775-risk-reversal-like"
+        ],
+        "notes": [
+          "Late-session structures skew the newest visible flow more bullish than the full-session aggregate"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-10T03:15:46+03:00",
+      "end": "2026-08-10T16:30:00+03:00",
+      "spot_open": 7752.05,
+      "spot_high": 7767.45,
+      "spot_low": 7747.7,
+      "spot_close": 7763.15,
+      "calls": {
+        "bought": 461000,
+        "sold": 738000,
+        "net": -277000
+      },
+      "puts": {
+        "bought": 111000,
+        "sold": 634000,
+        "net": -523000
+      },
+      "gross_premium": 1944000,
+      "near_spot": null,
+      "regime": "early_risk_acceptance",
+      "events": [
+        "Early visible flow is net premium selling"
+      ]
+    },
+    {
+      "start": "2026-08-10T16:30:00+03:00",
+      "end": "2026-08-10T17:00:00+03:00",
+      "spot_open": 7750.4,
+      "spot_high": 7758.15,
+      "spot_low": 7749.45,
+      "spot_close": 7757.15,
+      "calls": {
+        "bought": 3952000,
+        "sold": 4054000,
+        "net": -102000
+      },
+      "puts": {
+        "bought": 743000,
+        "sold": 850000,
+        "net": -107000
+      },
+      "gross_premium": 9599000,
+      "near_spot": null,
+      "regime": "balanced_open",
+      "events": [
+        "7725P sell / 7775C buy block package at 16:34:58 Cyprus"
+      ]
+    },
+    {
+      "start": "2026-08-10T17:00:00+03:00",
+      "end": "2026-08-10T18:00:00+03:00",
+      "spot_open": 7759.15,
+      "spot_high": 7773.4,
+      "spot_low": 7758.15,
+      "spot_close": 7763.2,
+      "calls": {
+        "bought": 3362000,
+        "sold": 6097000,
+        "net": -2735000
+      },
+      "puts": {
+        "bought": 569000,
+        "sold": 476000,
+        "net": 93000
+      },
+      "gross_premium": 10504000,
+      "near_spot": null,
+      "regime": "complex_call_selling",
+      "events": [
+        "Large spread-related ITM call activity dominates raw call net"
+      ]
+    },
+    {
+      "start": "2026-08-10T18:00:00+03:00",
+      "end": "2026-08-10T22:30:00+03:00",
+      "spot_open": 7756.95,
+      "spot_high": 7766.9,
+      "spot_low": 7748.7,
+      "spot_close": 7753.7,
+      "calls": {
+        "bought": 2477000,
+        "sold": 6572000,
+        "net": -4095000
+      },
+      "puts": {
+        "bought": 3604000,
+        "sold": 2047000,
+        "net": 1557000
+      },
+      "gross_premium": 14700000,
+      "near_spot": null,
+      "regime": "defensive_complex",
+      "events": [
+        "Largest 7620C sell print occurs at 20:23:33 Cyprus",
+        "Put buying increases while spot remains near the pivot"
+      ]
+    },
+    {
+      "start": "2026-08-10T22:30:00+03:00",
+      "end": "2026-08-10T23:00:00+03:00",
+      "spot_open": 7752.7,
+      "spot_high": 7755.2,
+      "spot_low": 7747.65,
+      "spot_close": 7753.45,
+      "calls": {
+        "bought": 1326000,
+        "sold": 4326000,
+        "net": -3000000
+      },
+      "puts": {
+        "bought": 474000,
+        "sold": 159000,
+        "net": 315000
+      },
+      "gross_premium": 6285000,
+      "near_spot": null,
+      "regime": "complex_call_selling",
+      "events": [
+        "Four 50-lot 7750C block sells print at 22:59:11 Cyprus"
+      ]
+    },
+    {
+      "start": "2026-08-10T23:00:00+03:00",
+      "end": "2026-08-10T23:19:46+03:00",
+      "spot_open": 7755.15,
+      "spot_high": 7755.15,
+      "spot_low": 7750.15,
+      "spot_close": 7750.15,
+      "calls": {
+        "bought": 1252000,
+        "sold": 311000,
+        "net": 941000
+      },
+      "puts": {
+        "bought": 450000,
+        "sold": 314000,
+        "net": 136000
+      },
+      "gross_premium": 2327000,
+      "near_spot": null,
+      "regime": "late_constructive",
+      "events": [
+        "7745 call buying cluster",
+        "7780/7785 call debit-spread-like flow",
+        "7725/7720 put credit-spread-like flow"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7725-7720-put-credit",
+      "timestamp": "2026-08-10T23:19:46+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 250,
+          "premium": 192000,
+          "trade_ids": [
+            "bff76805-0130-43f0-88af-20e9e7cbb8c5"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7720,
+          "contracts": 250,
+          "premium": 169000,
+          "trade_ids": [
+            "8c419383-090f-48ae-8449-fb77efcf8351"
+          ]
+        }
+      ],
+      "gross_premium": 361000,
+      "net_premium": 23000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7720,
+        7725
+      ],
+      "interpretation": "Defined-risk downside premium sale; supportive above 7725, with the interpretation failing below 7720.",
+      "ui_title": "7725/7720 Put Credit"
+    },
+    {
+      "id": "str-7780-7785-call-debit",
+      "timestamp": "2026-08-10T23:18:13+03:00",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7780,
+          "contracts": 187,
+          "premium": 89000,
+          "trade_ids": [
+            "e7f08046-a200-48fe-9b35-a7386600665e"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7785,
+          "contracts": 187,
+          "premium": 69000,
+          "trade_ids": [
+            "8c787b60-88d5-46f7-b37a-dc8e6772f2b0"
+          ]
+        }
+      ],
+      "gross_premium": 158000,
+      "net_premium": -20000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7780,
+        7785
+      ],
+      "interpretation": "Fresh defined-risk upside participation; monetization is concentrated into 7780-7785 after an upside reclaim.",
+      "ui_title": "7780/7785 Call Debit"
+    },
+    {
+      "id": "str-7725-7775-risk-reversal-like",
+      "timestamp": "2026-08-10T16:34:58+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 200,
+          "premium": 230000,
+          "trade_ids": [
+            "44d839bb-5f65-4661-863c-72dd8a5006b3",
+            "640fbd21-fe86-4061-b761-c6756108c288"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7775,
+          "contracts": 200,
+          "premium": 240000,
+          "trade_ids": [
+            "3094b8a4-402b-436d-b1af-3f9ded7aeb05",
+            "119ede98-4d02-42ae-87e6-adcfe943a19c"
+          ]
+        }
+      ],
+      "gross_premium": 470000,
+      "net_premium": -10000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7725,
+        7775
+      ],
+      "interpretation": "Risk-reversal-like block package: long upside versus sold downside. Linkage is highly suggestive from timestamp and size but not confirmed by complex-order ID.",
+      "ui_title": "7725P / 7775C Risk-Reversal-like"
+    },
+    {
+      "id": "str-7750-call-sale-block",
+      "timestamp": "2026-08-10T22:59:11+03:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 200,
+          "premium": 320000,
+          "trade_ids": [
+            "66d82b98-84b0-48c4-95fa-c77d724ad804",
+            "b3d1eed1-917b-4ded-ba71-51c879046ebf",
+            "0a723b7a-c146-4689-93d8-c17eccb5016f",
+            "1f407d73-38c0-4535-881d-ca70699c76d9"
+          ]
+        }
+      ],
+      "gross_premium": 320000,
+      "net_premium": 320000,
+      "bias": "neutral_to_bearish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "interpretation": "Repeated 7750C block selling adds friction at the pivot, but subsequent 23:00+ call buying prevents reading it as a clean cap.",
+      "ui_title": "7750C Block Sale"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pivot-7745-7755",
+      "low": 7745,
+      "high": 7755,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "balanced near-spot inventory",
+        "short-dated two-sided books"
+      ],
+      "source_structure_ids": [
+        "str-7750-call-sale-block"
+      ],
+      "source_level_ids": [
+        "lvl-7745-7750"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "High two-sided near-spot premium makes 7745-7755 the main inventory/pivot region.",
+      "caveat": "Near-spot options are also being bought, so this is not a pure short-vol pin."
+    },
+    {
+      "id": "mz-upside-7780-7785",
+      "low": 7780,
+      "high": 7785,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "7780/7785 call debit spread"
+      ],
+      "source_structure_ids": [
+        "str-7780-7785-call-debit"
+      ],
+      "source_level_ids": [
+        "lvl-7775-7785"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Fresh call debit spread concentrates upside monetization into 7780-7785.",
+      "caveat": "Requires acceptance above 7765/7775; otherwise the spread remains conditional."
+    },
+    {
+      "id": "mz-floor-7720-7725",
+      "low": 7720,
+      "high": 7725,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "7725/7720 put credit spread"
+      ],
+      "source_structure_ids": [
+        "str-7725-7720-put-credit"
+      ],
+      "source_level_ids": [
+        "lvl-7720-7725"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "The fresh put credit spread monetizes best with SPX holding above 7725.",
+      "caveat": "Below 7720 the supportive interpretation fails and the downside route becomes more important."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Pivot chop",
+      "bias": "mixed",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7725,
+          "description": "Keep the conditional floor intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7765,
+          "description": "Remain below the upper reclaim zone"
+        }
+      ],
+      "route": [
+        7745,
+        7750,
+        7760
+      ],
+      "invalidations": [
+        "Acceptance above 7765",
+        "Acceptance below 7725"
+      ],
+      "interpretation": "Inside 7725-7765 the book remains mixed and favors two-sided trade around the 7745-7750 pivot."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7765,
+          "description": "Reclaim the transition zone"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7775,
+          "description": "Confirm paid upside demand rather than renewed call supply"
+        }
+      ],
+      "route": [
+        7765,
+        7775,
+        7780,
+        7785,
+        7800
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7760",
+        "New heavy call selling at 7775-7785"
+      ],
+      "interpretation": "Acceptance above 7765 activates the late bullish structures and points toward 7775 then the 7780-7785 monetization zone."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Floor failure",
+      "bias": "bearish",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7725,
+          "description": "Stress the fresh put-credit structure"
+        },
+        {
+          "type": "accept_below",
+          "level": 7720,
+          "description": "Invalidate the conditional floor"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7720,
+          "description": "Confirm downside protection demand spreading lower"
+        }
+      ],
+      "route": [
+        7725,
+        7720,
+        7710,
+        7700
+      ],
+      "invalidations": [
+        "Fast reclaim above 7725",
+        "Put IV compression with no new downside buying"
+      ],
+      "interpretation": "Below 7725 the supportive structure weakens; below 7720 the book shifts toward a cleaner downside route into 7710-7700."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 309,
+    "deduplicated_rows": 309,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening versus closing.",
+      "75%+ of visible premium is flagged as Spread, so leg-by-leg direction is often misleading.",
+      "Several large deep-ITM call prints dominate raw net call flow and likely contain intrinsic-value/complex-position effects.",
+      "complex_order_id is absent, so multileg linkage is inferred from timestamps, sizes, strikes and sides.",
+      "The raw timezone column reports America/New_York, but clock values align more plausibly with Cyprus-local market hours; timeline timestamps are therefore stored as Asia/Nicosia assumptions.",
+      "The dashboard category is 0DTE@SPX by user convention, while this specific tape expires 2026-08-11 and is dte=1 from the 2026-08-10 Cyprus snapshot.",
+      "Visible tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
