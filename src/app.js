@@ -21,6 +21,11 @@ const ROLE_COLORS = {
 };
 
 const ZONE_STYLES = {
+  vol_realization: {
+    border: "rgba(79,209,197,.48)",
+    background: "rgba(79,209,197,.045)",
+    color: "#7ee1d8",
+  },
   upside_monetization: {
     border: "rgba(183,148,244,.45)",
     background: "rgba(183,148,244,.05)",
@@ -45,6 +50,11 @@ const ZONE_STYLES = {
     border: "rgba(104,211,145,.38)",
     background: "rgba(104,211,145,.04)",
     color: "#83c99a",
+  },
+  complex_inventory_zone: {
+    border: "rgba(79,209,197,.4)",
+    background: "rgba(79,209,197,.035)",
+    color: "#7ee1d8",
   },
 };
 
@@ -104,10 +114,11 @@ function levelBarWidth(level, maxStrength) {
 
 function compactZoneLabel(type) {
   const labels = {
+    vol_realization: "Vol Realized",
     upside_monetization: "Upside",
     call_supply_monetization: "Call Supply",
     pin_decay: "Pin Zone",
-    put_protection_activation: "Put Protection",
+    put_protection_activation: "Put Prot.",
     downside_convexity: "Downside",
     complex_inventory_zone: "Complex Zone",
   };
@@ -167,17 +178,10 @@ function findSelectedLevel() {
   return level ? { level, context, sliceId: slice?.id ?? null } : null;
 }
 
-function syncControls() {
-  document.querySelectorAll("[data-control]").forEach((button) => {
-    button.classList.toggle("active", button.dataset.control === "all" && !appState.selectedLevel);
-  });
-}
-
 function setSelectedLevel(levelId, sliceId = null) {
   const next = { levelId, sliceId };
   appState.selectedLevel = selectedKey() === levelKey(levelId, sliceId) ? null : next;
   if (appState.selectedLevel) appState.structuresCollapsed = false;
-  syncControls();
   renderLevelMap("levelmap", appState.data);
   if (isMultiExpiry(appState.data)) renderExpirationBlocks(appState.data);
   renderBooks(appState.data);
@@ -293,7 +297,6 @@ function renderSessionSummary(data) {
   setHtml("sessionSummary", summaryHtml);
 }
 function renderControls() {
-  const controls = ["All", "Near spot", "Ex-complex"];
   const legend = [
     ["--cyan", "pin/pivot"],
     ["--red", "supply"],
@@ -301,15 +304,6 @@ function renderControls() {
     ["--purple", "vol/complex"],
   ];
 
-  setHtml(
-    "levelControls",
-    controls
-      .map(
-        (control, index) =>
-          `<button type="button" data-control="${escapeHtml(control.toLowerCase().replaceAll(" ", "-"))}" class="${index === 0 && !appState.selectedLevel ? "active" : ""}">${escapeHtml(control)}</button>`,
-      )
-      .join(""),
-  );
   setHtml(
     "levelLegend",
     legend.map(([color, label]) => `<span><i style="background:${cssVar(color)}"></i>${escapeHtml(label)}</span>`).join(""),
@@ -351,21 +345,11 @@ function renderLevelMap(containerId, context, options = {}) {
       const top = Number.parseFloat(topForPrice(zone.high));
       const bottom = Number.parseFloat(topForPrice(zone.low));
       const style = ZONE_STYLES[zone.type] ?? ZONE_STYLES.pin_decay;
-      const levelsInsideZone = levelsSource.filter(
-        (level) => (level.range_high ?? level.price) >= zone.low && (level.range_low ?? level.price) <= zone.high,
-      );
-      const maxBarWidth = levelsInsideZone.length
-        ? Math.max(...levelsInsideZone.map((level) => levelBarWidth(level, maxStrength)))
-        : 0;
-      const freeSpace = 100 - maxBarWidth;
-      const labelLeft = freeSpace >= 34 ? maxBarWidth + 3 : 62;
-      const label = freeSpace >= 34 ? titleCase(zone.type) : compactZoneLabel(zone.type);
-      const fontSize = freeSpace >= 34 ? 9 : 7.5;
-      const labelClass = freeSpace >= 34 ? "zone-label" : "zone-label compact";
+      const label = compactZoneLabel(zone.type);
 
       return `
         <div class="zone" style="top:${top}%;height:${Math.max(3, bottom - top)}%;border-color:${style.border};background:${style.background};color:${style.color}">
-          <span class="${labelClass}" style="left:${labelLeft}%;font-size:${fontSize}px">${escapeHtml(label)}</span>
+          <span class="zone-label">${escapeHtml(label)}</span>
         </div>
       `;
     })
@@ -707,25 +691,6 @@ function renderScenarios(data) {
   );
 }
 
-function bindControls() {
-  const buttons = document.querySelectorAll("[data-control]");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      buttons.forEach((candidate) => candidate.classList.remove("active"));
-      button.classList.add("active");
-      if (button.dataset.control === "all") {
-        appState.selectedLevel = null;
-        appState.structuresCollapsed = false;
-        syncControls();
-        renderLevelMap("levelmap", appState.data);
-        if (isMultiExpiry(appState.data)) renderExpirationBlocks(appState.data);
-        renderBooks(appState.data);
-        syncStructuresPanel();
-      }
-    });
-  });
-}
-
 function bindSnapshotNav() {
   document.querySelectorAll("[data-category]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -751,7 +716,6 @@ function render(data) {
   renderBooks(data);
   renderMonetization(data);
   renderScenarios(data);
-  bindControls();
   bindSnapshotNav();
   bindStructuresToggle();
   syncStructuresPanel();

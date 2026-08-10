@@ -14,6 +14,19 @@
     --purple:#b794f4;
   }
   *{box-sizing:border-box}
+  *{
+    scrollbar-width:thin;
+    scrollbar-color:#263747 rgba(7,14,22,.65);
+  }
+  *::-webkit-scrollbar{width:8px;height:8px}
+  *::-webkit-scrollbar-track{background:rgba(7,14,22,.65)}
+  *::-webkit-scrollbar-thumb{
+    background:#263747;
+    border:2px solid rgba(7,14,22,.65);
+    border-radius:8px;
+  }
+  *::-webkit-scrollbar-thumb:hover{background:#345064}
+  *::-webkit-scrollbar-corner{background:rgba(7,14,22,.65)}
   body{
     margin:0;
     background:linear-gradient(180deg,#071018,#09131d 45%,#071018);
@@ -68,8 +81,10 @@
     gap:8px;
     min-width:0;
     overflow-x:auto;
-    padding-bottom:2px;
+    padding-bottom:5px;
+    scrollbar-color:#223242 rgba(7,14,22,.5);
   }
+  .grid.multi-expiry .map-scroll::-webkit-scrollbar{height:7px}
   .grid.multi-expiry .map-scroll > .panel{
     flex:0 0 360px;
   }
@@ -128,15 +143,13 @@
   .lvl.major .strike{font-weight:800;color:#fff;font-size:9px}
   .zone{
     position:absolute;left:193px;right:6px;border-radius:2px;border:1px dashed;
-    font-size:9px;letter-spacing:.04em;text-transform:uppercase;z-index:3;pointer-events:none;
+    font-size:8px;letter-spacing:.04em;text-transform:uppercase;z-index:3;pointer-events:none;
   }
   .zone-label{
-    position:absolute;top:50%;right:8px;transform:translateY(-50%);text-align:right;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1;
-    background:rgba(8,16,25,.82);padding:2px 3px;border-radius:1px;
-  }
-  .zone-label.compact{
-    top:4px;transform:none;
+    position:absolute;top:0;right:6px;transform:translateY(-50%);text-align:right;
+    max-width:min(128px,calc(100% - 12px));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1;
+    background:rgba(8,16,25,.9);border:1px solid currentColor;padding:2px 5px 2px 6px;border-radius:1px;
+    box-shadow:0 0 0 2px rgba(8,16,25,.72);
   }
   .map-empty{
     display:flex;align-items:center;justify-content:center;height:100%;min-height:120px;
@@ -188,7 +201,7 @@
   .levelmap.compact .lvl.major .strike{font-size:8px}
   .levelmap.compact .linked-count{font-size:6px;margin-left:3px}
   .levelmap.compact .zone{left:140px;right:6px}
-  .levelmap.compact .zone-label{font-size:7px}
+  .levelmap.compact .zone-label{right:4px;max-width:min(86px,calc(100% - 8px));font-size:6.5px;padding:2px 4px}
   .levelmap.expiry-vertical{height:620px;padding:12px 8px 12px 154px}
   .levelmap.expiry-vertical .axis{left:146px}
   .levelmap.expiry-vertical .spotline{left:132px}
@@ -197,7 +210,7 @@
   .levelmap.expiry-vertical .lvl .strike{left:-144px;width:136px;font-size:8px}
   .levelmap.expiry-vertical .lvl.major .strike{font-size:8px}
   .levelmap.expiry-vertical .zone{left:149px}
-  .levelmap.expiry-vertical .zone-label{font-size:7px}
+  .levelmap.expiry-vertical .zone-label{right:4px;max-width:min(112px,calc(100% - 8px));font-size:7px;padding:2px 4px}
 
   /* book cards */
   .structures-panel{transition:width .18s ease, flex-basis .18s ease, padding .18s ease, opacity .18s ease}
@@ -231,7 +244,11 @@
   .grid.multi-expiry .structures-panel.collapsed .panel-title{
     justify-content:center;
   }
-  .books{display:flex;flex-direction:column;gap:0;max-height:620px;overflow:auto;padding-right:2px}
+  .books{
+    display:flex;flex-direction:column;gap:0;max-height:620px;overflow:auto;padding-right:4px;
+    scrollbar-color:#223242 rgba(7,14,22,.5);
+  }
+  .books::-webkit-scrollbar{width:7px}
   .book{background:transparent;border:0;border-top:1px solid #203242;border-radius:0;padding:9px 2px}
   .bookhead{display:flex;justify-content:space-between;gap:8px}
   .bookname{font-size:11px;font-weight:800}
