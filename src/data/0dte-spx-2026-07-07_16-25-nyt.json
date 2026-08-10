@@ -1,10 +1,12 @@
 {
   "schema_version": "1.0",
   "session": {
+    "category": "0DTE@SPX",
+    "snapshot_name": "0DTE@SPX 2026-07-07 16:25 NYT",
     "underlying": "SPX",
     "expiration": "2026-08-10",
     "dte": 3,
-    "snapshot_time": "2026-08-07T23:25:58-04:00",
+    "snapshot_time": "2026-07-07T16:25:58-04:00",
     "timezone": "America/New_York",
     "session_scope": "full_visible_session",
     "premium_filter_usd": 50000,

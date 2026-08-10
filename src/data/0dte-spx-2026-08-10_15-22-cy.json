@@ -1,0 +1,923 @@
+{
+  "schema_version": "1.0",
+  "session": {
+    "category": "0DTE@SPX",
+    "snapshot_name": "0DTE@SPX 2026-08-10 15:22 Cyprus",
+    "underlying": "SPX",
+    "expiration": "2026-08-10",
+    "dte": 0,
+    "snapshot_time": "2026-08-10T15:22:26+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "premarket",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-10.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7755.95,
+    "spot_change_from_previous_snapshot": 6.7,
+    "regime": "pinning",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7750,
+    "upper_decision_level": 7775,
+    "lower_decision_level": 7735
+  },
+  "summary": {
+    "headline": "7750-7755 becomes the active 0DTE pin and monetization center",
+    "key_points": [
+      "Premarket flow does not invalidate the Friday 7750 pivot; it compresses the active inventory zone into 7750-7755.",
+      "Near-spot premium remains defensive: calls are net sold by $240k while puts are net bought by $174k.",
+      "A probable 7705/7755 1x2 call ratio has maximum expiry value near 7755 and reinforces the pin hypothesis.",
+      "Fresh 7740 put selling and a probable 7735/7730 put credit spread raise the first conditional floor into 7735-7740.",
+      "Acceptance below 7735 reactivates the downside route toward 7723, 7710 and 7700.",
+      "7770-7775 remains the upper decision zone after two observed premarket tests near 7770 failed to establish acceptance."
+    ],
+    "daily_note": "Премаркет скорее нейтрализовал часть пятничного bearish-уклона, чем развернул его bullish. Главный узел — 7750-7755: здесь сохраняются call selling и put demand, а новый 7705/7755 ratio-call создаёт явную зону монетизации около 7755. Снизу свежие продажи puts формируют условную поддержку 7735-7740. Пока SPX остаётся между 7735 и 7775, базовый режим — pin/chop вокруг 7750-7755. Принятие выше 7775 открывает 7787-7795/7800; потеря 7735 возвращает маршрут 7723-7710-7700."
+  },
+  "flow_aggregate": {
+    "gross_premium": 3583000,
+    "calls": {
+      "bought": 1373000,
+      "sold": 1172000,
+      "net": 201000
+    },
+    "puts": {
+      "bought": 453000,
+      "sold": 585000,
+      "net": -132000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 53000,
+        "sold": 293000,
+        "net": -240000
+      },
+      "puts": {
+        "bought": 372000,
+        "sold": 198000,
+        "net": 174000
+      }
+    },
+    "otm": {
+      "calls": {
+        "bought": 53000,
+        "sold": 54000,
+        "net": -1000
+      },
+      "puts": {
+        "bought": 372000,
+        "sold": 233000,
+        "net": 139000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "dcfa8146-7c45-47da-92cb-88fde33f90db",
+      "dominant_premium": 475000,
+      "dominant_share": 0.1326,
+      "result": {
+        "net_calls": -274000,
+        "net_puts": -132000
+      },
+      "changes_interpretation": true,
+      "comment": "Raw positive call net is created by a single 1-contract 3000 deep-ITM call buy. Excluding it, aggregate calls become net sold. Near-spot and OTM flow are therefore more informative than the raw call aggregate."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7795",
+      "price": 7795,
+      "range_low": 7790,
+      "range_high": 7800,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "upside_demand"
+      ],
+      "label": "SECONDARY UPSIDE ZONE",
+      "strength": 0.56,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 39.05,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 54000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -54000,
+        "net_puts": 0,
+        "gross": 54000
+      },
+      "interpretation": "Small current call supply sits near the next upside route. It becomes relevant only after acceptance above 7775 and the 7787 ratio-call upper break-even.",
+      "evidence": {
+        "trade_ids": [
+          "cf1d6378-d8c2-453b-af45-1ac9ed83a239"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Secondary level; not strong enough to define the regime independently."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7775",
+      "price": 7775,
+      "range_low": 7770,
+      "range_high": 7775,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "UPPER DECISION / BREAKOUT GATE",
+      "strength": 0.84,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 19.05,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 66000,
+        "net_calls": 0,
+        "net_puts": -66000,
+        "gross": 66000
+      },
+      "interpretation": "The upper decision zone is retained from the Friday map. Premarket spot reached approximately 7769-7770 twice without establishing acceptance and subsequently returned toward 7755.",
+      "evidence": {
+        "trade_ids": [
+          "513f37c6-160b-4390-ad58-b566362dc4e2"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Upper-zone role is contextual from the previous snapshot; current premarket tape has not added strong call buying through the level.",
+          "Observed print-level spot highs reached 7769.45 and 7769.15 before retreat."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7750",
+      "price": 7750,
+      "range_low": 7750,
+      "range_high": 7755,
+      "role": [
+        "main_pivot",
+        "pin",
+        "inventory_center",
+        "complex_zone",
+        "magnet"
+      ],
+      "label": "MAIN 0DTE PIN / INVENTORY",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -5.95,
+      "flow": {
+        "call_buy": 53000,
+        "call_sell": 293000,
+        "put_buy": 127000,
+        "put_sell": 0,
+        "net_calls": -240000,
+        "net_puts": 127000,
+        "gross": 473000
+      },
+      "interpretation": "7750 remains the Friday pivot while 7755 gains importance from the new ratio-call structure. The combined 7750-7755 node has local call selling, put demand and a payoff structure favoring expiry near 7755.",
+      "evidence": {
+        "trade_ids": [
+          "db21f55e-9856-4b68-a90c-14406b6cf6b7",
+          "bc3da387-7e43-4e77-afc0-0c7b8cbb1b89",
+          "5d7f45cc-47e8-43ae-8c67-856c570b7fdb",
+          "6ae5b032-848a-49be-8467-3a70b82e2ef2",
+          "8e0ff335-413c-4cba-be1e-1ac98ad9da40"
+        ],
+        "structure_ids": [
+          "str-7705-7755-ratio-call"
+        ],
+        "notes": [
+          "Spot at latest print is 7755.95, directly adjacent to the active node."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7740",
+      "price": 7740,
+      "range_low": 7735,
+      "range_high": 7745,
+      "role": [
+        "conditional_floor",
+        "downside_protection",
+        "breakdown_trigger",
+        "complex_zone"
+      ],
+      "label": "FIRST DOWNSIDE BOUNDARY",
+      "strength": 0.88,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -15.95,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 189000,
+        "put_sell": 132000,
+        "net_calls": 0,
+        "net_puts": 57000,
+        "gross": 321000
+      },
+      "interpretation": "The aggregate zone remains mixed because 7745 and 7730 contain bought protection, but the freshest prints shift supportive: 7740 put selling and a 7735/7730 put credit spread indicate downside risk acceptance above 7735.",
+      "evidence": {
+        "trade_ids": [
+          "a6af7e47-325c-4a4f-8839-045ea72f40c8",
+          "85eccb45-483f-4562-b9c3-c8009d5bebee",
+          "0ab2d1ef-69ac-4cfd-9901-a64da0a87bec",
+          "ab48905b-8366-4485-bcb7-4b2fd1468380",
+          "00d042eb-a935-4f9b-bd16-16c84c886785"
+        ],
+        "structure_ids": [
+          "str-7745-7710-ratio-put",
+          "str-7735-7730-put-credit"
+        ],
+        "notes": [
+          "Fresh supportive prints occurred later than the earlier 7745 downside purchase."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7710",
+      "price": 7710,
+      "range_low": 7705,
+      "range_high": 7715,
+      "role": [
+        "magnet",
+        "complex_zone",
+        "put_risk_acceptance"
+      ],
+      "label": "DOWNSIDE MONETIZATION ZONE",
+      "strength": 0.78,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -45.95,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 101000,
+        "net_calls": 0,
+        "net_puts": -101000,
+        "gross": 101000
+      },
+      "interpretation": "7710 is the maximum-value region of the probable 7745/7710 1x2 put ratio. It becomes relevant only after loss of the 7735-7740 floor.",
+      "evidence": {
+        "trade_ids": [
+          "7cd61fcf-1ddb-401f-86b4-7cc13a4c2126"
+        ],
+        "structure_ids": [
+          "str-7745-7710-ratio-put"
+        ],
+        "notes": [
+          "This is a payoff-derived monetization level, not an unconditional price target."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "transition",
+        "breakdown_trigger",
+        "complex_zone"
+      ],
+      "label": "MAJOR LOWER PIVOT",
+      "strength": 0.73,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -55.95,
+      "flow": {
+        "call_buy": 182000,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 182000,
+        "net_puts": 0,
+        "gross": 182000
+      },
+      "interpretation": "7700 remains a major lower pivot from the prior map. The current 7700 call print is deep ITM and should not be interpreted as strong standalone bullish demand.",
+      "evidence": {
+        "trade_ids": [
+          "6db762ad-9027-409f-abda-270bfc077c34"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Directional confidence of the current premium is low because of moneyness."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7680",
+      "price": 7680,
+      "range_low": 7670,
+      "range_high": 7680,
+      "role": [
+        "tail_zone",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "TAIL-RISK TRANSITION",
+      "strength": 0.67,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -75.95,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 0,
+        "net_puts": 0,
+        "gross": 0
+      },
+      "interpretation": "The approximate lower break-even of the 7745/7710 ratio-put is near 7679. This aligns with the prior Friday sold-put floor around 7670-7675 and marks the point where a supportive structure can become destabilizing.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7745-7710-ratio-put"
+        ],
+        "notes": [
+          "No new qualifying premarket premium is present directly at 7670-7680 in this snapshot."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-10T03:00:00+03:00",
+      "end": "2026-08-10T06:00:00+03:00",
+      "spot_open": 7753.45,
+      "spot_high": 7756.95,
+      "spot_low": 7747.9,
+      "spot_close": 7756.95,
+      "calls": {
+        "bought": 1066000,
+        "sold": 314000,
+        "net": 752000
+      },
+      "puts": {
+        "bought": 189000,
+        "sold": 101000,
+        "net": 88000
+      },
+      "gross_premium": 1670000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -186000,
+        "net_puts": 189000
+      },
+      "regime": "complex_build",
+      "events": [
+        "7705/7755 probable 1x2 call ratio",
+        "7745/7710 probable 1x2 put ratio",
+        "7750 local call buy",
+        "Raw call premium distorted by 3000 deep-ITM call buy"
+      ]
+    },
+    {
+      "start": "2026-08-10T06:00:00+03:00",
+      "end": "2026-08-10T10:00:00+03:00",
+      "spot_open": 7764.65,
+      "spot_high": 7769.45,
+      "spot_low": 7763.45,
+      "spot_close": 7763.45,
+      "calls": {
+        "bought": 307000,
+        "sold": 753000,
+        "net": -446000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 79000,
+        "net": -79000
+      },
+      "gross_premium": 1139000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "upper_test",
+      "events": [
+        "Spot tested approximately 7769.45",
+        "7795 call sell",
+        "Probable 7560/7570 deep-ITM call credit spread",
+        "No material near-spot premium in this interval"
+      ]
+    },
+    {
+      "start": "2026-08-10T10:00:00+03:00",
+      "end": "2026-08-10T13:00:00+03:00",
+      "spot_open": 7760.95,
+      "spot_high": 7769.15,
+      "spot_low": 7760.95,
+      "spot_close": 7769.15,
+      "calls": {
+        "bought": 0,
+        "sold": 54000,
+        "net": -54000
+      },
+      "puts": {
+        "bought": 208000,
+        "sold": 88000,
+        "net": 120000
+      },
+      "gross_premium": 350000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -54000,
+        "net_puts": 127000
+      },
+      "regime": "defensive_test",
+      "events": [
+        "100x 7750 put buy",
+        "20x 7750 call sell",
+        "Second observed spot test near 7770",
+        "Probable 7825/7820 deep-ITM put credit spread"
+      ]
+    },
+    {
+      "start": "2026-08-10T13:00:00+03:00",
+      "end": "2026-08-10T15:23:00+03:00",
+      "spot_open": 7766.65,
+      "spot_high": 7766.65,
+      "spot_low": 7755.95,
+      "spot_close": 7755.95,
+      "calls": {
+        "bought": 0,
+        "sold": 51000,
+        "net": -51000
+      },
+      "puts": {
+        "bought": 56000,
+        "sold": 317000,
+        "net": -261000
+      },
+      "gross_premium": 424000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": -142000
+      },
+      "regime": "supportive_shift",
+      "events": [
+        "99x 7740 put sell",
+        "105x 7735 put sell paired with 105x 7730 put buy",
+        "Fresh downside risk acceptance appeared closer to RTH",
+        "Spot returned to 7755.95"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7705-7755-ratio-call",
+      "timestamp": "2026-08-10T05:14:11+03:00",
+      "type": "ratio_call_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7705,
+          "contracts": 64,
+          "premium": 356000,
+          "trade_ids": [
+            "bedefee5-af00-4b2f-9b55-d73f6d7da3de",
+            "b6b450f3-cbb2-47de-a144-e54d9628cd5d"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7755,
+          "contracts": 128,
+          "premium": 239000,
+          "trade_ids": [
+            "6ae5b032-848a-49be-8467-3a70b82e2ef2",
+            "8e0ff335-413c-4cba-be1e-1ac98ad9da40"
+          ]
+        }
+      ],
+      "gross_premium": 595000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7705,
+        7723,
+        7755,
+        7787
+      ],
+      "interpretation": "Probable 1x2 call ratio. Approximate maximum expiry value is near 7755; approximate lower break-even is near 7723 and upper break-even near 7787. This is primarily a monetization/pinning structure rather than a simple bullish call purchase.",
+      "ui_title": "7705/7755 1x2 Call Ratio"
+    },
+    {
+      "id": "str-7745-7710-ratio-put",
+      "timestamp": "2026-08-10T04:08:05+03:00",
+      "type": "ratio_put_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7745,
+          "contracts": 87,
+          "premium": 136000,
+          "trade_ids": [
+            "a6af7e47-325c-4a4f-8839-045ea72f40c8"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7710,
+          "contracts": 174,
+          "premium": 101000,
+          "trade_ids": [
+            "7cd61fcf-1ddb-401f-86b4-7cc13a4c2126"
+          ]
+        }
+      ],
+      "gross_premium": 237000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7741,
+        7710,
+        7679
+      ],
+      "interpretation": "Probable 1x2 put ratio. The structure pays for downside below approximately 7741, reaches maximum expiry value near 7710 and becomes vulnerable again below approximately 7679.",
+      "ui_title": "7745/7710 1x2 Put Ratio"
+    },
+    {
+      "id": "str-7735-7730-put-credit",
+      "timestamp": "2026-08-10T15:07:42+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7735,
+          "contracts": 105,
+          "premium": 66000,
+          "trade_ids": [
+            "00d042eb-a935-4f9b-bd16-16c84c886785"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7730,
+          "contracts": 105,
+          "premium": 56000,
+          "trade_ids": [
+            "ab48905b-8366-4485-bcb7-4b2fd1468380"
+          ]
+        }
+      ],
+      "gross_premium": 122000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7735,
+        7730
+      ],
+      "interpretation": "Fresh probable put credit spread close to RTH. It is consistent with conditional downside risk acceptance above 7735 and raises the nearest support boundary.",
+      "ui_title": "7735/7730 Put Credit"
+    },
+    {
+      "id": "str-7560-7570-call-credit",
+      "timestamp": "2026-08-10T09:48:31+03:00",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7560,
+          "contracts": 16,
+          "premium": 323000,
+          "trade_ids": [
+            "24e4afca-afb6-40df-9fe4-a13e022dd705",
+            "ded2acda-1f9c-4e41-81b8-8b073c66a1de",
+            "484074f1-4e83-4558-9f66-e15212e64cba"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7570,
+          "contracts": 16,
+          "premium": 307000,
+          "trade_ids": [
+            "80d70677-8687-49ed-8862-18dbcd4bc738",
+            "e201bcad-d226-45a1-841e-d47017b466e5",
+            "58d0fbdf-d997-459f-a6e8-8ae1c05fb310"
+          ]
+        }
+      ],
+      "gross_premium": 630000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7560,
+        7570
+      ],
+      "interpretation": "The fills form a clean 16x16 lower-short/higher-long call package, but both strikes are deep ITM. It explains a material part of gross call premium while carrying low direct directional information for the current spot.",
+      "ui_title": "7560/7570 ITM Call Spread"
+    },
+    {
+      "id": "str-7825-7820-put-credit",
+      "timestamp": "2026-08-10T10:34:25+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7825,
+          "contracts": 15,
+          "premium": 88000,
+          "trade_ids": [
+            "7fe449bf-c2c5-496f-9be5-6c78a42ccbbb"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7820,
+          "contracts": 15,
+          "premium": 81000,
+          "trade_ids": [
+            "ff6fd837-37ca-4bb9-a4cd-5fadb2b59984"
+          ]
+        }
+      ],
+      "gross_premium": 169000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7820,
+        7825
+      ],
+      "interpretation": "Probable deep-ITM put credit package. Because both legs were ITM at execution, financing, roll or closing motives are plausible and directional weight should be low.",
+      "ui_title": "7825/7820 ITM Put Spread"
+    },
+    {
+      "id": "str-7750-put-buy",
+      "timestamp": "2026-08-10T10:12:23+03:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 100,
+          "premium": 127000,
+          "trade_ids": [
+            "5d7f45cc-47e8-43ae-8c67-856c570b7fdb"
+          ]
+        }
+      ],
+      "gross_premium": 127000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "interpretation": "Observed 100x 7750 put purchase reinforces local defensive flow around the main pivot, but opening versus closing status is unknown.",
+      "ui_title": "7750 Put Demand"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7750-7755",
+      "low": 7750,
+      "high": 7755,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "7705/7755 ratio-call holder near 7755",
+        "balanced 0DTE inventory around the Friday pivot"
+      ],
+      "source_structure_ids": [
+        "str-7705-7755-ratio-call"
+      ],
+      "source_level_ids": [
+        "lvl-7750"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The new call-ratio payoff peaks near 7755 while the prior inventory pivot remains 7750, creating a combined 7750-7755 pin and monetization node.",
+      "caveat": "Pinning is a payoff and inventory hypothesis, not evidence that settlement must occur inside the zone."
+    },
+    {
+      "id": "mz-floor-7735-7740",
+      "low": 7735,
+      "high": 7740,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "short downside premium",
+        "range and pin books"
+      ],
+      "source_structure_ids": [
+        "str-7735-7730-put-credit"
+      ],
+      "source_level_ids": [
+        "lvl-7740"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Fresh 7740 put selling and the 7735/7730 credit spread indicate conditional risk acceptance above the zone.",
+      "caveat": "Acceptance below 7735 invalidates the supportive reading and can activate earlier downside structures."
+    },
+    {
+      "id": "mz-downside-7710",
+      "low": 7705,
+      "high": 7715,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "7745/7710 ratio-put holder"
+      ],
+      "source_structure_ids": [
+        "str-7745-7710-ratio-put"
+      ],
+      "source_level_ids": [
+        "lvl-7710"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The probable 1x2 put ratio reaches maximum expiry value near 7710, making this a downside monetization zone after a confirmed break of 7735-7740.",
+      "caveat": "The level is not an unconditional target and the structure may be closing or part of a larger complex."
+    },
+    {
+      "id": "mz-upper-be-7787",
+      "low": 7785,
+      "high": 7790,
+      "type": "exhaustion_zone",
+      "beneficiaries": [
+        "breakout flow after ratio-call absorption"
+      ],
+      "source_structure_ids": [
+        "str-7705-7755-ratio-call"
+      ],
+      "source_level_ids": [
+        "lvl-7795"
+      ],
+      "basis": "derived",
+      "confidence": "medium",
+      "description": "The approximate upper break-even of the 7705/7755 ratio-call is near 7787. Above this area the payoff of that structure deteriorates and upside acceptance becomes more informative.",
+      "caveat": "Break-even is approximate because the structure linkage and opening status are inferred."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base-pin",
+      "name": "Pin and mean reversion",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7735,
+          "description": "Fresh put-risk acceptance remains intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7775,
+          "description": "Upper decision zone continues to reject acceptance"
+        }
+      ],
+      "route": [
+        7740,
+        7750,
+        7755,
+        7770
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7775",
+        "Sustained acceptance below 7735"
+      ],
+      "interpretation": "While price remains between 7735 and 7775, the highest-probability structural regime is chop, decay and repeated attraction toward the 7750-7755 inventory node."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7775,
+          "description": "Absorb the retained upper friction zone"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7775,
+          "description": "New calls are bought above spot rather than supplied"
+        }
+      ],
+      "route": [
+        7775,
+        7787,
+        7795,
+        7800
+      ],
+      "invalidations": [
+        "Failed acceptance and return below 7770",
+        "Renewed aggressive call selling at 7775-7795"
+      ],
+      "interpretation": "Acceptance above 7775 invalidates the immediate pin/cap regime. The first structural checkpoint is the ratio-call upper break-even near 7787, followed by 7795-7800."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside activation",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7735,
+          "description": "Invalidate the fresh put-credit support"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7735,
+          "description": "Fresh downside protection expands below the floor"
+        }
+      ],
+      "route": [
+        7735,
+        7723,
+        7710,
+        7700,
+        7680,
+        7675
+      ],
+      "invalidations": [
+        "Fast reclaim of 7740",
+        "New aggressive put selling restores the 7735-7740 floor"
+      ],
+      "interpretation": "Loss of 7735 reactivates the earlier downside book. 7723 is the approximate lower break-even of the call ratio, 7710 is the put-ratio monetization zone, and 7700 is the major lower pivot. Below approximately 7680, the character of the tail structure becomes materially less supportive."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 31,
+    "deduplicated_rows": 31,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "All 31 rows have unique trade_id values and are therefore retained under the canonical deduplication rule.",
+      "BUY/SELL does not prove opening or closing.",
+      "complex_order_id is absent for all rows, so ratio and spread linkage is inferred from timestamp, strike and contract ratios.",
+      "Several large premium prints are deep ITM and should not receive the same directional weight as near-spot or OTM flow.",
+      "The source timezone label appears inconsistent with the stated premarket timing; timestamps are interpreted as Asia/Nicosia local export time.",
+      "Timeline spot OHLC values are sampled from option-print timestamps and are not continuous underlying market bars.",
+      "The Friday map is used as contextual prior for level state, but flow_aggregate values in this payload represent the current premarket source file only.",
+      "Visible premium-filtered tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

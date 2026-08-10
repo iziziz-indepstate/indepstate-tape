@@ -15,6 +15,7 @@
   "flow_timeline": [],
   "structures": [],
   "monetization_zones": [],
+  "expiration_slices": [],
   "scenarios": [],
   "data_quality": {},
   "optional_layers": {
@@ -35,6 +36,7 @@ Canonical payloads should follow these rules:
 - Keep raw trades outside this JSON. Evidence can reference raw trades by `trade_ids`, while a separate endpoint or file can expose the actual tape rows.
 - Do not let the frontend infer analytical meaning. The backend/analysis layer should assign level roles, structures, monetization zones, scenarios, `basis`, `confidence`, and evidence links.
 - Use stable IDs such as `lvl-7750`, `str-7750-synthetic`, `mz-pin-7750`, and `sc-upside`.
+- Use optional `expiration_slices` when one analysis date contains several expirations. Keep the top-level arrays for single-expiry payloads and for global or cross-expiry context.
 
 ## Common Audit Fields
 
@@ -145,6 +147,67 @@ Session-level premium aggregates. Use separate buckets for all flow, near-spot f
     "changes_interpretation": true,
     "comment": "Raw call bias is heavily influenced by a deep ITM complex leg"
   }
+}
+```
+
+### `expiration_slices`
+
+`expiration_slices` is optional. Omit it, set it to an empty array, or provide only one item when the payload should render as a normal single-expiry report. Provide two or more slices when the dashboard should show vertical per-expiration level blocks in the main row instead of the session timeline.
+
+Each slice is an interpreted mini-session for one expiration. The analysis layer should group these objects; the frontend should not infer analytical meaning from raw leg dates except as a defensive fallback.
+
+```json
+{
+  "id": "exp-2026-09-16",
+  "label": "SEP 2026",
+  "expiration": "2026-09-16",
+  "dte": 40,
+  "forward": 18.64,
+  "reference_price": null,
+  "summary": {
+    "headline": "September body supply at 18.5-20, stress demand at 22-25"
+  },
+  "flow_aggregate": {},
+  "levels": [],
+  "structures": [],
+  "monetization_zones": []
+}
+```
+
+Guidelines:
+
+- Use `forward` for products like VIX where moneyness is better read against an expiry-specific forward.
+- Use `reference_price` for another expiry-specific anchor when `forward` is not the right label.
+- Keep cross-expiry structures, levels, and monetization zones in the top-level arrays, and reference them from slice evidence by stable ID.
+- Slice-level `levels`, `structures`, and `monetization_zones` have the same shape and semantics as the top-level arrays.
+
+VIX monthly example:
+
+```json
+{
+  "session": { "underlying": "VIX", "expiration": null, "session_scope": "rth_multi_expiry" },
+  "levels": [{ "id": "lvl-35-tail-supply", "label": "32-37 EXTREME TAIL SUPPLY" }],
+  "structures": [{ "id": "str-sep-oct-35-tail-sale", "ui_title": "Sep/Oct 35C Tail Supply" }],
+  "expiration_slices": [
+    { "id": "exp-2026-08-19", "label": "AUG 2026", "expiration": "2026-08-19", "forward": 16.92, "levels": [] },
+    { "id": "exp-2026-09-16", "label": "SEP 2026", "expiration": "2026-09-16", "forward": 18.64, "levels": [] },
+    { "id": "exp-2026-10-21", "label": "OCT 2026", "expiration": "2026-10-21", "levels": [] }
+  ]
+}
+```
+
+SPX weekly example:
+
+```json
+{
+  "session": { "underlying": "SPX", "expiration": null, "session_scope": "weekly_multi_expiry" },
+  "expiration_slices": [
+    { "id": "exp-2026-08-10", "label": "MON 0DTE", "expiration": "2026-08-10", "dte": 0, "levels": [] },
+    { "id": "exp-2026-08-11", "label": "TUE 1DTE", "expiration": "2026-08-11", "dte": 1, "levels": [] },
+    { "id": "exp-2026-08-12", "label": "WED 2DTE", "expiration": "2026-08-12", "dte": 2, "levels": [] },
+    { "id": "exp-2026-08-13", "label": "THU 3DTE", "expiration": "2026-08-13", "dte": 3, "levels": [] },
+    { "id": "exp-2026-08-14", "label": "FRI 4DTE", "expiration": "2026-08-14", "dte": 4, "levels": [] }
+  ]
 }
 ```
 

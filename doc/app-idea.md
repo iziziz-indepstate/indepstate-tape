@@ -23,6 +23,7 @@ Core regions:
 
 - `Level Map`: the main object. Shows spot, relevant strikes/ranges, role labels, state, strength, and gross premium.
 - `Flow Timeline`: aggregated time buckets with price, call/put net premium, regime, and event markers.
+- `Expiration Levels`: replaces `Flow Timeline` when a snapshot has multiple `expiration_slices`; shows one vertical level map per expiration in the main row.
 - `Significant Structures`: interpreted multileg or important single-leg books linked to levels.
 - `Monetization Landscape`: zones where structures start to make economic sense.
 - `Conditional Scenarios`: base, bullish, and bearish routes with triggers and invalidations.
@@ -37,6 +38,17 @@ The visual language should stay restrained and terminal-like:
 - no decorative cards or heavy shadows;
 - color used for function, not ornament;
 - the level map remains the dominant visual object.
+
+## Multi-Expiry Mode
+
+Some reports cover several expirations on one analysis date, such as VIX monthlies or SPX weekly expirations. These payloads use optional `expiration_slices`.
+
+- If `expiration_slices` has fewer than two items, render the classic single-expiry dashboard with the flow timeline.
+- If `expiration_slices` has two or more items, keep the left/global level map, then render one vertical per-expiration level map after it in a horizontally scrollable map row.
+- Slice-level maps use the same level, structure, monetization-zone, confidence, and evidence semantics as the top-level dashboard.
+- `Significant Structures` sits outside the map scroll area on the right, stays hidden until a level is selected, and can be collapsed to a narrow handle.
+- Clicking a slice level opens the structures panel and filters it to structures linked inside that slice plus any linked top-level cross-expiry structures.
+- Top-level arrays remain useful for global or cross-expiry context, for example a Sep/Oct VIX tail-sale structure.
 
 ## Data Loading
 

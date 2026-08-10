@@ -13,19 +13,17 @@
       <div class="eyebrow" id="dashboardEyebrow"></div>
       <h1 id="dashboardTitle"></h1>
       <div class="sub" id="dashboardSubtitle"></div>
+      <div class="snapshot-nav" id="snapshotNav"></div>
     </div>
     <div class="status">
       <div class="eyebrow">Current spot</div>
       <div class="spot"><span id="spotValue"></span> <small id="spotState"></small></div>
       <div style="margin-top:7px"><span class="badge"><span class="dot"></span> <span id="statusBadge"></span></span></div>
     </div>
-    <div class="summary">
-      <div class="eyebrow">Session state</div>
-      <div class="summary-lines" id="sessionSummary"></div>
-    </div>
   </div>
 
-  <div class="grid">
+  <div class="grid" id="mainGrid">
+    <div class="map-scroll" id="mapScroll">
     <section class="panel">
       <div class="panel-title">
         <h2>LEVEL MAP</h2>
@@ -35,12 +33,12 @@
       <div class="levelmap" id="levelmap"></div>
     </section>
 
-    <section class="panel">
+    <section class="panel" id="timelineSection">
       <div class="panel-title">
-        <h2>FLOW TIMELINE</h2>
+        <h2 id="timelineTitle">FLOW TIMELINE</h2>
         <div class="legend"><span id="timelineSubtitle"></span></div>
       </div>
-      <div class="timeline">
+      <div class="timeline" id="timelinePanel">
         <div class="chartbox spotbox">
           <div class="chart-title"><span id="spotChartTitle"></span><span id="spotChartRange"></span></div>
           <svg id="spotChart" viewBox="0 0 900 180" preserveAspectRatio="none"></svg>
@@ -51,15 +49,22 @@
           <svg id="flowChart" viewBox="0 0 900 135" preserveAspectRatio="none"></svg>
         </div>
 
-        <div class="chartbox regimebox">
-          <div class="chart-title"><span id="regimeTitle"></span><span id="regimeSubtitle"></span></div>
-          <div class="regimes" id="regimes"></div>
+        <div class="chartbox sessionbox summary">
+          <div class="eyebrow">Session state</div>
+          <div class="summary-lines" id="sessionSummary"></div>
         </div>
       </div>
     </section>
+    </div>
 
-    <aside class="panel">
-      <div class="panel-title"><h2>SIGNIFICANT STRUCTURES</h2><span class="eyebrow" id="structuresLabel"></span></div>
+    <aside class="panel structures-panel" id="structuresPanel">
+      <div class="panel-title">
+        <h2>SIGNIFICANT STRUCTURES</h2>
+        <div class="structure-actions">
+          <span class="eyebrow" id="structuresLabel"></span>
+          <button type="button" class="icon-button" id="structuresToggle" aria-label="Toggle structures panel">›</button>
+        </div>
+      </div>
       <div class="books" id="books"></div>
     </aside>
   </div>

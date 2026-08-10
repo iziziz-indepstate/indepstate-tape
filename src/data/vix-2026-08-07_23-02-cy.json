@@ -1,0 +1,1092 @@
+{
+  "schema_version": "1.0",
+  "session": {
+    "category": "VIX",
+    "snapshot_name": "VIX 2026-08-07 23:02 Cyprus",
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-07T23:02:12+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "vix-tape-profile-1-2026-08-07.csv",
+      "vix-tape-profile-1-2026-08-06.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 14.87,
+    "spot_change_from_previous_snapshot": -0.25,
+    "regime": "front_vol_compression_with_moderate_stress_hedging",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 17,
+    "upper_decision_level": 20,
+    "lower_decision_level": 16,
+    "vix_forwards": [
+      {
+        "expiration": "2026-08-19",
+        "forward": 16.92,
+        "basis": "derived",
+        "confidence": "medium"
+      },
+      {
+        "expiration": "2026-09-16",
+        "forward": 18.64,
+        "basis": "derived",
+        "confidence": "medium"
+      },
+      {
+        "expiration": "2026-11-18",
+        "forward": 20.4,
+        "basis": "derived",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "summary": {
+    "headline": "Front/body volatility is sold, moderate 22-30 stress is hedged, 32-37 tail is monetized",
+    "key_points": [
+      "Headline signed VIX delta is -39.457M USD, but the synchronized Sep/Oct 35C sale contributes -44.0M USD.",
+      "Excluding the dominant Sep/Oct 35C package, the remaining tape is +4.543M USD signed VIX delta.",
+      "August centers around 16-17 decay/floor risk while 19-22 calls are net bought.",
+      "September body at 18.5-20 is sold, 22-25 stress calls are bought, and 32-37 calls are heavily sold.",
+      "The large Oct 20/30 call debit spread from Aug 6 has no comparable unwind in the Aug 7 tape and remains a retained positioning hypothesis."
+    ],
+    "daily_note": "Sell body -> buy 22-30 stress -> sell 32-37 tail. Supportive for SPX while VIX remains below 18.5-20; acceptance above 20 and then 22-25 would activate the accumulated moderate-stress convexity."
+  },
+  "flow_aggregate": {
+    "gross_premium": 27094000,
+    "calls": {
+      "bought": 5214000,
+      "sold": 16868000,
+      "net": -11654000
+    },
+    "puts": {
+      "bought": 602000,
+      "sold": 4410000,
+      "net": -3808000
+    },
+    "signed_vix_delta_usd": -39457000,
+    "near_spot": null,
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-sep-oct-35-tail-sale",
+      "dominant_premium": 9600000,
+      "dominant_share": 0.3543,
+      "result": {
+        "net_calls": -2054000,
+        "net_puts": -3808000,
+        "signed_vix_delta_usd": 4543000
+      },
+      "changes_interpretation": true,
+      "comment": "Removing only the largest Oct 35C leg does not flip the day. Removing the full synchronized Sep/Oct 35C package flips signed VIX delta from -39.457M to +4.543M."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-30-32",
+      "price": 31,
+      "range_low": 30,
+      "range_high": 32,
+      "role": [
+        "potential_cap",
+        "upside_monetization",
+        "transition"
+      ],
+      "label": "30-32 FIRST MONETIZATION / CAP",
+      "strength": 0.72,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 16.13,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 626000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -626000,
+        "net_puts": 0,
+        "gross": 626000,
+        "signed_vix_delta_usd": -3224000
+      },
+      "interpretation": "Thirty to thirty-two is where several stress structures begin to monetize or cap; Friday's Aug/Sep 22/32 spreads explicitly sell 32C.",
+      "evidence": {
+        "trade_ids": [
+          "61a062a3-94cc-448f-a6c9-f7debcbbbd97",
+          "f81115b9-4561-4bb3-8850-cf6cf74b6db7",
+          "d02a4264-8ccc-4d78-b1b2-926cc1a503e7",
+          "d1ec03b0-1df1-41e9-8d83-d8e8d354a29b"
+        ],
+        "structure_ids": [
+          "str-aug-22-32",
+          "str-sep-22-32",
+          "str-oct-20-30-retained"
+        ],
+        "notes": [
+          "Cross-expiry functional zone."
+        ]
+      }
+    },
+    {
+      "id": "lvl-35-tail-supply",
+      "price": 35,
+      "range_low": 32,
+      "range_high": 37,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "tail_zone"
+      ],
+      "label": "32-37 EXTREME TAIL SUPPLY",
+      "strength": 0.98,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 20.13,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 10840000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -10840000,
+        "net_puts": 0,
+        "gross": 10840000,
+        "signed_vix_delta_usd": -50515000
+      },
+      "interpretation": "The synchronized Sep/Oct 35C sale dominates the daily delta and marks 35 as the key extreme-tail supply boundary; 32 and 37 add surrounding monetization supply.",
+      "evidence": {
+        "trade_ids": [
+          "61a062a3-94cc-448f-a6c9-f7debcbbbd97",
+          "f81115b9-4561-4bb3-8850-cf6cf74b6db7",
+          "5f322725-3a53-4df6-a94d-d73fe6fbd825",
+          "74c7a79f-3307-4d5b-a636-4c5e85b2d8da",
+          "d814e4b6-1e2e-4611-90a1-fb097fd39f9e",
+          "0f893b91-d277-48d9-b093-bfcaaff5d902",
+          "8e5bd30b-1312-4632-a367-6fe495c9868f"
+        ],
+        "structure_ids": [
+          "str-sep-oct-35-tail-sale",
+          "str-aug-22-32",
+          "str-sep-22-32"
+        ],
+        "notes": [
+          "The 35C package alone contributes -44.0M signed VIX delta."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-07T16:58:02+03:00",
+      "end": "2026-08-07T19:30:00+03:00",
+      "spot_open": 15.06,
+      "spot_high": 15.06,
+      "spot_low": 14.88,
+      "spot_close": 14.93,
+      "calls": {
+        "bought": 923000,
+        "sold": 383000,
+        "net": 540000
+      },
+      "puts": {
+        "bought": 88000,
+        "sold": 842000,
+        "net": -754000
+      },
+      "gross_premium": 2236000,
+      "signed_vix_delta_usd": 4017000,
+      "near_spot": null,
+      "regime": "moderate_vix_accumulation",
+      "events": [
+        "Early flow is mildly long VIX on net delta."
+      ]
+    },
+    {
+      "start": "2026-08-07T19:30:00+03:00",
+      "end": "2026-08-07T22:00:00+03:00",
+      "spot_open": 14.94,
+      "spot_high": 15.07,
+      "spot_low": 14.9,
+      "spot_close": 14.9,
+      "calls": {
+        "bought": 2335000,
+        "sold": 15145000,
+        "net": -12810000
+      },
+      "puts": {
+        "bought": 450000,
+        "sold": 2246000,
+        "net": -1796000
+      },
+      "gross_premium": 20176000,
+      "signed_vix_delta_usd": -51787000,
+      "near_spot": null,
+      "regime": "tail_supply",
+      "events": [
+        "Sep/Oct 35C synchronized sale dominates the interval.",
+        "November body/upside is sold early in the interval."
+      ]
+    },
+    {
+      "start": "2026-08-07T22:00:00+03:00",
+      "end": "2026-08-07T23:02:12+03:00",
+      "spot_open": 14.92,
+      "spot_high": 14.92,
+      "spot_low": 14.84,
+      "spot_close": 14.87,
+      "calls": {
+        "bought": 1956000,
+        "sold": 1340000,
+        "net": 616000
+      },
+      "puts": {
+        "bought": 64000,
+        "sold": 1322000,
+        "net": -1258000
+      },
+      "gross_premium": 4682000,
+      "signed_vix_delta_usd": 8313000,
+      "near_spot": null,
+      "regime": "rehedge",
+      "events": [
+        "Net signed VIX delta turns positive again.",
+        "Late Aug/Sep 22/32 call debit spreads add moderate stress convexity."
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-sep-oct-35-tail-sale",
+      "timestamp": "2026-08-07T20:22:11+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 35,
+          "contracts": 65071,
+          "premium": 6200000,
+          "trade_ids": [
+            "d814e4b6-1e2e-4611-90a1-fb097fd39f9e"
+          ],
+          "expiration": "2026-10-21"
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 35,
+          "contracts": 65071,
+          "premium": 3400000,
+          "trade_ids": [
+            "0f893b91-d277-48d9-b093-bfcaaff5d902"
+          ],
+          "expiration": "2026-09-16"
+        }
+      ],
+      "gross_premium": 9600000,
+      "net_premium": -9600000,
+      "signed_vix_delta_usd": -44000000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        35
+      ],
+      "interpretation": "Synchronized equal-size sale of Sep and Oct 35C. Best read as extreme-tail supply/monetization; opening naked-call risk versus hedge unwind cannot be distinguished without OI.",
+      "ui_title": "Sep/Oct 35C Tail Supply"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-stress-22-25",
+      "low": 22,
+      "high": 25,
+      "type": "vol_realization",
+      "beneficiaries": [
+        "moderate-stress call buyers",
+        "retained October hedge"
+      ],
+      "source_structure_ids": [
+        "str-aug-22-32",
+        "str-sep-22-32",
+        "str-oct-20-30-retained"
+      ],
+      "source_level_ids": [
+        "lvl-sep-22-25",
+        "lvl-oct-20-30-retained"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "This is the primary zone where accumulated moderate-stress convexity starts to realize.",
+      "caveat": "Not a price target; requires acceptance above the 18.5-20 body and 21-22 transition."
+    },
+    {
+      "id": "mz-30-32-cap",
+      "low": 30,
+      "high": 32,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "22/32 call-spread holders",
+        "Oct 20/30 spread holder"
+      ],
+      "source_structure_ids": [
+        "str-aug-22-32",
+        "str-sep-22-32",
+        "str-oct-20-30-retained"
+      ],
+      "source_level_ids": [
+        "lvl-30-32"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Explicit short legs at 30-32 cap several moderate-stress structures.",
+      "caveat": "Above this zone, payout growth slows for these spreads."
+    },
+    {
+      "id": "mz-35-tail-supply",
+      "low": 32,
+      "high": 37,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "extreme-tail sellers",
+        "hedge holders monetizing upper wings"
+      ],
+      "source_structure_ids": [
+        "str-sep-oct-35-tail-sale"
+      ],
+      "source_level_ids": [
+        "lvl-35-tail-supply"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The synchronized 35C sale makes 32-37 the dominant extreme-tail supply/monetization region.",
+      "caveat": "If the sale was closing long protection rather than opening short calls, the inventory implication is weaker."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Controlled front volatility",
+      "bias": "bearish",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 17,
+          "description": "August remains around/below its decay center."
+        },
+        {
+          "type": "hold_below",
+          "level": 20,
+          "description": "September body/call supply remains unabsorbed."
+        }
+      ],
+      "route": [
+        17,
+        16
+      ],
+      "invalidations": [
+        "Sustained acceptance above September 18.5-20 body.",
+        "Fresh broad call buying replaces Friday body/tail supply."
+      ],
+      "interpretation": "Base VIX scenario is controlled front volatility and decay; this is supportive for SPX while September remains below 18.5-20."
+    },
+    {
+      "id": "sc-stress",
+      "name": "Moderate stress realization",
+      "bias": "bullish",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 20,
+          "description": "Absorb September short-vol body."
+        },
+        {
+          "type": "new_call_buying",
+          "level": 22,
+          "description": "Confirm demand above the first stress transition."
+        }
+      ],
+      "route": [
+        20,
+        22,
+        25,
+        30,
+        32
+      ],
+      "invalidations": [
+        "Failed acceptance back below 18.5-20.",
+        "22-25 call demand is sold into and does not persist."
+      ],
+      "interpretation": "Acceptance above 20 activates accumulated Aug/Sep 22-32 spreads and the retained Oct 20/30 hedge; SPX becomes materially more fragile."
+    },
+    {
+      "id": "sc-tail",
+      "name": "Tail regime break",
+      "bias": "bullish",
+      "priority": 0.15,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 35,
+          "description": "Absorb the dominant Sep/Oct 35C tail supply."
+        },
+        {
+          "type": "iv_expand",
+          "level": 35,
+          "description": "Upper VIX call wing receives sustained bid."
+        }
+      ],
+      "route": [
+        32,
+        35,
+        37
+      ],
+      "invalidations": [
+        "Rejection below 32-35 and renewed upper-wing selling."
+      ],
+      "interpretation": "A sustained move through 35 would invalidate the current controlled-stress/capped-tail geometry and signal a qualitatively different volatility regime."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 94,
+    "deduplicated_rows": 94,
+    "duplicates_removed": 0,
+    "iv_coverage": 1,
+    "side_quality": "good",
+    "side_mid_consistency": 0.8511,
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "complex_order_id is absent for all rows; multileg linkage is inferred from timestamp, size and strike geometry.",
+      "The source timezone field says America/New_York, while the observed timestamp convention in this dataset is treated as Asia/Nicosia; this should be normalized upstream.",
+      "VIX option moneyness is better interpreted versus expiry-specific VIX forwards than versus spot VIX.",
+      "The retained Oct 20/30 hedge is a cross-session inference from Aug 6 because no comparable unwind is visible on Aug 7.",
+      "Visible tape above the 50k USD premium filter is not the full market position.",
+      "flow_timeline spot_open/high/low/close values are derived from underlying prices attached to visible option prints, not full VIX market OHLC."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  },
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-19",
+      "label": "AUG 2026",
+      "expiration": "2026-08-19",
+      "dte": 12,
+      "levels": [
+        {
+          "id": "lvl-aug-16-17",
+          "price": 17,
+          "range_low": 16,
+          "range_high": 17,
+          "role": [
+            "conditional_floor",
+            "pin",
+            "inventory_center"
+          ],
+          "label": "AUG 16-17 FLOOR / DECAY CENTER",
+          "strength": 0.75,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 2.13,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 234000,
+            "put_buy": 538000,
+            "put_sell": 171000,
+            "net_calls": -234000,
+            "net_puts": 367000,
+            "gross": 943000,
+            "signed_vix_delta_usd": -5501000
+          },
+          "interpretation": "August 17 combines call supply, put buying and put selling; the 16/17 put-ratio geometry makes this a conditional floor/decay center rather than a one-way downside target.",
+          "evidence": {
+            "trade_ids": [
+              "70920ebf-74c7-4401-90ca-56fbb14fa268",
+              "48f2902c-5ac1-43a1-ae8e-026b51564933",
+              "1112274a-5e9d-4e55-b045-35989263b095",
+              "066e707e-3d7a-4fe6-9c87-fd8eab0dd495",
+              "b6b339cc-7a03-421d-a0a0-50c0cdafad77",
+              "8b34ab9b-40fe-42a6-80e9-a9f781cb9180",
+              "f8d1d2b9-352f-4fac-aaa8-7e3e39b1658f"
+            ],
+            "structure_ids": [],
+            "notes": [
+              "August expiration 2026-08-19",
+              "Use August forward ~16.92 rather than spot for moneyness."
+            ]
+          },
+          "expiration": "2026-08-19"
+        },
+        {
+          "id": "lvl-aug-19-22",
+          "price": 20.5,
+          "range_low": 19,
+          "range_high": 22,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "AUG 19-22 MODERATE UPSIDE",
+          "strength": 0.7,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 5.63,
+          "flow": {
+            "call_buy": 697000,
+            "call_sell": 56000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 641000,
+            "net_puts": 0,
+            "gross": 753000,
+            "signed_vix_delta_usd": 5713000
+          },
+          "interpretation": "Calls from 19 to 22 are net bought, indicating selective front-month stress protection above the August forward.",
+          "evidence": {
+            "trade_ids": [
+              "fb20b811-7649-422e-a310-abc873fa2e7b",
+              "dd651de6-5ba8-425a-857d-ef73066c0a5e",
+              "4035f2f5-43be-422f-a927-9ae4c489cd80",
+              "b832af5e-85b2-4b5f-97a6-54670b45ddd4",
+              "3f5b9488-9d56-45bf-b4db-e50b053b58a6",
+              "f266c23c-eded-4aef-9db3-05180715bb41",
+              "73c82e5d-3828-4ca2-a41b-79534f9ecac5"
+            ],
+            "structure_ids": [
+              "str-aug-22-32"
+            ],
+            "notes": [
+              "Includes the late Aug 22/32 call debit spread."
+            ]
+          },
+          "expiration": "2026-08-19"
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-aug-22-32",
+          "timestamp": "2026-08-07T23:02:12+03:00",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 32,
+              "contracts": 6549,
+              "premium": 79000,
+              "trade_ids": [
+                "f81115b9-4561-4bb3-8850-cf6cf74b6db7"
+              ],
+              "expiration": "2026-08-19"
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 22,
+              "contracts": 6549,
+              "premium": 216000,
+              "trade_ids": [
+                "fb20b811-7649-422e-a310-abc873fa2e7b"
+              ],
+              "expiration": "2026-08-19"
+            }
+          ],
+          "gross_premium": 295000,
+          "net_premium": 137000,
+          "signed_vix_delta_usd": 1280000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            22,
+            32
+          ],
+          "interpretation": "Equal-size Aug 22C buy / 32C sell; likely moderate-stress call debit spread with upside monetization at 32.",
+          "ui_title": "Aug 22/32 Stress Spread"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-aug-16-17",
+          "low": 16,
+          "high": 17,
+          "type": "pin_decay",
+          "beneficiaries": [
+            "August short-vol/body inventory",
+            "put-ratio structures"
+          ],
+          "source_structure_ids": [],
+          "source_level_ids": [
+            "lvl-aug-16-17"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "August forward/body centers near 17; decay is favored while VIX stays below the 19-22 stress-demand band.",
+          "caveat": "Conditional floor only; opening/closing is unknown."
+        }
+      ],
+      "forward": 16.92,
+      "summary": {
+        "headline": "AUG 16-17 FLOOR / DECAY CENTER / AUG 19-22 MODERATE UPSIDE"
+      }
+    },
+    {
+      "id": "exp-2026-09-16",
+      "label": "SEP 2026",
+      "expiration": "2026-09-16",
+      "dte": 40,
+      "levels": [
+        {
+          "id": "lvl-sep-18p5-20",
+          "price": 19.25,
+          "range_low": 18.5,
+          "range_high": 20,
+          "role": [
+            "main_pivot",
+            "volatility_center",
+            "call_supply"
+          ],
+          "label": "SEP 18.5-20 SHORT-VOL BODY",
+          "strength": 0.85,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 4.38,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 1317000,
+            "put_buy": 0,
+            "put_sell": 584000,
+            "net_calls": -1317000,
+            "net_puts": -584000,
+            "gross": 1901000,
+            "signed_vix_delta_usd": -4476000
+          },
+          "interpretation": "September premium around forward is sold; this is the main body/decay zone and the first meaningful stress switch if absorbed.",
+          "evidence": {
+            "trade_ids": [
+              "1b4c575a-fc60-4cab-b385-ae1afeb0172d",
+              "3ff11600-7666-4202-8f18-5f908b8dd390",
+              "af30e443-97cf-4c6c-8c61-31f15e4280d1",
+              "b4384e81-a1cf-4684-ac09-d6f98a3f80b1",
+              "c6397b4a-32f0-48ee-8394-d709b08b950a",
+              "b6412d4e-2757-4806-a456-24151c4a909a",
+              "004b84db-3bcd-4a5d-9071-fa60dc51fc2b",
+              "a2b8fea1-2bfd-4f49-9c98-6210fc3694db",
+              "34f97930-ded0-4429-956b-e316277473ae",
+              "95e3fbec-216b-4cfa-882f-7e3464fa75f9",
+              "80a29026-ec96-4efc-8f14-d2434e9f5e06",
+              "754bd4fd-8cb1-444f-b670-350a46067d87"
+            ],
+            "structure_ids": [],
+            "notes": [
+              "September forward ~18.64."
+            ]
+          },
+          "expiration": "2026-09-16"
+        },
+        {
+          "id": "lvl-sep-22-25",
+          "price": 23.5,
+          "range_low": 22,
+          "range_high": 25,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "SEP 22-25 MODERATE STRESS DEMAND",
+          "strength": 0.82,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 8.63,
+          "flow": {
+            "call_buy": 1286000,
+            "call_sell": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 1286000,
+            "net_puts": 0,
+            "gross": 1286000,
+            "signed_vix_delta_usd": 6766000
+          },
+          "interpretation": "September calls in 22-25 are net bought, making this the primary moderate-stress realization band above the short-vol body.",
+          "evidence": {
+            "trade_ids": [
+              "e5464d24-1cac-4eb9-bc8c-12559257cd46",
+              "d6cc7d6a-0d94-41c8-86bc-6f020a115923",
+              "1c7dc068-ebfa-4093-9a1c-c5215c4ef2af",
+              "6e70b831-c922-4f34-a0d7-8108f351c5a3",
+              "d9364200-8d56-4d75-a795-36a2b34a44c8",
+              "05b670a8-c2e3-4b72-a729-197aa76625b2"
+            ],
+            "structure_ids": [
+              "str-sep-22-32"
+            ],
+            "notes": [
+              "Demand is capped farther up by 32-37 call supply."
+            ]
+          },
+          "expiration": "2026-09-16"
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep-22-32",
+          "timestamp": "2026-08-07T23:02:12+03:00",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 22,
+              "contracts": 6549,
+              "premium": 838000,
+              "trade_ids": [
+                "e5464d24-1cac-4eb9-bc8c-12559257cd46"
+              ],
+              "expiration": "2026-09-16"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 32,
+              "contracts": 6549,
+              "premium": 399000,
+              "trade_ids": [
+                "61a062a3-94cc-448f-a6c9-f7debcbbbd97"
+              ],
+              "expiration": "2026-09-16"
+            }
+          ],
+          "gross_premium": 1237000,
+          "net_premium": 439000,
+          "signed_vix_delta_usd": 2400000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            22,
+            32
+          ],
+          "interpretation": "Equal-size Sep 22C buy / 32C sell; confirms moderate-stress demand while capping payout above 32.",
+          "ui_title": "Sep 22/32 Stress Spread"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-sep-body-18p5-20",
+          "low": 18.5,
+          "high": 20,
+          "type": "pin_decay",
+          "beneficiaries": [
+            "September short-vol inventory"
+          ],
+          "source_structure_ids": [],
+          "source_level_ids": [
+            "lvl-sep-18p5-20"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "September body premium is sold around forward, favoring decay until this zone is absorbed.",
+          "caveat": "Acceptance above 20 changes the regime."
+        }
+      ],
+      "forward": 18.64,
+      "summary": {
+        "headline": "SEP 18.5-20 SHORT-VOL BODY / SEP 22-25 MODERATE STRESS DEMAND"
+      }
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "OCT 2026",
+      "expiration": "2026-10-21",
+      "dte": 75,
+      "levels": [
+        {
+          "id": "lvl-oct-20-30-retained",
+          "price": 25,
+          "range_low": 20,
+          "range_high": 30,
+          "role": [
+            "upside_demand",
+            "tail_zone",
+            "complex_zone"
+          ],
+          "label": "OCT 20-30 RETAINED STRESS HEDGE",
+          "strength": 0.92,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 10.13,
+          "flow": {
+            "call_buy": 15000000,
+            "call_sell": 6900000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 8100000,
+            "net_puts": 0,
+            "gross": 21900000,
+            "signed_vix_delta_usd": 33000000
+          },
+          "interpretation": "The Aug 6 Oct 20/30 call debit spread remains a retained-position hypothesis because Friday shows no comparable opposite 20/30 package. It hedges moderate October stress, not unlimited catastrophe.",
+          "evidence": {
+            "trade_ids": [
+              "398ed141-4240-4ede-864d-271d52acd5e0",
+              "85af94a6-e00c-4377-beab-846a94860baf"
+            ],
+            "structure_ids": [
+              "str-oct-20-30-retained"
+            ],
+            "notes": [
+              "Carried from 2026-08-06 analysis context; not a new Aug 7 print."
+            ]
+          },
+          "expiration": "2026-10-21"
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-oct-20-30-retained",
+          "timestamp": "2026-08-06T18:17:51+03:00",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20,
+              "contracts": 58055,
+              "premium": 15000000,
+              "trade_ids": [
+                "85af94a6-e00c-4377-beab-846a94860baf"
+              ],
+              "expiration": "2026-10-21"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 30,
+              "contracts": 58055,
+              "premium": 6900000,
+              "trade_ids": [
+                "398ed141-4240-4ede-864d-271d52acd5e0"
+              ],
+              "expiration": "2026-10-21"
+            }
+          ],
+          "gross_premium": 21900000,
+          "net_premium": 8100000,
+          "signed_vix_delta_usd": 33000000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20,
+            30
+          ],
+          "interpretation": "Large Oct 20/30 call debit spread observed Aug 6. No comparable opposite 20/30 package appears in the Aug 7 tape, so it remains a retained-position hypothesis rather than a new Friday trade.",
+          "ui_title": "Retained Oct 20/30 Stress Hedge"
+        }
+      ],
+      "monetization_zones": [],
+      "summary": {
+        "headline": "OCT 20-30 RETAINED STRESS HEDGE"
+      }
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "NOV 2026",
+      "expiration": "2026-11-18",
+      "dte": 103,
+      "levels": [],
+      "structures": [
+        {
+          "id": "str-nov-body-sale",
+          "timestamp": "2026-08-07T19:31:27+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 1190,
+              "premium": 369000,
+              "trade_ids": [
+                "88031347-f48d-4f2a-9ac7-fc7f095f2128"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 2465,
+              "premium": 762000,
+              "trade_ids": [
+                "c04344c5-80a8-461a-b623-2b6b0b0a69e5"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 25,
+              "contracts": 4250,
+              "premium": 880000,
+              "trade_ids": [
+                "ed9124e8-4dba-46a6-be72-ec8321f6a7c7"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 3655,
+              "premium": 976000,
+              "trade_ids": [
+                "c7ca4027-7361-47de-95ac-7b1f6dd9936f"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 23,
+              "contracts": 4250,
+              "premium": 1000000,
+              "trade_ids": [
+                "217729c1-2d74-482c-bb28-86b9f44cf4f4"
+              ],
+              "expiration": "2026-11-18"
+            }
+          ],
+          "gross_premium": 3987000,
+          "net_premium": -3987000,
+          "signed_vix_delta_usd": -8900000,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20,
+            23,
+            25
+          ],
+          "interpretation": "Clustered sale of Nov 20P/20C/23C/25C indicates strong body and moderate-upside premium supply, but exact package linkage is not confirmed.",
+          "ui_title": "Nov 20-25 Body Supply"
+        },
+        {
+          "id": "str-nov-20-24-rehedge",
+          "timestamp": "2026-08-07T20:14:59+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 1505,
+              "premium": 405000,
+              "trade_ids": [
+                "c7ce6afd-069c-4cae-abde-7b01651fc1e2"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 24,
+              "contracts": 3500,
+              "premium": 774000,
+              "trade_ids": [
+                "09491971-7332-4fec-a666-d2af47988ab4"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 1470,
+              "premium": 451000,
+              "trade_ids": [
+                "99e046de-6277-4a53-8f86-f79452244c7b"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 210,
+              "premium": 64000,
+              "trade_ids": [
+                "7ba33610-97f2-4a49-a54b-9e50c9a91aa2"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 20,
+              "contracts": 215,
+              "premium": 58000,
+              "trade_ids": [
+                "9d859f66-d75c-4bf0-a982-d02833d80ab6"
+              ],
+              "expiration": "2026-11-18"
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 24,
+              "contracts": 500,
+              "premium": 111000,
+              "trade_ids": [
+                "806cc168-19c9-4b9f-ad80-4cfb83a52e2b"
+              ],
+              "expiration": "2026-11-18"
+            }
+          ],
+          "gross_premium": 1863000,
+          "net_premium": -93000,
+          "signed_vix_delta_usd": 2863000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20,
+            24
+          ],
+          "interpretation": "November 20 body premium is sold while 24C is bought, consistent with reloading moderate upside convexity after selling ordinary volatility.",
+          "ui_title": "Nov 20 Body / 24C Rehedge"
+        }
+      ],
+      "monetization_zones": [],
+      "forward": 20.4
+    }
+  ]
+}
