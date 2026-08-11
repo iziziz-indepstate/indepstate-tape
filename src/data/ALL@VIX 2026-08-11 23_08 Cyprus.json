@@ -1,0 +1,1205 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-08-11 23:08 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-11T23:08:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-11 (5).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 15.41,
+    "spot_range": {
+      "low": 15.23,
+      "high": 15.59
+    },
+    "regime": "moderate_stress_hedged_extreme_tail_sold",
+    "bias": "mixed_defensive",
+    "confidence": "medium",
+    "main_pivot": 18.5,
+    "upper_decision_level": 20.0,
+    "lower_decision_level": 17.0
+  },
+  "summary": {
+    "headline": "Moderate VIX rebound is being bought while extreme tail is being sold",
+    "key_points": [
+      "Signed VIX delta remains positive at about +25.4M despite net premium selling.",
+      "August shifted strongly long VIX, while November shifted from long-tail demand to tail monetization.",
+      "September 35C tail bought on August 10 was almost fully sold back on August 11.",
+      "Protection migrated inward toward August 17-24 and September 18.5-23 rather than remaining concentrated in 35+ tail."
+    ],
+    "daily_note": "Sell downside, buy moderate VIX rebound, sell extreme tail. For SPX the key warning zone is September VIX acceptance above 18.5-20; 22-24 is the main conflict zone."
+  },
+  "flow_aggregate": {
+    "gross_premium": 71431000,
+    "calls": {
+      "bought": 23719000,
+      "sold": 28321000,
+      "net": -4602000
+    },
+    "puts": {
+      "bought": 6291000,
+      "sold": 13100000,
+      "net": -6809000
+    },
+    "signed_vix_delta": 25404000,
+    "body_wing": {
+      "call_body_net_premium": 7832000,
+      "put_body_net_premium": -8216000,
+      "upper_call_wing_net_premium": -12663000
+    },
+    "leave_one_out": {
+      "dominant_structure_id": "str-sep-18p5-synth-long-23c",
+      "dominant_premium": 7900000,
+      "result_signed_vix_delta": -14800000,
+      "changes_interpretation": true,
+      "comment": "Without the large September synthetic-long plus 23C package, the daily signed VIX delta becomes negative."
+    },
+    "counterfactual_tail_sale": {
+      "structure_id": "str-cross-exp-35c-tail-sale",
+      "gross_premium": 9900000,
+      "signed_vix_delta": -33100000,
+      "result_excluding_structure_signed_vix_delta": 58500000,
+      "comment": "The daily result is the residual of large moderate-stress buying versus large 35C tail selling."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-15-16-low-vix",
+      "price": 15.5,
+      "range_low": 15.0,
+      "range_high": 16.0,
+      "role": [
+        "conditional_floor",
+        "complex_zone"
+      ],
+      "label": "LOW VIX / DOWNSIDE RISK ACCEPTANCE",
+      "strength": 0.7,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Current low-VIX zone. Downside VIX risk is repeatedly sold, but front rebound protection is now being accumulated.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "VIX traded 15.23-15.59 during the tape"
+        ]
+      }
+    },
+    {
+      "id": "lvl-16-17-front-pivot",
+      "price": 17.0,
+      "range_low": 16.0,
+      "range_high": 17.0,
+      "role": [
+        "main_pivot",
+        "conditional_floor",
+        "upside_demand"
+      ],
+      "label": "FRONT FLOOR / REBOUND PIVOT",
+      "strength": 0.84,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "August floor and first rebound pivot. Sold puts coexist with bought calls and call spreads.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-aug-17-synth-long-20c",
+          "str-aug-17-20-call-spread"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-18p5-20-sep-center",
+      "price": 19.25,
+      "range_low": 18.5,
+      "range_high": 20.0,
+      "role": [
+        "volatility_center",
+        "main_pivot",
+        "transition",
+        "upside_demand"
+      ],
+      "label": "SEPTEMBER LONG-VIX CENTER",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Central September VIX exposure shifted long through 18.5C/18.5P synthetic and additional 20C buying.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-18p5-synth-long-23c",
+          "str-sep-20-50-call-spread"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-22-24-conflict",
+      "price": 23.0,
+      "range_low": 22.0,
+      "range_high": 24.0,
+      "role": [
+        "complex_zone",
+        "transition",
+        "call_supply",
+        "upside_demand"
+      ],
+      "label": "MAIN STRESS CONFLICT ZONE",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Large 23C demand sits between very large 22C and 24C supply. Acceptance through this zone would be a meaningful stress realization signal.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-18p5-synth-long-23c",
+          "str-sep-22-24-call-sale"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-25-26-monetization",
+      "price": 25.5,
+      "range_low": 25.0,
+      "range_high": 26.0,
+      "role": [
+        "potential_cap",
+        "transition"
+      ],
+      "label": "MODERATE STRESS MONETIZATION",
+      "strength": 0.82,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Multiple November/February structures retain exposure into the mid-20s but overwrite or cap higher moves around 26.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-nov-20-synth-long-26c-overwrite",
+          "str-feb-22-synth-long-26c-overwrite"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-30-31-oct-cap",
+      "price": 30.5,
+      "range_low": 30.0,
+      "range_high": 31.0,
+      "role": [
+        "potential_cap",
+        "call_supply_monetization"
+      ],
+      "label": "OCTOBER STRESS-HEDGE CAP",
+      "strength": 0.8,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Upper monetization area of the previously established October 20/30 stress hedge; no clear unwind appears in the current tape.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-oct-20-30-existing-stress-hedge"
+        ],
+        "notes": [
+          "Stateful carry-over from prior sessions"
+        ]
+      }
+    },
+    {
+      "id": "lvl-33-35-tail-supply",
+      "price": 35.0,
+      "range_low": 33.0,
+      "range_high": 35.0,
+      "role": [
+        "call_supply",
+        "tail_zone",
+        "potential_cap"
+      ],
+      "label": "EXTREME TAIL MONETIZATION / SUPPLY",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "September 35C bought on August 10 was nearly fully sold back on August 11; November 35C was also materially reduced.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-cross-exp-35c-tail-sale"
+        ],
+        "notes": [
+          "Sep 35C: buy ~65,077 on Aug 10 vs sell ~65,066 on Aug 11"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-11T16:30:00+03:00",
+      "end": "2026-08-11T19:30:00+03:00",
+      "spot_open": null,
+      "spot_high": null,
+      "spot_low": null,
+      "spot_close": null,
+      "gross_premium": 55842000,
+      "net_premium": -12518000,
+      "signed_vix_delta": 29091000,
+      "regime": "moderate_stress_build",
+      "events": [
+        "Large September 18.5 synthetic-long plus 23C package",
+        "Cross-expiry 35C tail sale"
+      ]
+    },
+    {
+      "start": "2026-08-11T19:30:00+03:00",
+      "end": "2026-08-11T22:00:00+03:00",
+      "spot_open": null,
+      "spot_high": null,
+      "spot_low": null,
+      "spot_close": null,
+      "gross_premium": 10905000,
+      "net_premium": 1563000,
+      "signed_vix_delta": -9084000,
+      "regime": "partial_monetization",
+      "events": [
+        "Moderate stress exposure partially monetized"
+      ]
+    },
+    {
+      "start": "2026-08-11T22:00:00+03:00",
+      "end": "2026-08-11T23:00:00+03:00",
+      "spot_open": null,
+      "spot_high": null,
+      "spot_low": null,
+      "spot_close": null,
+      "gross_premium": 4684000,
+      "net_premium": -456000,
+      "signed_vix_delta": 5397000,
+      "regime": "front_rehedge",
+      "events": [
+        "August call-spread demand",
+        "Late September moderate-stress structures"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-sep-18p5-synth-long-23c",
+      "timestamp": "2026-08-11T17:28:00+03:00",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 18.5,
+          "contracts": 11200,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 18.5,
+          "contracts": 11200,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 23.0,
+          "contracts": 35000,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 7900000,
+      "net_premium": 3900000,
+      "signed_vix_delta": 40200000,
+      "bias": "bullish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        18.5,
+        23.0
+      ],
+      "interpretation": "Synthetic long September VIX near 18.5 with large additional stress convexity at 23.",
+      "ui_title": "Sep 18.5 Synthetic Long + 23C"
+    },
+    {
+      "id": "str-cross-exp-35c-tail-sale",
+      "timestamp": "2026-08-11T18:26:00+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 35.0,
+          "contracts": 65066,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 35.0,
+          "contracts": 5155,
+          "premium": null,
+          "trade_ids": [],
+          "notes": "net after same-timestamp buy/sell churn"
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 35.0,
+          "contracts": 32537,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 9900000,
+      "net_premium": null,
+      "signed_vix_delta": -33100000,
+      "bias": "bearish_vix_tail",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        35.0
+      ],
+      "interpretation": "Large monetization of deferred 35C tail, reversing most of the prior day's September 35C buy and part of the November 35C buy.",
+      "ui_title": "Cross-expiry 35C Tail Sale"
+    },
+    {
+      "id": "str-sep-22-24-call-sale",
+      "timestamp": "2026-08-11T17:12:00+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 22.0,
+          "contracts": 26276,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 24.0,
+          "contracts": 26276,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 5700000,
+      "net_premium": -5700000,
+      "signed_vix_delta": -31000000,
+      "bias": "bearish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        22.0,
+        24.0
+      ],
+      "interpretation": "Large supply surrounding the heavily bought 23C stress strike, creating the session's main conflict zone.",
+      "ui_title": "Sep 22/24 Call Supply"
+    },
+    {
+      "id": "str-aug-17-synth-long-20c",
+      "timestamp": "2026-08-11T17:34:00+03:00",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 17.0,
+          "contracts": 1890,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.0,
+          "contracts": 1890,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 9000,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "signed_vix_delta": 6400000,
+      "bias": "bullish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        17.0,
+        20.0
+      ],
+      "interpretation": "Front VIX rebound protection through synthetic-long exposure near 17 plus extra 20C.",
+      "ui_title": "Aug 17 Synthetic Long + 20C"
+    },
+    {
+      "id": "str-aug-17-20-call-spread",
+      "timestamp": "2026-08-11T22:38:00+03:00",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 17.0,
+          "contracts": 6818,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 5780,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "signed_vix_delta": null,
+      "bias": "bullish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        17.0,
+        20.0
+      ],
+      "interpretation": "Late-session front rebound hedge; exposure monetizes toward 20.",
+      "ui_title": "Aug 17/20 Call Spread"
+    },
+    {
+      "id": "str-sep-20-50-call-spread",
+      "timestamp": "2026-08-11T18:16:00+03:00",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 10000,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 50.0,
+          "contracts": 9500,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "signed_vix_delta": null,
+      "bias": "bullish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        50.0
+      ],
+      "interpretation": "Moderate VIX stress is bought while extreme upside is sold for financing.",
+      "ui_title": "Sep 20/50 Call Spread"
+    },
+    {
+      "id": "str-nov-20-synth-long-26c-overwrite",
+      "timestamp": "2026-08-11T16:57:00+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 3800,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 3800,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 26.0,
+          "contracts": 10000,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "signed_vix_delta": null,
+      "bias": "capped_bullish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        26.0
+      ],
+      "interpretation": "Moderate November VIX expansion is retained, but upside beyond 26 is aggressively overwritten.",
+      "ui_title": "Nov 20 Synthetic Long / 26C Overwrite"
+    },
+    {
+      "id": "str-feb-22-synth-long-26c-overwrite",
+      "timestamp": "2026-08-11T16:57:00+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 22.0,
+          "contracts": 4500,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 22.0,
+          "contracts": 4500,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 26.0,
+          "contracts": 10000,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "signed_vix_delta": null,
+      "bias": "capped_bullish_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        22.0,
+        26.0
+      ],
+      "interpretation": "February VIX can expand toward the mid-20s, while upside beyond 26 is sold.",
+      "ui_title": "Feb 22 Synthetic Long / 26C Overwrite"
+    },
+    {
+      "id": "str-oct-20-30-existing-stress-hedge",
+      "timestamp": null,
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 58055,
+          "premium": 15000000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 30.0,
+          "contracts": 58055,
+          "premium": 6900000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 21900000,
+      "net_premium": 8100000,
+      "signed_vix_delta": 33000000,
+      "bias": "bullish_vix",
+      "basis": "inferred",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        30.0
+      ],
+      "interpretation": "Stateful carry-over from August 6. No clear reverse package has appeared, so the hedge is treated as conditionally active rather than proven open.",
+      "ui_title": "Existing Oct 20/30 Stress Hedge"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-front-17-20",
+      "low": 17.0,
+      "high": 20.0,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "August rebound hedges"
+      ],
+      "source_structure_ids": [
+        "str-aug-17-synth-long-20c",
+        "str-aug-17-20-call-spread"
+      ],
+      "source_level_ids": [
+        "lvl-16-17-front-pivot",
+        "lvl-18p5-20-sep-center"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Front rebound structures begin realizing as VIX moves from 17 toward 20.",
+      "caveat": "Opening/closing is unknown."
+    },
+    {
+      "id": "mz-sep-22-24-conflict",
+      "low": 22.0,
+      "high": 24.0,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "23C stress buyer",
+        "22/24 call sellers depending on path"
+      ],
+      "source_structure_ids": [
+        "str-sep-18p5-synth-long-23c",
+        "str-sep-22-24-call-sale"
+      ],
+      "source_level_ids": [
+        "lvl-22-24-conflict"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Main conflict zone where large 23C demand is surrounded by 22C/24C supply.",
+      "caveat": "Different participants may be involved."
+    },
+    {
+      "id": "mz-25-26-cap",
+      "low": 25.0,
+      "high": 26.0,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "Capped moderate-stress structures"
+      ],
+      "source_structure_ids": [
+        "str-nov-20-synth-long-26c-overwrite",
+        "str-feb-22-synth-long-26c-overwrite"
+      ],
+      "source_level_ids": [
+        "lvl-25-26-monetization"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Moderate stress is retained into the mid-20s, but upside beyond about 26 is repeatedly sold.",
+      "caveat": "Expiry-specific forwards differ."
+    },
+    {
+      "id": "mz-tail-33-35",
+      "low": 33.0,
+      "high": 35.0,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "35C sellers and tail hedge monetizers"
+      ],
+      "source_structure_ids": [
+        "str-cross-exp-35c-tail-sale"
+      ],
+      "source_level_ids": [
+        "lvl-33-35-tail-supply"
+      ],
+      "basis": "derived",
+      "confidence": "medium",
+      "description": "Deferred 35C tail was materially sold back, making this an active tail monetization zone.",
+      "caveat": "Cannot prove whether sales are closing prior long calls."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-12",
+      "label": "AUG 12 2026",
+      "expiration": "2026-08-12",
+      "dte": 1,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Minor nearest-expiry flow; not regime-dominant"
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-19",
+      "label": "AUG 2026",
+      "expiration": "2026-08-19",
+      "dte": 8,
+      "forward": 16.91,
+      "reference_price": null,
+      "summary": {
+        "headline": "Front VIX rebound protection strengthened sharply"
+      },
+      "flow_aggregate": {
+        "gross_premium": 6138000,
+        "calls_net_premium": 1636000,
+        "puts_net_premium": -2696000,
+        "signed_vix_delta": 35064000
+      },
+      "levels": [
+        {
+          "id": "aug-lvl-17",
+          "price": 17.0,
+          "role": [
+            "main_pivot",
+            "conditional_floor",
+            "upside_demand"
+          ],
+          "label": "Front pivot / rebound",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active"
+        },
+        {
+          "id": "aug-lvl-20",
+          "price": 20.0,
+          "role": [
+            "transition",
+            "upside_demand"
+          ],
+          "label": "First rebound realization",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active"
+        },
+        {
+          "id": "aug-lvl-22-24",
+          "range_low": 22.0,
+          "range_high": 24.0,
+          "role": [
+            "upside_demand",
+            "tail_zone"
+          ],
+          "label": "Front stress convexity",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active"
+        }
+      ],
+      "structures": [
+        "str-aug-17-synth-long-20c",
+        "str-aug-17-20-call-spread"
+      ],
+      "monetization_zones": [
+        "mz-front-17-20"
+      ]
+    },
+    {
+      "id": "exp-2026-08-26",
+      "label": "AUG 26 2026",
+      "expiration": "2026-08-26",
+      "dte": 15,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Minor flow; no regime-level conclusion"
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-16",
+      "label": "SEP 2026",
+      "expiration": "2026-09-16",
+      "dte": 36,
+      "forward": 18.55,
+      "reference_price": null,
+      "summary": {
+        "headline": "Central VIX exposure is long, 22-24 is the main conflict, 35 tail is sold"
+      },
+      "flow_aggregate": {
+        "gross_premium": 38446000,
+        "signed_vix_delta": 5695000,
+        "notable_net_premium": {
+          "18.5C": 1840000,
+          "18.5P": -3585000,
+          "20C": 1828000,
+          "22C": -3183000,
+          "23C": 3800000,
+          "24C": -2740000,
+          "35C": -3162000
+        }
+      },
+      "levels": [
+        {
+          "id": "sep-lvl-18p5-20",
+          "range_low": 18.5,
+          "range_high": 20.0,
+          "role": [
+            "volatility_center",
+            "main_pivot",
+            "upside_demand"
+          ],
+          "label": "Long-VIX center",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active"
+        },
+        {
+          "id": "sep-lvl-22-24",
+          "range_low": 22.0,
+          "range_high": 24.0,
+          "role": [
+            "complex_zone",
+            "call_supply",
+            "upside_demand"
+          ],
+          "label": "Main stress conflict",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active"
+        },
+        {
+          "id": "sep-lvl-35",
+          "price": 35.0,
+          "role": [
+            "tail_zone",
+            "call_supply"
+          ],
+          "label": "Tail monetization",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active"
+        }
+      ],
+      "structures": [
+        "str-sep-18p5-synth-long-23c",
+        "str-sep-22-24-call-sale",
+        "str-sep-20-50-call-spread",
+        "str-cross-exp-35c-tail-sale"
+      ],
+      "monetization_zones": [
+        "mz-sep-22-24-conflict",
+        "mz-tail-33-35"
+      ]
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "OCT 2026",
+      "expiration": "2026-10-21",
+      "dte": 71,
+      "forward": 19.92,
+      "reference_price": null,
+      "summary": {
+        "headline": "Existing 20-30 stress hedge remains conditionally active; 35 stays capped"
+      },
+      "flow_aggregate": {
+        "gross_premium": 9077000,
+        "net_premium": 3243000,
+        "signed_vix_delta": 351000
+      },
+      "levels": [
+        {
+          "id": "oct-lvl-20-30",
+          "range_low": 20.0,
+          "range_high": 30.0,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "Existing stress hedge route",
+          "basis": "inferred",
+          "confidence": "low",
+          "state": "active"
+        },
+        {
+          "id": "oct-lvl-35",
+          "price": 35.0,
+          "role": [
+            "call_supply",
+            "tail_zone"
+          ],
+          "label": "Upper cap",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active"
+        }
+      ],
+      "structures": [
+        "str-oct-20-30-existing-stress-hedge",
+        "str-cross-exp-35c-tail-sale"
+      ],
+      "monetization_zones": [
+        "mz-tail-33-35"
+      ]
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "NOV 2026",
+      "expiration": "2026-11-18",
+      "dte": 99,
+      "forward": 20.43,
+      "reference_price": null,
+      "summary": {
+        "headline": "35 tail was reduced; moderate 20-26 stress remains capped"
+      },
+      "flow_aggregate": {
+        "gross_premium": 11098000,
+        "net_premium": -4412000,
+        "signed_vix_delta": -14198000
+      },
+      "levels": [
+        {
+          "id": "nov-lvl-20-26",
+          "range_low": 20.0,
+          "range_high": 26.0,
+          "role": [
+            "transition",
+            "potential_cap"
+          ],
+          "label": "Moderate stress / overwrite zone",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active"
+        },
+        {
+          "id": "nov-lvl-35",
+          "price": 35.0,
+          "role": [
+            "tail_zone",
+            "call_supply"
+          ],
+          "label": "Tail being monetized",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active"
+        }
+      ],
+      "structures": [
+        "str-nov-20-synth-long-26c-overwrite",
+        "str-cross-exp-35c-tail-sale"
+      ],
+      "monetization_zones": [
+        "mz-25-26-cap",
+        "mz-tail-33-35"
+      ]
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "DEC 2026",
+      "expiration": "2026-12-16",
+      "dte": 127,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Minor flow; not regime-dominant"
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "JAN 2027",
+      "expiration": "2027-01-20",
+      "dte": 162,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Minor flow; no major new tail build"
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "FEB 2027",
+      "expiration": "2027-02-17",
+      "dte": 190,
+      "forward": 22.1,
+      "reference_price": null,
+      "summary": {
+        "headline": "Moderate VIX expansion toward 26 retained; upside beyond 26 overwritten"
+      },
+      "flow_aggregate": {},
+      "levels": [
+        {
+          "id": "feb-lvl-22-26",
+          "range_low": 22.0,
+          "range_high": 26.0,
+          "role": [
+            "transition",
+            "potential_cap"
+          ],
+          "label": "Capped moderate stress",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active"
+        }
+      ],
+      "structures": [
+        "str-feb-22-synth-long-26c-overwrite"
+      ],
+      "monetization_zones": [
+        "mz-25-26-cap"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base-carry",
+      "name": "Controlled low-vol regime",
+      "bias": "supportive_spx",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 17.0,
+          "description": "Front VIX remains below the first rebound pivot"
+        },
+        {
+          "type": "hold_below",
+          "level": 18.5,
+          "description": "September VIX remains below the long-VIX center"
+        }
+      ],
+      "route": [
+        17.0,
+        18.5
+      ],
+      "invalidations": [
+        "September VIX accepts above 18.5-20"
+      ],
+      "interpretation": "Carry/grind remains viable for SPX while front and September VIX fail to activate bought moderate-stress structures."
+    },
+    {
+      "id": "sc-stress-activation",
+      "name": "Moderate stress realization",
+      "bias": "bearish_spx",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 18.5,
+          "description": "September VIX activates the synthetic-long center"
+        },
+        {
+          "type": "accept_above",
+          "level": 20.0,
+          "description": "Moderate stress moves into the main conflict route"
+        }
+      ],
+      "route": [
+        18.5,
+        20.0,
+        22.0,
+        24.0,
+        25.0,
+        26.0
+      ],
+      "invalidations": [
+        "Failed acceptance back below 18.5"
+      ],
+      "interpretation": "The 22-24 conflict becomes the key nonlinear zone; above it, monetization is concentrated around 25-26."
+    },
+    {
+      "id": "sc-tail",
+      "name": "Tail regime",
+      "bias": "strong_bearish_spx",
+      "priority": 0.15,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 30.0,
+          "description": "Existing October stress hedge is fully engaged"
+        },
+        {
+          "type": "accept_above",
+          "level": 35.0,
+          "description": "Current tail-supply is absorbed"
+        }
+      ],
+      "route": [
+        30.0,
+        33.0,
+        35.0
+      ],
+      "invalidations": [
+        "Rejection back below 30"
+      ],
+      "interpretation": "A true tail regime requires absorption of the newly rebuilt 33-35 call supply; this is less strongly pre-hedged than it appeared on August 10."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 216,
+    "deduplicated_rows": 197,
+    "duplicates_removed": 19,
+    "iv_coverage": null,
+    "side_quality": "good",
+    "side_mid_agreement": 0.85,
+    "multileg_quality": "mixed",
+    "probable_multileg_premium_share": 0.893,
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Complex order identifiers are unavailable, so multileg linkage is inferred from timestamps, size ratios and strike logic.",
+      "The September 35C apparent reversal is stateful flow evidence, not proof that the same participant closed the prior-day position.",
+      "The existing October 20/30 hedge is carried forward as a conditional state because no obvious reverse package has appeared.",
+      "Visible premium-filtered tape is not the full VIX options inventory."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
