@@ -108,8 +108,21 @@ function formatPrice(value) {
   return Number.isInteger(value) ? String(value) : String(value);
 }
 
+function flowGross(value) {
+  if (!value || typeof value !== "object") return 0;
+  if (typeof value.gross === "number") return value.gross;
+
+  return Object.values(value).reduce((total, item) => total + flowGross(item), 0);
+}
+
+function levelStrength(level) {
+  if (typeof level.strength === "number" && Number.isFinite(level.strength)) return level.strength;
+  return flowGross(level.flow);
+}
+
 function levelBarWidth(level, maxStrength) {
-  return Math.max(28, (level.strength / maxStrength) * 94);
+  const strength = levelStrength(level);
+  return Math.max(28, (strength / maxStrength) * 94);
 }
 
 function compactZoneLabel(type) {
@@ -338,7 +351,7 @@ function renderLevelMap(containerId, context, options = {}) {
   }
 
   const topForPrice = createPriceScaler(context);
-  const maxStrength = Math.max(1, ...levelsSource.map((level) => level.strength ?? 0));
+  const maxStrength = Math.max(1, ...levelsSource.map(levelStrength));
 
   const zones = zonesSource
     .map((zone) => {
