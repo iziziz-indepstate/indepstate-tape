@@ -576,9 +576,12 @@ function renderTimeline(data) {
 }
 
 function formatLeg(leg) {
-  const side = leg.side.toUpperCase();
-  const type = leg.option_type === "call" ? "C" : "P";
-  return `${side} ${leg.contracts}x ${leg.strike}${type}`;
+  if (!leg || typeof leg !== "object") return "LEG";
+  const side = leg.side ? String(leg.side).toUpperCase() : "LEG";
+  const type = leg.option_type === "call" ? "C" : leg.option_type === "put" ? "P" : "";
+  const contracts = typeof leg.contracts === "number" ? `${leg.contracts}x ` : "";
+  const strike = leg.strike ?? "";
+  return `${side} ${contracts}${strike}${type}`.trim();
 }
 
 function renderBooks(data) {
@@ -614,7 +617,7 @@ function renderBooks(data) {
         (book) => `
           <div class="book">
             <div class="bookhead"><div class="bookname">${escapeHtml(book.ui_title)}</div><div class="conf">${escapeHtml(confidenceLabel(book.confidence))}</div></div>
-            <div class="legs">${book.legs.map(formatLeg).map(escapeHtml).join("<br>")}</div>
+            <div class="legs">${asArray(book.legs).map(formatLeg).map(escapeHtml).join("<br>") || "No leg detail"}</div>
             <div class="meta">
               ${book.expiry_label ? `<span class="pill">${escapeHtml(book.expiry_label)}</span>` : ""}
               <span class="pill">${escapeHtml(titleCase(book.bias))}</span>
