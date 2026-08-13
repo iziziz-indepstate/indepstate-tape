@@ -1,0 +1,2108 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-08-13 23-18 Cyprus",
+  "generated_at": "2026-08-13T23:18:00+03:00",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-13T23:00:06+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-13 (5).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 14.56,
+    "spot_change_from_previous_snapshot": 0.16,
+    "regime": "near_term_benign_deferred_november_defensive",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 18.0,
+    "upper_decision_level": 20.0,
+    "lower_decision_level": 16.0,
+    "spot_basis": "last visible tape print"
+  },
+  "summary": {
+    "headline": "Near-term VIX remains range/carry driven while November concentrates the real event hedge at 20 and 24-25.",
+    "key_points": [
+      "Headline +$52.3M VIX delta is not a front panic signal: August and September positive delta is largely created by sold puts.",
+      "September remains a short-range book around 18-20 with call supply at 20-23.",
+      "October incremental flow is strongly short VIX around 19-24.",
+      "November is the main defensive bucket: long movement around 20 plus repeated 24-25 call demand.",
+      "The Sep-23 50P/100P deep-ITM vertical is nearly delta-neutral and treated as financing/relative-value."
+    ],
+    "daily_note": "Рабочий режим: ближайший риск остаётся контролируемым, а реальная покупка выпуклости сосредоточена в ноябре. Для SPX среда остаётся поддерживающей, пока сентябрьский VIX не принимает 18-20; выше 20-23 включается маршрут к 24-25."
+  },
+  "flow_aggregate": {
+    "gross_premium": 70244000.0,
+    "directional_delta_usd": 52278000.0,
+    "calls": {
+      "bought": 15240000.0,
+      "sold": 9057000.0,
+      "net": 6183000.0
+    },
+    "puts": {
+      "bought": 27734000.0,
+      "sold": 18213000.0,
+      "net": 9521000.0
+    },
+    "net_premium": 15704000.0,
+    "near_spot": null,
+    "leave_one_out": {
+      "dominant_trade_id": "8c9e0607-5a97-4586-87af-249b796615c7",
+      "dominant_premium": 3900000.0,
+      "dominant_share": 0.05552075622117191,
+      "result": {
+        "net_calls": 2283000.0,
+        "net_puts": 9521000.0,
+        "directional_delta_usd": 37278000.0
+      },
+      "changes_interpretation": false,
+      "comment": "Largest single trade is November 20C buy. Removing it keeps the day positive VIX delta. Removing the full 16:49 November package leaves about +$29.8M VIX delta."
+    },
+    "special_adjustments": {
+      "sep23_deep_itm_vertical_gross_premium": 20694000.0,
+      "sep23_deep_itm_vertical_net_premium": 8996000.0,
+      "sep23_deep_itm_vertical_directional_delta_usd": -1000.0,
+      "comment": "Sep-23 50P/100P vertical inflates premium but is nearly delta-neutral and is excluded from directional regime interpretation."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-15-17-front-floor",
+      "price": 16.0,
+      "range_low": 15.0,
+      "range_high": 17.0,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor"
+      ],
+      "label": "15-17 FRONT VIX FLOOR / PUT RISK ACCEPTANCE",
+      "strength": 0.86,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 1.44,
+      "flow": {
+        "call_buy": 160000.0,
+        "call_sell": 250000.0,
+        "put_buy": 506000.0,
+        "put_sell": 5099000.0,
+        "net_calls": -90000.0,
+        "net_puts": -4593000.0,
+        "gross": 6015000.0,
+        "directional_delta_usd": 46227000.0
+      },
+      "interpretation": "Heavy August and September put selling accepts low-VIX downside and makes 15-17 the main front floor zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-aug-sep-put-floor-normalization"
+        ],
+        "notes": [
+          "Front positive VIX delta is largely sold-put driven, not call chasing."
+        ]
+      }
+    },
+    {
+      "id": "lvl-18-20-near-pivot",
+      "price": 19.0,
+      "range_low": 18.0,
+      "range_high": 20.0,
+      "role": [
+        "main_pivot",
+        "volatility_center",
+        "call_supply",
+        "complex_zone"
+      ],
+      "label": "18-20 NEAR/MID VIX PIVOT",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 4.44,
+      "flow": {
+        "call_buy": 5162000.0,
+        "call_sell": 4104000.0,
+        "put_buy": 12232000.0,
+        "put_sell": 6688000.0,
+        "net_calls": 1058000.0,
+        "net_puts": 5544000.0,
+        "gross": 28186000.0,
+        "directional_delta_usd": -15474000.0
+      },
+      "interpretation": "September and October synthetics, short-range books and overwrites cluster here. Acceptance above this band is the first meaningful stress switch.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-oct-short-vix",
+          "str-nov-20-straddle-25c"
+        ],
+        "notes": [
+          "Sep forward ~18.05, Oct ~19.59, Nov ~20.21."
+        ]
+      }
+    },
+    {
+      "id": "lvl-21-23-call-supply",
+      "price": 22.0,
+      "range_low": 21.0,
+      "range_high": 23.0,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "21-23 NEAR STRESS SUPPLY",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 7.44,
+      "flow": {
+        "call_buy": 187000.0,
+        "call_sell": 2468000.0,
+        "put_buy": 0.0,
+        "put_sell": 0.0,
+        "net_calls": -2281000.0,
+        "net_puts": 0.0,
+        "gross": 2655000.0,
+        "directional_delta_usd": -12099000.0
+      },
+      "interpretation": "September calls are predominantly sold in 21-23, making this the first supply band above the near-term pivot.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-oct-short-vix"
+        ],
+        "notes": [
+          "23C is a large September overwrite."
+        ]
+      }
+    },
+    {
+      "id": "lvl-24-25-nov-demand",
+      "price": 24.5,
+      "range_low": 24.0,
+      "range_high": 25.0,
+      "role": [
+        "upside_demand",
+        "transition",
+        "volatility_center"
+      ],
+      "label": "24-25 NOVEMBER EVENT/STRESS DEMAND",
+      "strength": 0.97,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 9.94,
+      "flow": {
+        "call_buy": 7591000.0,
+        "call_sell": 126000.0,
+        "put_buy": 0.0,
+        "put_sell": 0.0,
+        "net_calls": 7465000.0,
+        "net_puts": 0.0,
+        "gross": 7717000.0,
+        "directional_delta_usd": 30169000.0
+      },
+      "interpretation": "Repeated November 24C/25C buying on top of movement around 20 makes 24-25 the strongest active deferred stress zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-nov-20-straddle-25c",
+          "str-nov-short20-long24"
+        ],
+        "notes": [
+          "25C net bought about $4.865M; 24C about $2.6M."
+        ]
+      }
+    },
+    {
+      "id": "lvl-29-30-monetization",
+      "price": 29.5,
+      "range_low": 29.0,
+      "range_high": 30.0,
+      "role": [
+        "potential_cap",
+        "transition"
+      ],
+      "label": "29-30 FIRST MONETIZATION / CAP",
+      "strength": 0.58,
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": 14.94,
+      "flow": {
+        "call_buy": 198000.0,
+        "call_sell": 233000.0,
+        "put_buy": 56000.0,
+        "put_sell": 0.0,
+        "net_calls": -35000.0,
+        "net_puts": 56000.0,
+        "gross": 487000.0,
+        "directional_delta_usd": -273000.0
+      },
+      "interpretation": "29-30 is the next likely monetization band after 24-25, though current-day premium is much smaller.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Role uses current flow plus the stateful VIX book."
+        ]
+      }
+    },
+    {
+      "id": "lvl-50-deferred-tail",
+      "price": 50.0,
+      "range_low": 50.0,
+      "range_high": 50.0,
+      "role": [
+        "tail_zone",
+        "upside_demand"
+      ],
+      "label": "50 NOVEMBER DISASTER INSURANCE",
+      "strength": 0.52,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 35.44,
+      "flow": {
+        "call_buy": 866000.0,
+        "call_sell": 242000.0,
+        "put_buy": 0.0,
+        "put_sell": 0.0,
+        "net_calls": 624000.0,
+        "net_puts": 0.0,
+        "gross": 1108000.0,
+        "directional_delta_usd": 2443000.0
+      },
+      "interpretation": "November 50C is a deferred disaster-insurance layer, not a normal VIX target.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Net November 50C premium bought about $624k."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-13T16:30:00+03:00",
+      "end": "2026-08-13T19:30:00+03:00",
+      "spot_open": 14.38,
+      "spot_high": 14.79,
+      "spot_low": 14.38,
+      "spot_close": 14.7,
+      "calls": {
+        "bought": 14440000.0,
+        "sold": 6854000.0,
+        "net": 7586000.0
+      },
+      "puts": {
+        "bought": 24681000.0,
+        "sold": 14518000.0,
+        "net": 10163000.0
+      },
+      "gross_premium": 60493000.0,
+      "directional_delta_usd": 49057000.0,
+      "near_spot": null,
+      "regime": "deferred_hedge_build",
+      "events": [
+        "Large November 20 movement + 25C upside package",
+        "Sep/Oct short-VIX package offsets part of deferred hedge"
+      ]
+    },
+    {
+      "start": "2026-08-13T19:30:00+03:00",
+      "end": "2026-08-13T22:00:00+03:00",
+      "spot_open": 14.73,
+      "spot_high": 14.73,
+      "spot_low": 14.67,
+      "spot_close": 14.71,
+      "calls": {
+        "bought": 103000.0,
+        "sold": 676000.0,
+        "net": -573000.0
+      },
+      "puts": {
+        "bought": 2975000.0,
+        "sold": 2362000.0,
+        "net": 613000.0
+      },
+      "gross_premium": 6116000.0,
+      "directional_delta_usd": 447000.0,
+      "near_spot": null,
+      "regime": "balanced_churn",
+      "events": [
+        "Flow becomes near-neutral after the main morning structures"
+      ]
+    },
+    {
+      "start": "2026-08-13T22:00:00+03:00",
+      "end": "2026-08-13T23:00:06+03:00",
+      "spot_open": 14.72,
+      "spot_high": 14.73,
+      "spot_low": 14.56,
+      "spot_close": 14.56,
+      "calls": {
+        "bought": 697000.0,
+        "sold": 1527000.0,
+        "net": -830000.0
+      },
+      "puts": {
+        "bought": 78000.0,
+        "sold": 1333000.0,
+        "net": -1255000.0
+      },
+      "gross_premium": 3635000.0,
+      "directional_delta_usd": 2774000.0,
+      "near_spot": null,
+      "regime": "range_selling_with_put_floor",
+      "events": [
+        "Late flow returns to premium selling while VIX stays near session lows"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-sep23-50-100-put-vertical",
+      "timestamp": "2026-08-13T16:32:00+03:00",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "expiration": "2026-09-23",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 50.0,
+          "contracts": 1830,
+          "premium": 5849000.0,
+          "trade_ids": [
+            "fce46e67-7076-4b10-a615-f2a571eab5f9",
+            "273a6d06-4c3b-427b-adb8-1c9344757f96",
+            "da6cc10a-42dc-4a7a-b6e2-b220f6fbdb33",
+            "3cc079d4-96c6-4252-a540-62394ca9dff2",
+            "b3de82e8-f0a1-41ba-bd0a-7dc763ef0a71",
+            "d515cfbc-3aff-4923-aec9-e0024d8052c4",
+            "2dc6278b-8e90-43a4-851b-535949947e11"
+          ]
+        },
+        {
+          "expiration": "2026-09-23",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 100.0,
+          "contracts": 1830,
+          "premium": 14845000.0,
+          "trade_ids": [
+            "7910cd59-7e1b-4e6a-9a1c-9d222a56f8c5",
+            "7f03a7d9-3186-4a8a-9c2b-e5b18e2ba990",
+            "a2ceb726-2af4-4dbc-9016-7e6a5d9e2a4b",
+            "57256d65-4299-40ec-8d55-b4441a61aea3",
+            "6fd79c4a-22fa-4069-882f-4964514688f5",
+            "adaaed54-4596-4de3-b8cf-6267d959a6f0",
+            "42cbbc6b-ac99-4e3d-b74b-8ee43a2a4f93"
+          ]
+        }
+      ],
+      "gross_premium": 20694000.0,
+      "net_premium": 8996000.0,
+      "directional_delta_usd": -1000.0,
+      "bias": "relative_value",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        50.0,
+        100.0
+      ],
+      "interpretation": "Repeated deep-ITM 50P/100P verticals are nearly delta-neutral and treated as financing/relative-value rather than directional VIX risk.",
+      "ui_title": "Sep 23 Deep-ITM 50/100 Put Vertical"
+    },
+    {
+      "id": "str-nov-20-straddle-25c",
+      "timestamp": "2026-08-13T16:49:03+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 13260,
+          "premium": 3958000.0,
+          "trade_ids": [
+            "25f77185-e05d-4b55-b190-d7faaa5b1e0f",
+            "8c9e0607-5a97-4586-87af-249b796615c7"
+          ]
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 13455,
+          "premium": 3758000.0,
+          "trade_ids": [
+            "9e57b9ae-f91b-4234-bea9-eb920041ce95",
+            "14fe500c-f42a-4fdf-b4c0-22fcd7106454",
+            "f037f289-e5be-4ea6-aa41-f52bcd25f884",
+            "ef34f67e-fd8a-435b-bcd4-6ca281c0798f",
+            "0c1214d8-7d84-4c49-8966-0da6abe4e0e2",
+            "8f51fc87-f5a1-4f1c-a324-8bb16b1165ec",
+            "34df425b-e462-4365-a2c6-0a1a322a8a3f",
+            "b625ebea-39bf-43df-ac3d-22c9401d92ff"
+          ]
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 25.0,
+          "contracts": 23250,
+          "premium": 4492000.0,
+          "trade_ids": [
+            "0afc50f2-031e-4efc-9a5d-4fbf24976c37",
+            "ea52b8e4-1e11-4ddc-8a5a-ad93a99b4060",
+            "c0b25f20-8bf3-4013-8180-7c5caabb7813",
+            "0db50c0c-a23c-462a-bbc1-36d3bd7f850a",
+            "92302b90-4b00-4e0e-b38c-da5a655ecfc5",
+            "4f16a71b-4181-454d-9069-6462edd0c545",
+            "00f42c4e-e567-48a8-994d-299dc31e2a52",
+            "192af55f-0d08-4e97-ae5c-05322c4ebd55",
+            "6df6f64c-cdb5-4aaa-9eba-f8775eb8cf2c",
+            "d9025c49-2f5a-4a76-8d9a-225d69ed6a0b"
+          ]
+        }
+      ],
+      "gross_premium": 12208000.0,
+      "net_premium": 12208000.0,
+      "directional_delta_usd": 22503000.0,
+      "bias": "long_vol_upside",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        25.0
+      ],
+      "interpretation": "Likely long November 20 straddle plus a large 25C overlay; buys movement around the forward and additional upside stress convexity.",
+      "ui_title": "November 20 Movement + 25 Upside"
+    },
+    {
+      "id": "str-nov-short20-long24",
+      "timestamp": "2026-08-13T17:21:00+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 2940,
+          "premium": 882000.0,
+          "trade_ids": [
+            "b10324f5-e65f-49bb-b5b7-184157917196",
+            "57aadade-7a47-4d98-8d8c-10164bfd0213"
+          ]
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 2940,
+          "premium": 794000.0,
+          "trade_ids": [
+            "2655e90e-5ef6-45ed-a48b-36cd0c2e67b0"
+          ]
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 24.0,
+          "contracts": 7000,
+          "premium": 1500000.0,
+          "trade_ids": [
+            "06c868f4-05e5-4423-98b2-a83afa335d49"
+          ]
+        }
+      ],
+      "gross_premium": 3176000.0,
+      "net_premium": -176000.0,
+      "directional_delta_usd": 4913000.0,
+      "bias": "upside_convexity",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        24.0
+      ],
+      "interpretation": "Short 20 body with a larger 24C purchase shifts exposure toward moderate November stress while monetizing central volatility.",
+      "ui_title": "November 20 Body -> 24C Convexity"
+    },
+    {
+      "id": "str-sep-oct-short-vix",
+      "timestamp": "2026-08-13T18:29:18+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 18.0,
+          "contracts": 3300,
+          "premium": 561000.0,
+          "trade_ids": [
+            "6f10ea4a-841d-4a6e-bf2b-cc2fde60e45a"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 18.0,
+          "contracts": 3300,
+          "premium": 535000.0,
+          "trade_ids": [
+            "3c3dd9e3-3ad3-405b-bfa5-1e26d532f3ad"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 23.0,
+          "contracts": 12000,
+          "premium": 1000000.0,
+          "trade_ids": [
+            "987bc793-2615-4e51-8110-1c95d2096022"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 19.0,
+          "contracts": 2560,
+          "premium": 691000.0,
+          "trade_ids": [
+            "c7180b06-e510-4e5b-889b-b9dc94422f4e"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 19.0,
+          "contracts": 2620,
+          "premium": 558000.0,
+          "trade_ids": [
+            "37002a81-00d1-488d-9bad-a5e152f3a0cc"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 24.0,
+          "contracts": 7000,
+          "premium": 1100000.0,
+          "trade_ids": [
+            "52ab2e70-b6e6-4bcf-b39b-27b9f095b4cb"
+          ]
+        }
+      ],
+      "gross_premium": 4445000.0,
+      "net_premium": -2259000.0,
+      "directional_delta_usd": -22100000.0,
+      "bias": "short_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        18.0,
+        19.0,
+        23.0,
+        24.0
+      ],
+      "interpretation": "Paired September and October synthetic-short-like legs with 23C/24C overwrites express normalization in the near/mid curve and cap moderate stress.",
+      "ui_title": "Sep/Oct Short-VIX Normalization"
+    },
+    {
+      "id": "str-aug-sep-put-floor-normalization",
+      "timestamp": "2026-08-13T19:27:27+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-08-19",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 16.5,
+          "contracts": 4000,
+          "premium": 348000.0,
+          "trade_ids": [
+            "fabff0e0-cbf4-4124-bf88-35682526f2c6"
+          ]
+        },
+        {
+          "expiration": "2026-08-19",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.0,
+          "contracts": 7500,
+          "premium": 945000.0,
+          "trade_ids": [
+            "360cf892-2e23-464f-a6af-c13aa5406dc7"
+          ]
+        },
+        {
+          "expiration": "2026-08-19",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 19.0,
+          "contracts": 10000,
+          "premium": 3100000.0,
+          "trade_ids": [
+            "a8cd98b5-223f-45d2-8359-9e6e89e2f774"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 15.5,
+          "contracts": 10000,
+          "premium": 300000.0,
+          "trade_ids": [
+            "f6d33195-d31f-49ab-bb18-c8e33fea1db8"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.0,
+          "contracts": 10000,
+          "premium": 970000.0,
+          "trade_ids": [
+            "38f63b0e-7ce5-4210-b2cb-c5e61c6ccabb"
+          ]
+        }
+      ],
+      "gross_premium": 5663000.0,
+      "net_premium": 537000.0,
+      "directional_delta_usd": 7500000.0,
+      "bias": "mixed_floor_and_downside",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        15.5,
+        16.5,
+        17.0,
+        19.0
+      ],
+      "interpretation": "August 19P demand is financed by lower put sales while September lower puts are sold, reinforcing a low-VIX floor and normalization profile.",
+      "ui_title": "Aug/Sep Put Floor and Normalization"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-front-15-17-floor",
+      "low": 15.0,
+      "high": 17.0,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "front put sellers",
+        "short-vol carry books"
+      ],
+      "source_structure_ids": [
+        "str-aug-sep-put-floor-normalization"
+      ],
+      "source_level_ids": [
+        "lvl-15-17-front-floor"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Front put risk is repeatedly accepted in 15-17, favoring decay/range while VIX remains above the lower sold-put wing.",
+      "caveat": "If these are closing long puts rather than opening sales, the floor interpretation weakens."
+    },
+    {
+      "id": "mz-sep-oct-18-20-body",
+      "low": 18.0,
+      "high": 20.0,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "September/October short-range books",
+        "call overwriters"
+      ],
+      "source_structure_ids": [
+        "str-sep-oct-short-vix"
+      ],
+      "source_level_ids": [
+        "lvl-18-20-near-pivot"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "18-20 is the main near/mid body monetization zone while the curve remains in contango.",
+      "caveat": "Acceptance above 20 with new call buying would invalidate simple decay."
+    },
+    {
+      "id": "mz-nov-24-25-upside",
+      "low": 24.0,
+      "high": 25.0,
+      "type": "vol_realization",
+      "beneficiaries": [
+        "November long-vol and upside-call buyers"
+      ],
+      "source_structure_ids": [
+        "str-nov-20-straddle-25c",
+        "str-nov-short20-long24"
+      ],
+      "source_level_ids": [
+        "lvl-24-25-nov-demand"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "24-25 is the first materially purchased deferred stress-realization zone.",
+      "caveat": "The multileg packages are inferred and opening status is unknown."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-19",
+      "label": "AUG 19 2026",
+      "expiration": "2026-08-19",
+      "dte": 6,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Front VIX is range/floor driven: lower puts are sold while 19P is selectively bought."
+      },
+      "flow_aggregate": {
+        "gross_premium": 10250000.0,
+        "directional_delta_usd": 25987000.0,
+        "calls": {
+          "bought": 56000.0,
+          "sold": 142000.0,
+          "net": -86000.0
+        },
+        "puts": {
+          "bought": 4689000.0,
+          "sold": 5363000.0,
+          "net": -674000.0
+        },
+        "net_premium": -760000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-aug-15-17-floor",
+          "price": 16.0,
+          "range_low": 15.0,
+          "range_high": 17.0,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor"
+          ],
+          "label": "AUG 15-17 PUT FLOOR",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 0.0,
+            "call_sell": 142000.0,
+            "put_buy": 428000.0,
+            "put_sell": 3266000.0,
+            "net_calls": -142000.0,
+            "net_puts": -2838000.0,
+            "gross": 3836000.0,
+            "directional_delta_usd": 33763000.0
+          },
+          "interpretation": "Net put selling at 15-17 defines the front floor zone.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-aug-sep-put-floor-normalization"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-aug-19-put-demand",
+          "price": 19.0,
+          "range_low": 19.0,
+          "range_high": 19.0,
+          "role": [
+            "downside_protection",
+            "transition"
+          ],
+          "label": "AUG 19P NORMALIZATION DEMAND",
+          "strength": 0.82,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 0.0,
+            "call_sell": 0.0,
+            "put_buy": 3880000.0,
+            "put_sell": 1520000.0,
+            "net_calls": 0.0,
+            "net_puts": 2360000.0,
+            "gross": 5400000.0,
+            "directional_delta_usd": -10649000.0
+          },
+          "interpretation": "19P is net bought while lower puts finance the downside-VIX position.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-aug-sep-put-floor-normalization"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-aug-sep-put-floor-normalization",
+          "timestamp": "2026-08-13T19:27:27+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-08-19",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.5,
+              "contracts": 4000,
+              "premium": 348000.0,
+              "trade_ids": [
+                "fabff0e0-cbf4-4124-bf88-35682526f2c6"
+              ]
+            },
+            {
+              "expiration": "2026-08-19",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.0,
+              "contracts": 7500,
+              "premium": 945000.0,
+              "trade_ids": [
+                "360cf892-2e23-464f-a6af-c13aa5406dc7"
+              ]
+            },
+            {
+              "expiration": "2026-08-19",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 10000,
+              "premium": 3100000.0,
+              "trade_ids": [
+                "a8cd98b5-223f-45d2-8359-9e6e89e2f774"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 15.5,
+              "contracts": 10000,
+              "premium": 300000.0,
+              "trade_ids": [
+                "f6d33195-d31f-49ab-bb18-c8e33fea1db8"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.0,
+              "contracts": 10000,
+              "premium": 970000.0,
+              "trade_ids": [
+                "38f63b0e-7ce5-4210-b2cb-c5e61c6ccabb"
+              ]
+            }
+          ],
+          "gross_premium": 5663000.0,
+          "net_premium": 537000.0,
+          "directional_delta_usd": 7500000.0,
+          "bias": "mixed_floor_and_downside",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            15.5,
+            16.5,
+            17.0,
+            19.0
+          ],
+          "interpretation": "August 19P demand is financed by lower put sales while September lower puts are sold, reinforcing a low-VIX floor and normalization profile.",
+          "ui_title": "Aug/Sep Put Floor and Normalization"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-16",
+      "label": "SEP 16 2026",
+      "expiration": "2026-09-16",
+      "dte": 34,
+      "forward": 18.0475,
+      "reference_price": null,
+      "summary": {
+        "headline": "September is a short-range book around 18-20 with call supply at 20-23 and selective 26C convexity."
+      },
+      "flow_aggregate": {
+        "gross_premium": 10593000.0,
+        "directional_delta_usd": 11893000.0,
+        "calls": {
+          "bought": 1333000.0,
+          "sold": 3304000.0,
+          "net": -1971000.0
+        },
+        "puts": {
+          "bought": 879000.0,
+          "sold": 5077000.0,
+          "net": -4198000.0
+        },
+        "net_premium": -6169000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-sep-18-20-body",
+          "price": 19.0,
+          "range_low": 18.0,
+          "range_high": 20.0,
+          "role": [
+            "main_pivot",
+            "volatility_center",
+            "call_supply",
+            "put_risk_acceptance"
+          ],
+          "label": "SEP 18-20 SHORT-RANGE BODY",
+          "strength": 0.96,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 596000.0,
+            "call_sell": 1379000.0,
+            "put_buy": 879000.0,
+            "put_sell": 3658000.0,
+            "net_calls": -783000.0,
+            "net_puts": -2779000.0,
+            "gross": 6512000.0,
+            "directional_delta_usd": 8946000.0
+          },
+          "interpretation": "Both sides of 18-20 are sold; positive delta is mostly put-sale rather than call demand.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-short-vix"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep-21-23-supply",
+          "price": 22.0,
+          "range_low": 21.0,
+          "range_high": 23.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "SEP 21-23 CALL SUPPLY",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 187000.0,
+            "call_sell": 1669000.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": -1482000.0,
+            "net_puts": 0.0,
+            "gross": 1856000.0,
+            "directional_delta_usd": -8899000.0
+          },
+          "interpretation": "21-23 calls are net sold, with 23C the largest overwrite in the band.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-short-vix"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep-26-demand",
+          "price": 26.0,
+          "range_low": 26.0,
+          "range_high": 26.0,
+          "role": [
+            "upside_demand",
+            "tail_zone"
+          ],
+          "label": "SEP 26 SELECTIVE CONVEXITY",
+          "strength": 0.48,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 494000.0,
+            "call_sell": 0.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": 494000.0,
+            "net_puts": 0.0,
+            "gross": 494000.0,
+            "directional_delta_usd": 2800000.0
+          },
+          "interpretation": "Selective 26C buying remains but is much smaller than 20-23 supply.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep-oct-short-vix",
+          "timestamp": "2026-08-13T18:29:18+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-09-16",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 3300,
+              "premium": 561000.0,
+              "trade_ids": [
+                "6f10ea4a-841d-4a6e-bf2b-cc2fde60e45a"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.0,
+              "contracts": 3300,
+              "premium": 535000.0,
+              "trade_ids": [
+                "3c3dd9e3-3ad3-405b-bfa5-1e26d532f3ad"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 23.0,
+              "contracts": 12000,
+              "premium": 1000000.0,
+              "trade_ids": [
+                "987bc793-2615-4e51-8110-1c95d2096022"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 19.0,
+              "contracts": 2560,
+              "premium": 691000.0,
+              "trade_ids": [
+                "c7180b06-e510-4e5b-889b-b9dc94422f4e"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 2620,
+              "premium": 558000.0,
+              "trade_ids": [
+                "37002a81-00d1-488d-9bad-a5e152f3a0cc"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 24.0,
+              "contracts": 7000,
+              "premium": 1100000.0,
+              "trade_ids": [
+                "52ab2e70-b6e6-4bcf-b39b-27b9f095b4cb"
+              ]
+            }
+          ],
+          "gross_premium": 4445000.0,
+          "net_premium": -2259000.0,
+          "directional_delta_usd": -22100000.0,
+          "bias": "short_vix",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18.0,
+            19.0,
+            23.0,
+            24.0
+          ],
+          "interpretation": "Paired September and October synthetic-short-like legs with 23C/24C overwrites express normalization in the near/mid curve and cap moderate stress.",
+          "ui_title": "Sep/Oct Short-VIX Normalization"
+        },
+        {
+          "id": "str-aug-sep-put-floor-normalization",
+          "timestamp": "2026-08-13T19:27:27+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-08-19",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.5,
+              "contracts": 4000,
+              "premium": 348000.0,
+              "trade_ids": [
+                "fabff0e0-cbf4-4124-bf88-35682526f2c6"
+              ]
+            },
+            {
+              "expiration": "2026-08-19",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.0,
+              "contracts": 7500,
+              "premium": 945000.0,
+              "trade_ids": [
+                "360cf892-2e23-464f-a6af-c13aa5406dc7"
+              ]
+            },
+            {
+              "expiration": "2026-08-19",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 10000,
+              "premium": 3100000.0,
+              "trade_ids": [
+                "a8cd98b5-223f-45d2-8359-9e6e89e2f774"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 15.5,
+              "contracts": 10000,
+              "premium": 300000.0,
+              "trade_ids": [
+                "f6d33195-d31f-49ab-bb18-c8e33fea1db8"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.0,
+              "contracts": 10000,
+              "premium": 970000.0,
+              "trade_ids": [
+                "38f63b0e-7ce5-4210-b2cb-c5e61c6ccabb"
+              ]
+            }
+          ],
+          "gross_premium": 5663000.0,
+          "net_premium": 537000.0,
+          "directional_delta_usd": 7500000.0,
+          "bias": "mixed_floor_and_downside",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            15.5,
+            16.5,
+            17.0,
+            19.0
+          ],
+          "interpretation": "August 19P demand is financed by lower put sales while September lower puts are sold, reinforcing a low-VIX floor and normalization profile.",
+          "ui_title": "Aug/Sep Put Floor and Normalization"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-23",
+      "label": "SEP 23 2026",
+      "expiration": "2026-09-23",
+      "dte": 41,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Deep-ITM 50P/100P verticals are nearly delta-neutral and treated as relative-value/financing."
+      },
+      "flow_aggregate": {
+        "gross_premium": 20694000.0,
+        "directional_delta_usd": -1000.0,
+        "calls": {
+          "bought": 0.0,
+          "sold": 0.0,
+          "net": 0.0
+        },
+        "puts": {
+          "bought": 14845000.0,
+          "sold": 5849000.0,
+          "net": 8996000.0
+        },
+        "net_premium": 8996000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-sep23-50-100-rv",
+          "price": 75.0,
+          "range_low": 50.0,
+          "range_high": 100.0,
+          "role": [
+            "complex_zone"
+          ],
+          "label": "SEP 23 50/100 DEEP-ITM RELATIVE-VALUE",
+          "strength": 0.98,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 0.0,
+            "call_sell": 0.0,
+            "put_buy": 14845000.0,
+            "put_sell": 5849000.0,
+            "net_calls": 0.0,
+            "net_puts": 8996000.0,
+            "gross": 20694000.0,
+            "directional_delta_usd": -1000.0
+          },
+          "interpretation": "Large premium is nearly delta-neutral and is not treated as directional VIX protection.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep23-50-100-put-vertical"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep23-50-100-put-vertical",
+          "timestamp": "2026-08-13T16:32:00+03:00",
+          "type": "put_debit_spread",
+          "legs": [
+            {
+              "expiration": "2026-09-23",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 50.0,
+              "contracts": 1830,
+              "premium": 5849000.0,
+              "trade_ids": [
+                "fce46e67-7076-4b10-a615-f2a571eab5f9",
+                "273a6d06-4c3b-427b-adb8-1c9344757f96",
+                "da6cc10a-42dc-4a7a-b6e2-b220f6fbdb33",
+                "3cc079d4-96c6-4252-a540-62394ca9dff2",
+                "b3de82e8-f0a1-41ba-bd0a-7dc763ef0a71",
+                "d515cfbc-3aff-4923-aec9-e0024d8052c4",
+                "2dc6278b-8e90-43a4-851b-535949947e11"
+              ]
+            },
+            {
+              "expiration": "2026-09-23",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 100.0,
+              "contracts": 1830,
+              "premium": 14845000.0,
+              "trade_ids": [
+                "7910cd59-7e1b-4e6a-9a1c-9d222a56f8c5",
+                "7f03a7d9-3186-4a8a-9c2b-e5b18e2ba990",
+                "a2ceb726-2af4-4dbc-9016-7e6a5d9e2a4b",
+                "57256d65-4299-40ec-8d55-b4441a61aea3",
+                "6fd79c4a-22fa-4069-882f-4964514688f5",
+                "adaaed54-4596-4de3-b8cf-6267d959a6f0",
+                "42cbbc6b-ac99-4e3d-b74b-8ee43a2a4f93"
+              ]
+            }
+          ],
+          "gross_premium": 20694000.0,
+          "net_premium": 8996000.0,
+          "directional_delta_usd": -1000.0,
+          "bias": "relative_value",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            50.0,
+            100.0
+          ],
+          "interpretation": "Repeated deep-ITM 50P/100P verticals are nearly delta-neutral and treated as financing/relative-value rather than directional VIX risk.",
+          "ui_title": "Sep 23 Deep-ITM 50/100 Put Vertical"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "OCT 21 2026",
+      "expiration": "2026-10-21",
+      "dte": 69,
+      "forward": 19.585,
+      "reference_price": null,
+      "summary": {
+        "headline": "October incremental flow is clearly short VIX around 19-24."
+      },
+      "flow_aggregate": {
+        "gross_premium": 5781000.0,
+        "directional_delta_usd": -17225000.0,
+        "calls": {
+          "bought": 171000.0,
+          "sold": 2161000.0,
+          "net": -1990000.0
+        },
+        "puts": {
+          "bought": 2944000.0,
+          "sold": 505000.0,
+          "net": 2439000.0
+        },
+        "net_premium": 449000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-oct-19-20-short",
+          "price": 19.5,
+          "range_low": 19.0,
+          "range_high": 20.0,
+          "role": [
+            "main_pivot",
+            "downside_protection",
+            "call_supply"
+          ],
+          "label": "OCT 19-20 SHORT-VIX PIVOT",
+          "strength": 0.93,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 67000.0,
+            "call_sell": 898000.0,
+            "put_buy": 2866000.0,
+            "put_sell": 91000.0,
+            "net_calls": -831000.0,
+            "net_puts": 2775000.0,
+            "gross": 3922000.0,
+            "directional_delta_usd": -13770000.0
+          },
+          "interpretation": "19P demand plus 19-20 call selling creates a synthetic-short-like normalization profile.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-short-vix"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct-24-cap",
+          "price": 24.0,
+          "range_low": 24.0,
+          "range_high": 24.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "OCT 24 CALL SUPPLY",
+          "strength": 0.79,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 0.0,
+            "call_sell": 1100000.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": -1100000.0,
+            "net_puts": 0.0,
+            "gross": 1100000.0,
+            "directional_delta_usd": -5100000.0
+          },
+          "interpretation": "Large 24C sale caps moderate October stress in current incremental flow.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-short-vix"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep-oct-short-vix",
+          "timestamp": "2026-08-13T18:29:18+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-09-16",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 3300,
+              "premium": 561000.0,
+              "trade_ids": [
+                "6f10ea4a-841d-4a6e-bf2b-cc2fde60e45a"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.0,
+              "contracts": 3300,
+              "premium": 535000.0,
+              "trade_ids": [
+                "3c3dd9e3-3ad3-405b-bfa5-1e26d532f3ad"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 23.0,
+              "contracts": 12000,
+              "premium": 1000000.0,
+              "trade_ids": [
+                "987bc793-2615-4e51-8110-1c95d2096022"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 19.0,
+              "contracts": 2560,
+              "premium": 691000.0,
+              "trade_ids": [
+                "c7180b06-e510-4e5b-889b-b9dc94422f4e"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 2620,
+              "premium": 558000.0,
+              "trade_ids": [
+                "37002a81-00d1-488d-9bad-a5e152f3a0cc"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 24.0,
+              "contracts": 7000,
+              "premium": 1100000.0,
+              "trade_ids": [
+                "52ab2e70-b6e6-4bcf-b39b-27b9f095b4cb"
+              ]
+            }
+          ],
+          "gross_premium": 4445000.0,
+          "net_premium": -2259000.0,
+          "directional_delta_usd": -22100000.0,
+          "bias": "short_vix",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18.0,
+            19.0,
+            23.0,
+            24.0
+          ],
+          "interpretation": "Paired September and October synthetic-short-like legs with 23C/24C overwrites express normalization in the near/mid curve and cap moderate stress.",
+          "ui_title": "Sep/Oct Short-VIX Normalization"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "NOV 18 2026",
+      "expiration": "2026-11-18",
+      "dte": 97,
+      "forward": 20.205,
+      "reference_price": null,
+      "summary": {
+        "headline": "November is the main defensive bucket: long movement around 20 plus strong 24-25 upside demand."
+      },
+      "flow_aggregate": {
+        "gross_premium": 22277000.0,
+        "directional_delta_usd": 30855000.0,
+        "calls": {
+          "bought": 13257000.0,
+          "sold": 3224000.0,
+          "net": 10033000.0
+        },
+        "puts": {
+          "bought": 4377000.0,
+          "sold": 1419000.0,
+          "net": 2958000.0
+        },
+        "net_premium": 12991000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-nov-20-vol-center",
+          "price": 20.0,
+          "range_low": 20.0,
+          "range_high": 20.0,
+          "role": [
+            "volatility_center",
+            "main_pivot"
+          ],
+          "label": "NOV 20 VOLATILITY CENTER",
+          "strength": 0.98,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 4499000.0,
+            "call_sell": 1827000.0,
+            "put_buy": 4377000.0,
+            "put_sell": 1419000.0,
+            "net_calls": 2672000.0,
+            "net_puts": 2958000.0,
+            "gross": 12122000.0,
+            "directional_delta_usd": 1299000.0
+          },
+          "interpretation": "Large call and put buying around 20 makes this the main November movement center.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov-20-straddle-25c",
+              "str-nov-short20-long24"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-nov-24-25-demand",
+          "price": 24.5,
+          "range_low": 24.0,
+          "range_high": 25.0,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "NOV 24-25 UPSIDE DEMAND",
+          "strength": 0.99,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 7591000.0,
+            "call_sell": 126000.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": 7465000.0,
+            "net_puts": 0.0,
+            "gross": 7717000.0,
+            "directional_delta_usd": 30169000.0
+          },
+          "interpretation": "Repeated 24C/25C purchases make this the strongest active deferred stress zone.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov-20-straddle-25c",
+              "str-nov-short20-long24"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-nov-50-tail",
+          "price": 50.0,
+          "range_low": 50.0,
+          "range_high": 50.0,
+          "role": [
+            "tail_zone",
+            "upside_demand"
+          ],
+          "label": "NOV 50 DISASTER TAIL",
+          "strength": 0.52,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 866000.0,
+            "call_sell": 242000.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": 624000.0,
+            "net_puts": 0.0,
+            "gross": 1108000.0,
+            "directional_delta_usd": 2443000.0
+          },
+          "interpretation": "50C is a small disaster-insurance layer, not a normal route target.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-nov-20-straddle-25c",
+          "timestamp": "2026-08-13T16:49:03+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-11-18",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 13260,
+              "premium": 3958000.0,
+              "trade_ids": [
+                "25f77185-e05d-4b55-b190-d7faaa5b1e0f",
+                "8c9e0607-5a97-4586-87af-249b796615c7"
+              ]
+            },
+            {
+              "expiration": "2026-11-18",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 13455,
+              "premium": 3758000.0,
+              "trade_ids": [
+                "9e57b9ae-f91b-4234-bea9-eb920041ce95",
+                "14fe500c-f42a-4fdf-b4c0-22fcd7106454",
+                "f037f289-e5be-4ea6-aa41-f52bcd25f884",
+                "ef34f67e-fd8a-435b-bcd4-6ca281c0798f",
+                "0c1214d8-7d84-4c49-8966-0da6abe4e0e2",
+                "8f51fc87-f5a1-4f1c-a324-8bb16b1165ec",
+                "34df425b-e462-4365-a2c6-0a1a322a8a3f",
+                "b625ebea-39bf-43df-ac3d-22c9401d92ff"
+              ]
+            },
+            {
+              "expiration": "2026-11-18",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 25.0,
+              "contracts": 23250,
+              "premium": 4492000.0,
+              "trade_ids": [
+                "0afc50f2-031e-4efc-9a5d-4fbf24976c37",
+                "ea52b8e4-1e11-4ddc-8a5a-ad93a99b4060",
+                "c0b25f20-8bf3-4013-8180-7c5caabb7813",
+                "0db50c0c-a23c-462a-bbc1-36d3bd7f850a",
+                "92302b90-4b00-4e0e-b38c-da5a655ecfc5",
+                "4f16a71b-4181-454d-9069-6462edd0c545",
+                "00f42c4e-e567-48a8-994d-299dc31e2a52",
+                "192af55f-0d08-4e97-ae5c-05322c4ebd55",
+                "6df6f64c-cdb5-4aaa-9eba-f8775eb8cf2c",
+                "d9025c49-2f5a-4a76-8d9a-225d69ed6a0b"
+              ]
+            }
+          ],
+          "gross_premium": 12208000.0,
+          "net_premium": 12208000.0,
+          "directional_delta_usd": 22503000.0,
+          "bias": "long_vol_upside",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20.0,
+            25.0
+          ],
+          "interpretation": "Likely long November 20 straddle plus a large 25C overlay; buys movement around the forward and additional upside stress convexity.",
+          "ui_title": "November 20 Movement + 25 Upside"
+        },
+        {
+          "id": "str-nov-short20-long24",
+          "timestamp": "2026-08-13T17:21:00+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-11-18",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 2940,
+              "premium": 882000.0,
+              "trade_ids": [
+                "b10324f5-e65f-49bb-b5b7-184157917196",
+                "57aadade-7a47-4d98-8d8c-10164bfd0213"
+              ]
+            },
+            {
+              "expiration": "2026-11-18",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 2940,
+              "premium": 794000.0,
+              "trade_ids": [
+                "2655e90e-5ef6-45ed-a48b-36cd0c2e67b0"
+              ]
+            },
+            {
+              "expiration": "2026-11-18",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 24.0,
+              "contracts": 7000,
+              "premium": 1500000.0,
+              "trade_ids": [
+                "06c868f4-05e5-4423-98b2-a83afa335d49"
+              ]
+            }
+          ],
+          "gross_premium": 3176000.0,
+          "net_premium": -176000.0,
+          "directional_delta_usd": 4913000.0,
+          "bias": "upside_convexity",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20.0,
+            24.0
+          ],
+          "interpretation": "Short 20 body with a larger 24C purchase shifts exposure toward moderate November stress while monetizing central volatility.",
+          "ui_title": "November 20 Body -> 24C Convexity"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "DEC 16 2026",
+      "expiration": "2026-12-16",
+      "dte": 125,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "December activity is immaterial in this snapshot."
+      },
+      "flow_aggregate": {
+        "gross_premium": 102000.0,
+        "directional_delta_usd": -200000.0,
+        "calls": {
+          "bought": 0.0,
+          "sold": 102000.0,
+          "net": -102000.0
+        },
+        "puts": {
+          "bought": 0.0,
+          "sold": 0.0,
+          "net": 0.0
+        },
+        "net_premium": -102000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-dec-10-small-sale",
+          "price": 10.0,
+          "range_low": 10.0,
+          "range_high": 10.0,
+          "role": [
+            "complex_zone"
+          ],
+          "label": "DEC 10C SMALL SALE",
+          "strength": 0.15,
+          "basis": "observed",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 0.0,
+            "call_sell": 102000.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": -102000.0,
+            "net_puts": 0.0,
+            "gross": 102000.0,
+            "directional_delta_usd": -200000.0
+          },
+          "interpretation": "Single small trade; not regime-defining.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "JAN 20 2027",
+      "expiration": "2027-01-20",
+      "dte": 160,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "January has small 14.5C buying, too small to define the regime."
+      },
+      "flow_aggregate": {
+        "gross_premium": 423000.0,
+        "directional_delta_usd": 1188000.0,
+        "calls": {
+          "bought": 423000.0,
+          "sold": 0.0,
+          "net": 423000.0
+        },
+        "puts": {
+          "bought": 0.0,
+          "sold": 0.0,
+          "net": 0.0
+        },
+        "net_premium": 423000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-jan-14_5-small-buy",
+          "price": 14.5,
+          "range_low": 14.5,
+          "range_high": 14.5,
+          "role": [
+            "upside_demand"
+          ],
+          "label": "JAN 14.5C SMALL BUY",
+          "strength": 0.2,
+          "basis": "observed",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 423000.0,
+            "call_sell": 0.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": 423000.0,
+            "net_puts": 0.0,
+            "gross": 423000.0,
+            "directional_delta_usd": 1188000.0
+          },
+          "interpretation": "Small call buying; insufficient size to define a broad regime.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-04-21",
+      "label": "APR 21 2027",
+      "expiration": "2027-04-21",
+      "dte": 251,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "April has one small 10C sale, not regime-defining."
+      },
+      "flow_aggregate": {
+        "gross_premium": 124000.0,
+        "directional_delta_usd": -219000.0,
+        "calls": {
+          "bought": 0.0,
+          "sold": 124000.0,
+          "net": -124000.0
+        },
+        "puts": {
+          "bought": 0.0,
+          "sold": 0.0,
+          "net": 0.0
+        },
+        "net_premium": -124000.0
+      },
+      "levels": [
+        {
+          "id": "lvl-apr-10-small-sale",
+          "price": 10.0,
+          "range_low": 10.0,
+          "range_high": 10.0,
+          "role": [
+            "complex_zone"
+          ],
+          "label": "APR 10C SMALL SALE",
+          "strength": 0.1,
+          "basis": "observed",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 0.0,
+            "call_sell": 124000.0,
+            "put_buy": 0.0,
+            "put_sell": 0.0,
+            "net_calls": -124000.0,
+            "net_puts": 0.0,
+            "gross": 124000.0,
+            "directional_delta_usd": -219000.0
+          },
+          "interpretation": "Single small call sale; not regime-defining.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base-carry",
+      "name": "Near-term carry / controlled VIX",
+      "bias": "supportive_spx",
+      "priority": 0.55,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 18.0,
+          "description": "September VIX remains below the main 18-20 body zone"
+        },
+        {
+          "type": "iv_compress",
+          "level": null,
+          "description": "Front and September implied volatility remain compressed"
+        }
+      ],
+      "route": [
+        18.0,
+        17.0,
+        16.0
+      ],
+      "invalidations": [
+        "September VIX accepts above 20 with new call buying"
+      ],
+      "interpretation": "Put-risk acceptance and body selling favor controlled VIX and SPX carry while the 18-20 September body contains stress."
+    },
+    {
+      "id": "sc-moderate-stress",
+      "name": "Moderate stress realization",
+      "bias": "defensive",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 20.0,
+          "description": "Absorb September/October body and call supply"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 22.0,
+          "description": "New call demand confirms stress above the 20 pivot"
+        }
+      ],
+      "route": [
+        20.0,
+        23.0,
+        25.0,
+        30.0
+      ],
+      "invalidations": [
+        "Failed acceptance back below 18-20"
+      ],
+      "interpretation": "Acceptance above 20 activates the 21-23 supply test and then the genuinely purchased November 24-25 stress zone."
+    },
+    {
+      "id": "sc-deferred-event",
+      "name": "Deferred November event risk",
+      "bias": "defensive",
+      "priority": 0.1,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 24.0,
+          "description": "November stress demand begins to realize"
+        },
+        {
+          "type": "iv_expand",
+          "level": null,
+          "description": "November IV expands relative to the front curve"
+        }
+      ],
+      "route": [
+        24.0,
+        25.0,
+        29.0,
+        30.0
+      ],
+      "invalidations": [
+        "November 20/24-25 bought structures lose bid while front contango deepens"
+      ],
+      "interpretation": "24-25 is the main deferred purchased stress zone. The 50C layer is disaster insurance and is not a normal route target."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 163,
+    "deduplicated_rows": 161,
+    "duplicates_removed": 2,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "side_vs_mid_agreement": 0.8633540372670807,
+    "multileg_quality": "mixed",
+    "probable_multileg_premium_share": 0.856,
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "complex_order_id is unavailable, so multileg linkage is inferred from timestamp, size and strike geometry.",
+      "The Sep-23 deep-ITM 50P/100P vertical materially inflates premium but is nearly delta-neutral.",
+      "Visible tape is not the full VIX market position and excludes trades below the premium filter.",
+      "VIX option moneyness should be read against expiry-specific forwards where available, not spot alone."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
