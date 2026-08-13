@@ -1,0 +1,985 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-08-13 19-46 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-08-13",
+    "dte": 0,
+    "snapshot_time": "2026-08-13T19:46:00+03:00",
+    "data_through_time": "2026-08-13T19:31:49+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-12 (1DTE).csv",
+      "spotgamma-tape-profile-1-2026-08-13.csv",
+      "spotgamma-tape-profile-1-2026-08-13 (1).csv",
+      "spotgamma-tape-profile-1-2026-08-13 (3).csv"
+    ],
+    "source_timezone_label": "America/New_York",
+    "timestamp_interpretation": "Timestamps are treated as Cyprus-local for session sequencing because the observed RTH alignment conflicts with the source timezone label."
+  },
+  "market_state": {
+    "spot": 7787.4,
+    "spot_change_from_previous_snapshot": -18.7,
+    "session_high": 7816.6,
+    "post_high_low": 7776.6,
+    "regime": "failed_breakout_defensive_reversal",
+    "bias": "defensive_mixed",
+    "confidence": "medium",
+    "main_pivot": 7800,
+    "upper_decision_level": 7820,
+    "lower_decision_level": 7775
+  },
+  "summary": {
+    "headline": "7815-7820 rejection confirmed the new upper supply; 7775-7780 is now the lower decision zone.",
+    "key_points": [
+      "Утренний breakout поглотил прежнюю supply 7750-7760 и дошел до 7816.6.",
+      "Зона 7815-7820 получила подтверждение ценой как активный cap после rejection до 7776.6.",
+      "Near-spot flow развернулся в defensive: net calls -2.142M USD, net puts +2.201M USD в пределах ±30 пунктов от spot на момент каждой сделки.",
+      "Последние пакеты около 19:30-19:31 продолжают продавать calls и покупать puts, поэтому rebound ниже 7800 пока не подтвержден новым upside demand."
+    ],
+    "daily_note": "Failed breakout с defensive intraday flip, но пока без подтвержденного breakdown ниже 7775. Выше 7800-7805 bulls возвращают контроль; ниже 7775 открывается путь к 7770, 7760 и 7750."
+  },
+  "flow_aggregate": {
+    "gross_premium": 94212000,
+    "calls": {
+      "bought": 31962000,
+      "sold": 41623000,
+      "net": -9661000
+    },
+    "puts": {
+      "bought": 9342000,
+      "sold": 11285000,
+      "net": -1943000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "method": "distance from underlying spot at each trade",
+      "gross_premium": 1621000,
+      "calls": {
+        "bought": 0,
+        "sold": 1122000,
+        "net": -1122000
+      },
+      "puts": {
+        "bought": 446000,
+        "sold": 53000,
+        "net": 393000
+      }
+    },
+    "otm": {
+      "method": "call strike > trade spot; put strike < trade spot",
+      "gross_premium": 7974000,
+      "calls": {
+        "bought": 1877000,
+        "sold": 2872000,
+        "net": -995000
+      },
+      "puts": {
+        "bought": 1471000,
+        "sold": 1754000,
+        "net": -283000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "2cba5985-8e77-4d3d-9f47-650237c92434",
+      "dominant_premium": 5800000,
+      "dominant_share": 0.0616,
+      "result": {
+        "net_calls": -3861000,
+        "net_puts": -1943000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest 3000C spread leg reduces the raw call-selling headline materially, but the near-spot defensive reading remains intact."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7815-7820-cap",
+      "price": 7815,
+      "range_low": 7815,
+      "range_high": 7820,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "CONFIRMED CALL SUPPLY / CAP",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 27.6,
+      "flow": {
+        "call_buy": 800000,
+        "call_sell": 1001000,
+        "put_buy": 765000,
+        "put_sell": 850000,
+        "net_calls": -201000,
+        "net_puts": -85000,
+        "gross": 3416000
+      },
+      "interpretation": "503x 7815/7820 call-credit-spread-like inventory плюс последующий rejection от 7816.6 подтверждают верхний cap.",
+      "evidence": {
+        "trade_ids": [
+          "fdd01c9d-687a-4279-a1a6-325ec6046882",
+          "859c97ca-8db4-438c-aa3a-5a2c8d0c67d2"
+        ],
+        "structure_ids": [
+          "str-7815-7820-call-credit"
+        ],
+        "notes": [
+          "Session high 7816.6 formed inside the zone and was followed by rejection to 7776.6."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7790-7805-defensive",
+      "price": 7800,
+      "range_low": 7790,
+      "range_high": 7805,
+      "role": [
+        "main_pivot",
+        "call_supply",
+        "downside_protection",
+        "transition"
+      ],
+      "label": "MAIN BATTLE / OVERHEAD DEFENSIVE ZONE",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 12.6,
+      "flow": {
+        "call_buy": 3727000,
+        "call_sell": 5665000,
+        "put_buy": 5500000,
+        "put_sell": 3318000,
+        "net_calls": -1938000,
+        "net_puts": 2182000,
+        "gross": 18210000
+      },
+      "interpretation": "Зона сочетает net call selling около -1.94M USD и net put buying около +2.18M USD. После failed breakout это главный overhead pivot.",
+      "evidence": {
+        "trade_ids": [
+          "e60ad37a-9fa7-497e-9d01-d5630ab88b03",
+          "746f7521-9c23-428c-8a7f-652a91e38d59",
+          "04c3daac-8fc9-4b27-96dc-52fb19bb11d3",
+          "8656322b-1f0c-475a-8b15-b8d62f97017b",
+          "37460e97-9658-41ec-bb93-1695f5401c60",
+          "7cd60580-6afc-4b55-8144-cf91c370bb86",
+          "7cde3f54-15fd-4dac-8fe3-86251559ea8f"
+        ],
+        "structure_ids": [
+          "str-7800-synthetic-short",
+          "str-7795-7800-put-strip"
+        ],
+        "notes": [
+          "Reclaim and acceptance above 7800-7805 is required to repair the bullish breakout state."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7775-7780-support",
+      "price": 7775,
+      "range_low": 7775,
+      "range_high": 7780,
+      "role": [
+        "reclaim_support",
+        "breakdown_trigger",
+        "inventory_center"
+      ],
+      "label": "MAIN LOWER PIVOT / SUPPORT",
+      "strength": 0.92,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": -12.4,
+      "flow": {
+        "call_buy": 4396000,
+        "call_sell": 2159000,
+        "put_buy": 294000,
+        "put_sell": 323000,
+        "net_calls": 2237000,
+        "net_puts": -29000,
+        "gross": 7172000
+      },
+      "interpretation": "Ранее breakout-supportive call inventory остается положительным; первый откат остановился у 7776.6. Свежий late call selling делает поддержку contested.",
+      "evidence": {
+        "trade_ids": [
+          "120e8724-ac92-41e1-92c5-3714f64e62a4",
+          "71c9986b-ad88-4c79-ac88-44dcae2d4fa9",
+          "3f07c55a-9cc8-41b5-972d-4f74ebb5abad",
+          "07e8ea59-de81-47a7-a41d-c4c87183b35c"
+        ],
+        "structure_ids": [
+          "str-late-defensive-111"
+        ],
+        "notes": [
+          "First downside test held at 7776.6, but latest flow sells calls into the rebound."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7770-breakdown",
+      "price": 7770,
+      "range_low": 7765,
+      "range_high": 7770,
+      "role": [
+        "breakdown_trigger",
+        "historical",
+        "inventory_center"
+      ],
+      "label": "BREAKDOWN TRIGGER / FAILED VOL CENTER",
+      "strength": 0.78,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -17.4,
+      "flow": {
+        "call_buy": 2065000,
+        "call_sell": 2892000,
+        "put_buy": 110000,
+        "put_sell": 269000,
+        "net_calls": -827000,
+        "net_puts": -159000,
+        "gross": 5336000
+      },
+      "interpretation": "7770 был ранним short-straddle center, который рынок быстро оставил сверху. Потеря 7775 с acceptance ниже 7770 ухудшит сегодняшнюю breakout-структуру.",
+      "evidence": {
+        "trade_ids": [
+          "ce6ed222-1be8-4207-9c79-11d5a3da2d44",
+          "37fd65d9-e280-4610-9fe7-8cab646e82ca",
+          "1c48dc92-da42-4a94-910c-68a8a64f3ed5",
+          "83db02ce-831d-478e-bb50-89393327c936",
+          "585ebc2e-a0d1-4777-9729-a925b8a194d7",
+          "4a8c4cbe-2b93-4ed1-a78c-b041d7673f9f",
+          "196f8fc2-e730-495d-a8a6-5ad8d6a05d8c",
+          "be602405-4380-49d3-9a67-4abb4d36ecb5"
+        ],
+        "structure_ids": [
+          "str-7770-short-straddle",
+          "str-late-defensive-120"
+        ],
+        "notes": [
+          "7770 is the next structural trigger below the 7775-7780 support band."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7750-7760-reclaimed",
+      "price": 7760,
+      "range_low": 7750,
+      "range_high": 7760,
+      "role": [
+        "reclaim_support",
+        "historical"
+      ],
+      "label": "RECLAIMED OLD SUPPLY / SECONDARY SUPPORT",
+      "strength": 0.7,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "reclaimed",
+      "distance_from_spot": -27.4,
+      "flow": {
+        "call_buy": 2945000,
+        "call_sell": 1805000,
+        "put_buy": 0,
+        "put_sell": 140000,
+        "net_calls": 1140000,
+        "net_puts": -140000,
+        "gross": 4890000
+      },
+      "interpretation": "Вчерашняя primary call-supply была поглощена утром; зона остается вторичной поддержкой при более глубоком откате.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Stateful transition from prior-day cap to reclaimed support."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-13T16:30:00+03:00",
+      "end": "2026-08-13T17:00:00+03:00",
+      "spot_open": 7767.65,
+      "spot_high": 7800.6,
+      "spot_low": 7767.65,
+      "spot_close": 7800.6,
+      "calls": {
+        "bought": 7095000,
+        "sold": 5972000,
+        "net": 1123000
+      },
+      "puts": {
+        "bought": 1090000,
+        "sold": 1403000,
+        "net": -313000
+      },
+      "gross_premium": 15560000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -370000,
+        "net_puts": -249000
+      },
+      "regime": "breakout",
+      "events": [
+        "7770 short-straddle-like flow",
+        "Поглощение старой supply 7750-7760",
+        "Рост к 7800"
+      ]
+    },
+    {
+      "start": "2026-08-13T17:00:00+03:00",
+      "end": "2026-08-13T17:30:00+03:00",
+      "spot_open": 7800.1,
+      "spot_high": 7815.4,
+      "spot_low": 7798.6,
+      "spot_close": 7814.9,
+      "calls": {
+        "bought": 12035000,
+        "sold": 21816000,
+        "net": -9781000
+      },
+      "puts": {
+        "bought": 1914000,
+        "sold": 5492000,
+        "net": -3578000
+      },
+      "gross_premium": 41257000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 132000,
+        "net_puts": 218000
+      },
+      "regime": "upper_supply_build",
+      "events": [
+        "7800 synthetic-short-like flow",
+        "503x 7815/7820 call-credit-spread-like",
+        "Подход к 7815"
+      ]
+    },
+    {
+      "start": "2026-08-13T17:30:00+03:00",
+      "end": "2026-08-13T18:00:00+03:00",
+      "spot_open": 7814.9,
+      "spot_high": 7816.6,
+      "spot_low": 7797.65,
+      "spot_close": 7800.85,
+      "calls": {
+        "bought": 6072000,
+        "sold": 5456000,
+        "net": 616000
+      },
+      "puts": {
+        "bought": 1566000,
+        "sold": 981000,
+        "net": 585000
+      },
+      "gross_premium": 14075000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -338000,
+        "net_puts": 646000
+      },
+      "regime": "rejection",
+      "events": [
+        "Session high 7816.6",
+        "Начало rejection из 7815-7820"
+      ]
+    },
+    {
+      "start": "2026-08-13T18:00:00+03:00",
+      "end": "2026-08-13T18:30:00+03:00",
+      "spot_open": 7800.35,
+      "spot_high": 7804.6,
+      "spot_low": 7782.35,
+      "spot_close": 7783.85,
+      "calls": {
+        "bought": 3844000,
+        "sold": 3772000,
+        "net": 72000
+      },
+      "puts": {
+        "bought": 2782000,
+        "sold": 1026000,
+        "net": 1756000
+      },
+      "gross_premium": 11424000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -303000,
+        "net_puts": 1656000
+      },
+      "regime": "defensive_flip",
+      "events": [
+        "Крупная покупка 7795P/7800P",
+        "Рост near-spot put demand"
+      ]
+    },
+    {
+      "start": "2026-08-13T18:30:00+03:00",
+      "end": "2026-08-13T19:00:00+03:00",
+      "spot_open": 7785.15,
+      "spot_high": 7785.4,
+      "spot_low": 7776.6,
+      "spot_close": 7777.1,
+      "calls": {
+        "bought": 1088000,
+        "sold": 1053000,
+        "net": 35000
+      },
+      "puts": {
+        "bought": 1030000,
+        "sold": 1677000,
+        "net": -647000
+      },
+      "gross_premium": 4848000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 343000,
+        "net_puts": -353000
+      },
+      "regime": "support_test",
+      "events": [
+        "Тест 7775-7780",
+        "Low 7776.6 и первый отскок"
+      ]
+    },
+    {
+      "start": "2026-08-13T19:00:00+03:00",
+      "end": "2026-08-13T19:30:00+03:00",
+      "spot_open": 7777.9,
+      "spot_high": 7786.9,
+      "spot_low": 7777.6,
+      "spot_close": 7786.6,
+      "calls": {
+        "bought": 1828000,
+        "sold": 2432000,
+        "net": -604000
+      },
+      "puts": {
+        "bought": 452000,
+        "sold": 653000,
+        "net": -201000
+      },
+      "gross_premium": 5365000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -484000,
+        "net_puts": -110000
+      },
+      "regime": "weak_rebound",
+      "events": [
+        "Rebound остается ниже 7800-7805"
+      ]
+    },
+    {
+      "start": "2026-08-13T19:30:00+03:00",
+      "end": "2026-08-13T19:31:50+03:00",
+      "spot_open": 7787.6,
+      "spot_high": 7788.9,
+      "spot_low": 7787.4,
+      "spot_close": 7787.4,
+      "calls": {
+        "bought": 0,
+        "sold": 1122000,
+        "net": -1122000
+      },
+      "puts": {
+        "bought": 508000,
+        "sold": 53000,
+        "net": 455000
+      },
+      "gross_premium": 1683000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -1122000,
+        "net_puts": 393000
+      },
+      "regime": "late_defensive",
+      "events": [
+        "111x и 120x defensive packages",
+        "Свежая продажа calls + покупка puts"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7770-short-straddle",
+      "timestamp": "2026-08-13T16:33:06+03:00",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7770.0,
+          "contracts": 184,
+          "premium": 219000,
+          "trade_ids": [
+            "83db02ce-831d-478e-bb50-89393327c936",
+            "ce6ed222-1be8-4207-9c79-11d5a3da2d44"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7770.0,
+          "contracts": 184,
+          "premium": 200000,
+          "trade_ids": [
+            "1c48dc92-da42-4a94-910c-68a8a64f3ed5",
+            "37fd65d9-e280-4610-9fe7-8cab646e82ca"
+          ]
+        }
+      ],
+      "gross_premium": 419000,
+      "net_premium": null,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7770
+      ],
+      "interpretation": "Две близкие продажи 7770C/7770P по 134 и 50 контрактов выглядят как short-straddle inventory. Цена быстро ушла выше, поэтому этот центр волы не удержал рынок и стал историческим pivot.",
+      "ui_title": "7770 Short Straddle-like"
+    },
+    {
+      "id": "str-7800-synthetic-short",
+      "timestamp": "2026-08-13T16:54:27+03:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7800.0,
+          "contracts": 450,
+          "premium": 302000,
+          "trade_ids": [
+            "37460e97-9658-41ec-bb93-1695f5401c60",
+            "04c3daac-8fc9-4b27-96dc-52fb19bb11d3"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7800.0,
+          "contracts": 450,
+          "premium": 673000,
+          "trade_ids": [
+            "8656322b-1f0c-475a-8b15-b8d62f97017b",
+            "e60ad37a-9fa7-497e-9d01-d5630ab88b03",
+            "746f7521-9c23-428c-8a7f-652a91e38d59"
+          ]
+        }
+      ],
+      "gross_premium": 975000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7800
+      ],
+      "interpretation": "Совпадающие продажи 7800C и покупки 7800P суммарно на 450 контрактов экономически похожи на synthetic-short-like inventory вокруг 7800.",
+      "ui_title": "7800 Synthetic Short-like"
+    },
+    {
+      "id": "str-7815-7820-call-credit",
+      "timestamp": "2026-08-13T17:00:32+03:00",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7815.0,
+          "contracts": 503,
+          "premium": 217000,
+          "trade_ids": [
+            "859c97ca-8db4-438c-aa3a-5a2c8d0c67d2"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7820.0,
+          "contracts": 503,
+          "premium": 159000,
+          "trade_ids": [
+            "fdd01c9d-687a-4279-a1a6-325ec6046882"
+          ]
+        }
+      ],
+      "gross_premium": 376000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7815,
+        7820
+      ],
+      "interpretation": "503x 7815C sell / 7820C buy сформировал верхнюю call-supply. Последующий high 7816.6 и rejection подтверждают функциональную значимость зоны.",
+      "ui_title": "7815/7820 Call Credit Spread-like"
+    },
+    {
+      "id": "str-7795-7800-put-strip",
+      "timestamp": "2026-08-13T18:26:14+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7795.0,
+          "contracts": 500,
+          "premium": 600000,
+          "trade_ids": [
+            "7cd60580-6afc-4b55-8144-cf91c370bb86"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7800.0,
+          "contracts": 500,
+          "premium": 755000,
+          "trade_ids": [
+            "7cde3f54-15fd-4dac-8fe3-86251559ea8f"
+          ]
+        }
+      ],
+      "gross_premium": 1355000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7795,
+        7800
+      ],
+      "interpretation": "Одновременная покупка 500x 7795P и 500x 7800P показывает крупную оплату downside protection после rejection от 7815-7820.",
+      "ui_title": "7795/7800 Downside Hedge Block"
+    },
+    {
+      "id": "str-late-defensive-111",
+      "timestamp": "2026-08-13T19:30:25+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7770.0,
+          "contracts": 111,
+          "premium": 215000,
+          "trade_ids": [
+            "07e8ea59-de81-47a7-a41d-c4c87183b35c"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7775.0,
+          "contracts": 111,
+          "premium": 169000,
+          "trade_ids": [
+            "3f07c55a-9cc8-41b5-972d-4f74ebb5abad"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7790.0,
+          "contracts": 111,
+          "premium": 92000,
+          "trade_ids": [
+            "120e8724-ac92-41e1-92c5-3714f64e62a4"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7795.0,
+          "contracts": 111,
+          "premium": 125000,
+          "trade_ids": [
+            "71c9986b-ad88-4c79-ac88-44dcae2d4fa9"
+          ]
+        }
+      ],
+      "gross_premium": 601000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7770,
+        7775,
+        7790,
+        7795
+      ],
+      "interpretation": "Свежий пакет на rebound сочетает продажу calls ниже spot и покупку puts выше/около spot, сохраняя defensive delta.",
+      "ui_title": "Late 111x Defensive Package"
+    },
+    {
+      "id": "str-late-defensive-120",
+      "timestamp": "2026-08-13T19:31:07+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7765.0,
+          "contracts": 120,
+          "premium": 288000,
+          "trade_ids": [
+            "be602405-4380-49d3-9a67-4abb4d36ecb5"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7770.0,
+          "contracts": 120,
+          "premium": 235000,
+          "trade_ids": [
+            "4a8c4cbe-2b93-4ed1-a78c-b041d7673f9f"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7790.0,
+          "contracts": 120,
+          "premium": 97000,
+          "trade_ids": [
+            "196f8fc2-e730-495d-a8a6-5ad8d6a05d8c"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7795.0,
+          "contracts": 120,
+          "premium": 132000,
+          "trade_ids": [
+            "585ebc2e-a0d1-4777-9729-a925b8a194d7"
+          ]
+        }
+      ],
+      "gross_premium": 752000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7765,
+        7770,
+        7790,
+        7795
+      ],
+      "interpretation": "Еще один свежий defensive package непосредственно перед последним принтом: call selling + put buying при spot около 7789.",
+      "ui_title": "Late 120x Defensive Package"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7815-7820-call-supply",
+      "low": 7815,
+      "high": 7820,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "short-call inventory",
+        "call-credit-spread-like books"
+      ],
+      "source_structure_ids": [
+        "str-7815-7820-call-credit"
+      ],
+      "source_level_ids": [
+        "lvl-7815-7820-cap"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Первый тест зоны завершился rejection от 7816.6, что подтверждает ее как текущую верхнюю область монетизации продавцов апсайда.",
+      "caveat": "Opening/closing is unknown; the role is confirmed by price reaction, not by proven final positioning."
+    },
+    {
+      "id": "mz-7790-7805-protection",
+      "low": 7790,
+      "high": 7805,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "downside hedgers",
+        "synthetic-short-like inventory"
+      ],
+      "source_structure_ids": [
+        "str-7800-synthetic-short",
+        "str-7795-7800-put-strip"
+      ],
+      "source_level_ids": [
+        "lvl-7790-7805-defensive"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Call selling and put buying concentrate around 7790-7805 after the high, making the zone the main defensive pivot.",
+      "caveat": "Some prints may be spread legs or closing flow."
+    },
+    {
+      "id": "mz-7775-7780-support",
+      "low": 7775,
+      "high": 7780,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "earlier breakout-supportive inventory"
+      ],
+      "source_structure_ids": [
+        "str-late-defensive-111"
+      ],
+      "source_level_ids": [
+        "lvl-7775-7780-support"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Первый откат удержал 7775-7780, но свежая продажа calls делает зону contested и превращает ее в основной breakdown decision area.",
+      "caveat": "Support is conditional and can become destabilizing if price accepts below 7775."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base-range",
+      "name": "7775-7805 battle / chop",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7775,
+          "description": "Lower support remains intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7805,
+          "description": "Overhead defensive zone remains unabsorbed"
+        }
+      ],
+      "route": [
+        7775,
+        7790,
+        7800,
+        7805
+      ],
+      "invalidations": [
+        "Acceptance above 7805",
+        "Acceptance below 7775"
+      ],
+      "interpretation": "Пока цена между lower support и overhead defensive supply, базовый режим - chop / battle после failed breakout."
+    },
+    {
+      "id": "sc-upside-recovery",
+      "name": "Bullish recovery",
+      "bias": "bullish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7800,
+          "description": "Reclaim 7795-7800"
+        },
+        {
+          "type": "accept_above",
+          "level": 7805,
+          "description": "Absorb defensive call supply"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7805,
+          "description": "Fresh upside demand replaces call selling"
+        }
+      ],
+      "route": [
+        7805,
+        7815,
+        7820
+      ],
+      "invalidations": [
+        "Failed reclaim back below 7795",
+        "Renewed heavy put buying at 7795-7805"
+      ],
+      "interpretation": "Acceptance above 7800-7805 repairs the intraday breakout; acceptance above 7820 invalidates the failed-breakout reading."
+    },
+    {
+      "id": "sc-downside-continuation",
+      "name": "Bearish continuation",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7775,
+          "description": "Lose the main lower pivot"
+        },
+        {
+          "type": "accept_below",
+          "level": 7770,
+          "description": "Confirm structural breakdown"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7770,
+          "description": "Downside protection expands to lower strikes"
+        }
+      ],
+      "route": [
+        7775,
+        7770,
+        7760,
+        7750
+      ],
+      "invalidations": [
+        "Fast reclaim of 7780-7790",
+        "Call buying returns on the rebound"
+      ],
+      "interpretation": "Loss of 7775/7770 turns the pullback into a deeper deformation of the morning breakout and exposes the reclaimed 7760/7750 inventory."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 673,
+    "deduplicated_rows": 656,
+    "duplicates_removed": 17,
+    "source_total_rows": 701,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Many large prints are marked Spread or Block, while complex_order_id is absent.",
+      "Several deep ITM / extreme-strike spread legs materially distort raw premium aggregates.",
+      "Exact-signature duplicate prints were collapsed for analytical consistency.",
+      "The source timezone field says America/New_York, but displayed timestamps align with Cyprus-local RTH sequencing; this payload uses Asia/Nicosia for snapshot sequencing.",
+      "Visible $50k+ tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
