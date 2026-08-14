@@ -1,0 +1,504 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-08-14 15-09 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-08-14",
+    "dte": 0,
+    "snapshot_time": "2026-08-14T15:09:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "premarket",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-14.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7808.45,
+    "spot_change_from_previous_snapshot": 7.3,
+    "regime": "mixed_pinning",
+    "bias": "neutral_to_mildly_bullish",
+    "confidence": "low",
+    "main_pivot": 7800,
+    "upper_decision_level": 7815,
+    "lower_decision_level": 7790
+  },
+  "summary": {
+    "headline": "7800 remains the main 0DTE inventory pivot; spot is testing the 7810-7815 upper decision zone",
+    "key_points": [
+      "Premarket tape is very thin and almost entirely spread-flagged, so aggregate premium has little standalone directional value",
+      "Net call and put premium are nearly balanced after deduplication",
+      "Fresh 7815C selling keeps 7810-7815 as the first upper friction zone",
+      "Matched 7805C/7805P buying suggests possible ATM movement demand, but complex linkage is unconfirmed",
+      "No systematic new downside-protection build is visible yet"
+    ],
+    "daily_note": "Price is slightly bullish versus the overnight positioning, while the new options flow remains neutral. Sustained acceptance above 7815-7820 needs fresh call demand; loss of 7800 followed by failed reclaim would refocus 7790, then 7775-7750."
+  },
+  "flow_aggregate": {
+    "gross_premium": 7011000,
+    "calls": {
+      "bought": 3203000,
+      "sold": 3265000,
+      "net": -62000
+    },
+    "puts": {
+      "bought": 235000,
+      "sold": 308000,
+      "net": -73000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 130000,
+        "sold": 163000,
+        "net": -33000
+      },
+      "puts": {
+        "bought": 235000,
+        "sold": 117000,
+        "net": 118000
+      }
+    },
+    "otm": {
+      "calls": {
+        "bought": 0,
+        "sold": 55000,
+        "net": -55000
+      },
+      "puts": {
+        "bought": 66000,
+        "sold": 64000,
+        "net": 2000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "3f665be6-f6ee-4388-b852-67e2eaf21c75",
+      "dominant_premium": 508000,
+      "dominant_share": 0.0725,
+      "result": {
+        "net_calls": 446000,
+        "net_puts": -73000
+      },
+      "changes_interpretation": true,
+      "comment": "Removing the largest 7745C sell flips net calls from slightly negative to positive; visible call premium is dominated by linked ITM spread legs."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7800",
+      "price": 7800,
+      "range_low": 7798,
+      "range_high": 7805,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "pin"
+      ],
+      "label": "MAIN 0DTE PIVOT / INVENTORY CENTER",
+      "strength": 0.95,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -8.45,
+      "flow": {
+        "call_buy": 68000,
+        "call_sell": 0,
+        "put_buy": 66000,
+        "put_sell": 64000,
+        "net_calls": 68000,
+        "net_puts": 2000,
+        "gross": 198000
+      },
+      "interpretation": "Overnight two-sided inventory remains centered at 7800; premarket has not displaced that center."
+    },
+    {
+      "id": "lvl-7815",
+      "price": 7815,
+      "range_low": 7810,
+      "range_high": 7820,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "UPPER DECISION / CALL FRICTION",
+      "strength": 0.82,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 6.55,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 55000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -55000,
+        "net_puts": 0,
+        "gross": 55000
+      },
+      "interpretation": "Fresh 7815C selling is consistent with the overnight upper friction zone. Acceptance above 7815-7820 requires new call demand."
+    },
+    {
+      "id": "lvl-7790",
+      "price": 7790,
+      "range_low": 7788,
+      "range_high": 7792,
+      "role": [
+        "reclaim_support",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER DECISION",
+      "strength": 0.74,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -18.45,
+      "flow": {
+        "call_buy": 62000,
+        "call_sell": 55000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 7000,
+        "net_puts": 0,
+        "gross": 117000
+      },
+      "interpretation": "First meaningful lower decision level. Failed reclaim after losing 7800/7790 would shift the tape toward downside realization."
+    },
+    {
+      "id": "lvl-7775",
+      "price": 7775,
+      "range_low": 7773,
+      "range_high": 7777,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor"
+      ],
+      "label": "CONDITIONAL DOWNSIDE SUPPORT",
+      "strength": 0.7,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -33.45,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 0,
+        "net_puts": 0,
+        "gross": 0
+      },
+      "interpretation": "Overnight put-sale risk acceptance remains relevant; below this level supportive inventory could become destabilizing."
+    },
+    {
+      "id": "lvl-7750",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7750,
+      "role": [
+        "conditional_floor",
+        "complex_zone"
+      ],
+      "label": "DEEPER FLOOR / COMPLEX ITM FLOW",
+      "strength": 0.62,
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": -58.45,
+      "flow": {
+        "call_buy": 1245000,
+        "call_sell": 1289000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -44000,
+        "net_puts": 0,
+        "gross": 2534000
+      },
+      "interpretation": "Premarket premium here is mostly linked ITM call-spread activity; use as a downside route level, not a clean directional signal."
+    },
+    {
+      "id": "lvl-7825",
+      "price": 7825,
+      "range_low": 7825,
+      "range_high": 7830,
+      "role": [
+        "upside_demand",
+        "transition"
+      ],
+      "label": "UPSIDE REALIZATION ZONE",
+      "strength": 0.6,
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": 16.55,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 53000,
+        "net_calls": 0,
+        "net_puts": -53000,
+        "gross": 53000
+      },
+      "interpretation": "Relevant only after acceptance through 7815-7820; some call activity may be spread legs."
+    },
+    {
+      "id": "lvl-7840",
+      "price": 7840,
+      "range_low": 7838,
+      "range_high": 7842,
+      "role": [
+        "upside_demand",
+        "tail_zone"
+      ],
+      "label": "SECONDARY UPSIDE / MONETIZATION",
+      "strength": 0.48,
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": 31.55,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 191000,
+        "net_calls": 0,
+        "net_puts": -191000,
+        "gross": 191000
+      },
+      "interpretation": "Secondary upside route level from the overnight map."
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7805-straddle-like",
+      "timestamp": "2026-08-14T13:43:20+03:00",
+      "type": "long_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7805,
+          "contracts": 50,
+          "premium": 68000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7805,
+          "contracts": 50,
+          "premium": 66000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 134000,
+      "net_premium": null,
+      "bias": "volatility",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7805
+      ],
+      "interpretation": "Matched call and put buying at the same strike/size looks long-straddle-like, but earlier 7805P selling leaves unwind/roll as an alternative explanation.",
+      "ui_title": "7805 Long Straddle-like"
+    },
+    {
+      "id": "str-7745-7750-itm-call-complex",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [],
+      "gross_premium": 2534000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7745,
+        7750
+      ],
+      "interpretation": "Large ITM call premium around 7745/7750 is dominated by spread-flagged legs and should not be read directionally by premium alone.",
+      "ui_title": "7745-7750 ITM Call Complex"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7800",
+      "low": 7795,
+      "high": 7810,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "balanced 0DTE inventory",
+        "short-vol books"
+      ],
+      "source_structure_ids": [
+        "str-7805-straddle-like"
+      ],
+      "source_level_ids": [
+        "lvl-7800"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Until price accepts outside the 7800-centered inventory band, chop and pinning remain the base case.",
+      "caveat": "Fresh ATM movement demand around 7805 slightly reduces confidence in a pure decay regime."
+    },
+    {
+      "id": "mz-upside-7825-7840",
+      "low": 7825,
+      "high": 7840,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "long call spreads",
+        "long upside convexity"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-7825",
+        "lvl-7840"
+      ],
+      "basis": "inferred",
+      "confidence": "low",
+      "description": "Becomes relevant only after sustained acceptance above 7815-7820."
+    },
+    {
+      "id": "mz-downside-7775-7750",
+      "low": 7750,
+      "high": 7775,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "long downside protection"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-7775",
+        "lvl-7750"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Activated if 7800/7790 are lost and put demand/IV begin to expand."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "7800-centered pin / chop",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7790,
+          "description": "Lower decision remains intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7815,
+          "description": "Upper call friction remains unabsorbed"
+        }
+      ],
+      "route": [
+        7790,
+        7800,
+        7815
+      ],
+      "invalidations": [
+        "Acceptance above 7815-7820",
+        "Loss of 7790 with failed reclaim"
+      ],
+      "interpretation": "Thin premarket flow is neutral and does not displace the overnight 7800 inventory center."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.28,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7815,
+          "description": "Absorb 7810-7815 call friction"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7820,
+          "description": "Fresh standalone call demand rather than upper spread legs"
+        }
+      ],
+      "route": [
+        7815,
+        7825,
+        7830,
+        7840
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7810",
+        "New downside protection build"
+      ],
+      "interpretation": "Price is already near the upper decision zone, but the options tape has not yet paid for a breakout."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside realization",
+      "bias": "bearish",
+      "priority": 0.22,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7800,
+          "description": "Main inventory pivot lost"
+        },
+        {
+          "type": "failed_reclaim",
+          "level": 7790,
+          "description": "Lower decision fails to reclaim"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7790,
+          "description": "Systematic downside protection begins to build"
+        }
+      ],
+      "route": [
+        7800,
+        7790,
+        7775,
+        7750
+      ],
+      "invalidations": [
+        "Reclaim and hold above 7800",
+        "Put IV fails to expand"
+      ],
+      "interpretation": "Below the conditional floor structure, previously supportive put-risk acceptance can become destabilizing."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 53,
+    "deduplicated_rows": 48,
+    "duplicates_removed": 5,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "low",
+    "caveats": [
+      "Tape is very thin before RTH",
+      "Approximately 98% of visible premium is spread-flagged",
+      "BUY/SELL does not prove opening/closing",
+      "Complex-order IDs are insufficient to prove all linked structures",
+      "Large ITM call premium should not be read directionally by premium alone",
+      "Visible tape is not the full market position"
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
