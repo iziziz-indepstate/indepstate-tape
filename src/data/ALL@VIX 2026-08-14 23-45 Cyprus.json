@@ -1,0 +1,1973 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-08-14 23:45 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-14T23:45:00+03:00",
+    "data_cutoff_time": "2026-08-14T23:22:32+03:00",
+    "timezone": "Asia/Nicosia",
+    "source_timezone_reported": "America/New_York",
+    "timestamp_interpretation": "Cyprus clock; timestamps align with RTH after UTC-offset conversion despite source metadata",
+    "session_scope": "rth_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-14 (11).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 14.25,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "front_mid_vol_suppression_with_late_convexity_reload",
+    "bias": "near_term_supportive_for_spx_deferred_tail_retained",
+    "confidence": "medium",
+    "main_pivot": 18.5,
+    "upper_decision_level": 22.0,
+    "lower_decision_level": 15.0
+  },
+  "summary": {
+    "headline": "Normal VIX stress is sold; late 19C convexity and distant 50-60 disaster tails are retained",
+    "key_points": [
+      "September signed VIX delta is strongly negative and 18/20/22/23 calls are net supplied.",
+      "August positive delta is driven mainly by put selling and front floor construction, not broad call hedging.",
+      "After 22:00 Cyprus the flow turns modestly long VIX as spot VIX falls toward 14.2-14.4.",
+      "October 30-42.5 tail is supplied while November 60C and January 50C preserve cheap disaster protection."
+    ],
+    "daily_note": "Ближний режим остаётся supportive для SPX: normal stress продают. Ключевой switch находится в 18-19, затем 20-23. Дальний tail 50-60 сохраняется как дешёвая страховка."
+  },
+  "flow_aggregate": {
+    "gross_premium": 43024000,
+    "contracts": 487935,
+    "signed_vix_delta": -5741000,
+    "calls": {
+      "bought": 11377000,
+      "sold": 14576000,
+      "net": -3199000
+    },
+    "puts": {
+      "bought": 7507000,
+      "sold": 9564000,
+      "net": -2057000
+    },
+    "net_premium": -5256000,
+    "leave_one_out": {
+      "dominant_trade_id": "d87b62fe-b81a-4bf5-bc15-1a0b6e882d97",
+      "dominant_trade_description": "Aug 15C SELL, largest absolute signed-delta single leg",
+      "dominant_premium": 3100000,
+      "dominant_share": 0.0721,
+      "result": {
+        "net_calls": -6299000,
+        "net_puts": -2057000,
+        "signed_vix_delta": -24741000
+      },
+      "changes_interpretation": true,
+      "comment": "Без крупнейшей directional single-leg сделки общий signed VIX delta меняет знак на положительный.",
+      "dominant_structure_id": "str-cross-aug-sep-short-vix",
+      "dominant_structure_gross_premium": 5563000,
+      "dominant_structure_signed_vix_delta": -25500000,
+      "ex_dominant_structure_signed_vix_delta": 19759000,
+      "structure_changes_interpretation": true
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-global-15-16-front",
+      "price": 15.5,
+      "range_low": 15.0,
+      "range_high": 16.0,
+      "role": [
+        "volatility_center",
+        "conditional_floor",
+        "inventory_center"
+      ],
+      "label": "FRONT 15-16 LOW-VOL CENTER",
+      "strength": 0.93,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 1.25,
+      "flow": {
+        "call_buy": 637000,
+        "call_sell": 1684000,
+        "put_buy": 975000,
+        "put_sell": 1318000,
+        "net_calls": -1047000,
+        "net_puts": -343000,
+        "gross": 4614000,
+        "signed_vix_delta": 302000
+      },
+      "interpretation": "Front book сместился вниз: 15-16 является главным decay/floor диапазоном.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-aug-15-short-straddle-floor"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-global-18-19-switch",
+      "price": 18.5,
+      "range_low": 18.0,
+      "range_high": 19.0,
+      "role": [
+        "main_pivot",
+        "transition",
+        "volatility_center"
+      ],
+      "label": "18-19 MAIN STRESS SWITCH",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 4.25,
+      "flow": {
+        "call_buy": 4531000,
+        "call_sell": 3456000,
+        "put_buy": 3511000,
+        "put_sell": 4661000,
+        "net_calls": 1075000,
+        "net_puts": -1150000,
+        "gross": 16159000,
+        "signed_vix_delta": 12100000
+      },
+      "interpretation": "18 является September synthetic pivot; 19 получил крупную позднюю convexity. Принятие выше переводит режим из decay в stress realization.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-18-synthetic-short",
+          "str-sep-18-19-convexity-reload"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-global-20-23-supply",
+      "price": 21.5,
+      "range_low": 20.0,
+      "range_high": 23.0,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "20-23 NORMAL STRESS SUPPLY",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 7.25,
+      "flow": {
+        "call_buy": 1770000,
+        "call_sell": 5430000,
+        "put_buy": 593000,
+        "put_sell": 634000,
+        "net_calls": -3660000,
+        "net_puts": -41000,
+        "gross": 8427000,
+        "signed_vix_delta": -22708000
+      },
+      "interpretation": "Главная зона продажи обычного stress; поглощение 20-23 ухудшает режим для SPX.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-20-30-call-spread"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-global-30-42-tail-supply",
+      "price": 36.0,
+      "range_low": 30.0,
+      "range_high": 42.5,
+      "role": [
+        "call_supply",
+        "tail_zone",
+        "potential_cap"
+      ],
+      "label": "30-42.5 DEFERRED TAIL SUPPLY",
+      "strength": 0.91,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 21.75,
+      "flow": {
+        "call_buy": 1586000,
+        "call_sell": 2845000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -1259000,
+        "net_puts": 0,
+        "gross": 4431000,
+        "signed_vix_delta": -4589000
+      },
+      "interpretation": "October и часть September upper tail продаются; normal/high stress монетизируется.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-cross-oct40-nov60-tail-roll"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-global-50-60-disaster",
+      "price": 55.0,
+      "range_low": 50.0,
+      "range_high": 60.0,
+      "role": [
+        "tail_zone",
+        "upside_demand"
+      ],
+      "label": "50-60 DEFERRED DISASTER HEDGE",
+      "strength": 0.78,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 40.75,
+      "flow": {
+        "call_buy": 1622000,
+        "call_sell": 221000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 1401000,
+        "net_puts": 0,
+        "gross": 1843000,
+        "signed_vix_delta": 4961000
+      },
+      "interpretation": "Новая дальняя защита сосредоточена в 50-60; это disaster insurance, а не ближайшая цель VIX.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-cross-oct40-nov60-tail-roll",
+          "str-jan-22-short-50-tail"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-14T16:30:00+03:00",
+      "end": "2026-08-14T19:30:00+03:00",
+      "spot_open": 14.52,
+      "spot_high": 14.71,
+      "spot_low": 14.46,
+      "spot_close": 14.47,
+      "calls": {
+        "bought": 3247000,
+        "sold": 7596000,
+        "net": -4349000
+      },
+      "puts": {
+        "bought": 4820000,
+        "sold": 7539000,
+        "net": -2719000
+      },
+      "gross_premium": 23202000,
+      "signed_vix_delta": -7746000,
+      "regime": "short_front_mid_vol",
+      "events": [
+        "Продажа front/mid VIX; крупнейший directional short-VIX пакет появился в первой половине."
+      ]
+    },
+    {
+      "start": "2026-08-14T19:30:00+03:00",
+      "end": "2026-08-14T22:00:00+03:00",
+      "spot_open": 14.49,
+      "spot_high": 14.49,
+      "spot_low": 14.3,
+      "spot_close": 14.35,
+      "calls": {
+        "bought": 2310000,
+        "sold": 2597000,
+        "net": -287000
+      },
+      "puts": {
+        "bought": 711000,
+        "sold": 749000,
+        "net": -38000
+      },
+      "gross_premium": 6367000,
+      "signed_vix_delta": -2363000,
+      "regime": "short_front_mid_vol",
+      "events": [
+        "Продажа обычного stress сохранялась; October tail 40C монетизировали."
+      ]
+    },
+    {
+      "start": "2026-08-14T22:00:00+03:00",
+      "end": "2026-08-14T23:30:00+03:00",
+      "spot_open": 14.42,
+      "spot_high": 14.42,
+      "spot_low": 14.19,
+      "spot_close": 14.25,
+      "calls": {
+        "bought": 5820000,
+        "sold": 4383000,
+        "net": 1437000
+      },
+      "puts": {
+        "bought": 1976000,
+        "sold": 1276000,
+        "net": 700000
+      },
+      "gross_premium": 13455000,
+      "signed_vix_delta": 4368000,
+      "regime": "late_convexity_reload",
+      "events": [
+        "На VIX 14.2-14.4 поток развернулся в умеренную покупку convexity, прежде всего September 19C."
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-cross-aug-sep-short-vix",
+      "timestamp": "2026-08-14T18:29:44+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-08-19",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 15.0,
+          "contracts": 14235,
+          "premium": 1400000,
+          "trade_ids": [
+            "5905fb03-bfeb-4ac4-b4bf-d574e6eadbb2"
+          ]
+        },
+        {
+          "expiration": "2026-08-19",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 15.0,
+          "contracts": 14235,
+          "premium": 171000,
+          "trade_ids": [
+            "5ec5bb23-0e88-43a3-930c-4abebf9cfeb6"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 15.5,
+          "contracts": 28000,
+          "premium": 840000,
+          "trade_ids": [
+            "74bce34c-259f-4deb-8cb0-c63352c3fb30"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 18.0,
+          "contracts": 4825,
+          "premium": 796000,
+          "trade_ids": [
+            "97eecc4e-d06a-4e52-8f2f-42b60c22a215"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 18.0,
+          "contracts": 4825,
+          "premium": 782000,
+          "trade_ids": [
+            "009c760a-694b-475d-a9d9-d5810750d70e"
+          ]
+        }
+      ],
+      "gross_premium": 5563000,
+      "net_premium": -751000,
+      "signed_vix_delta": -25500000,
+      "bias": "short_front_mid_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        15.0,
+        15.5,
+        18.0
+      ],
+      "interpretation": "Крупнейший directional-комплекс дня: front/mid VIX продаётся; без этого пакета общий signed VIX delta меняется примерно с -5.7M на +19.8M.",
+      "ui_title": "Cross-expiry short VIX: Aug/Sep"
+    },
+    {
+      "id": "str-cross-oct40-nov60-tail-roll",
+      "timestamp": "2026-08-14T20:20:15+03:00",
+      "type": "roll",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 40.0,
+          "contracts": 20000,
+          "premium": 1474000,
+          "trade_ids": [
+            "814ec340-2192-4783-8169-519a23e52ffd",
+            "7f7ef835-f988-48ed-87ce-18040dddceff"
+          ]
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 60.0,
+          "contracts": 19000,
+          "premium": 1064000,
+          "trade_ids": [
+            "e204675b-87d5-4e37-9c80-d5047cca5690",
+            "e966e9c4-f9f8-442d-aa5e-3be647419229",
+            "5df8ea38-afdc-4f39-9eed-dc21e84fbb27"
+          ]
+        }
+      ],
+      "gross_premium": 2538000,
+      "net_premium": -410000,
+      "signed_vix_delta": -2254000,
+      "bias": "deferred_disaster_tail",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        40.0,
+        60.0
+      ],
+      "interpretation": "Вероятный календарный перенос: October 40C монетизируется, November 60C покупается как более дальняя disaster insurance.",
+      "ui_title": "Tail roll-like: Oct 40C -> Nov 60C"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-global-front-decay",
+      "low": 15.0,
+      "high": 16.0,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "front short-vol inventory"
+      ],
+      "source_structure_ids": [
+        "str-aug-15-short-straddle-floor"
+      ],
+      "source_level_ids": [
+        "lvl-global-15-16-front"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Front VIX center migrated lower into 15-16; carry/decay remains favored while this area holds.",
+      "caveat": "Conditional on opening/closing and continued absence of fresh front call demand."
+    },
+    {
+      "id": "mz-global-20-23-supply",
+      "low": 20.0,
+      "high": 23.0,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "September call sellers",
+        "capped stress structures"
+      ],
+      "source_structure_ids": [
+        "str-sep-20-30-call-spread"
+      ],
+      "source_level_ids": [
+        "lvl-global-20-23-supply"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Main normal-stress monetization zone.",
+      "caveat": "Acceptance above 23 weakens the short-stress thesis."
+    },
+    {
+      "id": "mz-global-30-42-tail",
+      "low": 30.0,
+      "high": 42.5,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "deferred call sellers"
+      ],
+      "source_structure_ids": [
+        "str-cross-oct40-nov60-tail-roll"
+      ],
+      "source_level_ids": [
+        "lvl-global-30-42-tail-supply"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Deferred normal/high stress is monetized before disaster-tail strikes.",
+      "caveat": "Not a payoff-precise cap without confirmed opening status."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-19",
+      "label": "19 AUG 2026",
+      "expiration": "2026-08-19",
+      "dte": 5,
+      "forward": 15.89,
+      "reference_price": null,
+      "summary": {
+        "headline": "Front VIX benign: центр 15-16 продаётся, puts 16.5-18 принимают downside risk."
+      },
+      "flow_aggregate": {
+        "gross_premium": 9810000,
+        "contracts": 125018,
+        "signed_vix_delta": 21107000,
+        "calls": {
+          "bought": 370000,
+          "sold": 1539000,
+          "net": -1169000
+        },
+        "puts": {
+          "bought": 2140000,
+          "sold": 5761000,
+          "net": -3621000
+        },
+        "net_premium": -4790000
+      },
+      "levels": [
+        {
+          "id": "lvl-aug15-center",
+          "price": 15.0,
+          "range_low": 15.0,
+          "range_high": 15.0,
+          "role": [
+            "volatility_center",
+            "pin",
+            "inventory_center"
+          ],
+          "label": "AUG 15 DECAY CENTER",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 0.75,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 1400000,
+            "put_buy": 0,
+            "put_sell": 171000,
+            "net_calls": -1400000,
+            "net_puts": -171000,
+            "gross": 1571000,
+            "signed_vix_delta": -13500000
+          },
+          "interpretation": "Продажа 15C/15P одинаковым размером делает 15 главным front decay-center.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-aug-15-short-straddle-floor"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-aug15-16-floor",
+          "price": 15.75,
+          "range_low": 15.5,
+          "range_high": 16.0,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor"
+          ],
+          "label": "AUG 15.5-16 PUT FLOOR",
+          "strength": 0.87,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 1.5,
+          "flow": {
+            "call_buy": 207000,
+            "call_sell": 71000,
+            "put_buy": 135000,
+            "put_sell": 1147000,
+            "net_calls": 136000,
+            "net_puts": -1012000,
+            "gross": 1560000,
+            "signed_vix_delta": 21011000
+          },
+          "interpretation": "Крупная продажа put-wing создаёт условный floor и показывает принятие риска низкого VIX.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-aug-15-short-straddle-floor"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-aug16_5-18-risk",
+          "price": 17.0,
+          "range_low": 16.5,
+          "range_high": 18.0,
+          "role": [
+            "put_risk_acceptance",
+            "complex_zone"
+          ],
+          "label": "AUG 16.5-18 RISK ACCEPTANCE",
+          "strength": 0.92,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 2.75,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 68000,
+            "put_buy": 1955000,
+            "put_sell": 4167000,
+            "net_calls": -68000,
+            "net_puts": -2212000,
+            "gross": 6190000,
+            "signed_vix_delta": 13479000
+          },
+          "interpretation": "Самая крупная August put-премия сосредоточена здесь; это скорее зона проданного downside VIX, чем call hedge.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-aug-165-18-put-sale"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-aug-15-short-straddle-floor",
+          "timestamp": "2026-08-14T18:29:44+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 15.0,
+              "contracts": 14235,
+              "premium": 1400000,
+              "trade_ids": [
+                "5905fb03-bfeb-4ac4-b4bf-d574e6eadbb2"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 15.0,
+              "contracts": 14235,
+              "premium": 171000,
+              "trade_ids": [
+                "5ec5bb23-0e88-43a3-930c-4abebf9cfeb6"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 15.5,
+              "contracts": 12900,
+              "premium": 374000,
+              "trade_ids": [
+                "eeaaa3da-cb20-4e29-a5e1-9f8283f11313"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.0,
+              "contracts": 7300,
+              "premium": 416000,
+              "trade_ids": [
+                "e9bc5b17-48d2-453e-bfff-a84e0eceba24"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 16.5,
+              "contracts": 6200,
+              "premium": 583000,
+              "trade_ids": [
+                "d23bf52f-9c98-449d-8c5a-028237f1203d"
+              ]
+            }
+          ],
+          "gross_premium": 2944000,
+          "net_premium": -1778000,
+          "signed_vix_delta": -8400000,
+          "bias": "short_front_vol_with_floor_management",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            15.0,
+            15.5,
+            16.0,
+            16.5
+          ],
+          "interpretation": "Продажа центра около 15 и нижних путов формирует front decay/floor; покупка 16.5P ограничивает часть нижнего риска.",
+          "ui_title": "Август: 15-16.5 decay / floor complex"
+        },
+        {
+          "id": "str-aug-165-18-put-sale",
+          "timestamp": "2026-08-14T16:51:46+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.5,
+              "contracts": 9998,
+              "premium": 940000,
+              "trade_ids": [
+                "4a8374cf-a852-4fca-bd21-7ee48db087b4",
+                "98932cb2-ae4e-42c3-871a-1f9fbd4e4905"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 4999,
+              "premium": 1120000,
+              "trade_ids": [
+                "5d3ce68b-84a2-461f-af26-c3fbfbadd6c4",
+                "b7bb8900-6484-4b1c-ac54-22ae062fe604"
+              ]
+            }
+          ],
+          "gross_premium": 2060000,
+          "net_premium": -2060000,
+          "signed_vix_delta": 17121000,
+          "bias": "vix_downside_risk_acceptance",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            16.5,
+            18.0
+          ],
+          "interpretation": "Крупная продажа August puts; условный floor/принятие риска низкого VIX, а не покупка panic-call exposure.",
+          "ui_title": "Август: крупная продажа 16.5P/18P"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-aug15-16-decay",
+          "low": 15.0,
+          "high": 16.0,
+          "type": "pin_decay",
+          "beneficiaries": [
+            "short-vol inventory",
+            "front carry books"
+          ],
+          "source_structure_ids": [
+            "str-aug-15-short-straddle-floor"
+          ],
+          "source_level_ids": [
+            "lvl-aug15-center",
+            "lvl-aug15-16-floor"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Продажа August center и put-wing благоприятствует decay/pin около 15-16.",
+          "caveat": "Opening/closing неизвестен; floor условный."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-08-26",
+      "label": "26 AUG 2026",
+      "expiration": "2026-08-26",
+      "dte": 12,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Небольшая продажа 14.5P; локальное принятие downside VIX, режимного веса нет."
+      },
+      "flow_aggregate": {
+        "gross_premium": 50000,
+        "contracts": 10000,
+        "signed_vix_delta": 1000000,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 50000,
+          "net": -50000
+        },
+        "net_premium": -50000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-02",
+      "label": "02 SEP 2026",
+      "expiration": "2026-09-02",
+      "dte": 19,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Два небольших call-buy принта на 13.5 и 16; слабый rebound demand."
+      },
+      "flow_aggregate": {
+        "gross_premium": 167000,
+        "contracts": 649,
+        "signed_vix_delta": 932000,
+        "calls": {
+          "bought": 167000,
+          "sold": 0,
+          "net": 167000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 167000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-16",
+      "label": "16 SEP 2026",
+      "expiration": "2026-09-16",
+      "dte": 33,
+      "forward": 18.05,
+      "reference_price": null,
+      "summary": {
+        "headline": "Главный short-VIX book: synthetic pivot 18, call supply 20-23, поздняя convexity reload на 19."
+      },
+      "flow_aggregate": {
+        "gross_premium": 22659000,
+        "contracts": 242455,
+        "signed_vix_delta": -32589000,
+        "calls": {
+          "bought": 5812000,
+          "sold": 9032000,
+          "net": -3220000
+        },
+        "puts": {
+          "bought": 4649000,
+          "sold": 3166000,
+          "net": 1483000
+        },
+        "net_premium": -1737000
+      },
+      "levels": [
+        {
+          "id": "lvl-sep18-pivot",
+          "price": 18.0,
+          "range_low": 18.0,
+          "range_high": 18.0,
+          "role": [
+            "main_pivot",
+            "volatility_center",
+            "transition"
+          ],
+          "label": "SEP 18 SYNTHETIC PIVOT",
+          "strength": 0.97,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 3.75,
+          "flow": {
+            "call_buy": 336000,
+            "call_sell": 3330000,
+            "put_buy": 2556000,
+            "put_sell": 1387000,
+            "net_calls": -2994000,
+            "net_puts": 1169000,
+            "gross": 7609000,
+            "signed_vix_delta": -24009000
+          },
+          "interpretation": "На 18 прошли крупные synthetic-short-like и short-vol конструкции; это основной September regime pivot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-18-synthetic-short",
+              "str-sep-18-19-convexity-reload"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep19-convexity",
+          "price": 19.0,
+          "range_low": 19.0,
+          "range_high": 19.0,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "SEP 19 CONVEXITY DEMAND",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 4.75,
+          "flow": {
+            "call_buy": 3234000,
+            "call_sell": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 3234000,
+            "net_puts": 0,
+            "gross": 3234000,
+            "signed_vix_delta": 19824000
+          },
+          "interpretation": "Поздно куплено около 24k 19C; уровень становится первой зоной реализации rebound-convexity.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-18-19-convexity-reload"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep20-23-supply",
+          "price": 21.5,
+          "range_low": 20.0,
+          "range_high": 23.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "SEP 20-23 CALL SUPPLY",
+          "strength": 0.96,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 7.25,
+          "flow": {
+            "call_buy": 558000,
+            "call_sell": 4715000,
+            "put_buy": 0,
+            "put_sell": 565000,
+            "net_calls": -4157000,
+            "net_puts": -565000,
+            "gross": 5838000,
+            "signed_vix_delta": -23182000
+          },
+          "interpretation": "20C, 22C и 23C находятся в net selling; это главная зона монетизации normal stress.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-20-30-call-spread"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep30-35-tail",
+          "price": 32.5,
+          "range_low": 30.0,
+          "range_high": 35.0,
+          "role": [
+            "tail_zone",
+            "complex_zone"
+          ],
+          "label": "SEP 30-35 TAIL COMPLEX",
+          "strength": 0.7,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 18.25,
+          "flow": {
+            "call_buy": 1299000,
+            "call_sell": 360000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 939000,
+            "net_puts": 0,
+            "gross": 1659000,
+            "signed_vix_delta": 5100000
+          },
+          "interpretation": "30C и 35C используются как spread/tail legs; это не прямые targets.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-20-30-call-spread"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep-18-synthetic-short",
+          "timestamp": "2026-08-14T18:29:44+03:00",
+          "type": "synthetic_short",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 15.5,
+              "contracts": 28000,
+              "premium": 840000,
+              "trade_ids": [
+                "74bce34c-259f-4deb-8cb0-c63352c3fb30"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 4825,
+              "premium": 796000,
+              "trade_ids": [
+                "97eecc4e-d06a-4e52-8f2f-42b60c22a215"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.0,
+              "contracts": 4825,
+              "premium": 782000,
+              "trade_ids": [
+                "009c760a-694b-475d-a9d9-d5810750d70e"
+              ]
+            }
+          ],
+          "gross_premium": 2418000,
+          "net_premium": 826000,
+          "signed_vix_delta": -17300000,
+          "bias": "short_vix",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            15.5,
+            18.0
+          ],
+          "interpretation": "Продажа 18C + покупка 18P выглядит как synthetic short VIX; 15.5P добавляет защиту/ставку на дальнейшую компрессию.",
+          "ui_title": "Сентябрь: synthetic short около 18"
+        },
+        {
+          "id": "str-sep-18-19-convexity-reload",
+          "timestamp": "2026-08-14T22:23:26+03:00",
+          "type": "ratio_call_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 10960,
+              "premium": 1753000,
+              "trade_ids": [
+                "6bd5df2b-f0b3-4db3-9771-21fd38bb0b3b",
+                "cf1b11e0-27b6-43af-b2c9-199d0ce04cec",
+                "ed8e3cd1-4d2a-4d84-afa8-8e043d390e05"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.0,
+              "contracts": 11040,
+              "premium": 1774000,
+              "trade_ids": [
+                "17cb5ec8-4dce-4cf4-9d0e-b44aabf57ee0",
+                "b4329577-3954-4ef1-a789-63121d95d423"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 24000,
+              "premium": 3234000,
+              "trade_ids": [
+                "d87b62fe-b81a-4bf5-bc15-1a0b6e882d97",
+                "b116d4ee-657f-4b4c-a7d0-108fac70b0a5"
+              ]
+            }
+          ],
+          "gross_premium": 6761000,
+          "net_premium": 3255000,
+          "signed_vix_delta": 77000,
+          "bias": "long_convexity_above_19",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18.0,
+            19.0
+          ],
+          "interpretation": "Почти нейтральная текущая delta, но выраженная convexity: synthetic-short-like финансирование около 18 и двойной размер 19C.",
+          "ui_title": "Сентябрь: поздняя convexity 18/19"
+        },
+        {
+          "id": "str-sep-20-30-call-spread",
+          "timestamp": "2026-08-14T22:09:36+03:00",
+          "type": "call_credit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 7000,
+              "premium": 805000,
+              "trade_ids": [
+                "99e2a976-4624-4403-9483-84bb997ee332"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 30.0,
+              "contracts": 7000,
+              "premium": 329000,
+              "trade_ids": [
+                "ef046894-d077-4c2c-a092-7f7d660a17c2"
+              ]
+            }
+          ],
+          "gross_premium": 1134000,
+          "net_premium": -476000,
+          "signed_vix_delta": -3000000,
+          "bias": "capped_upside_supply",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20.0,
+            30.0
+          ],
+          "interpretation": "Продажа 20C с покупкой 30C оставляет верхний хвост защищённым, но сохраняет supply в рабочем stress-диапазоне.",
+          "ui_title": "Сентябрь: 20/30 call supply spread"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-sep20-23-supply",
+          "low": 20.0,
+          "high": 23.0,
+          "type": "call_supply_monetization",
+          "beneficiaries": [
+            "short call inventory",
+            "capped stress structures"
+          ],
+          "source_structure_ids": [
+            "str-sep-20-30-call-spread"
+          ],
+          "source_level_ids": [
+            "lvl-sep20-23-supply"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "20-23 является основной зоной монетизации normal stress.",
+          "caveat": "Принятие выше 23 ослабляет эту интерпретацию."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-09-23",
+      "label": "23 SEP 2026",
+      "expiration": "2026-09-23",
+      "dte": 40,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Поздний 19/30 call spread покупает умеренный stress с ограниченной выплатой."
+      },
+      "flow_aggregate": {
+        "gross_premium": 790000,
+        "contracts": 6996,
+        "signed_vix_delta": 2000000,
+        "calls": {
+          "bought": 584000,
+          "sold": 206000,
+          "net": 378000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 378000
+      },
+      "levels": [
+        {
+          "id": "lvl-sep23-19-30",
+          "price": 24.5,
+          "range_low": 19.0,
+          "range_high": 30.0,
+          "role": [
+            "upside_demand",
+            "potential_cap",
+            "complex_zone"
+          ],
+          "label": "SEP23 19-30 STRESS SPREAD",
+          "strength": 0.7,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 10.25,
+          "flow": {
+            "call_buy": 584000,
+            "call_sell": 206000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 378000,
+            "net_puts": 0,
+            "gross": 790000,
+            "signed_vix_delta": 2000000
+          },
+          "interpretation": "19/30 call debit spread покупает умеренный stress и ограничивает выплату выше 30.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep23-19-30-call-spread"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep23-19-30-call-spread",
+          "timestamp": "2026-08-14T22:47:37+03:00",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 3498,
+              "premium": 584000,
+              "trade_ids": [
+                "f278255f-6d02-40f4-8608-47043ba87c3b"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 30.0,
+              "contracts": 3498,
+              "premium": 206000,
+              "trade_ids": [
+                "3ad6bf4c-9cbd-4389-8d76-0f93cf54b20d"
+              ]
+            }
+          ],
+          "gross_premium": 790000,
+          "net_premium": 378000,
+          "signed_vix_delta": 2000000,
+          "bias": "moderate_stress_upside",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            19.0,
+            30.0
+          ],
+          "interpretation": "Поздний 19/30 call debit spread покупает умеренный рост VIX и ограничивает выплату дальним крылом.",
+          "ui_title": "23 сентября: 19/30 call spread"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "21 OCT 2026",
+      "expiration": "2026-10-21",
+      "dte": 68,
+      "forward": 19.58,
+      "reference_price": null,
+      "summary": {
+        "headline": "Moderate 19-24 demand сохраняется, но 30-42.5 upper tail активно продаётся."
+      },
+      "flow_aggregate": {
+        "gross_premium": 3820000,
+        "contracts": 46239,
+        "signed_vix_delta": -4181000,
+        "calls": {
+          "bought": 911000,
+          "sold": 2322000,
+          "net": -1411000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 587000,
+          "net": -587000
+        },
+        "net_premium": -1998000
+      },
+      "levels": [
+        {
+          "id": "lvl-oct19-24-moderate",
+          "price": 21.5,
+          "range_low": 19.0,
+          "range_high": 24.0,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "OCT 19-24 MODERATE STRESS",
+          "strength": 0.62,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 7.25,
+          "flow": {
+            "call_buy": 651000,
+            "call_sell": 59000,
+            "put_buy": 0,
+            "put_sell": 504000,
+            "net_calls": 592000,
+            "net_puts": -504000,
+            "gross": 1214000,
+            "signed_vix_delta": 4056000
+          },
+          "interpretation": "Есть selective call demand в 19-24, но он заметно слабее верхней call-supply.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct-19-30-capped-long"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct30-42-tail-supply",
+          "price": 36.0,
+          "range_low": 30.0,
+          "range_high": 42.5,
+          "role": [
+            "call_supply",
+            "tail_zone",
+            "potential_cap"
+          ],
+          "label": "OCT 30-42.5 TAIL SUPPLY",
+          "strength": 0.94,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 21.75,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 2157000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": -2157000,
+            "net_puts": 0,
+            "gross": 2157000,
+            "signed_vix_delta": -9315000
+          },
+          "interpretation": "30C, 40C и 42.5C продаются; обычный и высокий October stress активно монетизируется.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct-19-30-capped-long",
+              "str-cross-oct40-nov60-tail-roll"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-oct-19-30-capped-long",
+          "timestamp": "2026-08-14T18:17:17+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 1000,
+              "premium": 270000,
+              "trade_ids": [
+                "566cde73-a960-4e22-942c-9c2e75699646"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 19.0,
+              "contracts": 1000,
+              "premium": 212000,
+              "trade_ids": [
+                "ed1f8327-f190-4a4b-888b-1ed9ef2df27a"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 30.0,
+              "contracts": 4000,
+              "premium": 448000,
+              "trade_ids": [
+                "3440b402-33d8-43d8-9bb7-c26ab0ed719a"
+              ]
+            }
+          ],
+          "gross_premium": 930000,
+          "net_premium": -390000,
+          "signed_vix_delta": -22000,
+          "bias": "moderate_vix_upside_capped_at_30",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            19.0,
+            30.0
+          ],
+          "interpretation": "Synthetic-long-like компонент около 19 финансируется большой продажей 30C; умеренный stress допускается, хвост монетизируется.",
+          "ui_title": "Октябрь: moderate stress, cap 30"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-oct30-42-tail-supply",
+          "low": 30.0,
+          "high": 42.5,
+          "type": "upside_monetization",
+          "beneficiaries": [
+            "October call sellers"
+          ],
+          "source_structure_ids": [
+            "str-cross-oct40-nov60-tail-roll"
+          ],
+          "source_level_ids": [
+            "lvl-oct30-42-tail-supply"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Верхнее October call-крыло активно продаётся.",
+          "caveat": "Это зона supply, а не прогнозный target."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "18 NOV 2026",
+      "expiration": "2026-11-18",
+      "dte": 96,
+      "forward": 20.25,
+      "reference_price": null,
+      "summary": {
+        "headline": "Рабочий 20-25 event hedge не продолжен; новый demand смещён в disaster 60C."
+      },
+      "flow_aggregate": {
+        "gross_premium": 2953000,
+        "contracts": 43456,
+        "signed_vix_delta": 2383000,
+        "calls": {
+          "bought": 1791000,
+          "sold": 960000,
+          "net": 831000
+        },
+        "puts": {
+          "bought": 202000,
+          "sold": 0,
+          "net": 202000
+        },
+        "net_premium": 1033000
+      },
+      "levels": [
+        {
+          "id": "lvl-nov20-30-mixed",
+          "price": 25.0,
+          "range_low": 20.0,
+          "range_high": 30.0,
+          "role": [
+            "complex_zone",
+            "transition"
+          ],
+          "label": "NOV 20-30 MIXED / LIGHT",
+          "strength": 0.52,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 10.75,
+          "flow": {
+            "call_buy": 430000,
+            "call_sell": 401000,
+            "put_buy": 202000,
+            "put_sell": 0,
+            "net_calls": 29000,
+            "net_puts": 202000,
+            "gross": 1033000,
+            "signed_vix_delta": -484000
+          },
+          "interpretation": "Вчерашний 20/24-25 event-book не получил сопоставимого continuation; текущий поток здесь небольшой и смешанный.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-nov60-tail",
+          "price": 60.0,
+          "range_low": 60.0,
+          "range_high": 60.0,
+          "role": [
+            "tail_zone",
+            "upside_demand"
+          ],
+          "label": "NOV 60 DISASTER TAIL",
+          "strength": 0.88,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 45.75,
+          "flow": {
+            "call_buy": 1064000,
+            "call_sell": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 1064000,
+            "net_puts": 0,
+            "gross": 1064000,
+            "signed_vix_delta": 4061000
+          },
+          "interpretation": "Куплено около 19k November 60C; защита смещена в дальний disaster-tail.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov-60-tail-buy",
+              "str-cross-oct40-nov60-tail-roll"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-nov-60-tail-buy",
+          "timestamp": "2026-08-14T20:20:15+03:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 60.0,
+              "contracts": 19000,
+              "premium": 1064000,
+              "trade_ids": [
+                "e204675b-87d5-4e37-9c80-d5047cca5690",
+                "e966e9c4-f9f8-442d-aa5e-3be647419229",
+                "5df8ea38-afdc-4f39-9eed-dc21e84fbb27"
+              ]
+            }
+          ],
+          "gross_premium": 1064000,
+          "net_premium": 1064000,
+          "signed_vix_delta": 4061000,
+          "bias": "disaster_tail_hedge",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            60.0
+          ],
+          "interpretation": "Ноябрьская защита смещена в дальний disaster-tail; рабочий 20-25 event hedge 13 августа не получил сопоставимого продолжения.",
+          "ui_title": "Ноябрь: 60C disaster hedge"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-nov60-disaster",
+          "low": 60.0,
+          "high": 60.0,
+          "type": "vol_realization",
+          "beneficiaries": [
+            "long disaster convexity"
+          ],
+          "source_structure_ids": [
+            "str-nov-60-tail-buy"
+          ],
+          "source_level_ids": [
+            "lvl-nov60-tail"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "60C является дешёвой disaster insurance; не рабочий near-term target.",
+          "caveat": "Дальний OTM strike имеет низкую непосредственную directional значимость."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "16 DEC 2026",
+      "expiration": "2026-12-16",
+      "dte": 124,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Небольшая selective call demand около 22/30; режимного размера нет."
+      },
+      "flow_aggregate": {
+        "gross_premium": 654000,
+        "contracts": 3272,
+        "signed_vix_delta": 1170000,
+        "calls": {
+          "bought": 477000,
+          "sold": 177000,
+          "net": 300000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 300000
+      },
+      "levels": [
+        {
+          "id": "lvl-dec22-upside",
+          "price": 22.0,
+          "range_low": 22.0,
+          "range_high": 22.0,
+          "role": [
+            "upside_demand"
+          ],
+          "label": "DEC 22 UPSIDE DEMAND",
+          "strength": 0.52,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 7.75,
+          "flow": {
+            "call_buy": 304000,
+            "call_sell": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 304000,
+            "net_puts": 0,
+            "gross": 304000,
+            "signed_vix_delta": 1147000
+          },
+          "interpretation": "Небольшая, но чистая покупка 22C; размер не режимный.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "20 JAN 2027",
+      "expiration": "2027-01-20",
+      "dte": 159,
+      "forward": 21.525,
+      "reference_price": null,
+      "summary": {
+        "headline": "Short-body-like 22 сочетается с long disaster tail 50C."
+      },
+      "flow_aggregate": {
+        "gross_premium": 1996000,
+        "contracts": 9840,
+        "signed_vix_delta": 2458000,
+        "calls": {
+          "bought": 1265000,
+          "sold": 340000,
+          "net": 925000
+        },
+        "puts": {
+          "bought": 391000,
+          "sold": 0,
+          "net": 391000
+        },
+        "net_premium": 1316000
+      },
+      "levels": [
+        {
+          "id": "lvl-jan22-body",
+          "price": 22.0,
+          "range_low": 22.0,
+          "range_high": 22.0,
+          "role": [
+            "volatility_center",
+            "complex_zone"
+          ],
+          "label": "JAN 22 BODY",
+          "strength": 0.65,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 7.75,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 340000,
+            "put_buy": 391000,
+            "put_sell": 0,
+            "net_calls": -340000,
+            "net_puts": 391000,
+            "gross": 731000,
+            "signed_vix_delta": -2142000
+          },
+          "interpretation": "22C sold + 22P bought дают synthetic-short-like тело около январского форварда.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-jan-22-short-50-tail"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-jan50-tail",
+          "price": 50.0,
+          "range_low": 50.0,
+          "range_high": 50.0,
+          "role": [
+            "tail_zone",
+            "upside_demand"
+          ],
+          "label": "JAN 50 DISASTER TAIL",
+          "strength": 0.72,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 35.75,
+          "flow": {
+            "call_buy": 558000,
+            "call_sell": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 558000,
+            "net_puts": 0,
+            "gross": 558000,
+            "signed_vix_delta": 2100000
+          },
+          "interpretation": "Большая покупка 50C сохраняет дешёвую дальнюю convexity поверх short body.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-jan-22-short-50-tail"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-jan-22-short-50-tail",
+          "timestamp": "2026-08-14T19:28:50+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 22.0,
+              "contracts": 1020,
+              "premium": 340000,
+              "trade_ids": [
+                "b0b976d9-06ba-4155-9f6b-3747285adb7e"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 22.0,
+              "contracts": 1020,
+              "premium": 391000,
+              "trade_ids": [
+                "a85a7ffb-028e-44d2-b753-6f54f4d1ecce"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 50.0,
+              "contracts": 6000,
+              "premium": 558000,
+              "trade_ids": [
+                "905837a9-278b-4830-bab3-801caf9e39d6"
+              ]
+            }
+          ],
+          "gross_premium": 1289000,
+          "net_premium": 609000,
+          "signed_vix_delta": -42000,
+          "bias": "short_body_long_disaster_tail",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            22.0,
+            50.0
+          ],
+          "interpretation": "Обычный высокий VIX около 22 продаётся/хеджируется вниз, при этом сохраняется дешёвая катастрофическая convexity на 50.",
+          "ui_title": "Январь: short 22 body + long 50 tail"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "17 FEB 2027",
+      "expiration": "2027-02-17",
+      "dte": 187,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Один небольшой 150P print; экономический смысл ограничен из-за глубокой ITM/complex вероятности."
+      },
+      "flow_aggregate": {
+        "gross_premium": 125000,
+        "contracts": 10,
+        "signed_vix_delta": -21000,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "puts": {
+          "bought": 125000,
+          "sold": 0,
+          "net": 125000
+        },
+        "net_premium": 125000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base-decay",
+      "name": "Front decay / SPX supportive",
+      "bias": "supportive_for_spx",
+      "priority": 0.55,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 18.0,
+          "description": "September VIX remains below the 18 synthetic pivot"
+        },
+        {
+          "type": "iv_compress",
+          "level": null,
+          "description": "Front VIX/IV remains compressed and no broad call bid appears"
+        }
+      ],
+      "route": [
+        15.0,
+        16.0,
+        18.0
+      ],
+      "invalidations": [
+        "Sustained acceptance above 18-19",
+        "Fresh broad call buying in 19-23"
+      ],
+      "interpretation": "Base case is carry/decay and a supportive volatility regime for SPX."
+    },
+    {
+      "id": "sc-stress-rebound",
+      "name": "Moderate stress realization",
+      "bias": "bearish_for_spx",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 18.0,
+          "description": "Regain the September synthetic pivot"
+        },
+        {
+          "type": "accept_above",
+          "level": 19.0,
+          "description": "Activate late 19C convexity"
+        }
+      ],
+      "route": [
+        18.0,
+        19.0,
+        20.0,
+        22.0,
+        23.0
+      ],
+      "invalidations": [
+        "Failure back below 18",
+        "Renewed call selling with VIX returning below 17"
+      ],
+      "interpretation": "Acceptance above 18-19 activates rebound convexity; 20-23 is the main supply battlefield."
+    },
+    {
+      "id": "sc-tail-regime",
+      "name": "Deferred tail regime",
+      "bias": "strong_bearish_for_spx",
+      "priority": 0.1,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 23.0,
+          "description": "Absorb normal-stress call supply"
+        },
+        {
+          "type": "iv_expand",
+          "level": null,
+          "description": "Broad IV expansion across September-November"
+        }
+      ],
+      "route": [
+        23.0,
+        30.0,
+        40.0,
+        50.0,
+        60.0
+      ],
+      "invalidations": [
+        "Failure below 23",
+        "Deferred tail IV fails to expand"
+      ],
+      "interpretation": "30-42.5 contains substantial supply; 50-60 is disaster insurance and should not be treated as a normal target."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 182,
+    "deduplicated_rows": 176,
+    "duplicates_removed": 6,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "side_price_mid_consistency": 0.892,
+    "multileg_quality": "mixed",
+    "complex_order_id_coverage": 0.0,
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening or closing.",
+      "complex_order_id is absent; linked structures are inferred from timestamp, size ratios and strike geometry.",
+      "Visible tape is filtered at $50k+ premium and is not the full market position.",
+      "VIX options should be interpreted against expiry-specific forwards where available.",
+      "The source timezone label conflicts with the observed clock; report uses Cyprus clock interpretation consistent with session timing."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
