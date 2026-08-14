@@ -482,8 +482,47 @@ function buildLinePath(points) {
   return points.map((point, index) => `${index === 0 ? "M" : "L"}${point.x},${point.y}`).join(" ");
 }
 
+function isFiniteNumber(value) {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+function netFlowValue(bucket, side) {
+  const value = bucket?.[side]?.net;
+  return isFiniteNumber(value) ? value : 0;
+}
+
 function renderSpotChart(data) {
-  const timeline = data.flow_timeline;
+  const timeline = asArray(data.flow_timeline).filter(
+    (bucket) => isFiniteNumber(bucket.spot_close) && isFiniteNumber(bucket.spot_low) && isFiniteNumber(bucket.spot_high),
+  );
+  if (timeline.length === 0) {
+    const spot = isFiniteNumber(data.market_state?.spot) ? data.market_state.spot : null;
+    const pivot = isFiniteNumber(data.market_state?.main_pivot) ? data.market_state.main_pivot : null;
+    const range = [spot, pivot].filter(isFiniteNumber);
+    const min = range.length ? Math.min(...range) : 0;
+    const max = range.length ? Math.max(...range) : 1;
+    const span = max - min || 1;
+    const y = spot === null ? 90 : Math.round(180 - ((spot - min) / span) * 150 - 15);
+    const pivotY = pivot === null ? null : Math.round(180 - ((pivot - min) / span) * 150 - 15);
+
+    setText("timelineSubtitle", "price + classified option flow");
+    setText("spotChartTitle", `${data.session.underlying} spot`);
+    setText("spotChartRange", spot === null ? "no timeline" : `${spot.toFixed(0)} current`);
+    setHtml(
+      "spotChart",
+      `
+        <g stroke="#1c2c39" stroke-width="1">
+          <line x1="0" y1="30" x2="900" y2="30"/><line x1="0" y1="75" x2="900" y2="75"/>
+          <line x1="0" y1="120" x2="900" y2="120"/><line x1="0" y1="165" x2="900" y2="165"/>
+        </g>
+        ${pivotY === null ? "" : `<line x1="0" y1="${pivotY}" x2="900" y2="${pivotY}" stroke="#63b3ed" stroke-dasharray="5 5" opacity=".65"/>`}
+        ${spot === null ? "" : `<line x1="0" y1="${y}" x2="900" y2="${y}" stroke="#4fd1c5" stroke-width="3" opacity=".8"/>`}
+        <text x="450" y="92" text-anchor="middle" fill="#71869a" font-size="11">No intraday timeline in this snapshot</text>
+      `,
+    );
+    return;
+  }
+
   const closes = timeline.map((bucket) => bucket.spot_close);
   const lows = timeline.map((bucket) => bucket.spot_low);
   const highs = timeline.map((bucket) => bucket.spot_high);
@@ -529,8 +568,21 @@ function renderSpotChart(data) {
 }
 
 function renderFlowChart(data) {
-  const timeline = data.flow_timeline;
-  const maxAbs = Math.max(...timeline.flatMap((bucket) => [Math.abs(bucket.calls.net), Math.abs(bucket.puts.net)]));
+  const timeline = asArray(data.flow_timeline);
+  if (timeline.length === 0) {
+    setText("flowChartTitle", "Net premium by interval");
+    setText("flowChartLegend", "no timeline");
+    setHtml(
+      "flowChart",
+      `
+        <line x1="0" y1="68" x2="900" y2="68" stroke="#34495c"/>
+        <text x="450" y="73" text-anchor="middle" fill="#71869a" font-size="11">No flow intervals in this snapshot</text>
+      `,
+    );
+    return;
+  }
+
+  const maxAbs = Math.max(1, ...timeline.flatMap((bucket) => [Math.abs(netFlowValue(bucket, "calls")), Math.abs(netFlowValue(bucket, "puts"))]));
   const zeroY = 68;
   const groupWidth = 900 / timeline.length;
   const gap = Math.min(8, groupWidth * 0.12);
@@ -538,9 +590,11 @@ function renderFlowChart(data) {
   const bars = timeline
     .flatMap((bucket, index) => {
       const baseX = index * groupWidth + gap;
+      const callNet = netFlowValue(bucket, "calls");
+      const putNet = netFlowValue(bucket, "puts");
       const values = [
-        { value: bucket.calls.net, fill: bucket.calls.net >= 0 ? "#68d391" : "#fc8181", offset: 0 },
-        { value: bucket.puts.net, fill: bucket.puts.net >= 0 ? "#b794f4" : "#fc8181", offset: barWidth + gap },
+        { value: callNet, fill: callNet >= 0 ? "#68d391" : "#fc8181", offset: 0 },
+        { value: putNet, fill: putNet >= 0 ? "#b794f4" : "#fc8181", offset: barWidth + gap },
       ];
 
       return values.map((bar) => {
