@@ -1,0 +1,1091 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-08-19 23:03 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-19T23:03:58+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "full_session_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-08-19-tape-overnight-vix-all-50k.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 14.86,
+    "spot_change_from_previous_snapshot": -0.97,
+    "regime": "short_vol_with_selective_convexity",
+    "bias": "supportive_spx",
+    "confidence": "medium",
+    "main_pivot": 17.75,
+    "upper_decision_level": 22,
+    "lower_decision_level": 17.5
+  },
+  "summary": {
+    "headline": "Обычный VIX stress снова продаётся; защита остаётся выборочной и ограниченной сверху",
+    "key_points": [
+      "Сентябрьский hedge на 18-21 с предыдущего дня не получил продолжения: calls снова net sold, а body 17.5-18 вернулся к продаже.",
+      "Октябрь почти delta-neutral на уровне агрегата, но внутри содержит крупную покупку 18P, churn 23-24, покупку 35C и агрессивное финансирование через 30C/80C.",
+      "Ноябрь остаётся главным short-stress сроком: 22C снова продаётся, а 55-75 tail преимущественно используется как supply/финансирование.",
+      "На VIX около 14.84-15.0 поздний поток слегка вернул convexity, поэтому дальнейший vol-crush уже менее односторонний."
+    ],
+    "daily_note": "Рабочая формула: sell body and ordinary stress, retain only capped/selective convexity. Для SPX режим supportive, пока September VIX ниже 17.5-18 и November не принимает 22."
+  },
+  "flow_aggregate": {
+    "gross_premium": 40652000,
+    "calls": {
+      "bought": 8728000,
+      "sold": 15118000,
+      "net": -6390000
+    },
+    "puts": {
+      "bought": 7466000,
+      "sold": 6999000,
+      "net": 467000
+    },
+    "net_premium": -5923000,
+    "signed_vix_delta": -17575000,
+    "contracts": 391091,
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-oct-18p-downside",
+      "dominant_premium": 2500000,
+      "dominant_share": 0.0615,
+      "result": {
+        "signed_vix_delta": -6575000
+      },
+      "changes_interpretation": false,
+      "comment": "Без крупной покупки October 18P общий знак остаётся short VIX; дневной режим не определяется одной сделкой."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-sep-17p5-18-body",
+      "price": 17.75,
+      "range_low": 17.5,
+      "range_high": 18.0,
+      "role": [
+        "main_pivot",
+        "volatility_center",
+        "conditional_floor"
+      ],
+      "label": "SEPTEMBER BODY / FLOOR",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Сентябрьский центр вернулся к продаже премии; область 17.5-18 является основной границей между carry и новым stress.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-oct-capped-synthetics"
+        ],
+        "notes": [
+          "September forward estimated near 17.69"
+        ]
+      }
+    },
+    {
+      "id": "lvl-20-22-stress-supply",
+      "price": 21.0,
+      "range_low": 20.0,
+      "range_high": 22.0,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "ORDINARY STRESS SUPPLY",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Обычный stress в сентябре и ноябре преимущественно продаётся; November 22C получил повторную supply.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "September 20C/22C net sold",
+          "November 22C net sold"
+        ]
+      }
+    },
+    {
+      "id": "lvl-25-27-selective-convexity",
+      "price": 26.0,
+      "range_low": 25.0,
+      "range_high": 27.0,
+      "role": [
+        "upside_demand",
+        "tail_zone",
+        "transition"
+      ],
+      "label": "SELECTIVE MODERATE CONVEXITY",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Умеренная convexity сохраняется выборочно: September 25-27 и November 26 получили спрос, но не формируют broad long-vol book.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-nov-26-55"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-30-31-monetization",
+      "price": 30.5,
+      "range_low": 30.0,
+      "range_high": 31.0,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "complex_zone"
+      ],
+      "label": "30-31 MONETIZATION / CAP",
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "Крупные продажи September 31C и October 30C финансируют central synthetic-long-like exposure и ограничивают обычный stress.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-sep-oct-capped-synthetics"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-oct-35-tail",
+      "price": 35.0,
+      "range_low": 35.0,
+      "range_high": 35.0,
+      "role": [
+        "upside_demand",
+        "tail_zone"
+      ],
+      "label": "OCTOBER 35 TAIL",
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "October 35C куплен крупным объёмом, но финансируется двойной продажей 80C.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-oct-35-80-ratio"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-55-80-extreme-tail-supply",
+      "price": 65.0,
+      "range_low": 55.0,
+      "range_high": 80.0,
+      "role": [
+        "call_supply",
+        "tail_zone"
+      ],
+      "label": "EXTREME TAIL SUPPLY",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Дальний хвост в November/October в основном продаётся или используется как финансирующее крыло.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-oct-35-80-ratio",
+          "str-nov-26-55"
+        ],
+        "notes": [
+          "November 65C was the largest repeated far-tail supply"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-19T10:30:23+03:00",
+      "end": "2026-08-19T13:36:18+03:00",
+      "spot_open": 15.91,
+      "spot_high": 15.91,
+      "spot_low": 15.86,
+      "spot_close": 15.86,
+      "calls": {
+        "bought": 229000,
+        "sold": 128000,
+        "net": 101000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 357000,
+      "signed_vix_delta": 429000,
+      "regime": "light_pre_rth"
+    },
+    {
+      "start": "2026-08-19T16:35:46+03:00",
+      "end": "2026-08-19T19:25:24+03:00",
+      "spot_open": 15.39,
+      "spot_high": 15.42,
+      "spot_low": 15.08,
+      "spot_close": 15.1,
+      "calls": {
+        "bought": 6387000,
+        "sold": 10233000,
+        "net": -3846000
+      },
+      "puts": {
+        "bought": 6844000,
+        "sold": 4826000,
+        "net": 2018000
+      },
+      "gross_premium": 30525000,
+      "signed_vix_delta": -15644000,
+      "regime": "short_vix_dominant"
+    },
+    {
+      "start": "2026-08-19T19:48:06+03:00",
+      "end": "2026-08-19T21:43:32+03:00",
+      "spot_open": 15.19,
+      "spot_high": 15.23,
+      "spot_low": 15.04,
+      "spot_close": 15.04,
+      "calls": {
+        "bought": 506000,
+        "sold": 2418000,
+        "net": -1912000
+      },
+      "puts": {
+        "bought": 322000,
+        "sold": 839000,
+        "net": -517000
+      },
+      "gross_premium": 4085000,
+      "signed_vix_delta": -4597000,
+      "regime": "continued_stress_sale"
+    },
+    {
+      "start": "2026-08-19T22:17:57+03:00",
+      "end": "2026-08-19T23:03:58+03:00",
+      "spot_open": 14.98,
+      "spot_high": 15.06,
+      "spot_low": 14.84,
+      "spot_close": 14.86,
+      "calls": {
+        "bought": 1606000,
+        "sold": 2339000,
+        "net": -733000
+      },
+      "puts": {
+        "bought": 300000,
+        "sold": 1334000,
+        "net": -1034000
+      },
+      "gross_premium": 5685000,
+      "signed_vix_delta": 2237000,
+      "regime": "late_selective_convexity_reload"
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-sep-oct-capped-synthetics",
+      "timestamp": "2026-08-19T22:41:27+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 17.5,
+          "contracts": 1475,
+          "premium": 209000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.5,
+          "contracts": 1680,
+          "premium": 215000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 31,
+          "contracts": 14000,
+          "premium": 490000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 19,
+          "contracts": 3360,
+          "premium": 837000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 19,
+          "contracts": 3540,
+          "premium": 743000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 30,
+          "contracts": 14750,
+          "premium": 1500000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 3994000,
+      "net_premium": -1902000,
+      "signed_vix_delta": -300000,
+      "bias": "capped_long_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        17.5,
+        19,
+        30,
+        31
+      ],
+      "interpretation": "Похожие synthetic-long-like центры в Sep/Oct финансируются очень крупной продажей верхних крыльев 30-31.",
+      "ui_title": "Sep/Oct Capped Synthetic-like"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-20-22-ordinary-stress",
+      "low": 20,
+      "high": 22,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "short-vol inventory",
+        "call overwriters"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-20-22-stress-supply"
+      ],
+      "basis": "derived",
+      "confidence": "medium",
+      "description": "Обычный stress остаётся зоной продажи calls, особенно в November 22.",
+      "caveat": "Acceptance выше 22 может превратить supply в источник давления."
+    },
+    {
+      "id": "mz-30-31-cap",
+      "low": 30,
+      "high": 31,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "capped long-vol structures",
+        "call sellers"
+      ],
+      "source_structure_ids": [
+        "str-sep-oct-capped-synthetics"
+      ],
+      "source_level_ids": [
+        "lvl-30-31-monetization"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Крупные проданные 30-31C ограничивают реализацию moderate stress.",
+      "caveat": "Устойчивое принятие выше зоны означает поглощение заметной call supply."
+    },
+    {
+      "id": "mz-55-80-tail-financing",
+      "low": 55,
+      "high": 80,
+      "type": "exhaustion_zone",
+      "beneficiaries": [
+        "ratio structures",
+        "tail overwriters"
+      ],
+      "source_structure_ids": [
+        "str-oct-35-80-ratio",
+        "str-nov-26-55"
+      ],
+      "source_level_ids": [
+        "lvl-55-80-extreme-tail-supply"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Extreme tail преимущественно используется для финансирования более близкой convexity.",
+      "caveat": "Это не target-zone; при реальном panic regime short tail может стать нестабильным."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-26",
+      "label": "АВГУСТ 26",
+      "expiration": "2026-08-26",
+      "dte": 7,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Малый объём; куплены puts, режимного веса почти нет."
+      },
+      "flow_aggregate": {
+        "gross_premium": 310000,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "puts": {
+          "bought": 310000,
+          "sold": 0,
+          "net": 310000
+        },
+        "net_premium": 310000,
+        "signed_vix_delta": -338000,
+        "contracts": 215
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-16",
+      "label": "СЕНТЯБРЬ 2026",
+      "expiration": "2026-09-16",
+      "dte": 28,
+      "forward": 17.69,
+      "reference_price": null,
+      "summary": {
+        "headline": "17.5-18 body снова продаётся; 25-27 selective convexity; 30-31 cap."
+      },
+      "flow_aggregate": {
+        "gross_premium": 10496000,
+        "calls": {
+          "bought": 1330000,
+          "sold": 5218000,
+          "net": -3888000
+        },
+        "puts": {
+          "bought": 681000,
+          "sold": 2167000,
+          "net": -1486000
+        },
+        "net_premium": -5374000,
+        "signed_vix_delta": 366000,
+        "contracts": 110381
+      },
+      "levels": [
+        {
+          "id": "lvl-sep-17p5-18",
+          "price": 17.75,
+          "range_low": 17.5,
+          "range_high": 18,
+          "role": [
+            "volatility_center",
+            "conditional_floor"
+          ],
+          "label": "SEP BODY / FLOOR",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Продажа puts и calls вокруг форварда возвращает September к short-range режиму.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-capped-synthetics"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep-25-27",
+          "price": 26,
+          "range_low": 25,
+          "range_high": 27,
+          "role": [
+            "upside_demand"
+          ],
+          "label": "SEP SELECTIVE STRESS",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "25C и 27C net bought, но размер уступает центральной supply.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-sep-30-31",
+          "price": 30.5,
+          "range_low": 30,
+          "range_high": 31,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "SEP CAP",
+          "basis": "observed",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "30C и особенно 31C net sold; зона первой крупной монетизации.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-capped-synthetics"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "ОКТЯБРЬ 2026",
+      "expiration": "2026-10-21",
+      "dte": 63,
+      "forward": 19.46,
+      "reference_price": null,
+      "summary": {
+        "headline": "Aggregate neutral, но внутри крупный 18P downside, churn 23-24 и capped tail 35/80."
+      },
+      "flow_aggregate": {
+        "gross_premium": 18963000,
+        "calls": {
+          "bought": 4879000,
+          "sold": 4468000,
+          "net": 411000
+        },
+        "puts": {
+          "bought": 4747000,
+          "sold": 4763000,
+          "net": -16000
+        },
+        "net_premium": 395000,
+        "signed_vix_delta": 679000,
+        "contracts": 154493
+      },
+      "levels": [
+        {
+          "id": "lvl-oct-18-downside",
+          "price": 18,
+          "range_low": 18,
+          "range_high": 18,
+          "role": [
+            "downside_protection"
+          ],
+          "label": "OCT VIX-DOWNSIDE",
+          "basis": "observed",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Крупная покупка 18P является сильной incremental ставкой на дальнейшую компрессию October VIX.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct-18p-downside"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct-23-24-churn",
+          "price": 23.5,
+          "range_low": 23,
+          "range_high": 24,
+          "role": [
+            "complex_zone"
+          ],
+          "label": "OCT CHURN / COMPLEX INVENTORY",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Почти зеркальные buy/sell пакеты на 23P/24C взаимно компенсируются.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct-30-cap",
+          "price": 30,
+          "range_low": 30,
+          "range_high": 30,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "OCT 30 CAP",
+          "basis": "observed",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "30C net sold крупным объёмом и используется как верхняя финансирующая нога.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-sep-oct-capped-synthetics"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct-35-tail",
+          "price": 35,
+          "range_low": 35,
+          "range_high": 35,
+          "role": [
+            "upside_demand",
+            "tail_zone"
+          ],
+          "label": "OCT 35 TAIL",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "35C куплен, но financed двойной продажей 80C.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct-35-80-ratio"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-oct-18p-downside",
+          "timestamp": "2026-08-19T17:11:51+03:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18,
+              "contracts": 17098,
+              "premium": 2500000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 2500000,
+          "net_premium": 2500000,
+          "signed_vix_delta": -11000000,
+          "bias": "bearish_vix",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18
+          ],
+          "interpretation": "Крупный buy 18P рядом с October forward является ставкой на снижение VIX, если это opening.",
+          "ui_title": "Oct 18P Downside"
+        },
+        {
+          "id": "str-oct-35-80-ratio",
+          "timestamp": "2026-08-19T17:43:40+03:00",
+          "type": "ratio_call_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 35,
+              "contracts": 13958,
+              "premium": 1200000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 80,
+              "contracts": 27916,
+              "premium": 614000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1814000,
+          "net_premium": 586000,
+          "signed_vix_delta": 2600000,
+          "bias": "bullish_vix_tail",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            35,
+            80
+          ],
+          "interpretation": "Long 35C financed by 2x short 80C: покупка tail stress с агрессивной продажей extreme wing.",
+          "ui_title": "Oct 35/80 Ratio"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "НОЯБРЬ 2026",
+      "expiration": "2026-11-18",
+      "dte": 91,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Главный short-stress срок: 22C supply подтверждена, 25-26 selective hedge, 55-75 tail sold."
+      },
+      "flow_aggregate": {
+        "gross_premium": 8098000,
+        "calls": {
+          "bought": 2060000,
+          "sold": 4092000,
+          "net": -2032000
+        },
+        "puts": {
+          "bought": 1634000,
+          "sold": 69000,
+          "net": 1565000
+        },
+        "net_premium": -467000,
+        "signed_vix_delta": -16249000,
+        "contracts": 99730
+      },
+      "levels": [
+        {
+          "id": "lvl-nov-22-supply",
+          "price": 22,
+          "range_low": 22,
+          "range_high": 22,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "NOV 22 STRESS SUPPLY",
+          "basis": "observed",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "22C снова net sold; уровень становится накопленной границей обычного November stress.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-nov-25-26",
+          "price": 25.5,
+          "range_low": 25,
+          "range_high": 26,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "NOV SELECTIVE HEDGE",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "26C bought, но 25C net sold; зона показывает выборочную, а не широкую convexity.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov-26-55"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-nov-55-75-supply",
+          "price": 65,
+          "range_low": 55,
+          "range_high": 75,
+          "role": [
+            "call_supply",
+            "tail_zone"
+          ],
+          "label": "NOV FAR-TAIL SUPPLY",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "55C/65C/75C преимущественно sold; extreme tail используется как финансирование или overwrite.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov-26-55"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-nov-26-55",
+          "timestamp": "2026-08-19T18:14:48+03:00",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 26,
+              "contracts": 5000,
+              "premium": 905000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 55,
+              "contracts": 5000,
+              "premium": 310000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1215000,
+          "net_premium": 595000,
+          "signed_vix_delta": 2500000,
+          "bias": "bullish_vix_capped",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            26,
+            55
+          ],
+          "interpretation": "Selective moderate stress bought at 26 and financed by selling far-tail 55.",
+          "ui_title": "Nov 26/55 Call Spread-like"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "ДЕКАБРЬ 2026",
+      "expiration": "2026-12-16",
+      "dte": 119,
+      "forward": 20.48,
+      "reference_price": null,
+      "summary": {
+        "headline": "Небольшой смешанный deferred flow; режимного веса мало."
+      },
+      "flow_aggregate": {
+        "gross_premium": 1531000,
+        "calls": {
+          "bought": 459000,
+          "sold": 410000,
+          "net": 49000
+        },
+        "puts": {
+          "bought": 94000,
+          "sold": 0,
+          "net": 94000
+        },
+        "net_premium": 143000,
+        "signed_vix_delta": 2142000,
+        "contracts": 18272
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "ЯНВАРЬ 2027",
+      "expiration": "2027-01-20",
+      "dte": 154,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Один небольшой sold 20C; режимного значения нет."
+      },
+      "flow_aggregate": {
+        "gross_premium": 78000,
+        "calls": {
+          "bought": 0,
+          "sold": 78000,
+          "net": -78000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": -78000,
+        "signed_vix_delta": -273000,
+        "contracts": 200
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "ФЕВРАЛЬ 2027",
+      "expiration": "2027-02-17",
+      "dte": 182,
+      "forward": 22.08,
+      "reference_price": null,
+      "summary": {
+        "headline": "Дальний short-vol: 22C и 55C sold; небольшой пакет не меняет общий режим."
+      },
+      "flow_aggregate": {
+        "gross_premium": 1176000,
+        "calls": {
+          "bought": 0,
+          "sold": 852000,
+          "net": -852000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": -852000,
+        "signed_vix_delta": -3902000,
+        "contracts": 7800
+      },
+      "levels": [
+        {
+          "id": "lvl-feb-22-55-short-vol",
+          "price": 22,
+          "range_low": 22,
+          "range_high": 55,
+          "role": [
+            "call_supply",
+            "tail_zone"
+          ],
+          "label": "FEB DEFERRED SHORT-VOL",
+          "basis": "observed",
+          "confidence": "low",
+          "state": "active",
+          "interpretation": "22C и 55C sold в одном timestamp; без side на 22P конструкция остаётся неполностью разрешённой.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "22P aggressor side unavailable"
+            ]
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-carry",
+      "name": "Carry / нормализация VIX",
+      "bias": "supportive_spx",
+      "priority": 0.55,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 18,
+          "description": "September VIX остаётся ниже 17.5-18"
+        },
+        {
+          "type": "hold_below",
+          "level": 22,
+          "description": "November не принимает накопленную 22C supply"
+        }
+      ],
+      "route": [
+        17.5,
+        16,
+        15
+      ],
+      "invalidations": [
+        "Устойчивое принятие September выше 18",
+        "Поглощение November 22 supply"
+      ],
+      "interpretation": "Сохраняется carry/mean-reversion VIX и supportive среда для SPX."
+    },
+    {
+      "id": "sc-moderate-stress",
+      "name": "Moderate stress realization",
+      "bias": "bearish_spx",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 18,
+          "description": "Поглощение September body/floor"
+        },
+        {
+          "type": "accept_above",
+          "level": 22,
+          "description": "Обычная stress supply перестаёт удерживать VIX"
+        }
+      ],
+      "route": [
+        18,
+        20,
+        22,
+        25,
+        27
+      ],
+      "invalidations": [
+        "Возврат и удержание ниже 17.5-18"
+      ],
+      "interpretation": "После принятия 18-22 начинает работать selective convexity 25-27."
+    },
+    {
+      "id": "sc-tail",
+      "name": "Tail regime",
+      "bias": "bearish_spx",
+      "priority": 0.15,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 31,
+          "description": "Поглощение крупной monetization zone 30-31"
+        }
+      ],
+      "route": [
+        31,
+        35,
+        40
+      ],
+      "invalidations": [
+        "Отказ выше 30-31 и возврат под 30"
+      ],
+      "interpretation": "Acceptance выше 30-31 означает, что продавцы ordinary stress теряют контроль; 35 становится активной tail-зоной."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 173,
+    "deduplicated_rows": 168,
+    "duplicates_removed": 5,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "side_coverage": 0.9643,
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL не доказывает opening/closing.",
+      "Complex-order ID и trade IDs в значительной части строк отсутствуют.",
+      "Крупные одновременные принты могут быть multileg, roll или closing flow.",
+      "VIX moneyness следует читать относительно expiry-specific forward; forward удалось оценить не для всех экспираций.",
+      "Visible tape с фильтром $50k+ не является полной картой рыночного позиционирования."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

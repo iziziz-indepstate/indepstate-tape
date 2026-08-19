@@ -1,0 +1,1055 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-08-19 23:14 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-08-20",
+    "dte": 0,
+    "snapshot_time": "2026-08-19T23:14:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight_baseline_for_next_rth_0dte",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-08-19-tape-overnight-spx-1dte-50k.csv"
+    ],
+    "source_context": "Visible flow was executed primarily during 2026-08-19 RTH with 2026-08-20 expiration; it is used as the baseline book for the 2026-08-20 0DTE session."
+  },
+  "market_state": {
+    "spot": 7710.05,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_short_vol_inventory",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7700,
+    "upper_decision_level": 7740,
+    "lower_decision_level": 7690
+  },
+  "summary": {
+    "headline": "7700 is the main inventory/volatility pivot; 7690-7705 is the conditional floor and 7740 is the robust upper call-supply boundary",
+    "key_points": [
+      "Repeated long-straddle-like buying and a later synthetic-short-like package coexist at 7700, creating a conflict center rather than a simple pin.",
+      "Near spot, both calls and puts are net sold; the last 30 minutes strengthen the local premium-selling / range-monetization read.",
+      "7690-7705 is the primary put-risk-acceptance zone; acceptance below 7690 would invalidate the supportive reading.",
+      "7715 is the freshest local cap, while 7740 is the stronger call-supply boundary.",
+      "7750-7760 is a complex upper decision zone containing both bearish synthetic-short-like and supportive put-credit-like structures."
+    ],
+    "daily_note": "Baseline: 7700 is the main inventory/volatility pivot. 7690-7705 is the conditional floor from fresh put selling; 7715 is the immediate cap and 7740 the stronger call-supply boundary. While 7690-7740 contains price, the base case is 7700-centered chop/decay. Acceptance above 7740 opens 7750-7760; acceptance below 7690 opens 7675 then 7650. Large synthetic-short-like packages at 7750 and 7700 keep downside resolution structurally relevant despite the broader premium-selling regime."
+  },
+  "flow_aggregate": {
+    "gross_premium": 35950000,
+    "calls": {
+      "bought": 10893000,
+      "sold": 10212000,
+      "net": 681000
+    },
+    "puts": {
+      "bought": 6830000,
+      "sold": 7360000,
+      "net": -530000
+    },
+    "unclassified_side_premium": 655000,
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 3027000,
+        "sold": 3854000,
+        "net": -827000
+      },
+      "puts": {
+        "bought": 2430000,
+        "sold": 2959000,
+        "net": -529000
+      },
+      "gross_premium": 12270000
+    },
+    "latest_30m": {
+      "calls": {
+        "bought": 570000,
+        "sold": 1163000,
+        "net": -593000
+      },
+      "puts": {
+        "bought": 628000,
+        "sold": 1418000,
+        "net": -790000
+      },
+      "gross_premium": 3779000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_trade_descriptor": "2026-08-19 20:25:04 7860P SELL 50 contracts, premium $739k",
+      "dominant_premium": 739000,
+      "dominant_share": 0.020556,
+      "result": {
+        "net_calls": 681000,
+        "net_puts": 209000
+      },
+      "changes_interpretation": true,
+      "comment": "Mechanical single-row leave-one-out flips net put premium from selling to buying. However, the full 7860 complex cluster is nearly balanced; excluding the whole 7860 cluster leaves net put selling intact.",
+      "cluster_check": {
+        "strike": 7860,
+        "cluster_flow": {
+          "call_buy": 0,
+          "call_sell": 0,
+          "put_buy": 973000,
+          "put_sell": 1021000,
+          "net_calls": 0,
+          "net_puts": -48000,
+          "gross": 1994000
+        },
+        "net_puts_excluding_cluster": -482000
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7650",
+      "price": 7650,
+      "range_low": 7645,
+      "range_high": 7655,
+      "role": [
+        "conditional_floor",
+        "tail_zone"
+      ],
+      "label": "LOWER EDGE OF FRESH SHORT-RANGE PACKAGE",
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "active",
+      "distance_from_spot": -60.05,
+      "flow": {
+        "call_buy": 989000,
+        "call_sell": 70000,
+        "put_buy": 0,
+        "put_sell": 54000,
+        "net_calls": 919000,
+        "net_puts": -54000,
+        "gross": 1113000
+      },
+      "interpretation": "7650 is the lower leg of the freshest 7650P/7715C short-range package; it is not a robust standalone floor.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7650-7715-short-strangle-like"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7690-7705",
+      "price": 7697.5,
+      "range_low": 7690,
+      "range_high": 7705,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "PRIMARY PUT RISK-ACCEPTANCE ZONE",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -12.55,
+      "flow": {
+        "call_buy": 1723000,
+        "call_sell": 2204000,
+        "put_buy": 1123000,
+        "put_sell": 2114000,
+        "net_calls": -481000,
+        "net_puts": -991000,
+        "gross": 7164000
+      },
+      "interpretation": "Near-spot puts are net sold in this band. Acceptance below 7690 would invalidate the supportive reading and can turn short-put inventory into a source of destabilizing hedge pressure.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Includes fresh 400x 7690P sale near the end of the visible session."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center",
+        "magnet"
+      ],
+      "label": "MAIN INVENTORY / VOLATILITY PIVOT",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -10.05,
+      "flow": {
+        "call_buy": 1432000,
+        "call_sell": 1951000,
+        "put_buy": 950000,
+        "put_sell": 859000,
+        "net_calls": -519000,
+        "net_puts": 91000,
+        "gross": 5192000
+      },
+      "interpretation": "7700 contains repeated long-straddle-like buying together with a later synthetic-short-like package, making it the main conflict and inventory center rather than a simple pin.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7700-long-straddles",
+          "str-7700-synthetic-short"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7715",
+      "price": 7715,
+      "range_low": 7710,
+      "range_high": 7720,
+      "role": [
+        "call_supply",
+        "potential_cap"
+      ],
+      "label": "FRESH IMMEDIATE CALL CAP",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 4.95,
+      "flow": {
+        "call_buy": 54000,
+        "call_sell": 285000,
+        "put_buy": 141000,
+        "put_sell": 87000,
+        "net_calls": -231000,
+        "net_puts": 54000,
+        "gross": 567000
+      },
+      "interpretation": "The latest linked package sold 7715C together with 7650P, making 7715 the freshest local upper friction.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7650-7715-short-strangle-like"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7730",
+      "price": 7730,
+      "range_low": 7725,
+      "range_high": 7735,
+      "role": [
+        "transition",
+        "volatility_center"
+      ],
+      "label": "SECONDARY TRANSITION / VOLATILITY PIVOT",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 19.95,
+      "flow": {
+        "call_buy": 356000,
+        "call_sell": 241000,
+        "put_buy": 282000,
+        "put_sell": 53000,
+        "net_calls": 115000,
+        "net_puts": 229000,
+        "gross": 932000
+      },
+      "interpretation": "Two-sided activity and a smaller straddle-like footprint make 7730 a transition level between the 7700 inventory center and upper supply.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7740",
+      "price": 7740,
+      "range_low": 7735,
+      "range_high": 7745,
+      "role": [
+        "call_supply",
+        "potential_cap"
+      ],
+      "label": "PRIMARY ROBUST UPPER CALL SUPPLY",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 29.95,
+      "flow": {
+        "call_buy": 243000,
+        "call_sell": 679000,
+        "put_buy": 152000,
+        "put_sell": 58000,
+        "net_calls": -436000,
+        "net_puts": 94000,
+        "gross": 1132000
+      },
+      "interpretation": "Call premium at 7740 is materially net sold. Acceptance above this level would be the first clear sign that upper supply is being absorbed.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7750-7760",
+      "price": 7755,
+      "range_low": 7750,
+      "range_high": 7760,
+      "role": [
+        "complex_zone",
+        "upper_decision_level"
+      ],
+      "label": "UPPER COMPLEX DECISION ZONE",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 44.95,
+      "flow": {
+        "call_buy": 1322000,
+        "call_sell": 755000,
+        "put_buy": 2088000,
+        "put_sell": 818000,
+        "net_calls": 567000,
+        "net_puts": 1270000,
+        "gross": 4983000
+      },
+      "interpretation": "This zone contains a 7750 synthetic-short-like package, a 7750/7755 put-credit-like structure, and additional call activity. It should be treated as a complex decision zone rather than simple resistance.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-synthetic-short",
+          "str-7750-7755-put-credit-like"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-19T16:30:00+03:00",
+      "end": "2026-08-19T17:00:00+03:00",
+      "spot_open": 7725.5,
+      "spot_high": 7725.5,
+      "spot_low": 7703.0,
+      "spot_close": 7717.2,
+      "calls": {
+        "bought": 2299000,
+        "sold": 1626000,
+        "net": 673000
+      },
+      "puts": {
+        "bought": 614000,
+        "sold": 1194000,
+        "net": -580000
+      },
+      "gross_premium": 6258000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -431000,
+        "net_puts": -409000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T17:00:00+03:00",
+      "end": "2026-08-19T17:30:00+03:00",
+      "spot_open": 7719.05,
+      "spot_high": 7719.85,
+      "spot_low": 7713.85,
+      "spot_close": 7713.85,
+      "calls": {
+        "bought": 204000,
+        "sold": 134000,
+        "net": 70000
+      },
+      "puts": {
+        "bought": 80000,
+        "sold": 63000,
+        "net": 17000
+      },
+      "gross_premium": 481000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 127000,
+        "net_puts": 17000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T17:30:00+03:00",
+      "end": "2026-08-19T18:00:00+03:00",
+      "spot_open": 7717.55,
+      "spot_high": 7739.6,
+      "spot_low": 7717.55,
+      "spot_close": 7739.6,
+      "calls": {
+        "bought": 79000,
+        "sold": 260000,
+        "net": -181000
+      },
+      "puts": {
+        "bought": 218000,
+        "sold": 239000,
+        "net": -21000
+      },
+      "gross_premium": 796000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": -21000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T18:00:00+03:00",
+      "end": "2026-08-19T18:30:00+03:00",
+      "spot_open": 7740.8,
+      "spot_high": 7742.3,
+      "spot_low": 7729.8,
+      "spot_close": 7730.6,
+      "calls": {
+        "bought": 1096000,
+        "sold": 1423000,
+        "net": -327000
+      },
+      "puts": {
+        "bought": 143000,
+        "sold": 235000,
+        "net": -92000
+      },
+      "gross_premium": 2897000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 353000,
+        "net_puts": 91000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T18:30:00+03:00",
+      "end": "2026-08-19T19:00:00+03:00",
+      "spot_open": 7729.05,
+      "spot_high": 7729.05,
+      "spot_low": 7720.6,
+      "spot_close": 7724.8,
+      "calls": {
+        "bought": 511000,
+        "sold": 443000,
+        "net": 68000
+      },
+      "puts": {
+        "bought": 851000,
+        "sold": 712000,
+        "net": 139000
+      },
+      "gross_premium": 2517000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 72000,
+        "net_puts": 661000
+      },
+      "regime": "mixed_inventory",
+      "events": [
+        "7750 synthetic-short-like flow"
+      ]
+    },
+    {
+      "start": "2026-08-19T19:00:00+03:00",
+      "end": "2026-08-19T19:30:00+03:00",
+      "spot_open": 7731.1,
+      "spot_high": 7737.8,
+      "spot_low": 7729.6,
+      "spot_close": 7729.6,
+      "calls": {
+        "bought": 653000,
+        "sold": 733000,
+        "net": -80000
+      },
+      "puts": {
+        "bought": 284000,
+        "sold": 0,
+        "net": 284000
+      },
+      "gross_premium": 1670000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -159000,
+        "net_puts": 284000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T19:30:00+03:00",
+      "end": "2026-08-19T20:00:00+03:00",
+      "spot_open": 7724.1,
+      "spot_high": 7724.3,
+      "spot_low": 7717.3,
+      "spot_close": 7717.3,
+      "calls": {
+        "bought": 0,
+        "sold": 325000,
+        "net": -325000
+      },
+      "puts": {
+        "bought": 708000,
+        "sold": 735000,
+        "net": -27000
+      },
+      "gross_premium": 1898000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -148000,
+        "net_puts": -76000
+      },
+      "regime": "mixed_inventory",
+      "events": [
+        "7750/7755 put-credit-like flow"
+      ]
+    },
+    {
+      "start": "2026-08-19T20:00:00+03:00",
+      "end": "2026-08-19T20:30:00+03:00",
+      "spot_open": 7715.6,
+      "spot_high": 7721.1,
+      "spot_low": 7711.3,
+      "spot_close": 7714.8,
+      "calls": {
+        "bought": 1490000,
+        "sold": 451000,
+        "net": 1039000
+      },
+      "puts": {
+        "bought": 1524000,
+        "sold": 1337000,
+        "net": 187000
+      },
+      "gross_premium": 4802000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 947000,
+        "net_puts": 378000
+      },
+      "regime": "mixed_inventory",
+      "events": [
+        "Repeated 7700 long-straddle-like buying",
+        "7860 complex put cluster"
+      ]
+    },
+    {
+      "start": "2026-08-19T20:30:00+03:00",
+      "end": "2026-08-19T21:00:00+03:00",
+      "spot_open": 7712.1,
+      "spot_high": 7716.1,
+      "spot_low": 7712.1,
+      "spot_close": 7713.8,
+      "calls": {
+        "bought": 51000,
+        "sold": 317000,
+        "net": -266000
+      },
+      "puts": {
+        "bought": 902000,
+        "sold": 196000,
+        "net": 706000
+      },
+      "gross_premium": 1466000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -139000,
+        "net_puts": 120000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T21:00:00+03:00",
+      "end": "2026-08-19T21:30:00+03:00",
+      "spot_open": 7720.3,
+      "spot_high": 7724.05,
+      "spot_low": 7709.35,
+      "spot_close": 7714.8,
+      "calls": {
+        "bought": 571000,
+        "sold": 1540000,
+        "net": -969000
+      },
+      "puts": {
+        "bought": 479000,
+        "sold": 402000,
+        "net": 77000
+      },
+      "gross_premium": 2992000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -872000,
+        "net_puts": 280000
+      },
+      "regime": "mixed_inventory",
+      "events": [
+        "7700 synthetic-short-like flow"
+      ]
+    },
+    {
+      "start": "2026-08-19T21:30:00+03:00",
+      "end": "2026-08-19T22:00:00+03:00",
+      "spot_open": 7714.8,
+      "spot_high": 7718.6,
+      "spot_low": 7714.8,
+      "spot_close": 7714.8,
+      "calls": {
+        "bought": 199000,
+        "sold": 132000,
+        "net": 67000
+      },
+      "puts": {
+        "bought": 195000,
+        "sold": 393000,
+        "net": -198000
+      },
+      "gross_premium": 919000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 16000,
+        "net_puts": -133000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T22:00:00+03:00",
+      "end": "2026-08-19T22:30:00+03:00",
+      "spot_open": 7717.1,
+      "spot_high": 7718.6,
+      "spot_low": 7715.1,
+      "spot_close": 7716.1,
+      "calls": {
+        "bought": 1231000,
+        "sold": 1071000,
+        "net": 160000
+      },
+      "puts": {
+        "bought": 83000,
+        "sold": 377000,
+        "net": -294000
+      },
+      "gross_premium": 2762000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 54000,
+        "net_puts": -230000
+      },
+      "regime": "mixed_inventory",
+      "events": []
+    },
+    {
+      "start": "2026-08-19T22:30:00+03:00",
+      "end": "2026-08-19T23:00:00+03:00",
+      "spot_open": 7717.8,
+      "spot_high": 7722.6,
+      "spot_low": 7702.05,
+      "spot_close": 7707.85,
+      "calls": {
+        "bought": 930000,
+        "sold": 861000,
+        "net": 69000
+      },
+      "puts": {
+        "bought": 481000,
+        "sold": 1364000,
+        "net": -883000
+      },
+      "gross_premium": 3636000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 419000,
+        "net_puts": -716000
+      },
+      "regime": "late_premium_selling",
+      "events": [
+        "Fresh 400x 7690P sale"
+      ]
+    },
+    {
+      "start": "2026-08-19T23:00:00+03:00",
+      "end": "2026-08-19T23:30:00+03:00",
+      "spot_open": 7711.35,
+      "spot_high": 7711.85,
+      "spot_low": 7710.05,
+      "spot_close": 7710.05,
+      "calls": {
+        "bought": 0,
+        "sold": 302000,
+        "net": -302000
+      },
+      "puts": {
+        "bought": 147000,
+        "sold": 54000,
+        "net": 93000
+      },
+      "gross_premium": 503000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -302000,
+        "net_puts": 147000
+      },
+      "regime": "late_premium_selling",
+      "events": [
+        "7650P/7715C short-range package"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7750-synthetic-short",
+      "timestamp": "2026-08-19T18:43:46+03:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 200,
+          "premium": 713000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 200,
+          "premium": 139000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 852000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "interpretation": "Equal-size same-strike call sale plus put purchase is synthetic-short-like. It is meaningful bearish-delta/hedge evidence if opening, but opening/closing is unknown.",
+      "ui_title": "7750 Synthetic Short-like"
+    },
+    {
+      "id": "str-7700-long-straddles",
+      "timestamp": "2026-08-19T20:00:00+03:00",
+      "type": "long_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 294,
+          "premium": 818000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 294,
+          "premium": 378000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1196000,
+      "net_premium": null,
+      "bias": "volatility",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Repeated equal-size same-timestamp buy-call/buy-put pairs show paid-for movement around 7700. This is a volatility signal, not a directional forecast.",
+      "ui_title": "7700 Repeated Long-Straddle-like Flow"
+    },
+    {
+      "id": "str-7700-synthetic-short",
+      "timestamp": "2026-08-19T21:29:36+03:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 198,
+          "premium": 507000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 198,
+          "premium": 243000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 750000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Equal-size call sales and put purchases at the same strike/time create a synthetic-short-like package inside the main inventory center.",
+      "ui_title": "7700 Synthetic Short-like"
+    },
+    {
+      "id": "str-7750-7755-put-credit-like",
+      "timestamp": "2026-08-19T19:53:44+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 131,
+          "premium": 491000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7755,
+          "contracts": 131,
+          "premium": 543000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1034000,
+      "net_premium": 52000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750,
+        7755
+      ],
+      "interpretation": "Same-size nearby put legs are consistent with a 7750/7755 put-credit-like package. This offsets the naive bearish reading of raw 7750 put buying.",
+      "ui_title": "7750/7755 Put-Credit-like"
+    },
+    {
+      "id": "str-7650-7715-short-strangle-like",
+      "timestamp": "2026-08-19T23:01:38+03:00",
+      "type": "short_strangle",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7650,
+          "contracts": 170,
+          "premium": 54000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7715,
+          "contracts": 170,
+          "premium": 235000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 289000,
+      "net_premium": 289000,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7715
+      ],
+      "interpretation": "The freshest equal-size simultaneous sale of the lower put and upper call is short-strangle-like or part of a wider condor with unseen wings. It expresses local range monetization if opening.",
+      "ui_title": "7650P/7715C Short-Range Package"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7700-centered-decay",
+      "low": 7690,
+      "high": 7740,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "near-spot premium sellers"
+      ],
+      "source_structure_ids": [
+        "str-7650-7715-short-strangle-like"
+      ],
+      "source_level_ids": [
+        "lvl-7690-7705",
+        "lvl-7700",
+        "lvl-7715",
+        "lvl-7740"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "As long as 7690-7740 contains price, near-spot net premium selling favors chop/decay around the 7700 inventory center.",
+      "caveat": "Repeated 7700 long-straddle-like buying means pinning is contested; a clean acceptance outside the range can activate volatility realization."
+    },
+    {
+      "id": "mz-7750-7760-complex",
+      "low": 7750,
+      "high": 7760,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "structure-dependent inventory"
+      ],
+      "source_structure_ids": [
+        "str-7750-synthetic-short",
+        "str-7750-7755-put-credit-like"
+      ],
+      "source_level_ids": [
+        "lvl-7750-7760"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Competing synthetic-short-like and put-credit-like books make 7750-7760 a decision and monetization zone rather than a simple directional target.",
+      "caveat": "Opening/closing is unknown and complex-order linkage is inferred from time and size."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "7700-centered chop / decay",
+      "bias": "neutral",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7690,
+          "description": "Conditional put-sale floor remains intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7740,
+          "description": "Upper call supply remains unabsorbed"
+        }
+      ],
+      "route": [
+        7690,
+        7700,
+        7715,
+        7730,
+        7740
+      ],
+      "invalidations": [
+        "Acceptance below 7690",
+        "Acceptance above 7740"
+      ],
+      "interpretation": "While price remains inside 7690-7740, the base regime is chop/decay and mean reversion around the 7700 inventory center."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7740,
+          "description": "Absorb primary call supply"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7740,
+          "description": "Fresh calls are bought rather than sold above the boundary"
+        }
+      ],
+      "route": [
+        7740,
+        7750,
+        7755,
+        7760,
+        7775
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7740",
+        "Immediate rejection from 7750-7760"
+      ],
+      "interpretation": "Acceptance above 7740 activates the 7750-7760 complex decision zone; clean absorption there opens 7775."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside realization",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7690,
+          "description": "Lose the primary put-risk-acceptance floor"
+        },
+        {
+          "type": "failed_reclaim",
+          "level": 7690,
+          "description": "Failed reclaim confirms that supportive put selling is no longer containing price"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7690,
+          "description": "Fresh downside protection replaces put selling"
+        }
+      ],
+      "route": [
+        7690,
+        7675,
+        7650
+      ],
+      "invalidations": [
+        "Reclaim and hold back above 7700"
+      ],
+      "interpretation": "Acceptance below 7690 breaks the supportive put-sale structure and can turn short-put inventory into a source of destabilizing hedge pressure."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 338,
+    "deduplicated_rows": 320,
+    "duplicates_removed": 18,
+    "exact_full_row_deduplicated_rows": 321,
+    "iv_coverage": 1.0,
+    "side_coverage": 0.9938,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "252 of 320 deduplicated rows are Spread or Block Spread flagged; linked structures must be interpreted as packages where possible.",
+      "Complex-order identifiers are absent, so multileg linkage is inferred from timestamp, size, strike logic and flags.",
+      "The source mixes Asia/Nicosia and ETH labels in the timezone field; timestamps are treated as Cyprus local time because the dominant explicit timezone is Asia/Nicosia and the RTH window aligns with Cyprus time.",
+      "Visible tape is filtered at $50k+ and is not the full market position.",
+      "Canonical deduplication by the recommended trade-key yields 320 rows; exact whole-row deduplication alone would yield 321."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
