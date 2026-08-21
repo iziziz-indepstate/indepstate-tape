@@ -327,14 +327,15 @@ function createPriceScaler(context) {
   const prices = [
     context.reference_price,
     context.market_state?.spot,
-    ...asArray(context.levels).flatMap((level) => [level.price, level.range_low, level.range_high]),
+    ...asArray(context.levels).map((level) => level.price),
     ...asArray(context.monetization_zones).flatMap((zone) => [zone.low, zone.high]),
   ].filter((value) => typeof value === "number");
 
   if (prices.length === 0) return () => "50%";
   const min = Math.min(...prices);
   const max = Math.max(...prices);
-  const pad = Math.max(5, (max - min) * 0.04);
+  const range = max - min;
+  const pad = Math.max(range * 0.04, Math.abs((min + max) / 2) * 0.002, 0.25);
   const low = min - pad;
   const high = max + pad;
   const span = high - low || 1;
