@@ -1,0 +1,1231 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-08-23 20:47 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-23T20:47:00+03:00",
+    "timezone": "Europe/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-22.csv"
+    ],
+    "analysis_trade_date": "2026-08-21",
+    "expiration_range": {
+      "start": "2026-08-24",
+      "end": "2026-08-28"
+    },
+    "baseline_state": true
+  },
+  "market_state": {
+    "spot": 7670.85,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "expiry_divergent_supportive_to_defensive",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7675,
+    "upper_decision_level": 7710,
+    "lower_decision_level": 7650
+  },
+  "summary": {
+    "headline": "7675-7710 is the weekly battleground: early-week supportive, late-week defensive/capped",
+    "key_points": [
+      "Monday and Wednesday contain synthetic-long-like inventory around 7700-7710.",
+      "Thursday and especially Friday shift toward defensive downside protection and call supply.",
+      "Friday 7675 call selling is the dominant upper supply cluster, but the raw Friday call bias is highly dependent on that block.",
+      "7625-7650 is the first downside activation zone; 7585-7570 is the lower tail/conditional-floor zone.",
+      "The main stateful signal to track is whether Friday defensive flow rolls forward into Wednesday/Thursday or whether late-week call supply is absorbed."
+    ],
+    "daily_note": "Baseline v0 for the 2026-08-24 to 2026-08-28 weekly book."
+  },
+  "flow_aggregate": {
+    "gross_premium": 127770000,
+    "calls": {
+      "bought": 29560000,
+      "sold": 31150000,
+      "net": -1590000
+    },
+    "puts": {
+      "bought": 34230000,
+      "sold": 32830000,
+      "net": 1410000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-fri-7675-call-supply-block",
+      "dominant_premium": 6180000,
+      "dominant_share": 0.0484,
+      "result": {
+        "net_calls": 4590000,
+        "net_puts": 1410000
+      },
+      "changes_interpretation": true,
+      "comment": "Removing the dominant Friday 7675 call-sale block flips the weekly call aggregate from net sold to net bought; late-week defensiveness still remains in put protection and other structures."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7675-7700-weekly-battleground",
+      "price": 7675,
+      "range_low": 7675,
+      "range_high": 7700,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "complex_zone",
+        "transition"
+      ],
+      "label": "MAIN WEEKLY BATTLEGROUND",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 4.15,
+      "flow": null,
+      "interpretation": "Early-week supportive inventory around 7700 conflicts with heavy Friday 7675 call supply and a Friday 7700 synthetic-short-like package.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-mon-7700-synthetic-long",
+          "str-fri-7675-call-supply-block",
+          "str-fri-7700-synthetic-short"
+        ],
+        "notes": [
+          "Primary cross-expiry conflict zone."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7710",
+      "price": 7710,
+      "range_low": 7700,
+      "range_high": 7710,
+      "role": [
+        "upside_demand",
+        "transition"
+      ],
+      "label": "EARLY-WEEK UPSIDE ACCEPTANCE",
+      "strength": 0.78,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 39.15,
+      "flow": null,
+      "interpretation": "Monday/Wednesday long-like flow makes 7700-7710 the main upside acceptance zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-mon-7700-synthetic-long",
+          "str-wed-7710-synthetic-long"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7725-7750",
+      "price": 7725,
+      "range_low": 7725,
+      "range_high": 7750,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "UPPER MONETIZATION / SUPPLY",
+      "strength": 0.76,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 54.15,
+      "flow": null,
+      "interpretation": "Upper supply and monetization zone across the middle and late-week expirations.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-thu-7625p-7725c-defensive-rr",
+          "str-fri-7625p-7725c-defensive-rr"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7650",
+      "price": 7650,
+      "range_low": 7650,
+      "range_high": 7650,
+      "role": [
+        "breakdown_trigger",
+        "transition"
+      ],
+      "label": "FIRST DOWNSIDE ACTIVATION",
+      "strength": 0.85,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -20.85,
+      "flow": null,
+      "interpretation": "Loss of 7650 shifts the route toward bought protection around 7630-7625.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-thu-7650-7570-ratio-put"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7625-7630",
+      "price": 7625,
+      "range_low": 7625,
+      "range_high": 7630,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "ACTIVE DOWNSIDE PROTECTION",
+      "strength": 0.88,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -45.85,
+      "flow": null,
+      "interpretation": "Protection is explicitly bought here in Thursday and Friday structures.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-thu-7625p-7725c-defensive-rr",
+          "str-fri-7625p-7725c-defensive-rr",
+          "str-fri-7630-7400-put-spread"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7570-7585",
+      "price": 7580,
+      "range_low": 7570,
+      "range_high": 7585,
+      "role": [
+        "conditional_floor",
+        "tail_zone",
+        "put_risk_acceptance",
+        "downside_protection"
+      ],
+      "label": "TAIL HEDGE / CONDITIONAL FLOOR",
+      "strength": 0.82,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -90.85,
+      "flow": null,
+      "interpretation": "The zone contains both bought downside protection and lower-put sales; below 7570 the supportive interpretation can become destabilizing.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-mon-7575-7585-downside-hedge",
+          "str-thu-7650-7570-ratio-put"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7800-plus",
+      "price": 7800,
+      "range_low": 7780,
+      "range_high": 7805,
+      "role": [
+        "upside_demand",
+        "tail_zone"
+      ],
+      "label": "CONDITIONAL UPSIDE OPTIONALITY",
+      "strength": 0.52,
+      "basis": "observed",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": 129.15,
+      "flow": null,
+      "interpretation": "Upside participation exists in the Friday book but is secondary to the closer 7675-7725 supply/conflict zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-mon-7700-synthetic-long",
+      "timestamp": null,
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 400,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 400,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1510000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Same-expiry, same-size long-call/short-put package is synthetic-long-like and supports 7700 as early-week inventory.",
+      "ui_title": "Mon 7700 Synthetic Long-like"
+    },
+    {
+      "id": "str-mon-7575-7585-downside-hedge",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7585,
+          "contracts": 4000,
+          "premium": 1690000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7575,
+          "contracts": 1600,
+          "premium": 560000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 2250000,
+      "net_premium": null,
+      "bias": "bearish_hedge",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7585,
+        7575
+      ],
+      "interpretation": "Large Monday downside protection cluster; it tempers the otherwise supportive Monday book.",
+      "ui_title": "Mon 7575-7585 Downside Hedge"
+    },
+    {
+      "id": "str-wed-7710-synthetic-long",
+      "timestamp": null,
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7710,
+          "contracts": 100,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7710,
+          "contracts": 100,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7710
+      ],
+      "interpretation": "Wednesday same-size long-call/short-put package reinforces the early-week supportive 7700-7710 zone.",
+      "ui_title": "Wed 7710 Synthetic Long-like"
+    },
+    {
+      "id": "str-thu-7625p-7725c-defensive-rr",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7625,
+          "contracts": 200,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 200,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7625,
+        7725
+      ],
+      "interpretation": "Defensive risk-reversal/collar-like package: downside protection financed by giving up upside.",
+      "ui_title": "Thu 7625P / 7725C Defensive RR-like"
+    },
+    {
+      "id": "str-thu-7650-7570-ratio-put",
+      "timestamp": null,
+      "type": "ratio_put_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7650,
+          "contracts": 250,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7570,
+          "contracts": 800,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bearish_hedge",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7570
+      ],
+      "interpretation": "Downside protection toward 7570 is financed with materially larger lower-put sales, making 7570 a conditional rather than unconditional floor.",
+      "ui_title": "Thu 7650/7570 Ratio Put-like"
+    },
+    {
+      "id": "str-fri-7675-call-supply-block",
+      "timestamp": null,
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": null,
+          "premium": 6180000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 6180000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7675
+      ],
+      "interpretation": "Dominant Friday call-sale block; removing it flips Friday net call premium positive, so its importance is high but concentration risk is also high.",
+      "ui_title": "Fri 7675 Dominant Call Supply"
+    },
+    {
+      "id": "str-fri-7700-synthetic-short",
+      "timestamp": null,
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 235,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 235,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Friday 7700 synthetic-short-like package conflicts with Monday's 7700 synthetic-long-like inventory.",
+      "ui_title": "Fri 7700 Synthetic Short-like"
+    },
+    {
+      "id": "str-fri-7625p-7725c-defensive-rr",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7625,
+          "contracts": 300,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 300,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7625,
+        7725
+      ],
+      "interpretation": "Friday repeats the same defensive geometry seen Thursday: buy downside protection and sell upside.",
+      "ui_title": "Fri 7625P / 7725C Defensive RR-like"
+    },
+    {
+      "id": "str-fri-7630-7400-put-spread",
+      "timestamp": null,
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7630,
+          "contracts": 260,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7400,
+          "contracts": 260,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bearish_hedge",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7630,
+        7400
+      ],
+      "interpretation": "Downside protection begins around 7630 while the far tail is financed at 7400.",
+      "ui_title": "Fri 7630/7400 Put Spread-like"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-weekly-pin-7675-7700",
+      "low": 7675,
+      "high": 7700,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "opposing early-week and late-week inventory",
+        "short-vol inventory if price remains trapped"
+      ],
+      "source_structure_ids": [
+        "str-mon-7700-synthetic-long",
+        "str-fri-7675-call-supply-block",
+        "str-fri-7700-synthetic-short"
+      ],
+      "source_level_ids": [
+        "lvl-7675-7700-weekly-battleground"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Cross-expiry conflict makes 7675-7700 the natural weekly pin/chop zone until one side is absorbed.",
+      "caveat": "Not payoff-precise without opening/closing and confirmed complex linkage."
+    },
+    {
+      "id": "mz-upper-7725-7750",
+      "low": 7725,
+      "high": 7750,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "late-week call sellers",
+        "range sellers"
+      ],
+      "source_structure_ids": [
+        "str-thu-7625p-7725c-defensive-rr",
+        "str-fri-7625p-7725c-defensive-rr"
+      ],
+      "source_level_ids": [
+        "lvl-7725-7750"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Upper late-week supply zone where upside is being financed/sold.",
+      "caveat": "Acceptance above the zone would invalidate the cap interpretation."
+    },
+    {
+      "id": "mz-tail-7570-7585",
+      "low": 7570,
+      "high": 7585,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "downside hedges above the lower short-put strikes"
+      ],
+      "source_structure_ids": [
+        "str-mon-7575-7585-downside-hedge",
+        "str-thu-7650-7570-ratio-put"
+      ],
+      "source_level_ids": [
+        "lvl-7570-7585"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Protection and risk acceptance overlap; the zone can stabilize above 7570 but become destabilizing below it.",
+      "caveat": "Lower-put selling prevents treating this as a guaranteed floor."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-24",
+      "label": "MON 24 AUG",
+      "expiration": "2026-08-24",
+      "dte": 3,
+      "forward": null,
+      "reference_price": 7670.85,
+      "summary": {
+        "headline": "Supportive / long-like around 7700, with explicit downside hedge at 7575-7585"
+      },
+      "flow_aggregate": {
+        "gross_premium": 40600000,
+        "net_calls": 1440000,
+        "net_puts": -2000000
+      },
+      "levels": [
+        {
+          "id": "mon-lvl-7700",
+          "price": 7700,
+          "role": [
+            "main_pivot",
+            "upside_demand"
+          ],
+          "label": "MON LONG-LIKE PIVOT",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Synthetic-long-like inventory.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-mon-7700-synthetic-long"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "mon-lvl-7710",
+          "price": 7710,
+          "role": [
+            "upside_demand"
+          ],
+          "label": "MON UPSIDE CONTINUATION",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Positive call-flow continuation.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "mon-lvl-7580",
+          "price": 7580,
+          "range_low": 7575,
+          "range_high": 7585,
+          "role": [
+            "downside_protection"
+          ],
+          "label": "MON DOWNSIDE HEDGE",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Large bought-put cluster.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-mon-7575-7585-downside-hedge"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "ref": "str-mon-7700-synthetic-long"
+        },
+        {
+          "ref": "str-mon-7575-7585-downside-hedge"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-25",
+      "label": "TUE 25 AUG",
+      "expiration": "2026-08-25",
+      "dte": 4,
+      "forward": null,
+      "reference_price": 7670.85,
+      "summary": {
+        "headline": "Supportive range book; downside risk is accepted but tail risk is limited with lower puts"
+      },
+      "flow_aggregate": {
+        "gross_premium": 10360000,
+        "net_calls": -480000,
+        "net_puts": -580000
+      },
+      "levels": [
+        {
+          "id": "tue-lvl-7675",
+          "price": 7675,
+          "role": [
+            "main_pivot",
+            "put_risk_acceptance"
+          ],
+          "label": "TUE SUPPORTIVE PIVOT",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Primary inventory center with put-risk acceptance.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "tue-lvl-7650",
+          "price": 7650,
+          "role": [
+            "conditional_floor"
+          ],
+          "label": "TUE LOWER SUPPORTIVE ZONE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Upper leg of a credit-like put structure.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "tue-lvl-7605-7635",
+          "price": 7635,
+          "range_low": 7605,
+          "range_high": 7635,
+          "role": [
+            "tail_zone"
+          ],
+          "label": "TUE LIMITED DOWNSIDE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Lower-put protection limits tail risk.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-26",
+      "label": "WED 26 AUG",
+      "expiration": "2026-08-26",
+      "dte": 5,
+      "forward": null,
+      "reference_price": 7670.85,
+      "summary": {
+        "headline": "Second supportive expiry: 7710 synthetic-long-like inventory with upper supply near 7750"
+      },
+      "flow_aggregate": {
+        "gross_premium": 11350000,
+        "net_calls": 1700000,
+        "net_puts": -430000
+      },
+      "levels": [
+        {
+          "id": "wed-lvl-7710",
+          "price": 7710,
+          "role": [
+            "main_pivot",
+            "upside_demand"
+          ],
+          "label": "WED SYNTHETIC-LONG PIVOT",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Same-size long-call/short-put package.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-wed-7710-synthetic-long"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7750",
+          "price": 7750,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "WED UPPER SUPPLY",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Upper supply/monetization zone.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7620-7650",
+          "price": 7650,
+          "range_low": 7620,
+          "range_high": 7650,
+          "role": [
+            "conditional_floor",
+            "tail_zone"
+          ],
+          "label": "WED LIMITED DOWNSIDE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Downside is limited in a spread-like package.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "ref": "str-wed-7710-synthetic-long"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-27",
+      "label": "THU 27 AUG",
+      "expiration": "2026-08-27",
+      "dte": 6,
+      "forward": null,
+      "reference_price": 7670.85,
+      "summary": {
+        "headline": "Regime turns defensive/capped: bought downside protection, sold upside, and ratio-put tail financing"
+      },
+      "flow_aggregate": {
+        "gross_premium": 9000000,
+        "net_calls": -700000,
+        "net_puts": 90000
+      },
+      "levels": [
+        {
+          "id": "thu-lvl-7725",
+          "price": 7725,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "THU CALL SUPPLY",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Upside is sold/financed here.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7625p-7725c-defensive-rr"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "thu-lvl-7650",
+          "price": 7650,
+          "role": [
+            "downside_protection",
+            "breakdown_trigger"
+          ],
+          "label": "THU PROTECTION ACTIVATION",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Protection becomes relevant around 7650.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7650-7570-ratio-put"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "thu-lvl-7570",
+          "price": 7570,
+          "role": [
+            "conditional_floor",
+            "put_risk_acceptance"
+          ],
+          "label": "THU CONDITIONAL FLOOR",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Large lower-put sales can stabilize above the strike but create risk below it.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7650-7570-ratio-put"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "ref": "str-thu-7625p-7725c-defensive-rr"
+        },
+        {
+          "ref": "str-thu-7650-7570-ratio-put"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-28",
+      "label": "FRI 28 AUG",
+      "expiration": "2026-08-28",
+      "dte": 7,
+      "forward": null,
+      "reference_price": 7670.85,
+      "summary": {
+        "headline": "Largest and most defensive expiry: 7675 call supply, 7700 synthetic-short-like inventory, and 7625-7630 downside protection"
+      },
+      "flow_aggregate": {
+        "gross_premium": 56460000,
+        "net_calls": -3560000,
+        "net_puts": 4330000,
+        "leave_one_out": {
+          "dominant_structure_id": "str-fri-7675-call-supply-block",
+          "dominant_premium": 6180000,
+          "dominant_share": 0.1095,
+          "result": {
+            "net_calls": 2610000,
+            "net_puts": 4330000
+          },
+          "changes_interpretation": true,
+          "comment": "Friday raw call bias flips positive without the dominant 7675 call-sale block."
+        }
+      },
+      "levels": [
+        {
+          "id": "fri-lvl-7675",
+          "price": 7675,
+          "role": [
+            "call_supply",
+            "main_pivot",
+            "potential_cap"
+          ],
+          "label": "FRI DOMINANT CALL SUPPLY",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Largest visible late-week call-sale concentration.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7675-call-supply-block"
+            ],
+            "notes": [
+              "High concentration; leave-one-out flips Friday net call premium."
+            ]
+          }
+        },
+        {
+          "id": "fri-lvl-7700",
+          "price": 7700,
+          "role": [
+            "complex_zone",
+            "transition"
+          ],
+          "label": "FRI 7700 DECISION STRIKE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Synthetic-short-like flow conflicts with later call buying; not a simple resistance.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7700-synthetic-short"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7625-7630",
+          "price": 7625,
+          "range_low": 7625,
+          "range_high": 7630,
+          "role": [
+            "downside_protection",
+            "breakdown_trigger"
+          ],
+          "label": "FRI ACTIVE DOWNSIDE PROTECTION",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Bought protection is concentrated here.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7625p-7725c-defensive-rr",
+              "str-fri-7630-7400-put-spread"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7725",
+          "price": 7725,
+          "role": [
+            "call_supply",
+            "transition"
+          ],
+          "label": "FRI UPPER TRANSITION",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Upside is sold as part of a defensive package.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7625p-7725c-defensive-rr"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7780-7805",
+          "price": 7800,
+          "range_low": 7780,
+          "range_high": 7805,
+          "role": [
+            "upside_demand",
+            "tail_zone"
+          ],
+          "label": "FRI CONDITIONAL UPSIDE",
+          "basis": "observed",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "interpretation": "Upside participation exists but is secondary to closer defensive inventory.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "ref": "str-fri-7675-call-supply-block"
+        },
+        {
+          "ref": "str-fri-7700-synthetic-short"
+        },
+        {
+          "ref": "str-fri-7625p-7725c-defensive-rr"
+        },
+        {
+          "ref": "str-fri-7630-7400-put-spread"
+        }
+      ],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-upside-early-week",
+      "name": "Early-week upside realization",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Accept above the main early-week long-like pivot."
+        },
+        {
+          "type": "hold_above",
+          "level": 7710,
+          "description": "Hold the Wednesday synthetic-long-like zone."
+        }
+      ],
+      "route": [
+        7700,
+        7710,
+        7725,
+        7750
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7700",
+        "New defensive flow rolls forward into Monday-Wednesday expirations"
+      ],
+      "interpretation": "Early-week supportive inventory can realize higher if 7700-7710 is accepted; continuation later in the week requires absorption of Friday call supply."
+    },
+    {
+      "id": "sc-range-weekly-pin",
+      "name": "Weekly conflict pin",
+      "bias": "mixed",
+      "priority": 0.4,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7675,
+          "description": "Remain inside the cross-expiry conflict zone."
+        },
+        {
+          "type": "hold_below",
+          "level": 7700,
+          "description": "No decisive upside acceptance."
+        }
+      ],
+      "route": [
+        7675,
+        7700
+      ],
+      "invalidations": [
+        "Acceptance above 7710",
+        "Acceptance below 7650"
+      ],
+      "interpretation": "Opposing early-week supportive and late-week defensive books favor chop/monetization around 7675-7700 until one side is absorbed."
+    },
+    {
+      "id": "sc-downside-activation",
+      "name": "Downside activation",
+      "bias": "bearish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7650,
+          "description": "Lose the first downside activation level."
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7625,
+          "description": "Protection expands around 7630-7625."
+        }
+      ],
+      "route": [
+        7650,
+        7630,
+        7625,
+        7585,
+        7570
+      ],
+      "invalidations": [
+        "Reclaim above 7650",
+        "Defensive put flow is removed rather than rolled forward"
+      ],
+      "interpretation": "Below 7650 the route moves through active protection into the 7585-7570 tail zone; below 7570 lower-put sales can become destabilizing."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 1029,
+    "deduplicated_rows": 1029,
+    "duplicates_removed": 0,
+    "analyzed_rows": 1025,
+    "excluded_rows": 4,
+    "excluded_reason": "Four 2026-08-20 rows were excluded from the Friday 2026-08-21 baseline.",
+    "iv_coverage": null,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Several structures are inferred from same-time and same-size legs without a confirmed complex-order identifier.",
+      "Deep ITM legs can inflate premium and must be interpreted at the structure level.",
+      "Friday call-side bearishness is highly concentrated in the dominant 7675 call-sale block.",
+      "The tape is filtered to $50k+ visible prints and is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

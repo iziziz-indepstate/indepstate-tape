@@ -1,13 +1,9 @@
 {
   "0DTE@SPX": [
-    "0DTE@SPX 2026-08-21 06-44 Cyprus.json"
+    "0DTE@SPX 2026-08-23 21-05 Cyprus.json"
   ],
   "1WEEK@SPX": [
-    "1WEEK@SPX 2026-08-14 23-44 Cyprus.json",
-    "1WEEK@SPX 2026-08-17 23-15 Cyprus.json",
-    "1WEEK@SPX 2026-08-18 23-18 Cyprus.json",
-    "1WEEK@SPX 2026-08-19 23-02 Cyprus.json",
-    "1WEEK@SPX 2026-08-21 06-43 Cyprus.json"
+    "1WEEK@SPX 2026-08-23 20-47 Cyprus.json"
   ],
   "VIX": [
     "ALL@VIX 202026-08-10 23_25 Cyprus.json",
@@ -18,6 +14,7 @@
     "ALL@VIX 2026-08-17 23-16 Cyprus.json",
     "ALL@VIX 2026-08-18 23-15 Cyprus.json",
     "ALL@VIX 2026-08-19 23-03 Cyprus.json",
-    "ALL@VIX 2026-08-21 06_40 Cyprus.json"
+    "ALL@VIX 2026-08-21 06_40 Cyprus.json",
+    "ALL@VIX 2026-08-23 21_05 Cyprus.json"
   ]
 }
