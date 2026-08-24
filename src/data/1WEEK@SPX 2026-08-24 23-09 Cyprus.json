@@ -1,0 +1,1882 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-08-24 23:09 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-24T23:09:00+03:00",
+    "timezone": "Europe/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-22.csv",
+      "spotgamma-tape-profile-1-2026-08-24 (3).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7653.7,
+    "spot_change_from_previous_snapshot": -17.15,
+    "regime": "defensive_migration_with_thursday_offset",
+    "bias": "mixed_bearish_tilt",
+    "confidence": "medium",
+    "main_pivot": 7650,
+    "upper_decision_level": 7675,
+    "lower_decision_level": 7640
+  },
+  "summary": {
+    "headline": "Defensive risk migrated into Wednesday; 7650 is now the active weekly decision level",
+    "key_points": [
+      "Wednesday shifted from a supportive baseline to defensive flow, including two 7700 synthetic-short-like packages.",
+      "Thursday moved the other way: repeated 7675/7700 put selling and 7650/7675 put-credit-like spreads add risk acceptance.",
+      "Friday remains defensive through 7640 and 7580 put demand, but raw call selling is heavily distorted by a $14.8M deep-ITM 7025C cluster.",
+      "The former 7675-7700 pivot is now overhead; 7665-7675 is the first reclaim zone and 7700 is the major cross-expiry regime boundary.",
+      "7650 was pierced intraday and reclaimed in the visible tape; acceptance below it activates 7640, then 7580-7575."
+    ],
+    "daily_note": "Stateful update versus the Friday 2026-08-21 baseline. The main bearish warning partially triggered because protection rolled forward into Wednesday expiry, while Thursday simultaneously became more supportive."
+  },
+  "flow_aggregate": {
+    "gross_premium": 107263000,
+    "calls": {
+      "bought": 23107000,
+      "sold": 33675000,
+      "net": -10568000
+    },
+    "puts": {
+      "bought": 29478000,
+      "sold": 21003000,
+      "net": 8475000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 5134000,
+        "sold": 5681000,
+        "net": -547000
+      },
+      "puts": {
+        "bought": 12135000,
+        "sold": 8457000,
+        "net": 3678000
+      },
+      "gross_premium": 31407000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "5d357c97-a729-41b1-b1e0-65dd65bf4f89",
+      "dominant_structure_id": "str-fri-7025-deep-itm-call-sale-cluster",
+      "dominant_premium": 14800000,
+      "dominant_share": 0.138,
+      "result": {
+        "net_calls": 4232000,
+        "net_puts": 8475000
+      },
+      "changes_interpretation": true,
+      "comment": "Structure-level removal of the deep-ITM 7025C cluster flips total call premium from -$10.568M net sold to +$4.232M net bought. The robust defensive signal is concentrated in near-spot put demand and Wednesday synthetic-short-like flow."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7700-cross-expiry-conflict",
+      "price": 7700.0,
+      "range_low": 7700.0,
+      "range_high": 7700.0,
+      "role": [
+        "transition",
+        "complex_zone",
+        "potential_cap"
+      ],
+      "label": "MAJOR CROSS-EXPIRY REGIME BOUNDARY",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 46.3,
+      "flow": {
+        "call_buy": 1040000,
+        "call_sell": 2027000,
+        "put_buy": 1817000,
+        "put_sell": 2747000,
+        "net_calls": -987000,
+        "net_puts": -930000,
+        "gross": 7631000
+      },
+      "interpretation": "Wednesday synthetic-short-like packages now oppose earlier supportive inventory, while Thursday put-selling and Friday mixed flow keep 7700 as a conflict boundary rather than a simple cap.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7700-synthetic-short-a",
+          "str-wed-7700-synthetic-short-b",
+          "str-thu-7675-7700-put-risk-acceptance",
+          "str-fri-7700-7725-call-supply"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7665-7675-reclaim",
+      "price": 7675.0,
+      "range_low": 7665.0,
+      "range_high": 7675.0,
+      "role": [
+        "reclaim_support",
+        "inventory_center",
+        "transition"
+      ],
+      "label": "OVERHEAD RECLAIM / BATTLE ZONE",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 21.3,
+      "flow": {
+        "call_buy": 2772000,
+        "call_sell": 2278000,
+        "put_buy": 2840000,
+        "put_sell": 3736000,
+        "net_calls": 494000,
+        "net_puts": -896000,
+        "gross": 11626000
+      },
+      "interpretation": "The former weekly pivot has moved overhead after spot traded down to 7643.7. Reclaim of 7665-7675 is the first step toward repairing the weekly structure.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-tue-7630p-7670c-long-strangle",
+          "str-thu-7650-7675-put-credit-like",
+          "str-thu-7675-7700-put-risk-acceptance"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7650-active-decision",
+      "price": 7650.0,
+      "range_low": 7650.0,
+      "range_high": 7650.0,
+      "role": [
+        "main_pivot",
+        "breakdown_trigger",
+        "volatility_center"
+      ],
+      "label": "ACTIVE DECISION LEVEL",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "reclaimed",
+      "distance_from_spot": -3.7,
+      "flow": {
+        "call_buy": 592000,
+        "call_sell": 1791000,
+        "put_buy": 2807000,
+        "put_sell": 1350000,
+        "net_calls": -1199000,
+        "net_puts": 1457000,
+        "gross": 6540000
+      },
+      "interpretation": "7650 was pierced intraday and recovered by the end of the visible tape. Fresh Tuesday/Wednesday put demand and Thursday put-credit-like structures make this the active weekly decision level.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-tue-7630p-7670c-long-strangle",
+          "str-thu-7650-7675-put-credit-like",
+          "str-fri-7650-7660p-7685c-defensive"
+        ],
+        "notes": [
+          "Visible tape low was 7643.7; latest visible spot was 7653.7."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7640-protection",
+      "price": 7640.0,
+      "range_low": 7640.0,
+      "range_high": 7645.0,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "NEW ACTIVE DOWNSIDE PROTECTION",
+      "strength": 0.91,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -13.7,
+      "flow": {
+        "call_buy": 114000,
+        "call_sell": 766000,
+        "put_buy": 2615000,
+        "put_sell": 663000,
+        "net_calls": -652000,
+        "net_puts": 1952000,
+        "gross": 4158000
+      },
+      "interpretation": "Friday 7640P demand is large enough to upgrade 7640 from a transit level to an active protection zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7640-put-protection",
+          "str-fri-7605-7645-7680-put-butterfly"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7575-7580-tail",
+      "price": 7580.0,
+      "range_low": 7575.0,
+      "range_high": 7580.0,
+      "role": [
+        "downside_protection",
+        "tail_zone"
+      ],
+      "label": "MAJOR TAIL HEDGE",
+      "strength": 0.92,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -73.7,
+      "flow": {
+        "call_buy": 513000,
+        "call_sell": 116000,
+        "put_buy": 2518000,
+        "put_sell": 69000,
+        "net_calls": 397000,
+        "net_puts": 2449000,
+        "gross": 3216000
+      },
+      "interpretation": "Fresh Friday buying reinforces the 7575-7580 tail zone that was already important in the baseline.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7510-7580-put-ladder"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7725-7735-upper",
+      "price": 7725.0,
+      "range_low": 7725.0,
+      "range_high": 7735.0,
+      "role": [
+        "upside_demand",
+        "call_supply",
+        "transition"
+      ],
+      "label": "UPPER DECISION / CONFLICT",
+      "strength": 0.78,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 71.3,
+      "flow": {
+        "call_buy": 3696000,
+        "call_sell": 873000,
+        "put_buy": 1902000,
+        "put_sell": 841000,
+        "net_calls": 2823000,
+        "net_puts": 1061000,
+        "gross": 7312000
+      },
+      "interpretation": "Thursday call demand at 7725-7735 conflicts with late-week call supply, so this is an upper decision zone rather than a clean target.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7700-7725-call-supply"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [],
+  "monetization_zones": [
+    {
+      "id": "mz-7650-7675-conflict",
+      "low": 7650,
+      "high": 7675,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "two-sided inventory",
+        "short-vol inventory if spot remains trapped"
+      ],
+      "source_structure_ids": [
+        "str-tue-7630p-7670c-long-strangle",
+        "str-thu-7650-7675-put-credit-like"
+      ],
+      "source_level_ids": [
+        "lvl-7650-active-decision",
+        "lvl-7665-7675-reclaim"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "This is now the noisy middle where bought movement, put risk acceptance, and defensive protection overlap.",
+      "caveat": "Acceptance outside the band is more informative than raw premium inside it."
+    },
+    {
+      "id": "mz-7640-7645-protection",
+      "low": 7640,
+      "high": 7645,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "Friday downside hedges",
+        "7645 butterfly-like inventory"
+      ],
+      "source_structure_ids": [
+        "str-fri-7640-put-protection",
+        "str-fri-7605-7645-7680-put-butterfly"
+      ],
+      "source_level_ids": [
+        "lvl-7640-protection"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Closest downside protection and butterfly geometry overlap here.",
+      "caveat": "A protection zone is not guaranteed support if spot accepts below it."
+    },
+    {
+      "id": "mz-7575-7580-tail",
+      "low": 7575,
+      "high": 7580,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "long-put tail hedges"
+      ],
+      "source_structure_ids": [
+        "str-fri-7510-7580-put-ladder"
+      ],
+      "source_level_ids": [
+        "lvl-7575-7580-tail"
+      ],
+      "basis": "observed",
+      "confidence": "medium",
+      "description": "Fresh put buying reinforces the major lower-tail hedge zone.",
+      "caveat": "This is a protection concentration, not a deterministic downside target."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-25",
+      "label": "TUE 1DTE",
+      "expiration": "2026-08-25",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7653.7,
+      "summary": {
+        "headline": "Tuesday shifted from supportive range to defensive/mixed long-vol around 7650"
+      },
+      "flow_aggregate": {
+        "gross_premium": 25774000,
+        "calls": {
+          "bought": 6292000,
+          "sold": 6828000,
+          "net": -536000
+        },
+        "puts": {
+          "bought": 6876000,
+          "sold": 5778000,
+          "net": 1098000
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "gross_premium": 12470000,
+          "calls": {
+            "bought": 2972000,
+            "sold": 3590000,
+            "net": -618000
+          },
+          "puts": {
+            "bought": 3629000,
+            "sold": 2279000,
+            "net": 1350000
+          }
+        }
+      },
+      "levels": [
+        {
+          "id": "tue-lvl-7650",
+          "price": 7650.0,
+          "range_low": 7650.0,
+          "range_high": 7650.0,
+          "role": [
+            "main_pivot",
+            "volatility_center",
+            "breakdown_trigger"
+          ],
+          "label": "TUE 7650 VOL / DECISION CENTER",
+          "strength": 0.94,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": -3.7,
+          "flow": {
+            "call_buy": 179000,
+            "call_sell": 1347000,
+            "put_buy": 1146000,
+            "put_sell": 534000,
+            "net_calls": -1168000,
+            "net_puts": 612000,
+            "gross": 3206000
+          },
+          "interpretation": "Near-spot flow flipped from baseline put-selling to net put buying; 7650 sits at the center of the bought-movement geometry.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-tue-7630p-7670c-long-strangle"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "tue-lvl-7665-7675",
+          "price": 7665.0,
+          "range_low": 7665.0,
+          "range_high": 7675.0,
+          "role": [
+            "transition",
+            "reclaim_support"
+          ],
+          "label": "TUE RECLAIM BATTLE",
+          "strength": 0.82,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 11.3,
+          "flow": {
+            "call_buy": 1966000,
+            "call_sell": 1526000,
+            "put_buy": 658000,
+            "put_sell": 393000,
+            "net_calls": 440000,
+            "net_puts": 265000,
+            "gross": 4543000
+          },
+          "interpretation": "Large 7665C buying conflicts with call sales and put demand around 7650-7675.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-tue-7630p-7670c-long-strangle"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "tue-lvl-7630",
+          "price": 7630.0,
+          "range_low": 7630.0,
+          "range_high": 7630.0,
+          "role": [
+            "downside_protection",
+            "volatility_center"
+          ],
+          "label": "TUE LOWER STRANGLE WING",
+          "strength": 0.7,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "distance_from_spot": -23.7,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 61000,
+            "put_buy": 316000,
+            "put_sell": 0,
+            "net_calls": -61000,
+            "net_puts": 316000,
+            "gross": 377000
+          },
+          "interpretation": "Bought 7630P is the lower wing of the probable 7630P/7670C long-strangle-like package.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-tue-7630p-7670c-long-strangle"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-tue-7630p-7670c-long-strangle",
+          "timestamp": "2026-08-24T20:40:30.000-04:00",
+          "type": "long_strangle",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7630.0,
+              "contracts": 138,
+              "premium": 129000,
+              "trade_ids": [
+                "64a96732-41c4-4a8c-877f-807430ce42a1"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7670.0,
+              "contracts": 138,
+              "premium": 127000,
+              "trade_ids": [
+                "80fcca6d-1e9c-4ca7-8b73-d092471a608c"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7670.0,
+              "contracts": 57,
+              "premium": 52000,
+              "trade_ids": [
+                "47955768-47f1-429a-ab44-ff31e3722173"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7630.0,
+              "contracts": 57,
+              "premium": 53000,
+              "trade_ids": [
+                "02409ceb-9a67-4311-93a2-3eff4616eaa2"
+              ]
+            }
+          ],
+          "gross_premium": 361000,
+          "net_premium": null,
+          "bias": "long_vol",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7630,
+            7670
+          ],
+          "interpretation": "Matched-size 7630P and 7670C buying around spot 7652 suggests movement was bought around a 7650 center; spread flag means linkage is probable, not proven.",
+          "ui_title": "Tue 7630P / 7670C Long-Strangle-like"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-tue-7630-7670-vol",
+          "low": 7630,
+          "high": 7670,
+          "type": "vol_realization",
+          "beneficiaries": [
+            "long-strangle-like inventory"
+          ],
+          "source_structure_ids": [
+            "str-tue-7630p-7670c-long-strangle"
+          ],
+          "source_level_ids": [
+            "tue-lvl-7650"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Movement is bought around a roughly 7650 center.",
+          "caveat": "Spread flag means hidden legs may exist."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-08-26",
+      "label": "WED 2DTE",
+      "expiration": "2026-08-26",
+      "dte": 2,
+      "forward": null,
+      "reference_price": 7653.7,
+      "summary": {
+        "headline": "Wednesday is the main deterioration: supportive baseline inverted by 7700 synthetic-short-like flow and net put buying"
+      },
+      "flow_aggregate": {
+        "gross_premium": 14673000,
+        "calls": {
+          "bought": 2621000,
+          "sold": 3144000,
+          "net": -523000
+        },
+        "puts": {
+          "bought": 5487000,
+          "sold": 3421000,
+          "net": 2066000
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "gross_premium": 5459000,
+          "calls": {
+            "bought": 827000,
+            "sold": 745000,
+            "net": 82000
+          },
+          "puts": {
+            "bought": 2228000,
+            "sold": 1659000,
+            "net": 569000
+          }
+        }
+      },
+      "levels": [
+        {
+          "id": "wed-lvl-7700",
+          "price": 7700.0,
+          "range_low": 7700.0,
+          "range_high": 7700.0,
+          "role": [
+            "call_supply",
+            "downside_protection",
+            "transition"
+          ],
+          "label": "WED 7700 SYNTHETIC-SHORT BOUNDARY",
+          "strength": 0.98,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 46.3,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 545000,
+            "put_buy": 1106000,
+            "put_sell": 83000,
+            "net_calls": -545000,
+            "net_puts": 1023000,
+            "gross": 1734000
+          },
+          "interpretation": "Two separate equal-size sell-7700C/buy-7700P packages invert the supportive baseline geometry.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-wed-7700-synthetic-short-a",
+              "str-wed-7700-synthetic-short-b"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7675",
+          "price": 7675.0,
+          "range_low": 7675.0,
+          "range_high": 7675.0,
+          "role": [
+            "downside_protection",
+            "transition"
+          ],
+          "label": "WED 7675 PUT DEMAND",
+          "strength": 0.86,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 21.3,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 198000,
+            "put_buy": 899000,
+            "put_sell": 221000,
+            "net_calls": -198000,
+            "net_puts": 678000,
+            "gross": 1318000
+          },
+          "interpretation": "Net put buying around 7675 confirms that protection has migrated into Wednesday expiry.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7650",
+          "price": 7650.0,
+          "range_low": 7650.0,
+          "range_high": 7650.0,
+          "role": [
+            "downside_protection",
+            "breakdown_trigger"
+          ],
+          "label": "WED 7650 LOWER DECISION",
+          "strength": 0.8,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": -3.7,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 163000,
+            "put_buy": 610000,
+            "put_sell": 451000,
+            "net_calls": -163000,
+            "net_puts": 159000,
+            "gross": 1224000
+          },
+          "interpretation": "Fresh put buying makes 7650 the first lower decision level if spot cannot hold the reclaim.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-wed-7700-synthetic-short-a",
+          "timestamp": "2026-08-24T18:24:46.000-04:00",
+          "type": "synthetic_short",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 100,
+              "premium": 58000,
+              "trade_ids": [
+                "3465ffbe-95be-4b3d-9d9b-240ea2351398"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7700.0,
+              "contracts": 100,
+              "premium": 551000,
+              "trade_ids": [
+                "1a5ac3aa-41c7-4b28-942b-42154121d50a"
+              ]
+            }
+          ],
+          "gross_premium": 609000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7700
+          ],
+          "interpretation": "Sell 7700C plus buy 7700P in equal size is synthetic-short-like. It directly opposes Friday baseline supportive inventory around 7700-7710.",
+          "ui_title": "Wed 7700 Synthetic Short-like A"
+        },
+        {
+          "id": "str-wed-7700-synthetic-short-b",
+          "timestamp": "2026-08-24T18:29:07.000-04:00",
+          "type": "synthetic_short",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 100,
+              "premium": 73000,
+              "trade_ids": [
+                "4d7de9b0-a37f-40f5-8496-c1dda7feebfb"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7700.0,
+              "contracts": 100,
+              "premium": 501000,
+              "trade_ids": [
+                "d3398a53-d0e5-420d-9621-0f3962f4c11b"
+              ]
+            }
+          ],
+          "gross_premium": 574000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7700
+          ],
+          "interpretation": "A second equal-size sell-call/buy-put package at 7700 reinforces the forward migration of defensive risk into Wednesday expiry.",
+          "ui_title": "Wed 7700 Synthetic Short-like B"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-27",
+      "label": "THU 3DTE",
+      "expiration": "2026-08-27",
+      "dte": 3,
+      "forward": null,
+      "reference_price": 7653.7,
+      "summary": {
+        "headline": "Thursday improved versus baseline: 7675-7700 put risk acceptance offsets prior defensive geometry"
+      },
+      "flow_aggregate": {
+        "gross_premium": 16858000,
+        "calls": {
+          "bought": 5313000,
+          "sold": 3194000,
+          "net": 2119000
+        },
+        "puts": {
+          "bought": 3745000,
+          "sold": 4606000,
+          "net": -861000
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "gross_premium": 4772000,
+          "calls": {
+            "bought": 191000,
+            "sold": 370000,
+            "net": -179000
+          },
+          "puts": {
+            "bought": 2082000,
+            "sold": 2129000,
+            "net": -47000
+          }
+        }
+      },
+      "levels": [
+        {
+          "id": "thu-lvl-7675-7700",
+          "price": 7675.0,
+          "range_low": 7675.0,
+          "range_high": 7700.0,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor",
+            "reclaim_support"
+          ],
+          "label": "THU 7675-7700 RISK ACCEPTANCE",
+          "strength": 0.9,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 21.3,
+          "flow": {
+            "call_buy": 680000,
+            "call_sell": 299000,
+            "put_buy": 885000,
+            "put_sell": 2918000,
+            "net_calls": 381000,
+            "net_puts": -2033000,
+            "gross": 4782000
+          },
+          "interpretation": "Repeated block put sales at 7675/7700 and later put-credit-like spreads soften the previously defensive Thursday baseline.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7675-7700-put-risk-acceptance",
+              "str-thu-7650-7675-put-credit-like"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "thu-lvl-7650",
+          "price": 7650.0,
+          "range_low": 7650.0,
+          "range_high": 7650.0,
+          "role": [
+            "conditional_floor",
+            "downside_protection"
+          ],
+          "label": "THU 7650 LIMITED DOWNSIDE",
+          "strength": 0.84,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -3.7,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 669000,
+            "put_sell": 211000,
+            "net_calls": 0,
+            "net_puts": 458000,
+            "gross": 880000
+          },
+          "interpretation": "7650P purchases paired with 7675P sales limit downside while accepting risk above the lower leg.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7650-7675-put-credit-like"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "thu-lvl-7725-7735",
+          "price": 7725.0,
+          "range_low": 7725.0,
+          "range_high": 7735.0,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "THU UPSIDE CALL DEMAND",
+          "strength": 0.8,
+          "basis": "observed",
+          "confidence": "low",
+          "state": "active",
+          "distance_from_spot": 71.3,
+          "flow": {
+            "call_buy": 2687000,
+            "call_sell": 340000,
+            "put_buy": 77000,
+            "put_sell": 0,
+            "net_calls": 2347000,
+            "net_puts": 77000,
+            "gross": 3104000
+          },
+          "interpretation": "Large spread-flagged call buying at 7725/7735 adds upside participation, but hidden legs may exist below the $50k tape filter.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-thu-7650-7675-put-credit-like",
+          "timestamp": "2026-08-24T22:42:30-04:00",
+          "type": "put_credit_spread",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 45,
+              "premium": 196000,
+              "trade_ids": [
+                "bca770a6-1ba9-42a5-9832-2770ed532650"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7650.0,
+              "contracts": 45,
+              "premium": 143000,
+              "trade_ids": [
+                "7927d4df-0a1f-41d9-8481-20dee429b19a"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 45,
+              "premium": 194000,
+              "trade_ids": [
+                "316c91bc-5b34-44f3-933c-f68cf2039649"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7650.0,
+              "contracts": 45,
+              "premium": 141000,
+              "trade_ids": [
+                "18d128f5-7657-4755-bede-85342baedf31"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 50,
+              "premium": 221000,
+              "trade_ids": [
+                "eb244e2b-e493-452f-9e02-af20659581eb"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7650.0,
+              "contracts": 50,
+              "premium": 161000,
+              "trade_ids": [
+                "e0fed8b1-b4b1-4208-aef5-b9bffe0c73e0"
+              ]
+            }
+          ],
+          "gross_premium": 1056000,
+          "net_premium": null,
+          "bias": "supportive",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7650,
+            7675
+          ],
+          "interpretation": "Repeated buy-7650P / sell-7675P equal-size spreads accept downside risk above 7650 while limiting the tail below; this offsets part of the defensive weekly migration.",
+          "ui_title": "Thu 7650/7675 Put-Credit-like"
+        },
+        {
+          "id": "str-thu-7675-7700-put-risk-acceptance",
+          "timestamp": "2026-08-24T17:44:15-04:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 29,
+              "premium": 171000,
+              "trade_ids": [
+                "44d36598-c1bc-4bf0-9cbe-e337d0d27dc8"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 29,
+              "premium": 128000,
+              "trade_ids": [
+                "8d3b0de0-fac7-4d26-afde-138eee734a4f"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 29,
+              "premium": 128000,
+              "trade_ids": [
+                "f887c8ab-17dd-4e34-ad8a-9576702190cb"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 29,
+              "premium": 171000,
+              "trade_ids": [
+                "0df49dd4-5c9e-47ca-9f5f-5f638ba387f2"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 29,
+              "premium": 128000,
+              "trade_ids": [
+                "dadc2f35-1007-4d2f-95d6-c182e1c840d2"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 29,
+              "premium": 171000,
+              "trade_ids": [
+                "6d9d67a8-9e85-45e4-9e64-7f234825c067"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 40,
+              "premium": 237000,
+              "trade_ids": [
+                "3008ee50-fecf-4bb5-97a5-c80ab1b0b31e"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 20,
+              "premium": 89000,
+              "trade_ids": [
+                "b7037ea0-ce40-440f-bbb3-c55d994519cd"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 20,
+              "premium": 118000,
+              "trade_ids": [
+                "2d60fbb7-f5e4-4e11-bb82-a118680d50ed"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 20,
+              "premium": 118000,
+              "trade_ids": [
+                "d1c6ae38-1d68-4033-98de-9ae70a67735d"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7675.0,
+              "contracts": 20,
+              "premium": 89000,
+              "trade_ids": [
+                "aebf3cbd-13ed-49ba-bf83-f8a85bc6998a"
+              ]
+            }
+          ],
+          "gross_premium": 1548000,
+          "net_premium": null,
+          "bias": "supportive",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7675,
+            7700
+          ],
+          "interpretation": "Repeated block put sales at 7675 and 7700 show downside risk acceptance in Thursday expiry, though opening/closing is unknown.",
+          "ui_title": "Thu 7675/7700 Put Risk Acceptance"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-thu-7650-7675-credit",
+          "low": 7650,
+          "high": 7675,
+          "type": "spread_max_value_zone",
+          "beneficiaries": [
+            "put-credit-like inventory if expiry holds above 7675"
+          ],
+          "source_structure_ids": [
+            "str-thu-7650-7675-put-credit-like"
+          ],
+          "source_level_ids": [
+            "thu-lvl-7650",
+            "thu-lvl-7675-7700"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Repeated buy-lower/sell-higher put spreads express limited downside with risk acceptance above the short 7675 leg.",
+          "caveat": "Opening/closing is unknown."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-08-28",
+      "label": "FRI 4DTE",
+      "expiration": "2026-08-28",
+      "dte": 4,
+      "forward": null,
+      "reference_price": 7653.7,
+      "summary": {
+        "headline": "Friday remains defensive through 7640/7580 put demand, while raw call selling is distorted by deep-ITM complex flow"
+      },
+      "flow_aggregate": {
+        "gross_premium": 49958000,
+        "calls": {
+          "bought": 8881000,
+          "sold": 20509000,
+          "net": -11628000
+        },
+        "puts": {
+          "bought": 13370000,
+          "sold": 7198000,
+          "net": 6172000
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "gross_premium": 8706000,
+          "calls": {
+            "bought": 1144000,
+            "sold": 976000,
+            "net": 168000
+          },
+          "puts": {
+            "bought": 4196000,
+            "sold": 2390000,
+            "net": 1806000
+          }
+        },
+        "leave_one_out": {
+          "dominant_trade_id": "5d357c97-a729-41b1-b1e0-65dd65bf4f89",
+          "dominant_structure_id": "str-fri-7025-deep-itm-call-sale-cluster",
+          "dominant_premium": 14800000,
+          "dominant_share": 0.2962,
+          "result": {
+            "net_calls": 3172000,
+            "net_puts": 6172000
+          },
+          "changes_interpretation": true,
+          "comment": "Removing the deep-ITM 7025C cluster flips Friday call premium from strongly net sold to net bought; bearish interpretation should rely on near-spot puts and structures instead."
+        }
+      },
+      "levels": [
+        {
+          "id": "fri-lvl-7640-7645",
+          "price": 7640.0,
+          "range_low": 7640.0,
+          "range_high": 7645.0,
+          "role": [
+            "downside_protection",
+            "magnet",
+            "complex_zone"
+          ],
+          "label": "FRI 7640-7645 PROTECTION / BUTTERFLY CENTER",
+          "strength": 0.96,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -13.7,
+          "flow": {
+            "call_buy": 52000,
+            "call_sell": 271000,
+            "put_buy": 2224000,
+            "put_sell": 293000,
+            "net_calls": -219000,
+            "net_puts": 1931000,
+            "gross": 2840000
+          },
+          "interpretation": "A 541-lot 7640P buy and a 7605/7645/7680 put butterfly-like package make this the closest material Friday downside zone.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7640-put-protection",
+              "str-fri-7605-7645-7680-put-butterfly"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7580",
+          "price": 7580.0,
+          "range_low": 7580.0,
+          "range_high": 7580.0,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "FRI 7580 TAIL HEDGE",
+          "strength": 0.95,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -73.7,
+          "flow": {
+            "call_buy": 108000,
+            "call_sell": 0,
+            "put_buy": 2088000,
+            "put_sell": 0,
+            "net_calls": 108000,
+            "net_puts": 2088000,
+            "gross": 2196000
+          },
+          "interpretation": "7580 carries the dominant premium within a broader 7510-7580 block put-buying ladder.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7510-7580-put-ladder"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7700-7725",
+          "price": 7700.0,
+          "range_low": 7700.0,
+          "range_high": 7725.0,
+          "role": [
+            "call_supply",
+            "potential_cap",
+            "transition"
+          ],
+          "label": "FRI 7700-7725 CALL SUPPLY",
+          "strength": 0.82,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 46.3,
+          "flow": {
+            "call_buy": 652000,
+            "call_sell": 1438000,
+            "put_buy": 940000,
+            "put_sell": 1752000,
+            "net_calls": -786000,
+            "net_puts": -812000,
+            "gross": 4782000
+          },
+          "interpretation": "Fresh 175x call sales at both 7700 and 7725 maintain late-week upper friction.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7700-7725-call-supply"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7650-7685",
+          "price": 7650.0,
+          "range_low": 7650.0,
+          "range_high": 7685.0,
+          "role": [
+            "downside_protection",
+            "call_supply",
+            "complex_zone"
+          ],
+          "label": "FRI NEAR-SPOT DEFENSIVE PACKAGE",
+          "strength": 0.86,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -3.7,
+          "flow": {
+            "call_buy": 1040000,
+            "call_sell": 937000,
+            "put_buy": 1788000,
+            "put_sell": 1671000,
+            "net_calls": 103000,
+            "net_puts": 117000,
+            "gross": 5436000
+          },
+          "interpretation": "Matched 7650/7660 put buying and 7685 call selling is a direct near-spot defensive package.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7650-7660p-7685c-defensive"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-fri-7640-put-protection",
+          "timestamp": "2026-08-24T14:58:02.000-04:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7640.0,
+              "contracts": 541,
+              "premium": 1900000,
+              "trade_ids": [
+                "2691c1d2-1b5a-4cec-8166-82dbe7f65e1f"
+              ]
+            }
+          ],
+          "gross_premium": 1900000,
+          "net_premium": null,
+          "bias": "bearish_hedge",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7640
+          ],
+          "interpretation": "Large 541-contract 7640P purchase makes 7640 an active downside-protection level. The spread flag prevents treating it as a proven standalone opening hedge.",
+          "ui_title": "Fri 7640 Put Protection"
+        },
+        {
+          "id": "str-fri-7510-7580-put-ladder",
+          "timestamp": "2026-08-24T17:00:59.000-04:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7510.0,
+              "contracts": 320,
+              "premium": 306000,
+              "trade_ids": [
+                "65c544a5-ec18-4219-ad92-709999ba3135"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7580.0,
+              "contracts": 800,
+              "premium": 1600000,
+              "trade_ids": [
+                "9665f8fe-41ac-430d-a14c-0aeb30b625bf"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7540.0,
+              "contracts": 84,
+              "premium": 111000,
+              "trade_ids": [
+                "31bd250c-f845-43b7-8de3-9b6e6fcd0b51"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7550.0,
+              "contracts": 84,
+              "premium": 123000,
+              "trade_ids": [
+                "5208b689-faef-4ca2-bb65-bbbd673062ba"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7580.0,
+              "contracts": 120,
+              "premium": 244000,
+              "trade_ids": [
+                "19ebe57a-ef85-4d6a-abda-f419198ae2e7"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7550.0,
+              "contracts": 84,
+              "premium": 123000,
+              "trade_ids": [
+                "09fb271d-450b-4f3d-a036-fc81076228cc"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7540.0,
+              "contracts": 84,
+              "premium": 111000,
+              "trade_ids": [
+                "b30d9de1-50a4-473a-8cfb-a5fdb6c718ba"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7580.0,
+              "contracts": 120,
+              "premium": 244000,
+              "trade_ids": [
+                "000ef358-cae0-477a-a144-ee4149963893"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7550.0,
+              "contracts": 84,
+              "premium": 123000,
+              "trade_ids": [
+                "6af0eb15-b308-451b-99c3-41bb1ff86094"
+              ]
+            }
+          ],
+          "gross_premium": 2985000,
+          "net_premium": null,
+          "bias": "bearish_hedge",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7510,
+            7540,
+            7550,
+            7580
+          ],
+          "interpretation": "Large block put buying from 7580 down to 7510 reinforces a lower-tail protection ladder; 7580 is the dominant premium concentration.",
+          "ui_title": "Fri 7510-7580 Put Protection Ladder"
+        },
+        {
+          "id": "str-fri-7700-7725-call-supply",
+          "timestamp": "2026-08-24T17:41:32.000-04:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7700.0,
+              "contracts": 175,
+              "premium": 432000,
+              "trade_ids": [
+                "14978e91-8325-4fe0-ac74-7fda45489d02"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7725.0,
+              "contracts": 175,
+              "premium": 284000,
+              "trade_ids": [
+                "443d80b7-406b-41a7-990a-f98f38f9dace"
+              ]
+            }
+          ],
+          "gross_premium": 716000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7700,
+            7725
+          ],
+          "interpretation": "Equal-size sale of 7700C and 7725C adds late-week upside supply, but does not by itself prove a naked overwrite.",
+          "ui_title": "Fri 7700/7725 Call Supply"
+        },
+        {
+          "id": "str-fri-7605-7645-7680-put-butterfly",
+          "timestamp": "2026-08-24T18:07:34.000-04:00",
+          "type": "butterfly",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7680.0,
+              "contracts": 36,
+              "premium": 208000,
+              "trade_ids": [
+                "d5002ae6-e0d5-4e45-b9f0-dfb55e072cf2"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7645.0,
+              "contracts": 72,
+              "premium": 293000,
+              "trade_ids": [
+                "0a645726-2b71-4b26-977f-f882ab0cd4dd"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7605.0,
+              "contracts": 36,
+              "premium": 96000,
+              "trade_ids": [
+                "e56c4589-a31d-412e-b86d-2d8d5e1add38"
+              ]
+            }
+          ],
+          "gross_premium": 597000,
+          "net_premium": null,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7605,
+            7645,
+            7680
+          ],
+          "interpretation": "36x long 7605P, 72x short 7645P, 36x long 7680P forms a 1:-2:1 put butterfly-like package with maximum-value geometry around 7645.",
+          "ui_title": "Fri 7605/7645/7680 Put Butterfly-like"
+        },
+        {
+          "id": "str-fri-7650-7660p-7685c-defensive",
+          "timestamp": "2026-08-24T22:26:28.000-04:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7650.0,
+              "contracts": 35,
+              "premium": 130000,
+              "trade_ids": [
+                "a4890294-276d-49d6-825b-f059b0980280"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7685.0,
+              "contracts": 35,
+              "premium": 108000,
+              "trade_ids": [
+                "dc8871a0-a29a-4f14-8f6b-4f743b759764"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7660.0,
+              "contracts": 35,
+              "premium": 144000,
+              "trade_ids": [
+                "b6d3417c-a68b-4d01-98c7-6d9a069de330"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7685.0,
+              "contracts": 40,
+              "premium": 124000,
+              "trade_ids": [
+                "54a7ef51-499d-476f-a540-66ada97c06f1"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7650.0,
+              "contracts": 40,
+              "premium": 148000,
+              "trade_ids": [
+                "4c037def-7bd4-49e5-a907-b445219842b3"
+              ]
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7660.0,
+              "contracts": 40,
+              "premium": 164000,
+              "trade_ids": [
+                "f41b1675-8d22-4234-b1cb-d52af78375fe"
+              ]
+            }
+          ],
+          "gross_premium": 818000,
+          "net_premium": null,
+          "bias": "bearish_hedge",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7650,
+            7660,
+            7685
+          ],
+          "interpretation": "Matched 35/40-lot buys of 7650P and 7660P with sales of 7685C create a defensive collar/risk-reversal-like package around the current market.",
+          "ui_title": "Fri 7650/7660P vs 7685C Defensive Package"
+        },
+        {
+          "id": "str-fri-7025-deep-itm-call-sale-cluster",
+          "timestamp": "2026-08-24T18:24:31-04:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7025.0,
+              "contracts": 118,
+              "premium": 7400000,
+              "trade_ids": [
+                "5d357c97-a729-41b1-b1e0-65dd65bf4f89"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7025.0,
+              "contracts": 59,
+              "premium": 3700000,
+              "trade_ids": [
+                "9fa38264-f1b9-4918-ac45-47953c86ef89"
+              ]
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7025.0,
+              "contracts": 59,
+              "premium": 3700000,
+              "trade_ids": [
+                "9f920437-63cf-458c-8734-5a27f6b35dc1"
+              ]
+            }
+          ],
+          "gross_premium": 14800000,
+          "net_premium": null,
+          "bias": "non_directional_complex_risk",
+          "basis": "observed",
+          "confidence": "low",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7025
+          ],
+          "interpretation": "Deep-ITM call-sale cluster carries mostly intrinsic value and dominates raw call premium. It is excluded from directional interpretation via structure-level leave-one-out.",
+          "ui_title": "Fri 7025 Deep-ITM Call-Sale Cluster"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-fri-7645-butterfly",
+          "low": 7640,
+          "high": 7650,
+          "type": "spread_max_value_zone",
+          "beneficiaries": [
+            "7605/7645/7680 put-butterfly-like inventory"
+          ],
+          "source_structure_ids": [
+            "str-fri-7605-7645-7680-put-butterfly"
+          ],
+          "source_level_ids": [
+            "fri-lvl-7640-7645"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "The 1:-2:1 put structure has maximum-value geometry near 7645.",
+          "caveat": "This is structure geometry, not a prediction of settlement."
+        },
+        {
+          "id": "mz-fri-7580-tail",
+          "low": 7575,
+          "high": 7580,
+          "type": "downside_convexity",
+          "beneficiaries": [
+            "long downside hedges"
+          ],
+          "source_structure_ids": [
+            "str-fri-7510-7580-put-ladder"
+          ],
+          "source_level_ids": [
+            "fri-lvl-7580"
+          ],
+          "basis": "observed",
+          "confidence": "medium",
+          "description": "Dominant fresh tail protection is concentrated at 7580 with lower strikes extending to 7510.",
+          "caveat": "Protection demand can coexist with a stable market and does not prove a directional short."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-reclaim-repair",
+      "name": "Weekly structure repair",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7675,
+          "description": "Reclaim the former weekly pivot and hold above the 7665-7675 battle zone."
+        },
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Absorb the Wednesday synthetic-short boundary and late-week call supply."
+        }
+      ],
+      "route": [
+        7675,
+        7700,
+        7725,
+        7735,
+        7750
+      ],
+      "invalidations": [
+        "Failed reclaim of 7665-7675",
+        "New Wednesday/Thursday put buying expands while 7700 call supply persists"
+      ],
+      "interpretation": "Repair requires first reclaiming 7675 and then proving that defensive risk migration is being absorbed at 7700."
+    },
+    {
+      "id": "sc-middle-conflict",
+      "name": "Defensive battleground",
+      "bias": "mixed",
+      "priority": 0.4,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7650,
+          "description": "7650 continues to hold after the intraday pierce."
+        },
+        {
+          "type": "hold_below",
+          "level": 7675,
+          "description": "Spot remains below the former weekly pivot."
+        }
+      ],
+      "route": [
+        7650,
+        7665,
+        7675
+      ],
+      "invalidations": [
+        "Acceptance above 7675",
+        "Acceptance below 7650"
+      ],
+      "interpretation": "Inside 7650-7675 the book is conflicted: movement is bought, protection is active, and Thursday risk acceptance offsets Wednesday defensiveness."
+    },
+    {
+      "id": "sc-downside-acceptance",
+      "name": "Downside protection activation",
+      "bias": "bearish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7650,
+          "description": "Lose the active decision level and fail to reclaim it."
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7640,
+          "description": "Fresh downside demand expands around the existing Friday protection zone."
+        }
+      ],
+      "route": [
+        7650,
+        7640,
+        7580,
+        7575,
+        7550,
+        7510
+      ],
+      "invalidations": [
+        "Fast reclaim above 7650",
+        "Friday protection is unwound while Thursday put selling expands"
+      ],
+      "interpretation": "Acceptance below 7650 activates the closest 7640-7645 protection zone; below it the next material fresh hedge concentration is 7580-7575."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 801,
+    "deduplicated_rows": 801,
+    "duplicates_removed": 0,
+    "analyzed_rows": 798,
+    "excluded_rows": 3,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "Three carried Friday rows embedded in the dump were excluded from the 2026-08-24 update.",
+      "BUY/SELL does not prove opening/closing.",
+      "Many large prints are flagged Spread or Block without a usable complex_order_id.",
+      "The $14.8M 7025C sale cluster is deep ITM and dominates raw call premium; directional interpretation uses structure-level leave-one-out.",
+      "Large deep-ITM 5000C/10000P packages are treated as probable complex or parity-related flow rather than directional conviction.",
+      "Visible tape is filtered to $50k+ prints and is not the full option inventory."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

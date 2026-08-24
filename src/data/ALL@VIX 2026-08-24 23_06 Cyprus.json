@@ -1,0 +1,966 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-08-24 23:06 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-24T23:06:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-24 (1).csv"
+    ],
+    "trade_date": "2026-08-24",
+    "data_through": "2026-08-24T22:54:04+03:00",
+    "stateful_baseline_date": "2026-08-21"
+  },
+  "market_state": {
+    "spot": 15.86,
+    "spot_reference": "late visible VIX print",
+    "session_vix_low": 15.64,
+    "session_vix_high": 15.99,
+    "regime": "near_term_range_with_deferred_hedge_build",
+    "bias": "near_term_supportive_deferred_caution",
+    "confidence": "medium",
+    "main_pivot": 20.0,
+    "upper_decision_level": 22.0,
+    "lower_decision_level": 17.5
+  },
+  "summary": {
+    "headline": "Near-term September and October stress remains largely sold or range-bound, while a new December 20/33 defensive book carries most of the day's long-VIX exposure.",
+    "key_points": [
+      "Total signed VIX delta was about +15.9M, but the December 20 synthetic-long-like plus 33C package contributed about +12.5M.",
+      "Excluding the dominant December package leaves the day only mildly positive at roughly +3.4M VIX delta.",
+      "September 17.5 became a bought-movement center, but late flow sold 19-20 upside and capped stress.",
+      "October ordinary stress around 19-22.5 remained range/supply-heavy, while 25C demand and a far 65-100 tail ladder appeared.",
+      "Friday's large November 22C demand did not receive meaningful continuation; instead 35-36C and other upper strikes were sold.",
+      "September and October forwards stayed compressed near 17.50 and 19.13 despite spot VIX trading higher than Friday."
+    ],
+    "daily_note": "Near-term stress still sold; deferred protection rolls outward again into December."
+  },
+  "flow_aggregate": {
+    "gross_premium": 31107000,
+    "contracts": 387171,
+    "signed_vix_delta": 15908000,
+    "calls": {
+      "bought": 11527000,
+      "sold": 8765000,
+      "net": 2762000
+    },
+    "puts": {
+      "bought": 5064000,
+      "sold": 5751000,
+      "net": -687000
+    },
+    "known_net_premium": 2075000,
+    "leave_one_out": {
+      "dominant_structure_id": "str-dec-20-synthetic-33c",
+      "dominant_premium": 3502000,
+      "dominant_share": 0.1126,
+      "dominant_signed_vix_delta": 12510000,
+      "result": {
+        "signed_vix_delta": 3398000
+      },
+      "changes_interpretation": true,
+      "comment": "Headline long-VIX bias is concentrated in one December defensive package; the remaining tape is close to neutral."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-vix-15-16-current",
+      "price": 15.8,
+      "range_low": 15.6,
+      "range_high": 16.0,
+      "role": [
+        "volatility_center",
+        "transition"
+      ],
+      "label": "CURRENT SPOT VIX REGIME",
+      "strength": 0.7,
+      "basis": "observed",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "Spot VIX traded 15.64-15.99 while medium forwards stayed compressed."
+    },
+    {
+      "id": "lvl-vix-16p5-sep-floor",
+      "price": 16.5,
+      "range_low": 16.5,
+      "range_high": 16.5,
+      "role": [
+        "conditional_floor",
+        "put_risk_acceptance"
+      ],
+      "label": "SEPTEMBER LOWER RISK-ACCEPTANCE FLOOR",
+      "strength": 0.75,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Large 16.5P selling financed higher-strike put demand, leaving 16.5 as a conditional lower floor."
+    },
+    {
+      "id": "lvl-vix-17p5-sep-movement",
+      "price": 17.5,
+      "range_low": 17.0,
+      "range_high": 17.5,
+      "role": [
+        "volatility_center",
+        "inventory_center",
+        "transition"
+      ],
+      "label": "SEPTEMBER BOUGHT-MOVEMENT CENTER",
+      "strength": 0.93,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "17.5C and 17.5P were both bought materially, especially late, making this the clearest bought-movement center."
+    },
+    {
+      "id": "lvl-vix-18-19-transition",
+      "price": 18.5,
+      "range_low": 18.0,
+      "range_high": 19.0,
+      "role": [
+        "transition",
+        "complex_zone"
+      ],
+      "label": "SEPTEMBER TRANSITION BAND",
+      "strength": 0.76,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "18P demand coexists with late 19C supply; this is a conflict zone rather than a one-way hedge level."
+    },
+    {
+      "id": "lvl-vix-20-main-battlefield",
+      "price": 20.0,
+      "range_low": 20.0,
+      "range_high": 20.0,
+      "role": [
+        "main_pivot",
+        "transition",
+        "complex_zone",
+        "call_supply"
+      ],
+      "label": "MAIN SEPTEMBER BATTLEFIELD",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "testing",
+      "interpretation": "20C saw large buys early and even larger late sales. It is the main regime boundary for current September stress."
+    },
+    {
+      "id": "lvl-vix-21-22p5-oct-range",
+      "price": 21.75,
+      "range_low": 21.0,
+      "range_high": 22.5,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "complex_zone"
+      ],
+      "label": "ORDINARY OCTOBER STRESS / RANGE CEILING",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Late October premium selling included a 18.5P/22.5C short-range structure, keeping ordinary stress capped."
+    },
+    {
+      "id": "lvl-vix-25-oct-demand",
+      "price": 25.0,
+      "range_low": 24.0,
+      "range_high": 25.0,
+      "role": [
+        "upside_demand",
+        "transition"
+      ],
+      "label": "OCTOBER MODERATE-STRESS DEMAND",
+      "strength": 0.86,
+      "basis": "observed",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "October 25C was repeatedly bought and is the clearest moderate-stress hedge level in that maturity."
+    },
+    {
+      "id": "lvl-vix-30-35-upper",
+      "price": 32.5,
+      "range_low": 30.0,
+      "range_high": 35.0,
+      "role": [
+        "tail_zone",
+        "complex_zone",
+        "call_supply"
+      ],
+      "label": "UPPER MONETIZATION / MIXED TAIL ZONE",
+      "strength": 0.84,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "September and November retain substantial supply near 35, while December owns 33C and September has selective 30-33C demand."
+    },
+    {
+      "id": "lvl-vix-33-dec-hedge",
+      "price": 33.0,
+      "range_low": 33.0,
+      "range_high": 33.0,
+      "role": [
+        "upside_demand",
+        "tail_zone"
+      ],
+      "label": "DECEMBER DEFERRED HEDGE",
+      "strength": 0.94,
+      "basis": "observed",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "12,500 December 33C were bought as part of the dominant defensive package."
+    },
+    {
+      "id": "lvl-vix-65-100-oct-tail",
+      "price": 80.0,
+      "range_low": 65.0,
+      "range_high": 100.0,
+      "role": [
+        "tail_zone",
+        "complex_zone"
+      ],
+      "label": "OCTOBER DISASTER LADDER",
+      "strength": 0.55,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "65/70/80C were bought against 85/100C sales. This is disaster insurance, not a working VIX target."
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-24T16:34:31+03:00",
+      "end": "2026-08-24T19:29:59+03:00",
+      "spot_high": 15.99,
+      "spot_low": 15.73,
+      "gross_premium": 15048000,
+      "known_net_premium": 340000,
+      "signed_vix_delta": 13048000,
+      "regime": "deferred_hedge_build_with_near_term_conflict",
+      "events": [
+        "December 20 synthetic-long-like plus 33C hedge",
+        "Early September 20/35 call spread",
+        "October 25C demand"
+      ]
+    },
+    {
+      "start": "2026-08-24T19:30:00+03:00",
+      "end": "2026-08-24T21:59:59+03:00",
+      "spot_high": 15.79,
+      "spot_low": 15.64,
+      "gross_premium": 4108000,
+      "known_net_premium": 2134000,
+      "signed_vix_delta": 6403000,
+      "regime": "selective_convexity_build",
+      "events": [
+        "October 65-100 disaster ladder",
+        "Additional September movement buying"
+      ]
+    },
+    {
+      "start": "2026-08-24T22:00:00+03:00",
+      "end": "2026-08-24T22:54:04+03:00",
+      "spot_high": 15.89,
+      "spot_low": 15.7,
+      "gross_premium": 11951000,
+      "known_net_premium": -399000,
+      "signed_vix_delta": -3543000,
+      "regime": "late_near_term_stress_sale",
+      "events": [
+        "September 17.5 straddle-like buy capped by 20C sale",
+        "Late September 19C/20C supply",
+        "October short-range premium selling"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-dec-20-synthetic-33c",
+      "timestamp": "2026-08-24T17:49:09+03:00",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "expiration": "2026-12-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 3125,
+          "premium": 953000
+        },
+        {
+          "expiration": "2026-12-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 3125,
+          "premium": 922000
+        },
+        {
+          "expiration": "2026-12-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 33.0,
+          "contracts": 12500,
+          "premium": 1627000
+        }
+      ],
+      "gross_premium": 3502000,
+      "net_premium": 1658000,
+      "signed_vix_delta": 12510000,
+      "bias": "long_vix",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        33.0
+      ],
+      "interpretation": "Synthetic-long-like December VIX around 20, reinforced by a large 33C convexity purchase.",
+      "ui_title": "Dec 20 Synthetic Long + 33C"
+    },
+    {
+      "id": "str-sep-20-35-call-spread",
+      "timestamp": "2026-08-24T16:41:02+03:00",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 14999,
+          "premium": 1300000
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 35.0,
+          "contracts": 14999,
+          "premium": 345000
+        }
+      ],
+      "gross_premium": 1645000,
+      "net_premium": 955000,
+      "signed_vix_delta": 6700000,
+      "bias": "long_vix_capped",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        20.0,
+        35.0
+      ],
+      "interpretation": "Early September stress hedge from 20, financed by selling the 35C tail.",
+      "ui_title": "Sep 20/35 Call Spread"
+    },
+    {
+      "id": "str-sep-17p5-movement-cap20",
+      "timestamp": "2026-08-24T22:37:20+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 17.5,
+          "contracts": 6435,
+          "premium": 830000
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 17.5,
+          "contracts": 6435,
+          "premium": 830000
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 19500,
+          "premium": 1600000
+        }
+      ],
+      "gross_premium": 3260000,
+      "net_premium": 60000,
+      "signed_vix_delta": -10200000,
+      "bias": "long_movement_capped_upside",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        17.5,
+        20.0
+      ],
+      "interpretation": "Long movement around 17.5 is heavily capped by a much larger 20C sale.",
+      "ui_title": "Sep 17.5 Movement Buy / 20C Cap"
+    },
+    {
+      "id": "str-sep-put-spread-ratio-16p5-18",
+      "timestamp": "2026-08-24T17:24:07+03:00",
+      "type": "ratio_put_spread",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 16.5,
+          "contracts": 15000,
+          "premium": 990000
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 18.0,
+          "contracts": 6000,
+          "premium": 996000
+        }
+      ],
+      "gross_premium": 1986000,
+      "net_premium": 6000,
+      "signed_vix_delta": 3100000,
+      "bias": "lower_vix_with_conditional_floor",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        16.5,
+        18.0
+      ],
+      "interpretation": "Downside-VIX exposure from 18 is financed by heavier 16.5P selling, leaving a conditional floor near 16.5.",
+      "ui_title": "Sep 18/16.5 Put Ratio"
+    },
+    {
+      "id": "str-oct-19-synth-short-20c",
+      "timestamp": "2026-08-24T17:19:35+03:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 19.0,
+          "contracts": 2040,
+          "premium": 477000
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 19.0,
+          "contracts": 2193,
+          "premium": 485000
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 4300,
+          "premium": 886000
+        }
+      ],
+      "gross_premium": 1848000,
+      "net_premium": -878000,
+      "signed_vix_delta": -8228000,
+      "bias": "short_vix",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        19.0,
+        20.0
+      ],
+      "interpretation": "Synthetic-short-like October exposure around 19 with additional 20C stress supply.",
+      "ui_title": "Oct 19 Synthetic Short + 20C"
+    },
+    {
+      "id": "str-oct-tail-65-100",
+      "timestamp": "2026-08-24T19:30:01+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 65.0,
+          "contracts": 20140,
+          "premium": 604000
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 70.0,
+          "contracts": 20140,
+          "premium": 504000
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 80.0,
+          "contracts": 20140,
+          "premium": 403000
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 85.0,
+          "contracts": 20140,
+          "premium": 363000
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 100.0,
+          "contracts": 20140,
+          "premium": 282000
+        }
+      ],
+      "gross_premium": 2156000,
+      "net_premium": 866000,
+      "signed_vix_delta": 3600000,
+      "bias": "long_tail_capped",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        65.0,
+        70.0,
+        80.0,
+        85.0,
+        100.0
+      ],
+      "interpretation": "Extreme October convexity is owned from 65-80 and financed by selling 85-100; this is disaster insurance rather than a working stress target.",
+      "ui_title": "Oct 65-100 Disaster Ladder"
+    },
+    {
+      "id": "str-oct-nov-put-sale-18-17",
+      "timestamp": "2026-08-24T22:25:54+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 18.0,
+          "contracts": 6000,
+          "premium": 924000
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.0,
+          "contracts": 9000,
+          "premium": 918000
+        }
+      ],
+      "gross_premium": 1842000,
+      "net_premium": -1842000,
+      "signed_vix_delta": 8500000,
+      "bias": "lower_vix_risk_acceptance",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        17.0,
+        18.0
+      ],
+      "interpretation": "Cross-expiry put selling accepts lower-VIX risk in October and November.",
+      "ui_title": "Oct/Nov Lower-VIX Put Sale"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-sep-19-20",
+      "low": 19.0,
+      "high": 20.0,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "September stress sellers",
+        "range sellers"
+      ],
+      "source_structure_ids": [
+        "str-sep-17p5-movement-cap20"
+      ],
+      "source_level_ids": [
+        "lvl-vix-18-19-transition",
+        "lvl-vix-20-main-battlefield"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Late September flow monetizes VIX upside into 19-20 even while 17.5 movement is owned.",
+      "caveat": "20C had large opposing flow earlier, so the strike is a battlefield rather than a clean cap."
+    },
+    {
+      "id": "mz-upper-30-35",
+      "low": 30.0,
+      "high": 35.0,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "upper-wing sellers",
+        "capped hedge holders"
+      ],
+      "source_structure_ids": [
+        "str-sep-20-35-call-spread",
+        "str-dec-20-synthetic-33c"
+      ],
+      "source_level_ids": [
+        "lvl-vix-30-35-upper",
+        "lvl-vix-33-dec-hedge"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "30-35 is maturity-dependent: September/November supply coexists with December 33C demand."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-16",
+      "label": "SEP 2026",
+      "expiration": "2026-09-16",
+      "dte": 23,
+      "forward": 17.5,
+      "reference_price": null,
+      "summary": {
+        "headline": "September is nearly delta-neutral overall: 17.5 movement is owned, but late 19-20 upside is sold."
+      },
+      "flow_aggregate": {
+        "gross_premium": 15115000,
+        "contracts": 198830,
+        "signed_vix_delta": 246000,
+        "calls": {
+          "bought": 5258000,
+          "sold": 4300000,
+          "net": 958000
+        },
+        "puts": {
+          "bought": 3671000,
+          "sold": 1886000,
+          "net": 1785000
+        },
+        "net_premium": 2743000
+      },
+      "levels": [
+        "lvl-vix-16p5-sep-floor",
+        "lvl-vix-17p5-sep-movement",
+        "lvl-vix-18-19-transition",
+        "lvl-vix-20-main-battlefield",
+        "lvl-vix-30-35-upper"
+      ],
+      "structures": [
+        "str-sep-20-35-call-spread",
+        "str-sep-17p5-movement-cap20",
+        "str-sep-put-spread-ratio-16p5-18"
+      ],
+      "monetization_zones": [
+        "mz-sep-19-20",
+        "mz-upper-30-35"
+      ]
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "OCT 2026",
+      "expiration": "2026-10-21",
+      "dte": 58,
+      "forward": 19.13,
+      "reference_price": null,
+      "summary": {
+        "headline": "October is mixed: ordinary 19-22.5 stress is sold, 25C is bought, and an extreme 65-100 disaster ladder appears."
+      },
+      "flow_aggregate": {
+        "gross_premium": 9273000,
+        "contracts": 144631,
+        "signed_vix_delta": 3111000,
+        "calls": {
+          "bought": 3141000,
+          "sold": 3597000,
+          "net": -456000
+        },
+        "puts": {
+          "bought": 631000,
+          "sold": 1904000,
+          "net": -1273000
+        },
+        "net_premium": -1729000
+      },
+      "levels": [
+        "lvl-vix-21-22p5-oct-range",
+        "lvl-vix-25-oct-demand",
+        "lvl-vix-65-100-oct-tail"
+      ],
+      "structures": [
+        "str-oct-19-synth-short-20c",
+        "str-oct-tail-65-100",
+        "str-oct-nov-put-sale-18-17"
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "NOV 2026",
+      "expiration": "2026-11-18",
+      "dte": 86,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Friday's large 22C hedge did not continue; current November flow is dominated by 17P risk acceptance and 35-36C supply."
+      },
+      "flow_aggregate": {
+        "gross_premium": 2045000,
+        "contracts": 17830,
+        "signed_vix_delta": 1419000,
+        "calls": {
+          "bought": 138000,
+          "sold": 868000,
+          "net": -730000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 1039000,
+          "net": -1039000
+        },
+        "net_premium": -1769000
+      },
+      "levels": [
+        "lvl-vix-30-35-upper"
+      ],
+      "structures": [
+        "str-oct-nov-put-sale-18-17"
+      ],
+      "monetization_zones": [
+        "mz-upper-30-35"
+      ]
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "DEC 2026",
+      "expiration": "2026-12-16",
+      "dte": 114,
+      "forward": 20.06,
+      "reference_price": null,
+      "summary": {
+        "headline": "December is the dominant new hedge maturity through a synthetic-long-like 20 plus large 33C buy."
+      },
+      "flow_aggregate": {
+        "gross_premium": 3502000,
+        "contracts": 18750,
+        "signed_vix_delta": 12510000,
+        "calls": {
+          "bought": 2580000,
+          "sold": 0,
+          "net": 2580000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 922000,
+          "net": -922000
+        },
+        "net_premium": 1658000
+      },
+      "levels": [
+        "lvl-vix-33-dec-hedge"
+      ],
+      "structures": [
+        "str-dec-20-synthetic-33c"
+      ],
+      "monetization_zones": [
+        "mz-upper-30-35"
+      ]
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "FEB 2027",
+      "expiration": "2027-02-17",
+      "dte": 177,
+      "forward": 21.68,
+      "reference_price": null,
+      "summary": {
+        "headline": "Small mixed far-dated flow; not regime-defining."
+      },
+      "flow_aggregate": {
+        "gross_premium": 1073000,
+        "contracts": 6800,
+        "signed_vix_delta": -1721000,
+        "calls": {
+          "bought": 311000,
+          "sold": 0,
+          "net": 311000
+        },
+        "puts": {
+          "bought": 762000,
+          "sold": 0,
+          "net": 762000
+        },
+        "net_premium": 1073000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-03-17",
+      "label": "MAR 2027",
+      "expiration": "2027-03-17",
+      "dte": 205,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Very small positive call flow; low regime significance."
+      },
+      "flow_aggregate": {
+        "gross_premium": 99000,
+        "contracts": 330,
+        "signed_vix_delta": 343000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Near-term carry persists",
+      "bias": "supportive_for_spx",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 17.5,
+          "description": "September VIX remains below the bought-movement center."
+        },
+        {
+          "type": "hold_below",
+          "level": 20.0,
+          "description": "September 20C battlefield remains unaccepted."
+        }
+      ],
+      "route": [
+        17.5,
+        16.5,
+        15.5
+      ],
+      "invalidations": [
+        "Persistent acceptance above 20"
+      ],
+      "interpretation": "Near-term stress remains sold and range-bound, which is supportive for SPX."
+    },
+    {
+      "id": "sc-warning",
+      "name": "September movement activates",
+      "bias": "risk_off_watch",
+      "priority": 0.28,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 18.0,
+          "description": "September VIX moves through the 17.5 movement center into the 18-19 transition band."
+        }
+      ],
+      "route": [
+        18.0,
+        19.0,
+        20.0
+      ],
+      "invalidations": [
+        "Failure back below 17.5"
+      ],
+      "interpretation": "Bought movement starts to realize, but 20 remains the main regime test."
+    },
+    {
+      "id": "sc-stress",
+      "name": "September battlefield breaks",
+      "bias": "risk_off",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 20.0,
+          "description": "Absorb heavy two-way September inventory at 20."
+        }
+      ],
+      "route": [
+        20.0,
+        22.0,
+        25.0
+      ],
+      "invalidations": [
+        "Return below 20 after failed acceptance"
+      ],
+      "interpretation": "Acceptance above 20 shifts the map from range into working correction stress, bringing October 25C demand into play."
+    },
+    {
+      "id": "sc-deferred",
+      "name": "Deferred stress reaches December hedge",
+      "bias": "risk_off_deferred",
+      "priority": 0.07,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 25.0,
+          "description": "Stress persists through the October moderate-stress zone."
+        }
+      ],
+      "route": [
+        25.0,
+        30.0,
+        33.0
+      ],
+      "invalidations": [
+        "VIX fails back below 20-22"
+      ],
+      "interpretation": "Persistent stress would eventually bring the new December 33C hedge into relevance."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 113,
+    "deduplicated_rows": 112,
+    "duplicates_removed": 1,
+    "iv_coverage": 1.0,
+    "side_quality": "excellent",
+    "side_mid_agreement": 1.0,
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "trade_ids_available": true,
+    "complex_order_ids_available": false,
+    "confidence": "medium",
+    "multirow_timestamp_premium_share": 0.845,
+    "top5_timestamp_premium_share": 0.409,
+    "caveats": [
+      "BUY/SELL does not prove opening or closing.",
+      "Many important prints are probable multi-leg structures without confirmed complex-order linkage.",
+      "Visible tape is filtered at $50K and is not the full market position.",
+      "The +15.9M signed VIX delta headline is dominated by one December defensive package.",
+      "The analysis is stateful relative to the August 21 VIX tape."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
