@@ -112,10 +112,14 @@
   .spotline{
     position:absolute;left:176px;right:5px;height:1px;background:var(--cyan);
     box-shadow:0 0 14px rgba(79,209,197,.45);
+    z-index:6;
+    pointer-events:none;
   }
   .spotlabel{
     position:absolute;left:198px;transform:translateY(-125%);font-size:10px;font-weight:800;color:var(--cyan);
     background:var(--panel);padding-right:4px;
+    z-index:7;
+    pointer-events:none;
   }
   .spotline.reference{background:var(--yellow);box-shadow:none;opacity:.62}
   .spotlabel.reference{color:var(--yellow)}

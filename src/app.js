@@ -329,18 +329,37 @@ function createPriceScaler(context) {
     context.market_state?.spot,
     ...asArray(context.levels).map((level) => level.price),
     ...asArray(context.monetization_zones).flatMap((zone) => [zone.low, zone.high]),
-  ].filter((value) => typeof value === "number");
+  ].filter((value) => typeof value === "number" && Number.isFinite(value));
 
   if (prices.length === 0) return () => "50%";
-  const min = Math.min(...prices);
-  const max = Math.max(...prices);
-  const range = max - min;
-  const pad = Math.max(range * 0.04, Math.abs((min + max) / 2) * 0.002, 0.25);
-  const low = min - pad;
-  const high = max + pad;
+  const anchors = [...new Set(prices)].sort((a, b) => a - b);
+  const gaps = anchors.slice(1).map((price, index) => price - anchors[index]).filter((gap) => gap > 0);
+  const medianGap = gaps.length ? gaps.slice().sort((a, b) => a - b)[Math.floor(gaps.length / 2)] : 1;
+  const maxVisualGap = Math.max(medianGap * 4, 1);
+  const compressedGaps = gaps.map((gap) => Math.min(gap, maxVisualGap));
+  const compressedPositions = anchors.reduce((positions, _price, index) => {
+    positions.push(index === 0 ? 0 : positions[index - 1] + compressedGaps[index - 1]);
+    return positions;
+  }, []);
+  const compressedSpan = compressedPositions[compressedPositions.length - 1] || 1;
+  const pad = Math.max(compressedSpan * 0.04, 0.25);
+  const low = -pad;
+  const high = compressedSpan + pad;
   const span = high - low || 1;
 
-  return (price) => `${((high - price) / span) * 100}%`;
+  function compressedPosition(price) {
+    if (price <= anchors[0]) return 0;
+    const lastIndex = anchors.length - 1;
+    if (price >= anchors[lastIndex]) return compressedSpan;
+
+    const upperIndex = anchors.findIndex((anchor) => anchor >= price);
+    const lowerIndex = Math.max(0, upperIndex - 1);
+    const rawGap = anchors[upperIndex] - anchors[lowerIndex] || 1;
+    const ratio = (price - anchors[lowerIndex]) / rawGap;
+    return compressedPositions[lowerIndex] + ratio * compressedGaps[lowerIndex];
+  }
+
+  return (price) => `${((high - compressedPosition(price)) / span) * 100}%`;
 }
 
 function renderLevelMap(containerId, context, options = {}) {
