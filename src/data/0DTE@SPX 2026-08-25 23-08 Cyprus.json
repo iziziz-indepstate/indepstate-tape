@@ -1,0 +1,581 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-08-25 23:08 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-08-26",
+    "dte": 0,
+    "snapshot_time": "2026-08-25T23:08:00+03:00",
+    "timezone": "Europe/Nicosia",
+    "session_scope": "overnight_baseline",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-25 (4).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7676.7,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "supportive_put_selling_range",
+    "bias": "supportive_mixed",
+    "confidence": "medium",
+    "main_pivot": 7675,
+    "upper_decision_level": 7700,
+    "lower_decision_level": 7650
+  },
+  "summary": {
+    "headline": "7650-7660 is the dominant conditional floor; 7675 is the main pivot",
+    "key_points": [
+      "Near-spot and OTM call flow is almost balanced after removing the deep-ITM 7570C distortion.",
+      "Put selling is persistent and concentrated at 7650-7660, making this the main downside risk-acceptance zone.",
+      "A 7700C buy / 7700P sell package is synthetic-long-like and makes 7700 the upper decision level.",
+      "Acceptance below 7650 would invalidate the most stable supportive feature of the baseline and expose 7625-7620."
+    ],
+    "daily_note": "Baseline for the 2026-08-26 0DTE session: 7650-7660 conditional floor, 7675 pivot, 7700 upper decision. Raw call selling is dominated by deep-ITM complex flow and should not be read as a clean bearish signal."
+  },
+  "flow_aggregate": {
+    "gross_premium": 45379994,
+    "calls": {
+      "bought": 10541000,
+      "sold": 18418999,
+      "net": -7877999
+    },
+    "puts": {
+      "bought": 5256000,
+      "sold": 11163994,
+      "net": -5907994
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 4321999,
+        "sold": 4227000,
+        "net": 94999
+      },
+      "puts": {
+        "bought": 2587999,
+        "sold": 8237000,
+        "net": -5649001
+      }
+    },
+    "otm": {
+      "calls": {
+        "bought": 1402000,
+        "sold": 1371999,
+        "net": 30001
+      },
+      "puts": {
+        "bought": 2711001,
+        "sold": 6576995,
+        "net": -3865994
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "adf488b1-f665-4790-9544-008106fc469d",
+      "dominant_premium": 1799999,
+      "dominant_share": 0.0397,
+      "result": {
+        "net_calls": -6077999,
+        "net_puts": -5907994
+      },
+      "changes_interpretation": false,
+      "comment": "The largest single 7570C sale does not change the raw call sign. However, excluding the full 7570C deep-ITM cluster changes net calls from -$7.88M to approximately +$0.72M, so the apparent call-selling bias is not robust."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7655-floor-zone",
+      "price": 7655,
+      "range_low": 7650,
+      "range_high": 7660,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "MAIN CONDITIONAL FLOOR / PUT RISK ACCEPTANCE",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -21.7,
+      "flow": {
+        "call_buy": 1707000,
+        "call_sell": 1916000,
+        "put_buy": 880999,
+        "put_sell": 5219000,
+        "net_calls": -209000,
+        "net_puts": -4338001,
+        "gross": 9722999
+      },
+      "interpretation": "The strongest persistent feature of the baseline is concentrated put selling across 7650-7660. The zone is supportive while held, but acceptance below 7650 can turn the same short-downside inventory into an instability source.",
+      "evidence": {
+        "trade_ids": [
+          "1e832034-f9f5-4d96-98aa-98ad2e12d09a",
+          "9f7cf0f6-f00b-417d-a571-16331607e93b",
+          "fe336f9a-8719-44dd-891e-2a123fed01e0"
+        ],
+        "structure_ids": [
+          "str-7650-7655-put-sale-cluster"
+        ],
+        "notes": [
+          "7650-7660 net put premium is approximately -$4.34M.",
+          "Put selling remains strongly negative even after excluding the largest put print."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7675-pivot",
+      "price": 7675,
+      "range_low": 7670,
+      "range_high": 7680,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center"
+      ],
+      "label": "MAIN PIVOT / CENTRAL OPTIONALITY",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -1.7,
+      "flow": {
+        "call_buy": 555000,
+        "call_sell": 336000,
+        "put_buy": 842000,
+        "put_sell": 537000,
+        "net_calls": 219000,
+        "net_puts": 305000,
+        "gross": 2269999
+      },
+      "interpretation": "7675 is the closest high-activity strike to spot and carries two-sided optionality. It is better treated as the central decision pivot than as a directional support or resistance level.",
+      "evidence": {
+        "trade_ids": [
+          "fe18d6a7-60a4-48db-81f4-416989efd1b1"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "224x 7675P were bought near spot 7665.7.",
+          "Both call and put premium are net bought at 7675."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700-upper-decision",
+      "price": 7700,
+      "range_low": 7690,
+      "range_high": 7700,
+      "role": [
+        "upside_demand",
+        "transition",
+        "potential_cap"
+      ],
+      "label": "UPPER DECISION / SYNTHETIC-LONG-LIKE INVENTORY",
+      "strength": 0.76,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 23.3,
+      "flow": {
+        "call_buy": 365999,
+        "call_sell": 256000,
+        "put_buy": 208000,
+        "put_sell": 1211000,
+        "net_calls": 109999,
+        "net_puts": -1003000,
+        "gross": 2040999
+      },
+      "interpretation": "A matched 200x 7700C buy and 200x 7700P sale is synthetic-long-like. This makes 7700 an upper decision level, but the broader OTM call tape does not yet show clean upside chase.",
+      "evidence": {
+        "trade_ids": [
+          "edca865c-4b6e-40c4-9443-c7e396dd21e0",
+          "db5ae136-986c-443b-95ec-6bf5a27fb335"
+        ],
+        "structure_ids": [
+          "str-7700-synthetic-long-like"
+        ],
+        "notes": [
+          "The matched legs printed at the same timestamp with 200 contracts each."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7622-complex-zone",
+      "price": 7622.5,
+      "range_low": 7620,
+      "range_high": 7625,
+      "role": [
+        "complex_zone",
+        "transition"
+      ],
+      "label": "SECONDARY COMPLEX INVENTORY / DOWNSIDE TRANSITION",
+      "strength": 0.62,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -54.2,
+      "flow": {
+        "call_buy": 2364000,
+        "call_sell": 1988000,
+        "put_buy": 54000,
+        "put_sell": 0,
+        "net_calls": 376000,
+        "net_puts": 54000,
+        "gross": 4406000
+      },
+      "interpretation": "Repeated 7620C buy / 7625C sell pairings look like call-debit-spread activity. Because both strikes are deep ITM relative to spot, the gross premium is not a clean directional signal. The zone becomes more relevant after a 7650 breakdown.",
+      "evidence": {
+        "trade_ids": [
+          "e9b36c58-6436-4af0-891a-9ffb0fc3fef8",
+          "6e00b437-e3ea-4cee-8ce5-473fe5366981",
+          "6faafecc-bcf2-46fc-a1bf-05449683c7ca",
+          "e905efbb-d355-4206-a507-c55d47f41aa1",
+          "1fd20681-fcf1-48e6-ba9a-944227f4e72a",
+          "67c0c1d0-a0d6-4ddf-98fe-b9b57d14918e"
+        ],
+        "structure_ids": [
+          "str-7620-7625-call-debit-like"
+        ],
+        "notes": [
+          "Repeated same-timestamp and same-size pairings support a spread interpretation."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7570-itm-complex",
+      "price": 7570,
+      "range_low": 7570,
+      "range_high": 7570,
+      "role": [
+        "complex_zone",
+        "tail_zone"
+      ],
+      "label": "DEEP-ITM CALL COMPLEX / AGGREGATE DISTORTION",
+      "strength": 0.58,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "historical",
+      "distance_from_spot": -106.7,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 8592999,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -8592999,
+        "net_puts": 0,
+        "gross": 8592999
+      },
+      "interpretation": "7570C is the largest premium strike but is deep ITM and heavily marked Spread/Block. Removing the full cluster flips aggregate call flow from strongly negative to slightly positive, so it should not be rendered as a normal bearish call wall.",
+      "evidence": {
+        "trade_ids": [
+          "adf488b1-f665-4790-9544-008106fc469d",
+          "cbff2390-6a6f-430e-b58a-8edb90ea1377",
+          "9d5d40e9-5e0e-48d9-b7ef-8cf66a38edf8"
+        ],
+        "structure_ids": [
+          "str-7570-itm-call-complex"
+        ],
+        "notes": [
+          "7570C represents about 18.9% of total visible gross premium.",
+          "Several linked subsets pair 7570C sales with 7650C buys."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7650-7655-put-sale-cluster",
+      "timestamp": "2026-08-25T21:49:03+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7650,
+          "contracts": 2420,
+          "premium": 1563001,
+          "trade_ids": [
+            "9f7cf0f6-f00b-417d-a571-16331607e93b",
+            "3212e119-82fe-489a-9b7e-10c1bd25a0da",
+            "f69d8f27-467b-4a56-955b-d0c230630b83",
+            "6e481af3-1d3a-4f33-8f0e-424e1167385a",
+            "3d5f9c27-d1a3-4f63-b476-d64d37c6ba55",
+            "06fc95c8-3c5a-4a19-9cb3-bcb266149b63",
+            "fe336f9a-8719-44dd-891e-2a123fed01e0",
+            "e08573cc-f95f-4ce2-9e51-5a1b1e8c9bf1"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7655,
+          "contracts": 2240,
+          "premium": 1870998,
+          "trade_ids": [
+            "1e832034-f9f5-4d96-98aa-98ad2e12d09a",
+            "fa4a76a6-8099-4c4f-afc8-bc18c5c88317",
+            "28289faf-fd91-4220-aaef-f34abb089a86",
+            "e045bd73-6aae-4437-9eb9-893e5bbe90d4",
+            "3811ff24-f322-4660-b8c2-da16680187e2",
+            "b64641dc-7177-47c8-9d96-02ddd839d081"
+          ]
+        }
+      ],
+      "gross_premium": 3433999,
+      "net_premium": -3433999,
+      "bias": "supportive_neutral_to_bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7655
+      ],
+      "interpretation": "A concentrated same-timestamp put-sale package reinforces 7650-7655 as downside risk acceptance. Because every row is marked Spread and there is no complex-order ID, the package cannot be proven as naked opening short puts.",
+      "ui_title": "7650-7655 Put-Sale Cluster"
+    },
+    {
+      "id": "str-7700-synthetic-long-like",
+      "timestamp": "2026-08-25T20:57:25+03:00",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 200,
+          "premium": 84000,
+          "trade_ids": [
+            "edca865c-4b6e-40c4-9443-c7e396dd21e0"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 200,
+          "premium": 699000,
+          "trade_ids": [
+            "db5ae136-986c-443b-95ec-6bf5a27fb335"
+          ]
+        }
+      ],
+      "gross_premium": 783000,
+      "net_premium": -615000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Matched 200x call-buy and put-sale legs at the same strike and timestamp are synthetic-long-like. This supports 7700 as an upper decision level, not proof of breakout demand.",
+      "ui_title": "7700 Synthetic Long-like"
+    },
+    {
+      "id": "str-7620-7625-call-debit-like",
+      "timestamp": null,
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7620,
+          "contracts": null,
+          "premium": 2258000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7625,
+          "contracts": null,
+          "premium": 1556000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 3814000,
+      "net_premium": null,
+      "bias": "bullish_delta_like_but_deep_itm",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7620,
+        7625
+      ],
+      "interpretation": "Multiple same-timestamp, same-size 7620C buy / 7625C sell pairs resemble repeated call debit spreads. Deep-ITM moneyness reduces the usefulness of gross premium as a directional conviction measure.",
+      "ui_title": "7620/7625 Repeated Call-Spread-like Flow"
+    },
+    {
+      "id": "str-7570-itm-call-complex",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7570,
+          "contracts": null,
+          "premium": 8592999,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 8592999,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7570,
+        7650
+      ],
+      "interpretation": "The 7570C premium cluster is deep ITM, mostly Spread/Block, and partially linked with 7650C legs. It is treated as complex inventory and an aggregate-distortion source rather than a clean call-supply wall.",
+      "ui_title": "7570 Deep-ITM Call Complex"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7650-7660-short-downside",
+      "low": 7650,
+      "high": 7660,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "short-downside premium inventory",
+        "range-supportive books"
+      ],
+      "source_structure_ids": [
+        "str-7650-7655-put-sale-cluster"
+      ],
+      "source_level_ids": [
+        "lvl-7655-floor-zone"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Persistent put selling favors settlement above 7650-7660 while the range holds.",
+      "caveat": "Acceptance below 7650 can reverse the economic character of the same short-downside inventory. Opening/closing is unknown."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "Range / decay around 7675",
+      "bias": "neutral",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7650,
+          "description": "Keep the concentrated put-sale floor intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7700,
+          "description": "No clean upside acceptance through the synthetic decision level"
+        }
+      ],
+      "route": [
+        7650,
+        7675,
+        7700
+      ],
+      "invalidations": [
+        "Accepted move above 7700 with fresh call buying",
+        "Accepted move below 7650 with failed reclaim"
+      ],
+      "interpretation": "While SPX remains between 7650 and 7700, the baseline favors chop/decay and mean reversion around the 7675 pivot."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Hold above the upper decision level rather than briefly trade through it"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7700,
+          "description": "Fresh OTM call demand confirms that the move is more than synthetic inventory"
+        }
+      ],
+      "route": [
+        7700,
+        7725,
+        7740
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7700",
+        "Renewed call selling without follow-through"
+      ],
+      "interpretation": "Acceptance above 7700 plus new call buying would convert the map from supportive range to upside realization toward 7725 and 7740."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Conditional-floor failure",
+      "bias": "bearish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7650,
+          "description": "Break the strongest put-risk-acceptance zone"
+        },
+        {
+          "type": "failed_reclaim",
+          "level": 7650,
+          "description": "Failure to regain 7650 confirms that the prior supportive floor is no longer working"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7650,
+          "description": "Fresh downside protection replacing put selling strengthens the breakdown"
+        }
+      ],
+      "route": [
+        7650,
+        7625,
+        7620,
+        7600
+      ],
+      "invalidations": [
+        "Quick reclaim of 7650 with renewed put selling"
+      ],
+      "interpretation": "Below 7650 the most stable supportive feature of the baseline fails. The next transition is 7625-7620, followed by 7600 if downside flow expands."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 349,
+    "deduplicated_rows": 349,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "276 of 349 rows are marked Spread, but complex_order_id is absent for all rows.",
+      "Deep-ITM premium materially distorts raw call aggregates, especially the 7570C cluster.",
+      "The source timestamp field is labeled America/New_York but the clock range appears inconsistent with normal RTH; event ordering is used, but absolute clock interpretation is treated cautiously.",
+      "Visible tape is filtered to $50k+ and is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

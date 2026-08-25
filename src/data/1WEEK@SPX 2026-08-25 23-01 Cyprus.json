@@ -1,0 +1,926 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-08-25 23:01 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-25T23:01:00+03:00",
+    "timezone": "Europe/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-25 (1)(1).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7670.9,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "front_loaded_defensive_with_local_convexity",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7675,
+    "upper_decision_level": 7700,
+    "lower_decision_level": 7660
+  },
+  "summary": {
+    "headline": "Wednesday protection remains front-loaded; Friday shifts toward local convexity with a fresh 7725 call cap",
+    "key_points": [
+      "Fresh 25-Aug flow totals about $2.22M and is confined to Wednesday and Friday expirations.",
+      "A same-time 15x15 7700P calendar-like package buys Wednesday protection and sells Friday protection, confirming front-loading of downside risk.",
+      "Wednesday buys protection around 7670-7675 while selling puts around 7660, making 7660 a conditional floor rather than an unconditional support.",
+      "Friday repeatedly buys 7645P and 7695C around a 7670 center, consistent with local long-vol/convexity demand.",
+      "Fresh Friday call supply is concentrated at 7725; removing that cluster flips fresh aggregate call flow from net sold to net bought.",
+      "No new $50k+ prints appear in the Thursday expiration, so the prior mixed-supportive Thursday state is carried forward without fresh confirmation."
+    ],
+    "daily_note": "Stateful update versus the 21-Aug baseline and 24-Aug update: defensive migration into Wednesday is confirmed, but broad bearish escalation into Thursday is not."
+  },
+  "flow_aggregate": {
+    "gross_premium": 2221000,
+    "calls": {
+      "bought": 269000,
+      "sold": 485000,
+      "net": -216000
+    },
+    "puts": {
+      "bought": 812000,
+      "sold": 655000,
+      "net": 157000
+    },
+    "near_spot": {
+      "distance_points": 50,
+      "calls": {
+        "bought": 269000,
+        "sold": 485000,
+        "net": -216000
+      },
+      "puts": {
+        "bought": 597000,
+        "sold": 528000,
+        "net": 69000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_premium": 298000,
+      "dominant_share": 0.1342,
+      "result": {
+        "net_calls": 82000,
+        "net_puts": 157000
+      },
+      "changes_interpretation": true,
+      "comment": "Removing the two-print Friday 7725C sale cluster flips fresh aggregate call flow from net sold to net bought."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7725",
+      "price": 7725,
+      "range_low": 7725,
+      "range_high": 7725,
+      "role": [
+        "call_supply",
+        "potential_cap"
+      ],
+      "label": "FRESH FRIDAY CALL CAP",
+      "strength": 0.86,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 54.1,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 298000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -298000,
+        "net_puts": 0,
+        "gross": 298000
+      },
+      "interpretation": "Fresh upper supply is concentrated at 7725 rather than distributed across the call surface.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7725-call-supply"
+        ],
+        "notes": [
+          "Dominant fresh call-sale cluster; leave-one-out flips total fresh call flow."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700",
+      "price": 7700,
+      "range_low": 7700,
+      "range_high": 7700,
+      "role": [
+        "transition",
+        "complex_zone"
+      ],
+      "label": "MAJOR CROSS-EXPIRY REGIME BOUNDARY",
+      "strength": 0.94,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 29.1,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 50000,
+        "put_sell": 77000,
+        "net_calls": 0,
+        "net_puts": -27000,
+        "gross": 127000
+      },
+      "interpretation": "The fresh cross-expiry 7700P roll moves downside protection from Friday into Wednesday, reinforcing 7700 as the key regime boundary.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7700-put-calendar-roll"
+        ],
+        "notes": [
+          "Stateful context: prior Wednesday defensive flow and Friday conflict already centered near 7700."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7695",
+      "price": 7695,
+      "range_low": 7695,
+      "range_high": 7695,
+      "role": [
+        "upside_demand",
+        "volatility_center"
+      ],
+      "label": "FRIDAY UPSIDE CONVEXITY",
+      "strength": 0.7,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 24.1,
+      "flow": {
+        "call_buy": 156000,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 156000,
+        "net_puts": 0,
+        "gross": 156000
+      },
+      "interpretation": "Repeated Friday 7695C purchases pair with 7645P activity around a roughly 7670 volatility center.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7645-7695-long-strangle"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7670-7675",
+      "price": 7670,
+      "range_low": 7670,
+      "range_high": 7675,
+      "role": [
+        "main_pivot",
+        "volatility_center",
+        "downside_protection"
+      ],
+      "label": "ACTIVE WEEKLY PIVOT / VOL CENTER",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -0.9,
+      "flow": {
+        "call_buy": 61000,
+        "call_sell": 0,
+        "put_buy": 290000,
+        "put_sell": 78000,
+        "net_calls": 61000,
+        "net_puts": 212000,
+        "gross": 429000
+      },
+      "interpretation": "Wednesday protection is concentrated here while Friday structures price local movement around the same center.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7645-7695-long-strangle"
+        ],
+        "notes": [
+          "Current spot is effectively inside this zone."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7660",
+      "price": 7660,
+      "range_low": 7660,
+      "range_high": 7660,
+      "role": [
+        "conditional_floor",
+        "put_risk_acceptance",
+        "breakdown_trigger"
+      ],
+      "label": "WED CONDITIONAL FLOOR",
+      "strength": 0.84,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -10.9,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 61000,
+        "put_sell": 246000,
+        "net_calls": 0,
+        "net_puts": -185000,
+        "gross": 307000
+      },
+      "interpretation": "Wednesday put selling below the 7670-7675 protection zone creates local risk acceptance; acceptance below 7660 would weaken this supportive reading.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7640-7645",
+      "price": 7645,
+      "range_low": 7640,
+      "range_high": 7645,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "FIRST DOWNSIDE PROTECTION",
+      "strength": 0.8,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -25.9,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 107000,
+        "put_sell": 53000,
+        "net_calls": 0,
+        "net_puts": 54000,
+        "gross": 160000
+      },
+      "interpretation": "Friday 7645P demand keeps the first downside protection zone active; stateful context also includes prior 7640 protection.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7645-7695-long-strangle",
+          "str-fri-7645p-7695c-risk-reversal"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7580-7590",
+      "price": 7590,
+      "range_low": 7580,
+      "range_high": 7590,
+      "role": [
+        "tail_zone",
+        "conditional_floor"
+      ],
+      "label": "TAIL ZONE / NO FRESH REINFORCEMENT",
+      "strength": 0.65,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": -80.9,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 73000,
+        "net_calls": 0,
+        "net_puts": -73000,
+        "gross": 73000
+      },
+      "interpretation": "The prior tail hedge zone remains in the stateful book, but the fresh 25-Aug layer does not reinforce it; instead a 7590P is sold.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Carry-forward state from prior snapshots; fresh flow weakens rather than reinforces the tail-demand signal."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7700-put-calendar-roll",
+      "timestamp": "2026-08-25T22:31:14+03:00",
+      "type": "roll",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 15,
+          "premium": 50000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 15,
+          "premium": 77000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 127000,
+      "net_premium": null,
+      "bias": "bearish_hedge_front_loaded",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Same-time, same-size put legs across Wednesday and Friday look like a calendar roll that brings downside protection forward into Wednesday.",
+      "ui_title": "7700P Fri-to-Wed Protection Roll"
+    },
+    {
+      "id": "str-fri-7645-7695-long-strangle",
+      "timestamp": "2026-08-25T22:24:02+03:00",
+      "type": "long_strangle",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7645,
+          "contracts": 40,
+          "premium": 107000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7695,
+          "contracts": 40,
+          "premium": 104000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 211000,
+      "net_premium": null,
+      "bias": "long_vol",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7645,
+        7695
+      ],
+      "interpretation": "Two repeated same-time 20x20 packages buy both wings around an approximate 7670 center, indicating demand for local Friday movement rather than pure downside.",
+      "ui_title": "Fri 7645P / 7695C Long-Strangle-like"
+    },
+    {
+      "id": "str-fri-7645p-7695c-risk-reversal",
+      "timestamp": "2026-08-25T22:32:24+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7645,
+          "contracts": 20,
+          "premium": 53000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7695,
+          "contracts": 20,
+          "premium": 52000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 105000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7645,
+        7695
+      ],
+      "interpretation": "A later same-size sell-put/buy-call package tilts the Friday 7670-centered complex modestly toward upside.",
+      "ui_title": "Fri 7645P / 7695C Risk-Reversal-like"
+    },
+    {
+      "id": "str-fri-7725-call-supply",
+      "timestamp": "2026-08-25T22:18:30+03:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 200,
+          "premium": 298000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 298000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7725
+      ],
+      "interpretation": "Two 100-contract sales eight seconds apart create the dominant fresh Friday call-supply cluster.",
+      "ui_title": "Fri 7725 Fresh Call Supply"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7670-vol-center",
+      "low": 7665,
+      "high": 7675,
+      "type": "vol_realization",
+      "beneficiaries": [
+        "Friday local long-vol inventory if price leaves the center"
+      ],
+      "source_structure_ids": [
+        "str-fri-7645-7695-long-strangle"
+      ],
+      "source_level_ids": [
+        "lvl-7670-7675"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Repeated Friday wing purchases frame 7670 as a local volatility center rather than a comfortable static pin.",
+      "caveat": "Complex linkage is inferred from same timestamps and sizes; opening/closing is unknown."
+    },
+    {
+      "id": "mz-7725-call-supply",
+      "low": 7725,
+      "high": 7725,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "Friday call sellers if upside fails below the strike"
+      ],
+      "source_structure_ids": [
+        "str-fri-7725-call-supply"
+      ],
+      "source_level_ids": [
+        "lvl-7725"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Fresh upper supply is highly concentrated at 7725.",
+      "caveat": "Leave-one-out shows that this small cluster drives the sign of fresh aggregate call flow."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-26",
+      "label": "WED 26 AUG",
+      "expiration": "2026-08-26",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7670.9,
+      "summary": {
+        "headline": "Defensive/mixed: protection at 7670-7675, put-risk acceptance at 7660, and a fresh 7700P roll into Wednesday"
+      },
+      "flow_aggregate": {
+        "gross_premium": 1192000,
+        "calls": {
+          "bought": 61000,
+          "sold": 136000,
+          "net": -75000
+        },
+        "puts": {
+          "bought": 597000,
+          "sold": 398000,
+          "net": 199000
+        }
+      },
+      "levels": [
+        {
+          "id": "wed-lvl-7700",
+          "price": 7700,
+          "role": [
+            "transition",
+            "downside_protection"
+          ],
+          "label": "WED 7700 FRONT-LOADED HEDGE",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Fresh 7700P is bought against a Friday 7700P sale.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7700-put-calendar-roll"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7670-7675",
+          "price": 7670,
+          "range_low": 7670,
+          "range_high": 7675,
+          "role": [
+            "main_pivot",
+            "downside_protection"
+          ],
+          "label": "WED ACTIVE PROTECTION",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Fresh put demand is concentrated near spot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7660",
+          "price": 7660,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor"
+          ],
+          "label": "WED CONDITIONAL FLOOR",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Net put selling at 7660 offsets the nearby protection and defines the first downside failure level.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "wed-lvl-7690",
+          "price": 7690,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "WED LOCAL CALL SUPPLY",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Fresh 7690C sale provides immediate overhead friction.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "ref": "str-7700-put-calendar-roll"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-27",
+      "label": "THU 27 AUG",
+      "expiration": "2026-08-27",
+      "dte": 2,
+      "forward": null,
+      "reference_price": 7670.9,
+      "summary": {
+        "headline": "No fresh $50k+ flow; prior mixed-supportive state is carried forward without confirmation"
+      },
+      "flow_aggregate": {
+        "gross_premium": 0,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        }
+      },
+      "levels": [
+        {
+          "id": "thu-lvl-7700-7725",
+          "price": 7700,
+          "range_low": 7700,
+          "range_high": 7725,
+          "role": [
+            "transition",
+            "call_supply"
+          ],
+          "label": "THU CARRY-FORWARD UPPER DECISION",
+          "basis": "inferred",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "interpretation": "No fresh prints modify the prior Thursday upper decision zone.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "State carried from the previous snapshot."
+            ]
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-08-28",
+      "label": "FRI 28 AUG",
+      "expiration": "2026-08-28",
+      "dte": 3,
+      "forward": null,
+      "reference_price": 7670.9,
+      "summary": {
+        "headline": "Friday shifts from pure downside hedging toward local convexity around 7670, while 7725 becomes the fresh call cap"
+      },
+      "flow_aggregate": {
+        "gross_premium": 1029000,
+        "calls": {
+          "bought": 208000,
+          "sold": 349000,
+          "net": -141000
+        },
+        "puts": {
+          "bought": 215000,
+          "sold": 257000,
+          "net": -42000
+        },
+        "leave_one_out": {
+          "dominant_trade_id": null,
+          "dominant_premium": 298000,
+          "dominant_share": 0.2896,
+          "result": {
+            "net_calls": 157000,
+            "net_puts": -42000
+          },
+          "changes_interpretation": true,
+          "comment": "Friday call-flow is net bought without the 7725C sale cluster."
+        }
+      },
+      "levels": [
+        {
+          "id": "fri-lvl-7725",
+          "price": 7725,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "FRI FRESH CALL CAP",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Dominant fresh call-sale concentration.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7725-call-supply"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7695",
+          "price": 7695,
+          "role": [
+            "upside_demand"
+          ],
+          "label": "FRI UPSIDE WING",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Repeated call buying forms the upper wing of the local convexity structure.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7645-7695-long-strangle",
+              "str-fri-7645p-7695c-risk-reversal"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7670",
+          "price": 7670,
+          "range_low": 7665,
+          "range_high": 7675,
+          "role": [
+            "volatility_center",
+            "main_pivot"
+          ],
+          "label": "FRI LOCAL VOL CENTER",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "The 7645P/7695C geometry centers local movement near 7670.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7645-7695-long-strangle"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7645",
+          "price": 7645,
+          "role": [
+            "downside_protection",
+            "transition"
+          ],
+          "label": "FRI LOWER WING",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Bought puts form the lower wing, partly offset later by a put sale.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7645-7695-long-strangle",
+              "str-fri-7645p-7695c-risk-reversal"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "fri-lvl-7590",
+          "price": 7590,
+          "role": [
+            "put_risk_acceptance",
+            "tail_zone"
+          ],
+          "label": "FRI TAIL NOT REINFORCED",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "testing",
+          "interpretation": "Fresh 7590P selling argues against a new wave of tail-hedge demand in this small incremental slice.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "ref": "str-7700-put-calendar-roll"
+        },
+        {
+          "ref": "str-fri-7645-7695-long-strangle"
+        },
+        {
+          "ref": "str-fri-7645p-7695c-risk-reversal"
+        },
+        {
+          "ref": "str-fri-7725-call-supply"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "ref": "mz-7670-vol-center"
+        },
+        {
+          "ref": "mz-7725-call-supply"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-upside-reclaim",
+      "name": "Upside reclaim",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7675,
+          "description": "Accept above the active 7670-7675 pivot."
+        },
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Absorb the main cross-expiry regime boundary."
+        }
+      ],
+      "route": [
+        7675,
+        7695,
+        7700,
+        7725
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7670",
+        "New Wednesday put buying expands while 7700 remains unreclaimed"
+      ],
+      "interpretation": "Reclaiming 7675 opens the local Friday upside wing; sustained acceptance above 7700 is required before the 7725 cap can be tested."
+    },
+    {
+      "id": "sc-middle-vol",
+      "name": "Local volatility center",
+      "bias": "mixed",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7660,
+          "description": "Keep the Wednesday conditional floor intact."
+        },
+        {
+          "type": "hold_below",
+          "level": 7695,
+          "description": "Remain inside the Friday local convexity wings."
+        }
+      ],
+      "route": [
+        7660,
+        7670,
+        7675,
+        7695
+      ],
+      "invalidations": [
+        "Acceptance below 7660",
+        "Acceptance above 7700"
+      ],
+      "interpretation": "The most natural near-term state is chop around 7670-7675 with long-vol inventory benefiting from a break outside the local wings."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside failure",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7660,
+          "description": "Lose the Wednesday put-risk-acceptance floor."
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7645,
+          "description": "Protection expands through the first lower wing."
+        }
+      ],
+      "route": [
+        7660,
+        7645,
+        7640,
+        7590,
+        7580
+      ],
+      "invalidations": [
+        "Reclaim above 7660",
+        "Tail put selling continues without renewed protection demand"
+      ],
+      "interpretation": "Below 7660 the first downside route is 7645-7640; extension toward 7590-7580 requires fresh tail protection because the current incremental slice does not reinforce the far downside."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 389,
+    "deduplicated_rows": 389,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "Only 31 rows without an embedded 08-24 date suffix are treated as the fresh 25-Aug incremental layer; the other 358 rows are carry-over and are excluded from fresh-flow aggregates.",
+      "The source timezone field says America/New_York, but the timestamp pattern is inconsistent with normal SPX trading hours; snapshot interpretation therefore uses Cyprus local time for the report and treats source intraday timestamps cautiously.",
+      "BUY/SELL does not prove opening/closing.",
+      "Cross-expiry and same-time structures are inferred from timestamps, sizes, sides, and Spread/Block flags without confirmed complex-order IDs.",
+      "The fresh layer is small ($2.22M gross), so stateful structural evidence is more important than raw aggregate premium.",
+      "Visible tape is filtered to $50k+ prints and is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
