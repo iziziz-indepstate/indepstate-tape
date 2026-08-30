@@ -1,0 +1,1887 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-08-30 20:41 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-08-30T20:41:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "full_session_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-08-30 (1).csv"
+    ],
+    "trade_date": "2026-08-28",
+    "data_through": "2026-08-28T23:14:58+03:00",
+    "stateful_method": "bounded_v3",
+    "active_window_sessions": 7,
+    "ledger_retention_sessions": 30,
+    "timestamp_interpretation": "Source field says America/New_York; project convention treats source clock timestamps as Cyprus time."
+  },
+  "market_state": {
+    "spot": 14.42,
+    "spot_reference": "last visible VIX print",
+    "session_vix_low": 14.14,
+    "session_vix_high": 14.75,
+    "regime": "front_hedge_unwind_restructure_with_low_vix_carry_and_selective_correction_insurance",
+    "bias": "supportive_for_spx",
+    "confidence": "medium",
+    "main_pivot": 17.0,
+    "upper_decision_level": 20.0,
+    "lower_decision_level": 14.5,
+    "forward_curve": {
+      "2026-09-16": 16.925,
+      "2026-10-21": 18.675,
+      "2026-11-18": 19.3525
+    }
+  },
+  "summary": {
+    "headline": "Positive raw VIX delta masks a largely neutral stateful book: front hedges are being unwound/restructured while low-VIX carry and capped correction insurance remain active.",
+    "key_points": [
+      "Deduplicated signed transaction VIX delta is +10.697M.",
+      "Excluding the Sep16P 13.945k reverse candidate leaves about +3.297M.",
+      "Conservative removal of all row-level strong/medium reverse candidates gives about -2.461M, showing headline fragility.",
+      "October has a fresh-looking 1x2 put ratio targeting 15.5-16.5 VIX.",
+      "October 30C supply is a cleaner continuing upper-volatility fingerprint.",
+      "Prior Oct24C hedge was partly sold back, reducing confidence that 24 remains fully active."
+    ],
+    "daily_note": "Preferred v3 read: front hedge unwind/restructure + active low-VIX carry + selective correction hedge + persistent Oct30C supply."
+  },
+  "flow_aggregate": {
+    "gross_premium": 30921000,
+    "contracts": 276436,
+    "signed_vix_delta": 10697000,
+    "calls": {
+      "bought": 6792000,
+      "sold": 12661000,
+      "net": -5869000
+    },
+    "puts": {
+      "bought": 2263000,
+      "sold": 9205000,
+      "net": -6942000
+    },
+    "net_premium": -12811000,
+    "leave_one_out": {
+      "dominant_timestamp": "2026-08-28T18:38:01+03:00",
+      "dominant_gross_premium": 3300000,
+      "dominant_signed_vix_delta": 500000,
+      "dominant_share_of_gross_premium": 0.1067,
+      "result_ex_dominant_signed_delta": 10197000,
+      "changes_interpretation": false,
+      "stateful_sensitivity": [
+        {
+          "test": "exclude_sep16p_sell_13945_reverse_candidate",
+          "result_signed_vix_delta": 3297000,
+          "changes_interpretation": true
+        },
+        {
+          "test": "exclude_all_row_level_strong_reverse_candidates",
+          "result_signed_vix_delta": 7661000,
+          "changes_interpretation": false
+        },
+        {
+          "test": "exclude_all_row_level_strong_and_medium_reverse_candidates_conservative",
+          "result_signed_vix_delta": -2461000,
+          "changes_interpretation": true
+        },
+        {
+          "test": "exclude_september_16_expiry",
+          "result_signed_vix_delta": -13669000,
+          "changes_interpretation": true
+        },
+        {
+          "test": "exclude_october_21_expiry",
+          "result_signed_vix_delta": 29361000,
+          "changes_interpretation": false
+        }
+      ],
+      "comment": "Transaction delta is expiry- and state-classification-dependent; do not use it as a fresh-positioning headline without reverse-match context."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-vix-14p5-15",
+      "price": 14.5,
+      "range_low": 14.1,
+      "range_high": 15.0,
+      "role": [
+        "volatility_center",
+        "reclaim_support"
+      ],
+      "label": "CURRENT LOW-VOL REGIME",
+      "strength": 0.8,
+      "basis": "observed",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "Visible VIX stayed 14.14-14.75 and ended in the tape near 14.42."
+    },
+    {
+      "id": "lvl-vix-16-17",
+      "price": 16.5,
+      "range_low": 16.0,
+      "range_high": 17.0,
+      "role": [
+        "inventory_center",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "FRONT RESTRUCTURE / LOW-VIX ZONE",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "September 16-17 is statefully noisy; October ratios independently target 15.5-17."
+    },
+    {
+      "id": "lvl-vix-18p5-19",
+      "price": 18.7,
+      "range_low": 18.5,
+      "range_high": 19.0,
+      "role": [
+        "inventory_center",
+        "volatility_center",
+        "transition"
+      ],
+      "label": "OCTOBER FORWARD CENTER / CHURN",
+      "strength": 0.85,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "October forward is ~18.68 and repeated opposite-side center trades imply churn/restructure."
+    },
+    {
+      "id": "lvl-vix-20",
+      "price": 20.0,
+      "range_low": 19.5,
+      "range_high": 20.5,
+      "role": [
+        "upside_demand",
+        "transition"
+      ],
+      "label": "WORKING CORRECTION HEDGE",
+      "strength": 0.75,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Oct20C and Sep23 20C demand retain defined correction insurance."
+    },
+    {
+      "id": "lvl-vix-24-25",
+      "price": 24.5,
+      "range_low": 24.0,
+      "range_high": 25.0,
+      "role": [
+        "complex_zone",
+        "upside_demand",
+        "call_supply"
+      ],
+      "label": "MODERATE-STRESS INVENTORY BATTLEGROUND",
+      "strength": 0.8,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "interpretation": "Prior Oct24 hedge is partly unwound; 25 remains a battlefield rather than a simple cap."
+    },
+    {
+      "id": "lvl-vix-30",
+      "price": 30.0,
+      "range_low": 29.0,
+      "range_high": 30.0,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "tail_zone"
+      ],
+      "label": "PERSISTENT OCTOBER UPPER SUPPLY",
+      "strength": 0.95,
+      "basis": "observed",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "Repeated Oct30C sales are one of the cleanest continuing same-side fingerprints."
+    },
+    {
+      "id": "lvl-vix-40-60",
+      "price": 50.0,
+      "range_low": 40.0,
+      "range_high": 60.0,
+      "role": [
+        "tail_zone",
+        "call_supply"
+      ],
+      "label": "EXTREME TAIL FINANCING / SUPPLY",
+      "strength": 0.7,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Extreme tail calls remain primarily financing/supply rather than broad fresh accumulation."
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-08-28T16:33:34+03:00",
+      "end": "2026-08-28T19:28:04+03:00",
+      "spot_open": 14.48,
+      "spot_high": 14.75,
+      "spot_low": 14.14,
+      "spot_close": 14.75,
+      "calls": {
+        "bought": 3697000,
+        "sold": 8524000,
+        "net": -4827000
+      },
+      "puts": {
+        "bought": 1371000,
+        "sold": 3936000,
+        "net": -2565000
+      },
+      "gross_premium": 17528000,
+      "signed_vix_delta": -7144000,
+      "net_premium": -7392000,
+      "regime": "premium_selling_and_oct_upper_supply",
+      "events": [
+        "Oct center churn",
+        "Repeated Oct30C sales",
+        "Feb range package"
+      ]
+    },
+    {
+      "start": "2026-08-28T19:37:37+03:00",
+      "end": "2026-08-28T21:38:01+03:00",
+      "spot_open": 14.55,
+      "spot_high": 14.71,
+      "spot_low": 14.47,
+      "spot_close": 14.52,
+      "calls": {
+        "bought": 872000,
+        "sold": 1738000,
+        "net": -866000
+      },
+      "puts": {
+        "bought": 453000,
+        "sold": 3944000,
+        "net": -3491000
+      },
+      "gross_premium": 7007000,
+      "signed_vix_delta": 13690000,
+      "net_premium": -4357000,
+      "regime": "positive_transaction_delta_from_put_sales",
+      "events": [
+        "Sep16P partial-unwind candidate",
+        "Oct low-VIX ratio"
+      ]
+    },
+    {
+      "start": "2026-08-28T22:00:52+03:00",
+      "end": "2026-08-28T23:14:58+03:00",
+      "spot_open": 14.56,
+      "spot_high": 14.56,
+      "spot_low": 14.35,
+      "spot_close": 14.42,
+      "calls": {
+        "bought": 2223000,
+        "sold": 2399000,
+        "net": -176000
+      },
+      "puts": {
+        "bought": 439000,
+        "sold": 1325000,
+        "net": -886000
+      },
+      "gross_premium": 6386000,
+      "signed_vix_delta": 4151000,
+      "net_premium": -1062000,
+      "regime": "late_restructure_with_selective_correction_hedge",
+      "events": [
+        "Sep23 20/24 stress spread",
+        "Oct24C partial unwind"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-sep16p-partial-unwind",
+      "timestamp": "2026-08-28T19:56:39+03:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 16.0,
+          "contracts": 13945,
+          "premium": 725000,
+          "trade_ids": [
+            "9ed73012-cf2f-49a0-81f8-0006783656f7"
+          ]
+        }
+      ],
+      "gross_premium": 725000,
+      "net_premium": -725000,
+      "signed_vix_delta": 7400000,
+      "bias": "transaction_short_vix",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "partial_close_of_prior_long_16p",
+      "lifecycle_state": "CLOSE_CANDIDATE",
+      "stateful_match": {
+        "strength": "medium",
+        "source": "active_window",
+        "matched_session": "2026-08-27",
+        "matched_side": "buy",
+        "matched_contracts": 15000
+      },
+      "key_levels": [
+        16.0
+      ],
+      "interpretation": "Near-size reverse to the prior Sep16P buy; positive transaction delta is not clean fresh positioning.",
+      "ui_title": "Sep 16P Partial Unwind Candidate"
+    },
+    {
+      "id": "str-sep17-rebound-restructure",
+      "timestamp": "2026-08-28T16:47:35+03:00",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 17.0,
+          "contracts": 1800,
+          "premium": 196000,
+          "trade_ids": [
+            "87997e6a-a65f-48d0-a3f5-be1a8898be6f",
+            "277b78dd-eecb-4162-9957-284a61703455",
+            "2fa37271-7f42-4df3-8785-677fd11facb0"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.0,
+          "contracts": 1800,
+          "premium": 196000,
+          "trade_ids": [
+            "87997e6a-a65f-48d0-a3f5-be1a8898be6f",
+            "277b78dd-eecb-4162-9957-284a61703455",
+            "2fa37271-7f42-4df3-8785-677fd11facb0"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 17.5,
+          "contracts": 4000,
+          "premium": 388000,
+          "trade_ids": [
+            "87997e6a-a65f-48d0-a3f5-be1a8898be6f",
+            "277b78dd-eecb-4162-9957-284a61703455",
+            "2fa37271-7f42-4df3-8785-677fd11facb0"
+          ]
+        }
+      ],
+      "gross_premium": 780000,
+      "net_premium": 388000,
+      "signed_vix_delta": 6100000,
+      "bias": "long_vix_rebound",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "restructure_toward_rebound_exposure",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "forward_reference": 16.985,
+      "key_levels": [
+        17.0,
+        17.5
+      ],
+      "interpretation": "Forward-aligned synthetic-long-like geometry plus extra 17.5C, but historical reverse matches reduce fresh-positioning confidence.",
+      "ui_title": "Sep 17/17.5 Rebound Restructure"
+    },
+    {
+      "id": "str-oct20-carry-financed-correction",
+      "timestamp": "2026-08-28T17:30:11+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 2000,
+          "premium": 366000,
+          "trade_ids": [
+            "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+            "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+            "318db5e6-a589-44b4-90b7-ed075540425e",
+            "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 17.0,
+          "contracts": 2000,
+          "premium": 218000,
+          "trade_ids": [
+            "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+            "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+            "318db5e6-a589-44b4-90b7-ed075540425e",
+            "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 16.0,
+          "contracts": 2000,
+          "premium": 118000,
+          "trade_ids": [
+            "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+            "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+            "318db5e6-a589-44b4-90b7-ed075540425e",
+            "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 30.0,
+          "contracts": 2000,
+          "premium": 166000,
+          "trade_ids": [
+            "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+            "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+            "318db5e6-a589-44b4-90b7-ed075540425e",
+            "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+          ]
+        }
+      ],
+      "gross_premium": 868000,
+      "net_premium": -136000,
+      "signed_vix_delta": 3020000,
+      "bias": "capped_long_vix_correction",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "fresh_or_independent_carry_financed_correction_hedge",
+      "lifecycle_state": "ACTIVE",
+      "forward_reference": 18.68,
+      "key_levels": [
+        16.0,
+        17.0,
+        20.0,
+        30.0
+      ],
+      "payoff_hypothesis": {
+        "net_credit_points": 0.68,
+        "low_vix_risk_begins_approximately": 16.3,
+        "upside_hedge_activation": 20.0,
+        "upside_cap": 30.0
+      },
+      "interpretation": "Sell very-low-VIX risk to finance a 20C correction hedge and monetize continuation at 30.",
+      "ui_title": "Oct Carry-Financed 20C Hedge"
+    },
+    {
+      "id": "str-oct16p5-15p5-ratio",
+      "timestamp": "2026-08-28T21:38:01+03:00",
+      "type": "ratio_put_spread",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 16.5,
+          "contracts": 4999,
+          "premium": 400000,
+          "trade_ids": [
+            "acf259c4-18ee-4586-a53f-68a50faba5df",
+            "62a21017-f05e-4adf-a432-bc5592d860ca"
+          ]
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 15.5,
+          "contracts": 9998,
+          "premium": 390000,
+          "trade_ids": [
+            "acf259c4-18ee-4586-a53f-68a50faba5df",
+            "62a21017-f05e-4adf-a432-bc5592d860ca"
+          ]
+        }
+      ],
+      "gross_premium": 790000,
+      "net_premium": 10000,
+      "signed_vix_delta": 700000,
+      "bias": "targeted_vix_compression",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "fresh_or_independent_low_vix_ratio",
+      "lifecycle_state": "ACTIVE",
+      "forward_reference": 18.68,
+      "key_levels": [
+        15.5,
+        16.5
+      ],
+      "payoff_hypothesis": {
+        "net_debit_points": 0.02,
+        "max_value_zone": 15.5,
+        "lower_breakeven_approximately": 14.52
+      },
+      "interpretation": "Near-zero-cost 1x2 put ratio targets October VIX compression into 15.5-16.5 while accepting risk below roughly 14.5.",
+      "ui_title": "Oct 16.5/15.5 Put Ratio"
+    },
+    {
+      "id": "str-sep23-20-24-spread",
+      "timestamp": "2026-08-28T22:11:52+03:00",
+      "type": "ratio_call_spread",
+      "legs": [
+        {
+          "expiration": "2026-09-23",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 10000,
+          "premium": 900000,
+          "trade_ids": [
+            "bcbddd56-e6af-421a-9e81-aaad68c37c6d",
+            "75dbd94c-a008-4424-a110-eea839a94ec3",
+            "39ff1a97-1437-41e8-a0ae-44a7a5bda291",
+            "f4121ab5-b3ee-4979-aae6-c1ac97c39c30"
+          ]
+        },
+        {
+          "expiration": "2026-09-23",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 24.0,
+          "contracts": 7500,
+          "premium": 394000,
+          "trade_ids": [
+            "bcbddd56-e6af-421a-9e81-aaad68c37c6d",
+            "75dbd94c-a008-4424-a110-eea839a94ec3",
+            "39ff1a97-1437-41e8-a0ae-44a7a5bda291",
+            "f4121ab5-b3ee-4979-aae6-c1ac97c39c30"
+          ]
+        }
+      ],
+      "gross_premium": 1294000,
+      "net_premium": 506000,
+      "signed_vix_delta": 3300000,
+      "bias": "capped_long_vix",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "independent_moderate_stress_hedge",
+      "lifecycle_state": "ACTIVE",
+      "forward_reference": null,
+      "key_levels": [
+        20.0,
+        24.0
+      ],
+      "interpretation": "Next-week flow buys moderate VIX stress at 20 and monetizes part of the move at 24; forward unresolved.",
+      "ui_title": "Sep23 20/24 Stress Spread"
+    },
+    {
+      "id": "str-oct24-partial-unwind",
+      "timestamp": "2026-08-28T22:17:03+03:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 24.0,
+          "contracts": 9500,
+          "premium": 1159000,
+          "trade_ids": [
+            "f1831345-f7a1-4593-bbc6-5d2c9a8c269f",
+            "f051392e-ee92-4d31-9ca1-a807e1407adc",
+            "c00c0e39-cf8f-4d7d-b7ff-df1d799585f2",
+            "fa67712d-b441-4dda-9a7e-8efacb2bda20",
+            "c8b50092-4854-48f4-9027-68384b4e78a7",
+            "5c3d63d4-dc03-4dea-8176-fad5bfa8fdee",
+            "b3c7355f-b2e9-434c-b624-28fba83075e9",
+            "1d933c51-9a3e-4bc6-99a3-449d939da682"
+          ]
+        }
+      ],
+      "gross_premium": 1159000,
+      "net_premium": -1159000,
+      "signed_vix_delta": -5589000,
+      "bias": "transaction_short_vix",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "partial_unwind_of_prior_oct24c_hedge",
+      "lifecycle_state": "CLOSE_CANDIDATE",
+      "stateful_match": {
+        "strength": "medium",
+        "source": "active_window",
+        "matched_session": "2026-08-26",
+        "matched_side": "buy",
+        "matched_contracts_approximately": 15000
+      },
+      "key_levels": [
+        24.0
+      ],
+      "interpretation": "Large sell-back versus the roughly 15k Oct24C bought on August 26; the old 24 hedge should not be carried as fully active.",
+      "ui_title": "Oct 24C Partial Unwind Candidate"
+    },
+    {
+      "id": "str-feb20p30c-range",
+      "timestamp": "2026-08-28T18:38:01+03:00",
+      "type": "short_strangle",
+      "legs": [
+        {
+          "expiration": "2027-02-17",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 20.0,
+          "contracts": 7200,
+          "premium": 1900000,
+          "trade_ids": [
+            "081cee7b-b57c-44bf-b430-f7b5c8b70d6b",
+            "cacb5247-cfab-4450-8571-d57563b3e924"
+          ]
+        },
+        {
+          "expiration": "2027-02-17",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 30.0,
+          "contracts": 7200,
+          "premium": 1400000,
+          "trade_ids": [
+            "081cee7b-b57c-44bf-b430-f7b5c8b70d6b",
+            "cacb5247-cfab-4450-8571-d57563b3e924"
+          ]
+        }
+      ],
+      "gross_premium": 3300000,
+      "net_premium": -3300000,
+      "signed_vix_delta": 500000,
+      "bias": "range_vol_selling",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "position_state_hypothesis": "range_financing_or_independent_short_strangle",
+      "lifecycle_state": "ACTIVE",
+      "forward_reference": null,
+      "key_levels": [
+        20.0,
+        30.0
+      ],
+      "payoff_hypothesis": {
+        "credit_points": 4.54,
+        "lower_breakeven_approximately": 15.46,
+        "upper_breakeven_approximately": 34.54
+      },
+      "interpretation": "Large gross premium but near-neutral transaction delta; with unresolved February forward, treat as range/financing rather than directional evidence.",
+      "ui_title": "Feb 20P/30C Range Sale"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-oct-low-vix",
+      "low": 15.5,
+      "high": 17.0,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "Oct low-VIX ratio structures"
+      ],
+      "source_structure_ids": [
+        "str-oct16p5-15p5-ratio"
+      ],
+      "source_level_ids": [
+        "lvl-vix-16-17"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "October ratio payoff concentrates around 15.5-17.",
+      "caveat": "Opening unconfirmed; below roughly 14.5 the extra short put becomes adverse."
+    },
+    {
+      "id": "mz-oct-30-supply",
+      "low": 29.0,
+      "high": 30.0,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "Oct correction hedgers",
+        "upper-call sellers"
+      ],
+      "source_structure_ids": [
+        "str-oct20-carry-financed-correction"
+      ],
+      "source_level_ids": [
+        "lvl-vix-30"
+      ],
+      "basis": "derived",
+      "confidence": "high",
+      "description": "October 30C repeatedly serves as upper monetization/supply.",
+      "caveat": "Acceptance through 30 would challenge the cleaner same-side supply fingerprint."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-16",
+      "label": "SEP 16 2026",
+      "expiration": "2026-09-16",
+      "dte": 19,
+      "forward": 16.925,
+      "reference_price": null,
+      "summary": {
+        "headline": "Positive transaction delta is dominated by sold puts, but front reversals make hedge unwind/restructure the preferred stateful read."
+      },
+      "flow_aggregate": {
+        "gross_premium": 5335000,
+        "contracts": 76573,
+        "signed_vix_delta": 24366000,
+        "calls": {
+          "bought": 1949000,
+          "sold": 851000,
+          "net": 1098000
+        },
+        "puts": {
+          "bought": 433000,
+          "sold": 2102000,
+          "net": -1669000
+        },
+        "net_premium": -571000
+      },
+      "levels": [
+        {
+          "id": "lvl-vix-16-17",
+          "price": 16.5,
+          "range_low": 16.0,
+          "range_high": 17.0,
+          "role": [
+            "inventory_center",
+            "transition",
+            "complex_zone"
+          ],
+          "label": "FRONT RESTRUCTURE / LOW-VIX ZONE",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "September 16-17 is statefully noisy; October ratios independently target 15.5-17."
+        },
+        {
+          "id": "lvl-vix-20",
+          "price": 20.0,
+          "range_low": 19.5,
+          "range_high": 20.5,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "WORKING CORRECTION HEDGE",
+          "strength": 0.75,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Oct20C and Sep23 20C demand retain defined correction insurance."
+        },
+        {
+          "id": "lvl-vix-24-25",
+          "price": 24.5,
+          "range_low": 24.0,
+          "range_high": 25.0,
+          "role": [
+            "complex_zone",
+            "upside_demand",
+            "call_supply"
+          ],
+          "label": "MODERATE-STRESS INVENTORY BATTLEGROUND",
+          "strength": 0.8,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "interpretation": "Prior Oct24 hedge is partly unwound; 25 remains a battlefield rather than a simple cap."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep16p-partial-unwind",
+          "timestamp": "2026-08-28T19:56:39+03:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.0,
+              "contracts": 13945,
+              "premium": 725000,
+              "trade_ids": [
+                "9ed73012-cf2f-49a0-81f8-0006783656f7"
+              ]
+            }
+          ],
+          "gross_premium": 725000,
+          "net_premium": -725000,
+          "signed_vix_delta": 7400000,
+          "bias": "transaction_short_vix",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "partial_close_of_prior_long_16p",
+          "lifecycle_state": "CLOSE_CANDIDATE",
+          "stateful_match": {
+            "strength": "medium",
+            "source": "active_window",
+            "matched_session": "2026-08-27",
+            "matched_side": "buy",
+            "matched_contracts": 15000
+          },
+          "key_levels": [
+            16.0
+          ],
+          "interpretation": "Near-size reverse to the prior Sep16P buy; positive transaction delta is not clean fresh positioning.",
+          "ui_title": "Sep 16P Partial Unwind Candidate"
+        },
+        {
+          "id": "str-sep17-rebound-restructure",
+          "timestamp": "2026-08-28T16:47:35+03:00",
+          "type": "synthetic_long",
+          "legs": [
+            {
+              "expiration": "2026-09-16",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 17.0,
+              "contracts": 1800,
+              "premium": 196000,
+              "trade_ids": [
+                "87997e6a-a65f-48d0-a3f5-be1a8898be6f",
+                "277b78dd-eecb-4162-9957-284a61703455",
+                "2fa37271-7f42-4df3-8785-677fd11facb0"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.0,
+              "contracts": 1800,
+              "premium": 196000,
+              "trade_ids": [
+                "87997e6a-a65f-48d0-a3f5-be1a8898be6f",
+                "277b78dd-eecb-4162-9957-284a61703455",
+                "2fa37271-7f42-4df3-8785-677fd11facb0"
+              ]
+            },
+            {
+              "expiration": "2026-09-16",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 17.5,
+              "contracts": 4000,
+              "premium": 388000,
+              "trade_ids": [
+                "87997e6a-a65f-48d0-a3f5-be1a8898be6f",
+                "277b78dd-eecb-4162-9957-284a61703455",
+                "2fa37271-7f42-4df3-8785-677fd11facb0"
+              ]
+            }
+          ],
+          "gross_premium": 780000,
+          "net_premium": 388000,
+          "signed_vix_delta": 6100000,
+          "bias": "long_vix_rebound",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "restructure_toward_rebound_exposure",
+          "lifecycle_state": "ROLL_CANDIDATE",
+          "forward_reference": 16.985,
+          "key_levels": [
+            17.0,
+            17.5
+          ],
+          "interpretation": "Forward-aligned synthetic-long-like geometry plus extra 17.5C, but historical reverse matches reduce fresh-positioning confidence.",
+          "ui_title": "Sep 17/17.5 Rebound Restructure"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-23",
+      "label": "SEP 23 2026",
+      "expiration": "2026-09-23",
+      "dte": 26,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "20C demand financed by 24C sales forms a capped moderate-stress hedge; forward unresolved."
+      },
+      "flow_aggregate": {
+        "gross_premium": 1294000,
+        "contracts": 17500,
+        "signed_vix_delta": 3300000,
+        "calls": {
+          "bought": 900000,
+          "sold": 394000,
+          "net": 506000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 506000
+      },
+      "levels": [
+        {
+          "id": "lvl-vix-20",
+          "price": 20.0,
+          "range_low": 19.5,
+          "range_high": 20.5,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "WORKING CORRECTION HEDGE",
+          "strength": 0.75,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Oct20C and Sep23 20C demand retain defined correction insurance."
+        },
+        {
+          "id": "lvl-vix-24-25",
+          "price": 24.5,
+          "range_low": 24.0,
+          "range_high": 25.0,
+          "role": [
+            "complex_zone",
+            "upside_demand",
+            "call_supply"
+          ],
+          "label": "MODERATE-STRESS INVENTORY BATTLEGROUND",
+          "strength": 0.8,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "interpretation": "Prior Oct24 hedge is partly unwound; 25 remains a battlefield rather than a simple cap."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-sep23-20-24-spread",
+          "timestamp": "2026-08-28T22:11:52+03:00",
+          "type": "ratio_call_spread",
+          "legs": [
+            {
+              "expiration": "2026-09-23",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 10000,
+              "premium": 900000,
+              "trade_ids": [
+                "bcbddd56-e6af-421a-9e81-aaad68c37c6d",
+                "75dbd94c-a008-4424-a110-eea839a94ec3",
+                "39ff1a97-1437-41e8-a0ae-44a7a5bda291",
+                "f4121ab5-b3ee-4979-aae6-c1ac97c39c30"
+              ]
+            },
+            {
+              "expiration": "2026-09-23",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 24.0,
+              "contracts": 7500,
+              "premium": 394000,
+              "trade_ids": [
+                "bcbddd56-e6af-421a-9e81-aaad68c37c6d",
+                "75dbd94c-a008-4424-a110-eea839a94ec3",
+                "39ff1a97-1437-41e8-a0ae-44a7a5bda291",
+                "f4121ab5-b3ee-4979-aae6-c1ac97c39c30"
+              ]
+            }
+          ],
+          "gross_premium": 1294000,
+          "net_premium": 506000,
+          "signed_vix_delta": 3300000,
+          "bias": "capped_long_vix",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "independent_moderate_stress_hedge",
+          "lifecycle_state": "ACTIVE",
+          "forward_reference": null,
+          "key_levels": [
+            20.0,
+            24.0
+          ],
+          "interpretation": "Next-week flow buys moderate VIX stress at 20 and monetizes part of the move at 24; forward unresolved.",
+          "ui_title": "Sep23 20/24 Stress Spread"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "OCT 21 2026",
+      "expiration": "2026-10-21",
+      "dte": 54,
+      "forward": 18.675,
+      "reference_price": null,
+      "summary": {
+        "headline": "Low-VIX ratio targets 15.5-17 while 30C supply persists; 18.5-19 is churn and 24C hedge is partly unwound."
+      },
+      "flow_aggregate": {
+        "gross_premium": 16079000,
+        "contracts": 152755,
+        "signed_vix_delta": -18664000,
+        "calls": {
+          "bought": 3056000,
+          "sold": 8254000,
+          "net": -5198000
+        },
+        "puts": {
+          "bought": 1830000,
+          "sold": 2939000,
+          "net": -1109000
+        },
+        "net_premium": -6307000
+      },
+      "levels": [
+        {
+          "id": "lvl-vix-16-17",
+          "price": 16.5,
+          "range_low": 16.0,
+          "range_high": 17.0,
+          "role": [
+            "inventory_center",
+            "transition",
+            "complex_zone"
+          ],
+          "label": "FRONT RESTRUCTURE / LOW-VIX ZONE",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "September 16-17 is statefully noisy; October ratios independently target 15.5-17."
+        },
+        {
+          "id": "lvl-vix-18p5-19",
+          "price": 18.7,
+          "range_low": 18.5,
+          "range_high": 19.0,
+          "role": [
+            "inventory_center",
+            "volatility_center",
+            "transition"
+          ],
+          "label": "OCTOBER FORWARD CENTER / CHURN",
+          "strength": 0.85,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "October forward is ~18.68 and repeated opposite-side center trades imply churn/restructure."
+        },
+        {
+          "id": "lvl-vix-20",
+          "price": 20.0,
+          "range_low": 19.5,
+          "range_high": 20.5,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "WORKING CORRECTION HEDGE",
+          "strength": 0.75,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Oct20C and Sep23 20C demand retain defined correction insurance."
+        },
+        {
+          "id": "lvl-vix-24-25",
+          "price": 24.5,
+          "range_low": 24.0,
+          "range_high": 25.0,
+          "role": [
+            "complex_zone",
+            "upside_demand",
+            "call_supply"
+          ],
+          "label": "MODERATE-STRESS INVENTORY BATTLEGROUND",
+          "strength": 0.8,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "interpretation": "Prior Oct24 hedge is partly unwound; 25 remains a battlefield rather than a simple cap."
+        },
+        {
+          "id": "lvl-vix-30",
+          "price": 30.0,
+          "range_low": 29.0,
+          "range_high": 30.0,
+          "role": [
+            "call_supply",
+            "potential_cap",
+            "tail_zone"
+          ],
+          "label": "PERSISTENT OCTOBER UPPER SUPPLY",
+          "strength": 0.95,
+          "basis": "observed",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Repeated Oct30C sales are one of the cleanest continuing same-side fingerprints."
+        },
+        {
+          "id": "lvl-vix-40-60",
+          "price": 50.0,
+          "range_low": 40.0,
+          "range_high": 60.0,
+          "role": [
+            "tail_zone",
+            "call_supply"
+          ],
+          "label": "EXTREME TAIL FINANCING / SUPPLY",
+          "strength": 0.7,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Extreme tail calls remain primarily financing/supply rather than broad fresh accumulation."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-oct20-carry-financed-correction",
+          "timestamp": "2026-08-28T17:30:11+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 2000,
+              "premium": 366000,
+              "trade_ids": [
+                "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+                "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+                "318db5e6-a589-44b4-90b7-ed075540425e",
+                "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.0,
+              "contracts": 2000,
+              "premium": 218000,
+              "trade_ids": [
+                "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+                "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+                "318db5e6-a589-44b4-90b7-ed075540425e",
+                "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.0,
+              "contracts": 2000,
+              "premium": 118000,
+              "trade_ids": [
+                "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+                "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+                "318db5e6-a589-44b4-90b7-ed075540425e",
+                "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 30.0,
+              "contracts": 2000,
+              "premium": 166000,
+              "trade_ids": [
+                "6e3b72fd-9f4e-43f4-b6e6-dcfe71a8e943",
+                "2ebc89bb-4ccd-4445-8c7c-30fbba89f7c8",
+                "318db5e6-a589-44b4-90b7-ed075540425e",
+                "2454bcab-6ead-45b7-ab3f-f6b2b549fcad"
+              ]
+            }
+          ],
+          "gross_premium": 868000,
+          "net_premium": -136000,
+          "signed_vix_delta": 3020000,
+          "bias": "capped_long_vix_correction",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "fresh_or_independent_carry_financed_correction_hedge",
+          "lifecycle_state": "ACTIVE",
+          "forward_reference": 18.68,
+          "key_levels": [
+            16.0,
+            17.0,
+            20.0,
+            30.0
+          ],
+          "payoff_hypothesis": {
+            "net_credit_points": 0.68,
+            "low_vix_risk_begins_approximately": 16.3,
+            "upside_hedge_activation": 20.0,
+            "upside_cap": 30.0
+          },
+          "interpretation": "Sell very-low-VIX risk to finance a 20C correction hedge and monetize continuation at 30.",
+          "ui_title": "Oct Carry-Financed 20C Hedge"
+        },
+        {
+          "id": "str-oct16p5-15p5-ratio",
+          "timestamp": "2026-08-28T21:38:01+03:00",
+          "type": "ratio_put_spread",
+          "legs": [
+            {
+              "expiration": "2026-10-21",
+              "option_type": "put",
+              "side": "buy",
+              "strike": 16.5,
+              "contracts": 4999,
+              "premium": 400000,
+              "trade_ids": [
+                "acf259c4-18ee-4586-a53f-68a50faba5df",
+                "62a21017-f05e-4adf-a432-bc5592d860ca"
+              ]
+            },
+            {
+              "expiration": "2026-10-21",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 15.5,
+              "contracts": 9998,
+              "premium": 390000,
+              "trade_ids": [
+                "acf259c4-18ee-4586-a53f-68a50faba5df",
+                "62a21017-f05e-4adf-a432-bc5592d860ca"
+              ]
+            }
+          ],
+          "gross_premium": 790000,
+          "net_premium": 10000,
+          "signed_vix_delta": 700000,
+          "bias": "targeted_vix_compression",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "fresh_or_independent_low_vix_ratio",
+          "lifecycle_state": "ACTIVE",
+          "forward_reference": 18.68,
+          "key_levels": [
+            15.5,
+            16.5
+          ],
+          "payoff_hypothesis": {
+            "net_debit_points": 0.02,
+            "max_value_zone": 15.5,
+            "lower_breakeven_approximately": 14.52
+          },
+          "interpretation": "Near-zero-cost 1x2 put ratio targets October VIX compression into 15.5-16.5 while accepting risk below roughly 14.5.",
+          "ui_title": "Oct 16.5/15.5 Put Ratio"
+        },
+        {
+          "id": "str-oct24-partial-unwind",
+          "timestamp": "2026-08-28T22:17:03+03:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "expiration": "2026-10-21",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 24.0,
+              "contracts": 9500,
+              "premium": 1159000,
+              "trade_ids": [
+                "f1831345-f7a1-4593-bbc6-5d2c9a8c269f",
+                "f051392e-ee92-4d31-9ca1-a807e1407adc",
+                "c00c0e39-cf8f-4d7d-b7ff-df1d799585f2",
+                "fa67712d-b441-4dda-9a7e-8efacb2bda20",
+                "c8b50092-4854-48f4-9027-68384b4e78a7",
+                "5c3d63d4-dc03-4dea-8176-fad5bfa8fdee",
+                "b3c7355f-b2e9-434c-b624-28fba83075e9",
+                "1d933c51-9a3e-4bc6-99a3-449d939da682"
+              ]
+            }
+          ],
+          "gross_premium": 1159000,
+          "net_premium": -1159000,
+          "signed_vix_delta": -5589000,
+          "bias": "transaction_short_vix",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "partial_unwind_of_prior_oct24c_hedge",
+          "lifecycle_state": "CLOSE_CANDIDATE",
+          "stateful_match": {
+            "strength": "medium",
+            "source": "active_window",
+            "matched_session": "2026-08-26",
+            "matched_side": "buy",
+            "matched_contracts_approximately": 15000
+          },
+          "key_levels": [
+            24.0
+          ],
+          "interpretation": "Large sell-back versus the roughly 15k Oct24C bought on August 26; the old 24 hedge should not be carried as fully active.",
+          "ui_title": "Oct 24C Partial Unwind Candidate"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-oct-low-vix",
+          "low": 15.5,
+          "high": 17.0,
+          "type": "spread_max_value_zone",
+          "beneficiaries": [
+            "Oct low-VIX ratio structures"
+          ],
+          "source_structure_ids": [
+            "str-oct16p5-15p5-ratio"
+          ],
+          "source_level_ids": [
+            "lvl-vix-16-17"
+          ],
+          "basis": "inferred",
+          "confidence": "high",
+          "description": "October ratio payoff concentrates around 15.5-17.",
+          "caveat": "Opening unconfirmed; below roughly 14.5 the extra short put becomes adverse."
+        },
+        {
+          "id": "mz-oct-30-supply",
+          "low": 29.0,
+          "high": 30.0,
+          "type": "call_supply_monetization",
+          "beneficiaries": [
+            "Oct correction hedgers",
+            "upper-call sellers"
+          ],
+          "source_structure_ids": [
+            "str-oct20-carry-financed-correction"
+          ],
+          "source_level_ids": [
+            "lvl-vix-30"
+          ],
+          "basis": "derived",
+          "confidence": "high",
+          "description": "October 30C repeatedly serves as upper monetization/supply.",
+          "caveat": "Acceptance through 30 would challenge the cleaner same-side supply fingerprint."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "NOV 18 2026",
+      "expiration": "2026-11-18",
+      "dte": 82,
+      "forward": 19.3525,
+      "reference_price": null,
+      "summary": {
+        "headline": "Small mixed flow; prior 25/30C correction hedge from Aug 27 is not reinforced and is aging."
+      },
+      "flow_aggregate": {
+        "gross_premium": 3638000,
+        "contracts": 12850,
+        "signed_vix_delta": 2284000,
+        "calls": {
+          "bought": 455000,
+          "sold": 919000,
+          "net": -464000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 2264000,
+          "net": -2264000
+        },
+        "net_premium": -2728000
+      },
+      "levels": [
+        {
+          "id": "lvl-vix-20",
+          "price": 20.0,
+          "range_low": 19.5,
+          "range_high": 20.5,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "WORKING CORRECTION HEDGE",
+          "strength": 0.75,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Oct20C and Sep23 20C demand retain defined correction insurance."
+        },
+        {
+          "id": "lvl-vix-24-25",
+          "price": 24.5,
+          "range_low": 24.0,
+          "range_high": 25.0,
+          "role": [
+            "complex_zone",
+            "upside_demand",
+            "call_supply"
+          ],
+          "label": "MODERATE-STRESS INVENTORY BATTLEGROUND",
+          "strength": 0.8,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "interpretation": "Prior Oct24 hedge is partly unwound; 25 remains a battlefield rather than a simple cap."
+        },
+        {
+          "id": "lvl-vix-40-60",
+          "price": 50.0,
+          "range_low": 40.0,
+          "range_high": 60.0,
+          "role": [
+            "tail_zone",
+            "call_supply"
+          ],
+          "label": "EXTREME TAIL FINANCING / SUPPLY",
+          "strength": 0.7,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Extreme tail calls remain primarily financing/supply rather than broad fresh accumulation."
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "DEC 16 2026",
+      "expiration": "2026-12-16",
+      "dte": 110,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Minor positive flow; insufficient size for regime impact."
+      },
+      "flow_aggregate": {
+        "gross_premium": 175000,
+        "contracts": 669,
+        "signed_vix_delta": 675000,
+        "calls": {
+          "bought": 175000,
+          "sold": 0,
+          "net": 175000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 175000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "JAN 20 2027",
+      "expiration": "2027-01-20",
+      "dte": 145,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Small Jan call sales; secondary to front-month books."
+      },
+      "flow_aggregate": {
+        "gross_premium": 790000,
+        "contracts": 1170,
+        "signed_vix_delta": -2259000,
+        "calls": {
+          "bought": 0,
+          "sold": 790000,
+          "net": -790000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": -790000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "FEB 17 2027",
+      "expiration": "2027-02-17",
+      "dte": 173,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Large 20P/30C range-selling package is nearly delta-neutral; forward unresolved."
+      },
+      "flow_aggregate": {
+        "gross_premium": 3300000,
+        "contracts": 14400,
+        "signed_vix_delta": 500000,
+        "calls": {
+          "bought": 0,
+          "sold": 1400000,
+          "net": -1400000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 1900000,
+          "net": -1900000
+        },
+        "net_premium": -3300000
+      },
+      "levels": [
+        {
+          "id": "lvl-vix-20",
+          "price": 20.0,
+          "range_low": 19.5,
+          "range_high": 20.5,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "WORKING CORRECTION HEDGE",
+          "strength": 0.75,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Oct20C and Sep23 20C demand retain defined correction insurance."
+        },
+        {
+          "id": "lvl-vix-30",
+          "price": 30.0,
+          "range_low": 29.0,
+          "range_high": 30.0,
+          "role": [
+            "call_supply",
+            "potential_cap",
+            "tail_zone"
+          ],
+          "label": "PERSISTENT OCTOBER UPPER SUPPLY",
+          "strength": 0.95,
+          "basis": "observed",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Repeated Oct30C sales are one of the cleanest continuing same-side fingerprints."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-feb20p30c-range",
+          "timestamp": "2026-08-28T18:38:01+03:00",
+          "type": "short_strangle",
+          "legs": [
+            {
+              "expiration": "2027-02-17",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 7200,
+              "premium": 1900000,
+              "trade_ids": [
+                "081cee7b-b57c-44bf-b430-f7b5c8b70d6b",
+                "cacb5247-cfab-4450-8571-d57563b3e924"
+              ]
+            },
+            {
+              "expiration": "2027-02-17",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 30.0,
+              "contracts": 7200,
+              "premium": 1400000,
+              "trade_ids": [
+                "081cee7b-b57c-44bf-b430-f7b5c8b70d6b",
+                "cacb5247-cfab-4450-8571-d57563b3e924"
+              ]
+            }
+          ],
+          "gross_premium": 3300000,
+          "net_premium": -3300000,
+          "signed_vix_delta": 500000,
+          "bias": "range_vol_selling",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "position_state_hypothesis": "range_financing_or_independent_short_strangle",
+          "lifecycle_state": "ACTIVE",
+          "forward_reference": null,
+          "key_levels": [
+            20.0,
+            30.0
+          ],
+          "payoff_hypothesis": {
+            "credit_points": 4.54,
+            "lower_breakeven_approximately": 15.46,
+            "upper_breakeven_approximately": 34.54
+          },
+          "interpretation": "Large gross premium but near-neutral transaction delta; with unresolved February forward, treat as range/financing rather than directional evidence.",
+          "ui_title": "Feb 20P/30C Range Sale"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-03-17",
+      "label": "MAR 17 2027",
+      "expiration": "2027-03-17",
+      "dte": 201,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Single small call buy; not regime-defining."
+      },
+      "flow_aggregate": {
+        "gross_premium": 99000,
+        "contracts": 140,
+        "signed_vix_delta": 270000,
+        "calls": {
+          "bought": 99000,
+          "sold": 0,
+          "net": 99000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 99000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-04-21",
+      "label": "APR 21 2027",
+      "expiration": "2027-04-21",
+      "dte": 236,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Single small call sale; not regime-defining."
+      },
+      "flow_aggregate": {
+        "gross_premium": 53000,
+        "contracts": 170,
+        "signed_vix_delta": -175000,
+        "calls": {
+          "bought": 0,
+          "sold": 53000,
+          "net": -53000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": -53000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-05-18",
+      "label": "MAY 18 2027",
+      "expiration": "2027-05-18",
+      "dte": 263,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Single small call buy; not regime-defining."
+      },
+      "flow_aggregate": {
+        "gross_premium": 158000,
+        "contracts": 209,
+        "signed_vix_delta": 400000,
+        "calls": {
+          "bought": 158000,
+          "sold": 0,
+          "net": 158000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "net_premium": 158000
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base-controlled-vol",
+      "name": "Controlled low-vol carry",
+      "bias": "supportive_for_spx",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 17.0,
+          "description": "Front VIX remains below the September transition area."
+        },
+        {
+          "type": "hold_below",
+          "level": 19.0,
+          "description": "October remains below its forward-centered churn zone."
+        }
+      ],
+      "route": [
+        17.0,
+        16.0,
+        15.5,
+        14.5
+      ],
+      "invalidations": [
+        "Persistent front VIX acceptance above 17.5-18.0"
+      ],
+      "interpretation": "Low-VIX ratios and persistent upper-call supply favor controlled volatility while front forwards remain contained."
+    },
+    {
+      "id": "sc-front-rebound",
+      "name": "Front-vol rebound",
+      "bias": "risk_off_watch",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 17.0,
+          "description": "Move above the front restructure zone and September forward."
+        }
+      ],
+      "route": [
+        17.0,
+        18.5,
+        20.0
+      ],
+      "invalidations": [
+        "Failure back below 17.0"
+      ],
+      "interpretation": "A move through 17-18.5 challenges the current crushed-vol regime."
+    },
+    {
+      "id": "sc-moderate-stress",
+      "name": "Moderate correction realization",
+      "bias": "risk_off",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 20.0,
+          "description": "Absorb the working correction threshold."
+        }
+      ],
+      "route": [
+        20.0,
+        24.0,
+        25.0
+      ],
+      "invalidations": [
+        "Failed acceptance back below 20"
+      ],
+      "interpretation": "Acceptance above 20 engages defined correction hedges; 24-25 remains mixed inventory."
+    },
+    {
+      "id": "sc-upper-supply-break",
+      "name": "Upper supply failure",
+      "bias": "risk_off_tail",
+      "priority": 0.1,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 30.0,
+          "description": "Absorb repeated October 30C supply."
+        }
+      ],
+      "route": [
+        30.0,
+        40.0,
+        50.0
+      ],
+      "invalidations": [
+        "Failure back below 30"
+      ],
+      "interpretation": "A durable break of 30 is a stronger regime-change signal than the raw positive-delta headline."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 187,
+    "deduplicated_rows": 183,
+    "duplicates_removed": 4,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "side_mid_agreement": 1.0,
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "stateful_context": {
+      "active_window_sessions": [
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-28"
+      ],
+      "position_ledger_available": true,
+      "targeted_archive_used": false
+    },
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening or closing.",
+      "Signed transaction delta does not prove fresh positioning.",
+      "Several material September and October legs have strong or medium reverse matches inside the active window.",
+      "Complex-order IDs are unavailable for highlighted packages; timestamp/size linkage remains inferential.",
+      "Sep23, February 2027 and minor-expiry forwards are unresolved.",
+      "Visible tape is filtered at $50K and is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
