@@ -1,0 +1,753 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-01 23:25 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-02",
+    "dte": 0,
+    "snapshot_time": "2026-09-01T23:25:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight_first_dump",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "Pasted text(6).txt",
+      "Format$OptionFlow$0DTE@SPX.txt"
+    ]
+  },
+  "market_state": {
+    "spot": 7631.05,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_long_vol_with_bullish_financing",
+    "bias": "mixed_slight_bullish_structure",
+    "confidence": "medium",
+    "main_pivot": 7640,
+    "upper_decision_level": 7650,
+    "lower_decision_level": 7620
+  },
+  "summary": {
+    "headline": "7635-7650 is the main 0DTE inventory and volatility center; bought convexity exists on both sides, with bullish-financing packages above.",
+    "key_points": [
+      "7580-7585 is the main downside convexity/protection zone.",
+      "7675-7690 is the main upside convexity zone.",
+      "7565-7575 acts as conditional downside risk-acceptance inside bullish-financing packages.",
+      "Opening/closing is unresolved on the first baseline; next OI is required to distinguish fresh positioning from churn/closing."
+    ],
+    "daily_note": "Первый baseline 0DTE на 2 сентября смешанный. Главный центр активности находится в 7635-7650. В Tape одновременно видна купленная convexity 7580-7585 вниз и 7675-7690 вверх, но часть крупных связанных пакетов продаёт puts 7565-7625 для финансирования calls 7675-7690, что создаёт условную bullish-асимметрию. Пока opening не подтверждён OI, это structure read, а не доказанное fresh positioning. Выше 7650 маршрут открывается к 7675-7690; потеря 7620 переводит внимание на 7600 и 7580-7585. Ниже 7565 conditional put-financing способен стать дестабилизирующим."
+  },
+  "flow_aggregate": {
+    "gross_premium": null,
+    "calls": {
+      "bought": null,
+      "sold": null,
+      "net": null
+    },
+    "puts": {
+      "bought": null,
+      "sold": null,
+      "net": null
+    },
+    "signed_delta": null,
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": null,
+        "sold": null,
+        "net": null
+      },
+      "puts": {
+        "bought": null,
+        "sold": null,
+        "net": null
+      }
+    },
+    "contract_profile_context": {
+      "gross_call_premium": 57342000,
+      "gross_put_premium": 51616000,
+      "gross_total_premium": 108958000,
+      "near_7580_7680_gross_premium": 58329000,
+      "near_7580_7680_share": 0.5353,
+      "notes": [
+        "These are contract-profile gross activity figures, not BUY/SELL transaction-flow aggregates.",
+        "7515C contributes about $14.0M and should not be treated as fresh bullish demand without opening/closing confirmation."
+      ]
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_premium": null,
+      "dominant_share": null,
+      "result": {
+        "net_calls": null,
+        "net_puts": null
+      },
+      "changes_interpretation": null,
+      "comment": "Exact Tape leave-one-out requires full deduplicated transaction aggregation. Contract-profile sensitivity shows that 7515C materially distorts gross call premium."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7530-7535",
+      "price": 7532.5,
+      "range_low": 7530,
+      "range_high": 7535,
+      "role": [
+        "downside_protection",
+        "tail_zone"
+      ],
+      "label": "TAIL PROTECTION",
+      "strength": 0.55,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -98.55,
+      "flow": null,
+      "interpretation": "Late 500x bought-put blocks mark a tail-protection zone below the main downside convexity cluster.",
+      "evidence": {
+        "trade_ids": [
+          "03f7803e-4f52-4517-8418-09673821d7f1",
+          "3fa1fed7-038b-4de2-9197-938b0795ee47"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "500x 7535P BUY and 500x 7530P BUY at the same timestamp."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7565-7575",
+      "price": 7570,
+      "range_low": 7565,
+      "range_high": 7575,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "complex_zone"
+      ],
+      "label": "CONDITIONAL FINANCING FLOOR",
+      "strength": 0.72,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -61.05,
+      "flow": null,
+      "interpretation": "Synchronized 500x sold puts appear to finance bought upside. Supportive only while price remains above the zone; below it the short-put component can become destabilizing.",
+      "evidence": {
+        "trade_ids": [
+          "47ba40b6-2fc7-418f-b9f2-fa507fdd7d98",
+          "9ba508ec-8d0b-459e-b7a6-b726030e972b"
+        ],
+        "structure_ids": [
+          "str-7565-7685-bull-financing"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7580-7585",
+      "price": 7582.5,
+      "range_low": 7580,
+      "range_high": 7585,
+      "role": [
+        "downside_protection",
+        "volatility_center"
+      ],
+      "label": "DOWNSIDE CONVEXITY",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -48.55,
+      "flow": null,
+      "interpretation": "Large bought-put blocks plus very high contract-profile volume/OI make this the primary downside convexity zone.",
+      "evidence": {
+        "trade_ids": [
+          "6d8af206-fd69-4cac-834a-d6be13fece4c",
+          "8e82a617-0389-45ca-9dcb-ae97e179aeae",
+          "7fbc1e1f-8820-4d02-a7b4-95fb9f29184f",
+          "558cd9e9-636e-4f0d-af7d-a556e60fa8f1",
+          "3542aa84-bf4a-4fa5-9aa4-2cb7e2e50b86"
+        ],
+        "structure_ids": [
+          "str-7580-7680-bought-movement"
+        ],
+        "notes": [
+          "Contract-profile volume/OI: about 3.9x at 7580 and 8.1x at 7585."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "range_low": 7595,
+      "range_high": 7605,
+      "role": [
+        "inventory_center",
+        "transition"
+      ],
+      "label": "SECONDARY INVENTORY NODE",
+      "strength": 0.58,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -31.05,
+      "flow": null,
+      "interpretation": "Large gross premium but combined volume is close to existing OI, so this node may contain more legacy inventory turnover than fresh opening.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Combined volume ~2400 vs combined OI ~2600 in contract profile."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7620-7635",
+      "price": 7627.5,
+      "range_low": 7620,
+      "range_high": 7635,
+      "role": [
+        "transition",
+        "complex_zone",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER DECISION / BATTLEFIELD",
+      "strength": 0.88,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": -3.55,
+      "flow": null,
+      "interpretation": "Sold puts at 7620-7625 coexist with material bought puts at 7635, creating a conflict between risk acceptance and local protection.",
+      "evidence": {
+        "trade_ids": [
+          "b450c515-68f0-417f-aa43-4226b040f58d",
+          "4196d2eb-e848-4d9f-a6d4-c3ac6c6fccb7",
+          "119f5f4d-f4e3-4306-abd1-ab9d201098f8",
+          "0d6f5c53-9720-41f2-bbda-7546325ac85e"
+        ],
+        "structure_ids": [
+          "str-7625-7690-risk-reversal-like"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7635-7650",
+      "price": 7642.5,
+      "range_low": 7635,
+      "range_high": 7650,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center",
+        "complex_zone"
+      ],
+      "label": "MAIN 0DTE PIVOT / INVENTORY CENTER",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 11.45,
+      "flow": null,
+      "interpretation": "Highest-quality fresh activity cluster near spot. 7650C volume far exceeds starting OI, while 7635-7640 also show strong turnover.",
+      "evidence": {
+        "trade_ids": [
+          "ed9f120c-95e1-43ad-ad10-951be15af787",
+          "b1ee613b-49a9-4f79-b6fd-6c817bd6e969",
+          "b16e2f8b-f5b7-4898-90c5-3aaecac195ad"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Contract-profile volume/OI: ~5.6x at 7635, ~5.3x at 7640, ~4.4x at 7650 combined.",
+          "7650C volume 2500 vs OI 105."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7675-7690",
+      "price": 7682.5,
+      "range_low": 7675,
+      "range_high": 7690,
+      "role": [
+        "upside_demand",
+        "volatility_center"
+      ],
+      "label": "UPSIDE CONVEXITY",
+      "strength": 0.86,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 51.45,
+      "flow": null,
+      "interpretation": "Repeated bought-call blocks and financed upside structures make this the principal upside convexity zone.",
+      "evidence": {
+        "trade_ids": [
+          "a2e0c23a-24b6-4200-b0bb-a1a533260ea8",
+          "aa7772fa-e640-4b2e-af1e-dbf9e2475f23",
+          "f24acd9c-3c79-450e-986d-b3a7b6934a77",
+          "8f2ee024-b720-45cd-9a2a-1c4dc4397f1a",
+          "7170f0ff-bdbf-450c-bcbc-db9681cea053"
+        ],
+        "structure_ids": [
+          "str-7580-7680-bought-movement",
+          "str-7565-7685-bull-financing",
+          "str-7625-7690-risk-reversal-like"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-01T22:34:56+03:00",
+      "end": "2026-09-01T22:36:52+03:00",
+      "spot_open": 7627.6,
+      "spot_high": 7628.0,
+      "spot_low": 7626.3,
+      "spot_close": 7626.3,
+      "calls": {
+        "bought": 64000,
+        "sold": 0,
+        "net": 64000
+      },
+      "puts": {
+        "bought": 916000,
+        "sold": 2510000,
+        "net": -1594000
+      },
+      "gross_premium": 3490000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": -1594000
+      },
+      "regime": "risk_acceptance_with_local_protection",
+      "events": [
+        "500x 7620P/7625P sold",
+        "400x 7625P sold + 7690C bought",
+        "7635P bought"
+      ]
+    },
+    {
+      "start": "2026-09-01T22:53:36+03:00",
+      "end": "2026-09-01T22:53:36+03:00",
+      "spot_open": 7624.55,
+      "spot_high": 7624.55,
+      "spot_low": 7624.55,
+      "spot_close": 7624.55,
+      "calls": {
+        "bought": 223000,
+        "sold": 0,
+        "net": 223000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 492000,
+        "net": -492000
+      },
+      "gross_premium": 715000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "bullish_financing",
+      "events": [
+        "500x 7565P/7575P sold",
+        "500x 7675C/7685C bought"
+      ]
+    },
+    {
+      "start": "2026-09-01T22:57:43+03:00",
+      "end": "2026-09-01T22:57:43+03:00",
+      "spot_open": 7625.0,
+      "spot_high": 7625.0,
+      "spot_low": 7625.0,
+      "spot_close": 7625.0,
+      "calls": {
+        "bought": 408000,
+        "sold": 0,
+        "net": 408000
+      },
+      "puts": {
+        "bought": 1142000,
+        "sold": 0,
+        "net": 1142000
+      },
+      "gross_premium": 1550000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "bought_movement",
+      "events": [
+        "872x 7580P bought",
+        "872x 7675C/7680C bought",
+        "Repeated 145/146x 7580P/7585P blocks"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7625-7690-risk-reversal-like",
+      "timestamp": "2026-09-01T22:36:52+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7625,
+          "contracts": 400,
+          "premium": 740000,
+          "trade_ids": [
+            "1657ca60-0a8c-4b03-b5a7-928486c40034"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7690,
+          "contracts": 400,
+          "premium": 64000,
+          "trade_ids": [
+            "7170f0ff-bdbf-450c-bcbc-db9681cea053"
+          ]
+        }
+      ],
+      "gross_premium": 804000,
+      "net_premium": -676000,
+      "bias": "bullish_if_opening",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7625,
+        7690
+      ],
+      "interpretation": "Risk-reversal-like bullish financing: downside risk is sold to finance upside calls. If treated as a 1:1 opening package, the net credit is about 16.9 SPX points and the lower expiry breakeven is near 7608.1.",
+      "ui_title": "7625P / 7690C Bullish Financing"
+    },
+    {
+      "id": "str-7565-7685-bull-financing",
+      "timestamp": "2026-09-01T22:53:36+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7565,
+          "contracts": 500,
+          "premium": 213000,
+          "trade_ids": [
+            "9ba508ec-8d0b-459e-b7a6-b726030e972b"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7575,
+          "contracts": 500,
+          "premium": 279000,
+          "trade_ids": [
+            "47ba40b6-2fc7-418f-b9f2-fa507fdd7d98"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 500,
+          "premium": 140000,
+          "trade_ids": [
+            "f24acd9c-3c79-450e-986d-b3a7b6934a77"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7685,
+          "contracts": 500,
+          "premium": 83000,
+          "trade_ids": [
+            "8f2ee024-b720-45cd-9a2a-1c4dc4397f1a"
+          ]
+        }
+      ],
+      "gross_premium": 715000,
+      "net_premium": -269000,
+      "bias": "bullish_if_opening",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7565,
+        7575,
+        7675,
+        7685
+      ],
+      "interpretation": "Synchronized 500x legs strongly suggest downside sale financing upside convexity, but opening versus closing is unresolved.",
+      "ui_title": "7565-7575P / 7675-7685C Financing"
+    },
+    {
+      "id": "str-7580-7680-bought-movement",
+      "timestamp": "2026-09-01T22:57:43+03:00",
+      "type": "long_strangle",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7580,
+          "contracts": 872,
+          "premium": 555000,
+          "trade_ids": [
+            "6d8af206-fd69-4cac-834a-d6be13fece4c"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 872,
+          "premium": 231000,
+          "trade_ids": [
+            "a2e0c23a-24b6-4200-b0bb-a1a533260ea8"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7680,
+          "contracts": 872,
+          "premium": 177000,
+          "trade_ids": [
+            "aa7772fa-e640-4b2e-af1e-dbf9e2475f23"
+          ]
+        }
+      ],
+      "gross_premium": 963000,
+      "net_premium": 963000,
+      "bias": "long_vol",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7580,
+        7675,
+        7680
+      ],
+      "interpretation": "Large same-timestamp bought put and bought calls indicate movement demand. Repeated 145/146x put blocks nearby may be child executions or export duplication and should be economically deduplicated.",
+      "ui_title": "7580P / 7675-7680C Bought Movement"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7635-7650-center",
+      "low": 7635,
+      "high": 7650,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "balanced 0DTE inventory",
+        "short-lived intraday structures"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-7635-7650"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The densest near-spot turnover sits here; remaining inside the band favors churn and decay rather than directional realization.",
+      "caveat": "Not payoff-precise without confirmed opening/closing and complete multileg linkage."
+    },
+    {
+      "id": "mz-7580-7585-downside",
+      "low": 7580,
+      "high": 7585,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "long downside convexity"
+      ],
+      "source_structure_ids": [
+        "str-7580-7680-bought-movement"
+      ],
+      "source_level_ids": [
+        "lvl-7580-7585"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Acceptance toward this zone activates the largest visible downside convexity cluster.",
+      "caveat": "Fresh opening is not confirmed until OI updates."
+    },
+    {
+      "id": "mz-7675-7690-upside",
+      "low": 7675,
+      "high": 7690,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "bought calls",
+        "bullish-financing packages"
+      ],
+      "source_structure_ids": [
+        "str-7625-7690-risk-reversal-like",
+        "str-7565-7685-bull-financing",
+        "str-7580-7680-bought-movement"
+      ],
+      "source_level_ids": [
+        "lvl-7675-7690"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Acceptance above 7650 allows the visible upside convexity to begin realizing into 7675-7690.",
+      "caveat": "Some calls may be closing or part of larger complexes."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "Noisy center / decay",
+      "bias": "mixed",
+      "priority": 0.4,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7620,
+          "description": "Lower decision zone remains intact."
+        },
+        {
+          "type": "hold_below",
+          "level": 7650,
+          "description": "Upper decision level is not accepted."
+        }
+      ],
+      "route": [
+        7620,
+        7635,
+        7650
+      ],
+      "invalidations": [
+        "Acceptance above 7650",
+        "Acceptance below 7620"
+      ],
+      "interpretation": "Inside 7620-7650 the book is internally conflicting and favors churn/decay over clean directional realization."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7650,
+          "description": "Accept above the main inventory center."
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7675,
+          "description": "Upside call demand persists."
+        }
+      ],
+      "route": [
+        7650,
+        7675,
+        7685,
+        7690,
+        7700
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7650",
+        "New expansion of put demand around 7635"
+      ],
+      "interpretation": "Acceptance above 7650 activates the visible 7675-7690 upside convexity cluster."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside realization",
+      "bias": "bearish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7620,
+          "description": "Lose the lower decision zone."
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7585,
+          "description": "Downside protection continues to receive bid."
+        }
+      ],
+      "route": [
+        7620,
+        7600,
+        7585,
+        7580,
+        7575,
+        7565,
+        7535
+      ],
+      "invalidations": [
+        "Fast reclaim of 7620-7635",
+        "Put demand fades while call demand rebuilds above 7640"
+      ],
+      "interpretation": "Below 7620 the route opens toward the bought-put convexity cluster. Below 7565, short-put financing can become destabilizing."
+    },
+    {
+      "id": "sc-stateful-confirmation",
+      "name": "OI state confirmation",
+      "bias": "mixed",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "new_call_buying",
+          "level": 7690,
+          "description": "Next OI confirms call inventory build."
+        },
+        {
+          "type": "new_put_selling",
+          "level": 7625,
+          "description": "Next OI confirms sold-put inventory build."
+        }
+      ],
+      "route": [
+        7565,
+        7625,
+        7650,
+        7690
+      ],
+      "invalidations": [
+        "OI remains flat despite large volume",
+        "OI falls on the suspected opening legs"
+      ],
+      "interpretation": "OI expansion on bought calls together with sold puts would materially strengthen the bullish-financing hypothesis; flat OI would favor churn/round-trip."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": null,
+    "deduplicated_rows": null,
+    "duplicates_removed": null,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "Exact session-level Bought/Sold Calls/Puts and Signed Delta require a full deduplicated Tape recomputation.",
+      "BUY/SELL does not prove opening/closing.",
+      "Several large blocks are probable multileg packages, but complex_order_id is absent.",
+      "Repeated 145/146 contract blocks around 7580-7585 may require economic deduplication.",
+      "Contract-profile premium is gross contract activity and is not substituted for transaction-flow aggregates.",
+      "This is the first baseline for the 2026-09-02 expiration, so there is no prior stateful reversal match yet.",
+      "The tape timezone label appears inconsistent with the observed late-evening timestamps; timestamps are preserved as observed-local package times for linkage."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

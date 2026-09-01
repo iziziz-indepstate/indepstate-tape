@@ -1,0 +1,1158 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-01 23:15 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-01T23:15:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "Pasted text(4).txt",
+      "Pasted text (2).txt"
+    ],
+    "stateful": true,
+    "baseline_reference": "Friday forward-book baseline from 2026-08-28 plus Monday 2026-08-31 stateful update",
+    "active_expirations": [
+      "2026-09-02",
+      "2026-09-04"
+    ]
+  },
+  "market_state": {
+    "spot": 7633.0,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_long_convexity_with_bullish_recovery_skew",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7645.0,
+    "upper_decision_level": 7675.0,
+    "lower_decision_level": 7620.0
+  },
+  "summary": {
+    "headline": "Weekly book shifted lower again: 7635-7650 is the active gamma/vega center while 7700-7755 remains legacy structural inventory",
+    "key_points": [
+      "Wednesday is now the main front-end book and reads as long convexity with bullish recovery skew rather than pure downside continuation.",
+      "Fresh packages repeatedly sell downside around 7565-7625 while buying calls in the 7650-7690 zone.",
+      "A large 7580/7585 put-buy plus 7675/7680 call-buy package preserves two-sided convexity and tail protection.",
+      "Friday retains large structural OI at 7680-7755, but current tactical sensitivity has shifted down toward 7600-7650.",
+      "Current OI changes are vendor-snapshot deltas, not proven official overnight OI changes; they are evidence for lifecycle hypotheses, not proof."
+    ],
+    "daily_note": "Active tactical map: 7640-7650 pivot, 7620-7625 conditional risk-acceptance, 7580-7595 paid downside convexity, 7675-7690 recovery wing. Structural inventory above remains 7700-7755."
+  },
+  "flow_aggregate": {
+    "gross_premium": null,
+    "calls": {
+      "bought": null,
+      "sold": null,
+      "net": null
+    },
+    "puts": {
+      "bought": null,
+      "sold": null,
+      "net": null
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": null,
+        "sold": null,
+        "net": null
+      },
+      "puts": {
+        "bought": null,
+        "sold": null,
+        "net": null
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_premium": null,
+      "dominant_share": null,
+      "result": {
+        "net_calls": null,
+        "net_puts": null
+      },
+      "changes_interpretation": null,
+      "comment": "Full-session aggregate was not recomputed from a mounted raw file in this snapshot; interpreted structure and OI/Greek evidence are preserved without inventing totals."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-weekly-7640-7650",
+      "price": 7645.0,
+      "range_low": 7640.0,
+      "range_high": 7650.0,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center",
+        "complex_zone"
+      ],
+      "label": "WEEKLY 7640-7650 ACTIVE PIVOT",
+      "strength": 0.97,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 12.0,
+      "flow": {
+        "call_buy": null,
+        "call_sell": null,
+        "put_buy": null,
+        "put_sell": null,
+        "net_calls": null,
+        "net_puts": null,
+        "gross": null
+      },
+      "interpretation": "Near-spot Wednesday gamma/vega concentration and repeated two-sided structures make 7640-7650 the current tactical center.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7620p-7650c-rr-like",
+          "str-wed-7565-7575p-7675-7685c-rr-like"
+        ],
+        "notes": [
+          "WED 7650C gamma_notional about 15m and vega_notional about 3.1bn",
+          "WED 7650P gamma_notional about 11m and vega_notional about 2.4bn"
+        ]
+      }
+    },
+    {
+      "id": "lvl-weekly-7620-7625",
+      "price": 7622.5,
+      "range_low": 7620.0,
+      "range_high": 7625.0,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "WEEKLY 7620-7625 CONDITIONAL RISK ACCEPTANCE",
+      "strength": 0.91,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -10.5,
+      "flow": {
+        "call_buy": null,
+        "call_sell": null,
+        "put_buy": null,
+        "put_sell": null,
+        "net_calls": null,
+        "net_puts": null,
+        "gross": null
+      },
+      "interpretation": "Repeated put selling around 7620-7625 is frequently paired with upside call buying; supportive while held, potentially destabilizing if accepted below.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7620p-7650c-rr-like",
+          "str-wed-7625p-7690c-rr-like"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-weekly-7580-7595",
+      "price": 7587.5,
+      "range_low": 7580.0,
+      "range_high": 7595.0,
+      "role": [
+        "downside_protection",
+        "tail_zone",
+        "volatility_center"
+      ],
+      "label": "WEEKLY 7580-7595 PAID DOWNSIDE CONVEXITY",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -45.5,
+      "flow": {
+        "call_buy": null,
+        "call_sell": null,
+        "put_buy": null,
+        "put_sell": null,
+        "net_calls": null,
+        "net_puts": null,
+        "gross": null
+      },
+      "interpretation": "Large Wednesday 7580/7585 put buying plus material OI growth marks the first paid downside convexity zone below the current pivot.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7580-7585p-7675-7680c-long-convexity"
+        ],
+        "notes": [
+          "WED 7585P snapshot OI rose from 117 to 360",
+          "WED 7595P snapshot OI rose from 302 to 1200"
+        ]
+      }
+    },
+    {
+      "id": "lvl-weekly-7675-7690",
+      "price": 7682.5,
+      "range_low": 7675.0,
+      "range_high": 7690.0,
+      "role": [
+        "upside_demand",
+        "transition",
+        "volatility_center"
+      ],
+      "label": "WEEKLY 7675-7690 RECOVERY CONVEXITY",
+      "strength": 0.93,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 49.5,
+      "flow": {
+        "call_buy": null,
+        "call_sell": null,
+        "put_buy": null,
+        "put_sell": null,
+        "net_calls": null,
+        "net_puts": null,
+        "gross": null
+      },
+      "interpretation": "Fresh Wednesday call buying is repeatedly concentrated in 7675-7690, often financed by put selling below spot.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7625p-7690c-rr-like",
+          "str-wed-7565-7575p-7675-7685c-rr-like",
+          "str-wed-7580-7585p-7675-7680c-long-convexity"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-weekly-7700-7725",
+      "price": 7712.5,
+      "range_low": 7700.0,
+      "range_high": 7725.0,
+      "role": [
+        "inventory_center",
+        "transition",
+        "potential_cap"
+      ],
+      "label": "WEEKLY 7700-7725 LEGACY INVENTORY / RECOVERY CEILING",
+      "strength": 0.88,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "historical",
+      "distance_from_spot": 79.5,
+      "flow": {
+        "call_buy": null,
+        "call_sell": null,
+        "put_buy": null,
+        "put_sell": null,
+        "net_calls": null,
+        "net_puts": null,
+        "gross": null
+      },
+      "interpretation": "Large OI persists above market, but current gamma/vega relevance has shifted lower. Treat as structural recovery friction rather than the current tactical pivot.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "WED 7700C snapshot OI increased materially",
+          "WED 7700P snapshot OI also increased"
+        ]
+      }
+    },
+    {
+      "id": "lvl-weekly-7750-7755",
+      "price": 7752.5,
+      "range_low": 7750.0,
+      "range_high": 7755.0,
+      "role": [
+        "inventory_center",
+        "potential_cap",
+        "upper_decision_level"
+      ],
+      "label": "WEEKLY 7750-7755 UPPER STRUCTURAL INVENTORY",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "historical",
+      "distance_from_spot": 119.5,
+      "flow": {
+        "call_buy": null,
+        "call_sell": null,
+        "put_buy": null,
+        "put_sell": null,
+        "net_calls": null,
+        "net_puts": null,
+        "gross": null
+      },
+      "interpretation": "Large Friday OI remains, but this is now an upper structural node rather than an immediate tactical level.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "FRI 7750P snapshot OI remained near 3300",
+          "FRI 7750C snapshot OI increased modestly",
+          "FRI 7755C snapshot OI increased materially"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-wed-7620p-7650c-rr-like",
+      "timestamp": "2026-09-01T21:13:03-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7620,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7650,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7620,
+        7650
+      ],
+      "interpretation": "Repeated same-time/similar-size put-selling below spot and call-buying above spot is consistent with bullish risk-reversal-like recovery financing.",
+      "ui_title": "WED 7620P / 7650C Risk-Reversal-like"
+    },
+    {
+      "id": "str-wed-7625p-7690c-rr-like",
+      "timestamp": "2026-09-01T22:36:52-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7625,
+          "contracts": 400,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7690,
+          "contracts": 400,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7625,
+        7690
+      ],
+      "interpretation": "Equal-size put sale and call buy strongly resemble a bullish recovery risk-reversal package, but opening/closing remains unresolved.",
+      "ui_title": "WED 7625P / 7690C 400x Risk-Reversal-like"
+    },
+    {
+      "id": "str-wed-7565-7575p-7675-7685c-rr-like",
+      "timestamp": "2026-09-01T22:53:36-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7565,
+          "contracts": 500,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7575,
+          "contracts": 500,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 500,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7685,
+          "contracts": 500,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7565,
+        7575,
+        7675,
+        7685
+      ],
+      "interpretation": "Farther downside is sold while upside calls are bought, creating a strong bullish-skew financing geometry.",
+      "ui_title": "WED 7565/7575P -> 7675/7685C Recovery Package"
+    },
+    {
+      "id": "str-wed-7580-7585p-7675-7680c-long-convexity",
+      "timestamp": "2026-09-01T22:57:43-04:00",
+      "type": "long_strangle",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7580,
+          "contracts": 872,
+          "premium": 555000,
+          "trade_ids": [
+            "e31193f6-0e30-4060-a097-22c46c10c74c"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7585,
+          "contracts": 872,
+          "premium": 632000,
+          "trade_ids": [
+            "170a61ce-7740-4b3d-be91-c8d91eabf809"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 872,
+          "premium": 231000,
+          "trade_ids": [
+            "389d06bb-8181-47da-9400-b1c4d8091e3c"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7680,
+          "contracts": 872,
+          "premium": 177000,
+          "trade_ids": [
+            "864e642e-9e91-4b01-a412-6ab2a58bd4e9"
+          ]
+        }
+      ],
+      "gross_premium": 1595000,
+      "net_premium": null,
+      "bias": "volatility",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7580,
+        7585,
+        7675,
+        7680
+      ],
+      "interpretation": "Large equal-size blocks buy both downside and upside wings around a 7625 spot reference, supporting a two-sided long-convexity interpretation.",
+      "ui_title": "WED 7580/7585P + 7675/7680C Long-Convexity Block"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-weekly-7620-7650-battlefield",
+      "low": 7620,
+      "high": 7650,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "short-downside-financed recovery structures",
+        "two-sided convexity books"
+      ],
+      "source_structure_ids": [
+        "str-wed-7620p-7650c-rr-like",
+        "str-wed-7625p-7690c-rr-like"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7620-7625",
+        "lvl-weekly-7640-7650"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Inside 7620-7650 the book is internally conflicted; downside risk is partly sold while convexity above and below is also purchased.",
+      "caveat": "Opening/closing and exact complex linkage are not confirmed."
+    },
+    {
+      "id": "mz-weekly-upside-recovery",
+      "low": 7650,
+      "high": 7690,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "fresh recovery call buyers",
+        "risk-reversal-like structures"
+      ],
+      "source_structure_ids": [
+        "str-wed-7625p-7690c-rr-like",
+        "str-wed-7565-7575p-7675-7685c-rr-like"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7640-7650",
+        "lvl-weekly-7675-7690"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Acceptance above 7650 activates the fresh 7675-7690 upside convexity wing.",
+      "caveat": "This is a conditional route, not a forecast."
+    },
+    {
+      "id": "mz-weekly-downside-convexity",
+      "low": 7580,
+      "high": 7595,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "long put wings",
+        "two-sided convexity buyers"
+      ],
+      "source_structure_ids": [
+        "str-wed-7580-7585p-7675-7680c-long-convexity"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7580-7595"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "If 7620 fails, paid downside convexity becomes increasingly relevant into 7595-7580.",
+      "caveat": "Below this band the current recovery-financing geometry deteriorates."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-02",
+      "label": "WED 0DTE",
+      "expiration": "2026-09-02",
+      "dte": 0,
+      "reference_price": 7633.0,
+      "summary": {
+        "headline": "Wednesday is the active front-end: long convexity with bullish recovery skew"
+      },
+      "flow_aggregate": {
+        "gross_premium": null,
+        "calls": {
+          "bought": null,
+          "sold": null,
+          "net": null
+        },
+        "puts": {
+          "bought": null,
+          "sold": null,
+          "net": null
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "calls": {
+            "bought": null,
+            "sold": null,
+            "net": null
+          },
+          "puts": {
+            "bought": null,
+            "sold": null,
+            "net": null
+          }
+        },
+        "leave_one_out": null
+      },
+      "levels": [
+        {
+          "id": "lvl-wed-7640-7650",
+          "price": 7645.0,
+          "range_low": 7640.0,
+          "range_high": 7650.0,
+          "role": [
+            "main_pivot",
+            "volatility_center",
+            "inventory_center"
+          ],
+          "label": "WED 7640-7650 ACTIVE PIVOT",
+          "strength": 0.98,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 12.0,
+          "flow": {
+            "call_buy": null,
+            "call_sell": null,
+            "put_buy": null,
+            "put_sell": null,
+            "net_calls": null,
+            "net_puts": null,
+            "gross": null
+          },
+          "interpretation": "Current near-spot Greek concentration and repeated package activity center on 7640-7650.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-wed-7620p-7650c-rr-like"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-wed-7620-7625",
+          "price": 7622.5,
+          "range_low": 7620.0,
+          "range_high": 7625.0,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor",
+            "breakdown_trigger"
+          ],
+          "label": "WED 7620-7625 CONDITIONAL FLOOR",
+          "strength": 0.92,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -10.5,
+          "flow": {
+            "call_buy": null,
+            "call_sell": null,
+            "put_buy": null,
+            "put_sell": null,
+            "net_calls": null,
+            "net_puts": null,
+            "gross": null
+          },
+          "interpretation": "Put risk is repeatedly sold here to finance recovery calls; loss of the band challenges the bullish-financing structure.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-wed-7625p-7690c-rr-like"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-wed-7580-7595",
+          "price": 7587.5,
+          "range_low": 7580.0,
+          "range_high": 7595.0,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "WED 7580-7595 PAID DOWNSIDE",
+          "strength": 0.96,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -45.5,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 1187000,
+            "put_sell": 0,
+            "net_calls": 0,
+            "net_puts": 1187000,
+            "gross": 1187000
+          },
+          "interpretation": "Large 872x 7580P and 872x 7585P blocks anchor paid downside convexity.",
+          "evidence": {
+            "trade_ids": [
+              "e31193f6-0e30-4060-a097-22c46c10c74c",
+              "170a61ce-7740-4b3d-be91-c8d91eabf809"
+            ],
+            "structure_ids": [
+              "str-wed-7580-7585p-7675-7680c-long-convexity"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-wed-7675-7690",
+          "price": 7682.5,
+          "range_low": 7675.0,
+          "range_high": 7690.0,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "WED 7675-7690 RECOVERY WING",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 49.5,
+          "flow": {
+            "call_buy": 408000,
+            "call_sell": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_calls": 408000,
+            "net_puts": 0,
+            "gross": 408000
+          },
+          "interpretation": "Fresh recovery call buying sits in 7675-7690 and is frequently financed by put selling below.",
+          "evidence": {
+            "trade_ids": [
+              "389d06bb-8181-47da-9400-b1c4d8091e3c",
+              "864e642e-9e91-4b01-a412-6ab2a58bd4e9"
+            ],
+            "structure_ids": [
+              "str-wed-7625p-7690c-rr-like",
+              "str-wed-7580-7585p-7675-7680c-long-convexity"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        "str-wed-7620p-7650c-rr-like",
+        "str-wed-7625p-7690c-rr-like",
+        "str-wed-7565-7575p-7675-7685c-rr-like",
+        "str-wed-7580-7585p-7675-7680c-long-convexity"
+      ],
+      "monetization_zones": [
+        "mz-weekly-7620-7650-battlefield",
+        "mz-weekly-upside-recovery",
+        "mz-weekly-downside-convexity"
+      ]
+    },
+    {
+      "id": "exp-2026-09-03",
+      "label": "THU 1DTE",
+      "expiration": "2026-09-03",
+      "dte": 1,
+      "reference_price": 7633.0,
+      "summary": {
+        "headline": "No material Thursday $50k+ book visible in the supplied snapshot"
+      },
+      "flow_aggregate": {
+        "gross_premium": 0,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "calls": {
+            "bought": 0,
+            "sold": 0,
+            "net": 0
+          },
+          "puts": {
+            "bought": 0,
+            "sold": 0,
+            "net": 0
+          }
+        },
+        "leave_one_out": null
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-04",
+      "label": "FRI 2DTE",
+      "expiration": "2026-09-04",
+      "dte": 2,
+      "reference_price": 7633.0,
+      "summary": {
+        "headline": "Friday retains structural inventory above while tactical sensitivity has shifted to 7600-7650"
+      },
+      "flow_aggregate": {
+        "gross_premium": null,
+        "calls": {
+          "bought": null,
+          "sold": null,
+          "net": null
+        },
+        "puts": {
+          "bought": null,
+          "sold": null,
+          "net": null
+        },
+        "near_spot": {
+          "distance_points": 30,
+          "calls": {
+            "bought": null,
+            "sold": null,
+            "net": null
+          },
+          "puts": {
+            "bought": null,
+            "sold": null,
+            "net": null
+          }
+        },
+        "leave_one_out": null
+      },
+      "levels": [
+        {
+          "id": "lvl-fri-7600-7650",
+          "price": 7625.0,
+          "range_low": 7600.0,
+          "range_high": 7650.0,
+          "role": [
+            "volatility_center",
+            "inventory_center",
+            "complex_zone"
+          ],
+          "label": "FRI 7600-7650 TACTICAL SENSITIVITY",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -8.0,
+          "flow": {
+            "call_buy": null,
+            "call_sell": null,
+            "put_buy": null,
+            "put_sell": null,
+            "net_calls": null,
+            "net_puts": null,
+            "gross": null
+          },
+          "interpretation": "Current Friday gamma/vega exposure is now concentrated around 7600-7650 despite larger legacy OI higher up.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-fri-7680-7755",
+          "price": 7717.5,
+          "range_low": 7680.0,
+          "range_high": 7755.0,
+          "role": [
+            "inventory_center",
+            "potential_cap",
+            "transition"
+          ],
+          "label": "FRI 7680-7755 STRUCTURAL INVENTORY",
+          "strength": 0.91,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "historical",
+          "distance_from_spot": 84.5,
+          "flow": {
+            "call_buy": null,
+            "call_sell": null,
+            "put_buy": null,
+            "put_sell": null,
+            "net_calls": null,
+            "net_puts": null,
+            "gross": null
+          },
+          "interpretation": "Large OI remains in the old Friday book, but its immediate gamma relevance is lower while spot is near 7633.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-weekly-battlefield",
+      "name": "Battlefield / chop around active pivot",
+      "bias": "neutral",
+      "priority": 0.4,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7620,
+          "description": "Conditional risk-acceptance remains intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7650,
+          "description": "Recovery convexity has not yet realized"
+        }
+      ],
+      "route": [
+        7620,
+        7645,
+        7650
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7650",
+        "Sustained acceptance below 7620"
+      ],
+      "interpretation": "Inside 7620-7650 the book is mixed and long convexity remains unresolved."
+    },
+    {
+      "id": "sc-weekly-upside",
+      "name": "Recovery realization",
+      "bias": "bullish",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7650,
+          "description": "Break above the active gamma/vega center"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7675,
+          "description": "Fresh call demand confirms the recovery wing"
+        }
+      ],
+      "route": [
+        7650,
+        7675,
+        7685,
+        7690,
+        7700,
+        7715
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7640"
+      ],
+      "interpretation": "Acceptance above 7650 activates fresh 7675-7690 upside convexity before legacy inventory at 7700-7715."
+    },
+    {
+      "id": "sc-weekly-downside",
+      "name": "Downside convexity realization",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7620,
+          "description": "Conditional risk-acceptance fails"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7600,
+          "description": "Fresh downside demand reinforces the paid lower wing"
+        }
+      ],
+      "route": [
+        7620,
+        7600,
+        7595,
+        7585,
+        7580
+      ],
+      "invalidations": [
+        "Reclaim and hold above 7635"
+      ],
+      "interpretation": "Below 7620 the current recovery-financing geometry weakens and paid downside convexity becomes dominant."
+    }
+  ],
+  "position_ledger": {
+    "snapshot_time": "2026-09-01T23:15:00+03:00",
+    "oi_change_semantics": "vendor_snapshot_delta_not_official_overnight_oi",
+    "watchlist": [
+      {
+        "expiration": "2026-09-02",
+        "strike": 7585,
+        "option_type": "PUT",
+        "previous_oi": 117,
+        "current_oi": 360,
+        "snapshot_oi_change": 243,
+        "role": "downside_protection",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-02",
+        "strike": 7595,
+        "option_type": "PUT",
+        "previous_oi": 302,
+        "current_oi": 1200,
+        "snapshot_oi_change": 898,
+        "role": "downside_protection",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-02",
+        "strike": 7675,
+        "option_type": "PUT",
+        "previous_oi": 613,
+        "current_oi": 846,
+        "snapshot_oi_change": 233,
+        "role": "upper_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-02",
+        "strike": 7680,
+        "option_type": "PUT",
+        "previous_oi": 197,
+        "current_oi": 346,
+        "snapshot_oi_change": 149,
+        "role": "upper_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-02",
+        "strike": 7700,
+        "option_type": "CALL",
+        "previous_oi": 792,
+        "current_oi": 1700,
+        "snapshot_oi_change": 908,
+        "role": "legacy_structural_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-02",
+        "strike": 7700,
+        "option_type": "PUT",
+        "previous_oi": 740,
+        "current_oi": 1300,
+        "snapshot_oi_change": 560,
+        "role": "legacy_structural_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-02",
+        "strike": 7715,
+        "option_type": "PUT",
+        "previous_oi": 160,
+        "current_oi": 897,
+        "snapshot_oi_change": 737,
+        "role": "legacy_upper_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-04",
+        "strike": 7680,
+        "option_type": "PUT",
+        "previous_oi": 696,
+        "current_oi": 1500,
+        "snapshot_oi_change": 804,
+        "role": "friday_volatility_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-04",
+        "strike": 7700,
+        "option_type": "CALL",
+        "previous_oi": 2600,
+        "current_oi": 2900,
+        "snapshot_oi_change": 300,
+        "role": "friday_structural_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-04",
+        "strike": 7700,
+        "option_type": "PUT",
+        "previous_oi": 3500,
+        "current_oi": 3400,
+        "snapshot_oi_change": -100,
+        "role": "friday_structural_inventory",
+        "lifecycle_state": "CLOSE_CANDIDATE"
+      },
+      {
+        "expiration": "2026-09-04",
+        "strike": 7750,
+        "option_type": "CALL",
+        "previous_oi": 3800,
+        "current_oi": 4000,
+        "snapshot_oi_change": 200,
+        "role": "upper_structural_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-04",
+        "strike": 7750,
+        "option_type": "PUT",
+        "previous_oi": 3300,
+        "current_oi": 3300,
+        "snapshot_oi_change": 0,
+        "role": "upper_structural_inventory",
+        "lifecycle_state": "ACTIVE"
+      },
+      {
+        "expiration": "2026-09-04",
+        "strike": 7755,
+        "option_type": "CALL",
+        "previous_oi": 931,
+        "current_oi": 1500,
+        "snapshot_oi_change": 569,
+        "role": "upper_structural_inventory",
+        "lifecycle_state": "ACTIVE"
+      }
+    ]
+  },
+  "data_quality": {
+    "raw_rows": null,
+    "deduplicated_rows": null,
+    "duplicates_removed": null,
+    "iv_coverage": null,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Complex-order linkage is not fully available; several structures remain inferred from time/size/strike geometry.",
+      "Current OI differences are vendor-snapshot deltas and should not be treated as proven official overnight OI changes.",
+      "Displayed contract-profile total_volume is not used as the denominator for snapshot OI change because the fields appear to have different update windows.",
+      "Large OI above spot is treated as structural inventory; current gamma/vega relevance is concentrated nearer 7600-7650.",
+      "Full-session premium aggregates were not recomputed from a locally mounted raw tape file in this snapshot, so nulls are preserved rather than estimated."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": {
+      "source": "contract_profile",
+      "interpretation": "contract-level gamma_notional and vega_notional are used as economic-weight/context fields, not as signed dealer GEX/Vanna",
+      "active_zone": {
+        "low": 7620,
+        "high": 7650,
+        "role": "current_gamma_vega_center"
+      },
+      "legacy_structural_zone": {
+        "low": 7700,
+        "high": 7755,
+        "role": "large_oi_but_lower_current_sensitivity"
+      }
+    }
+  }
+}
