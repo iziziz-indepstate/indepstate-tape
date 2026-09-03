@@ -1,0 +1,1242 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-03 23:02 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-03T23:02:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-09-03(3).csv",
+      "spotgamma-contract-profile-2026-09-03(3).csv"
+    ],
+    "stateful_reference_files": [
+      "spotgamma-contract-profile-2026-09-02(2).csv",
+      "1WEEK@SPX 2026-09-02 23-05 Cyprus.json"
+    ],
+    "source_trade_date": "2026-09-03",
+    "baseline_type": "stateful_weekly_book"
+  },
+  "market_state": {
+    "spot": 7742.55,
+    "spot_change_from_previous_snapshot": 72.55,
+    "regime": "recovery_realized_7750_gamma_pin_late_defensive_overlay",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7750,
+    "upper_decision_level": 7777.5,
+    "lower_decision_level": 7722.5,
+    "active_tactical_center": [
+      7725,
+      7780
+    ],
+    "structural_inventory_center": [
+      7700,
+      7750
+    ]
+  },
+  "summary": {
+    "headline": "Friday book has migrated to a 7750-centered gamma/vega battlefield after the recovery route realized.",
+    "key_points": [
+      "The prior 7700->7720/7725->7750 recovery route realized as SPX traded into the 7750 area.",
+      "Friday call OI increased materially across 7680-7750, confirming that the prior recovery call build was not merely intraday churn.",
+      "7750 is now the dominant active sensitivity node, while 7700 remains the lower structural pivot and primary breakdown trigger.",
+      "The session-level positive transaction delta is almost entirely explained by one 18:39:50 call-buying cluster; ex-cluster the rest of the tape is approximately delta-neutral.",
+      "Late-session flow turned defensive through 7720C/7760C supply, 7680C/7755C selling and a 7775C/7775P defensive package."
+    ],
+    "daily_note": "Recovery was realized, but the edge changed: 7750-7780 is now the active decision zone rather than a clean continuation corridor."
+  },
+  "flow_aggregate": {
+    "gross_premium": 89978000,
+    "calls": {
+      "bought": 36961000,
+      "sold": 34397000,
+      "net": 2564000
+    },
+    "puts": {
+      "bought": 8997000,
+      "sold": 9623000,
+      "net": -626000
+    },
+    "signed_transaction_delta": 415689000,
+    "near_spot": {
+      "distance_points": 30,
+      "reference_spot": 7742.55,
+      "gross_premium": 30268000,
+      "calls": {
+        "bought": 8931000,
+        "sold": 10114000,
+        "net": -1183000
+      },
+      "puts": {
+        "bought": 4935000,
+        "sold": 6288000,
+        "net": -1353000
+      }
+    },
+    "leave_one_out": {
+      "dominant_timestamp": "18:39:50.000",
+      "dominant_premium": 3900000,
+      "dominant_share": 0.04334,
+      "dominant_signed_delta": 415000000,
+      "result": {
+        "net_calls": -1336000,
+        "net_puts": -626000,
+        "signed_transaction_delta": 689000
+      },
+      "changes_interpretation": true,
+      "comment": "The positive session delta is package-dependent. Removing the 7685C/7710C 350x call-buying cluster leaves the rest of the session approximately delta-neutral and net call selling."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7800-7825",
+      "price": 7812.5,
+      "range_low": 7800,
+      "range_high": 7825,
+      "role": [
+        "inventory_center",
+        "upside_target",
+        "call_supply"
+      ],
+      "label": "UPPER STRUCTURAL CALL SHELF",
+      "strength": 0.76,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 69.95,
+      "flow": null,
+      "interpretation": "Large call OI at 7800/7820/7825 defines the next upper structural shelf if 7775-7780 is accepted.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7720p-7780c-bullish-rr"
+        ],
+        "notes": [
+          "7800C OI ~5600",
+          "7820C OI ~3500",
+          "7825C OI ~3500"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7775-7780",
+      "price": 7777.5,
+      "range_low": 7775,
+      "range_high": 7780,
+      "role": [
+        "upper_decision_level",
+        "upside_demand",
+        "downside_protection",
+        "transition"
+      ],
+      "label": "FIRST UPSIDE DECISION",
+      "strength": 0.88,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 34.95,
+      "flow": null,
+      "interpretation": "Bullish 7720P/7780C risk-reversal-like flow targets 7780, but late 7775 call-selling and put-buying creates a defensive overlay at the same upper zone.",
+      "evidence": {
+        "trade_ids": [
+          "0ed192ab-998b-4d7c-96cf-7002bac33b84",
+          "d0e320f4-bf26-47e6-8c5b-0018186dba43",
+          "1b1fab17-989c-432d-919d-09b53b334c38",
+          "3253a2e7-46a8-4bd0-91c9-c26b5840d916",
+          "93fffd27-cc58-4e2c-af10-e458c385076d"
+        ],
+        "structure_ids": [
+          "str-7720p-7780c-bullish-rr",
+          "str-7775-defensive-overlay"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7750",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7755,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center",
+        "pin_candidate"
+      ],
+      "label": "MAIN ACTIVE PIVOT / GAMMA CENTER",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 7.45,
+      "flow": {
+        "gross_premium": 7519000,
+        "net_calls": 654000,
+        "net_puts": 71000,
+        "signed_transaction_delta": 80900000
+      },
+      "interpretation": "7750 is the largest current near-spot sensitivity node and the primary Friday pin/battlefield.",
+      "evidence": {
+        "trade_ids": [
+          "936e3b77-31bc-43a3-bd17-4b0147f3e43b",
+          "564f1a83-9886-4749-b7ff-ab552bec688c"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "7750C OI 5400, gamma_notional ~23m, vega_notional ~5.0bn",
+          "7750P OI 3300, gamma_notional ~11m, vega_notional ~2.3bn"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720-7725",
+      "price": 7722.5,
+      "range_low": 7720,
+      "range_high": 7725,
+      "role": [
+        "lower_decision_level",
+        "transition",
+        "put_risk_acceptance",
+        "inventory_center"
+      ],
+      "label": "FIRST LOWER TRANSITION",
+      "strength": 0.91,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -20.05,
+      "flow": null,
+      "interpretation": "Former resistance has become the first lower transition zone. Put selling at 7720 helps finance upside, while 7720-7725 retains large two-sided inventory.",
+      "evidence": {
+        "trade_ids": [
+          "8eb9e5fb-272c-454a-87ee-e867583580ba",
+          "4e876438-c48d-4b61-abc8-bb5eb69fb185",
+          "6d45bb81-b1a0-420e-a127-7d5ac4d852c0",
+          "f762e5fe-4fa1-43e8-b7e3-08323dcfbbb7"
+        ],
+        "structure_ids": [
+          "str-7720p-7780c-bullish-rr",
+          "str-7720c-7760c-late-supply"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7700",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "structural_pivot",
+        "reclaim_support",
+        "breakdown_trigger",
+        "inventory_center"
+      ],
+      "label": "LOWER STRUCTURAL PIVOT",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -42.55,
+      "flow": {
+        "gross_premium": 7929000,
+        "net_calls": 1969000,
+        "net_puts": -744000,
+        "signed_transaction_delta": 433500000
+      },
+      "interpretation": "7700 remains the largest lower legacy inventory node. Intraday defensive synthetic-like flow was later partially reversed, making the level supportive but conflicted rather than a simple floor.",
+      "evidence": {
+        "trade_ids": [
+          "ee724e95-84c2-431d-b379-d74b7d1d4349",
+          "e2581bb0-23ab-47a8-8bdd-4bf56f700c8b",
+          "f20f1333-e891-420e-8f0b-8332d071a741",
+          "d9d0a459-d72a-4e81-bd89-8dad001d5ba3",
+          "1ef14cc5-53fb-4475-b8b4-0d5a0c4ab0ca"
+        ],
+        "structure_ids": [
+          "str-7700-intraday-defense",
+          "str-7700-defense-reversal"
+        ],
+        "notes": [
+          "7700C OI 4700",
+          "7700P OI 3400"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7680-7690",
+      "price": 7685,
+      "range_low": 7680,
+      "range_high": 7690,
+      "role": [
+        "recovery_support",
+        "historical_volatility_center",
+        "downside_protection"
+      ],
+      "label": "RECOVERY / SUPPORT SHELF",
+      "strength": 0.83,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -57.55,
+      "flow": null,
+      "interpretation": "The prior recovery node now sits below spot. OI rose materially in 7680C/7680P/7685C/7690C, preserving structural relevance if 7700 fails.",
+      "evidence": {
+        "trade_ids": [
+          "5d4eb022-8dcc-4468-8172-3f8d0d8b4c4d",
+          "a25153f6-6a6c-4498-8290-d2eb273312e6"
+        ],
+        "structure_ids": [
+          "str-7685c-7710c-dominant-cluster"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7650",
+      "price": 7650,
+      "range_low": 7645,
+      "range_high": 7655,
+      "role": [
+        "downside_protection",
+        "inventory_center",
+        "conditional_floor"
+      ],
+      "label": "LOWER CONFIRMED PROTECTION",
+      "strength": 0.81,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -92.55,
+      "flow": null,
+      "interpretation": "Prior downside protection remains visible in OI; this is the next material support/protection zone beneath 7680-7700.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "7650P OI 4100, snapshot OI change +200"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7600-7610",
+      "price": 7605,
+      "range_low": 7600,
+      "range_high": 7610,
+      "role": [
+        "tail_zone",
+        "downside_protection",
+        "inventory_center"
+      ],
+      "label": "LOWER TAIL INVENTORY",
+      "strength": 0.79,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -137.55,
+      "flow": null,
+      "interpretation": "Snapshot OI growth in 7600P and 7610P keeps this zone as the lower tail inventory pole if 7650 fails.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "7600P OI 6400, snapshot OI change +400",
+          "7610P OI 1300, snapshot OI change +448"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "id": "tl-183950",
+      "timestamp": "18:39:50.000",
+      "label": "Dominant upside convexity cluster",
+      "basis": "observed",
+      "confidence": "high",
+      "gross_premium": 3900000,
+      "signed_transaction_delta": 415000000,
+      "interpretation": "350x 7685C and 350x 7710C were bought together. This single cluster explains nearly all positive session delta."
+    },
+    {
+      "id": "tl-190232",
+      "timestamp": "19:02:32.000",
+      "label": "7700 defensive package",
+      "basis": "inferred",
+      "confidence": "medium",
+      "gross_premium": 1465000,
+      "signed_transaction_delta": -174000000,
+      "interpretation": "225x equivalent SELL 7700C / BUY 7700P synthetic-short-like defense appeared near SPX 7748."
+    },
+    {
+      "id": "tl-222010",
+      "timestamp": "22:20:10.000",
+      "label": "Bullish risk-reversal-like package",
+      "basis": "inferred",
+      "confidence": "high",
+      "gross_premium": 847000,
+      "signed_transaction_delta": 226000000,
+      "interpretation": "550x equivalent SELL 7720P / BUY 7780C package accepted downside risk and bought upside convexity."
+    },
+    {
+      "id": "tl-late",
+      "timestamp": "22:56:17.000-23:02:35.000",
+      "label": "Late defensive overlay",
+      "basis": "derived",
+      "confidence": "medium",
+      "gross_premium": null,
+      "signed_transaction_delta": -185000000,
+      "interpretation": "Late call-supply and 7775 put-buying reduced the continuation signal into the close."
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7685c-7710c-dominant-cluster",
+      "timestamp": "18:39:50.000",
+      "type": "multi_call_buy_cluster",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7685,
+          "contracts": 350,
+          "premium": 2300000,
+          "trade_ids": [
+            "5d4eb022-8dcc-4468-8172-3f8d0d8b4c4d"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7710,
+          "contracts": 350,
+          "premium": 1600000,
+          "trade_ids": [
+            "faff2deb-aa5a-4c1a-9df4-dc5d4ada7777"
+          ]
+        }
+      ],
+      "gross_premium": 3900000,
+      "net_premium": 3900000,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7685,
+        7710
+      ],
+      "interpretation": "Dominant call-buying cluster; it is economically important but package-dependent and should not be generalized to the full tape.",
+      "ui_title": "7685C / 7710C Dominant Call-Buy Cluster"
+    },
+    {
+      "id": "str-7700-intraday-defense",
+      "timestamp": "19:02:32.000",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 225,
+          "premium": 1295000,
+          "trade_ids": [
+            "ee724e95-84c2-431d-b379-d74b7d1d4349",
+            "e2581bb0-23ab-47a8-8bdd-4bf56f700c8b"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 225,
+          "premium": 170000,
+          "trade_ids": [
+            "f20f1333-e891-420e-8f0b-8332d071a741"
+          ]
+        }
+      ],
+      "gross_premium": 1465000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Synthetic-short-like intraday defense near 7748; later flow partially reversed this exposure.",
+      "ui_title": "7700 Intraday Defensive Synthetic-Like"
+    },
+    {
+      "id": "str-7700-defense-reversal",
+      "timestamp": "22:58:22.000",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 120,
+          "premium": 59000,
+          "trade_ids": [
+            "d9d0a459-d72a-4e81-bd89-8dad001d5ba3"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 210,
+          "premium": 1117000,
+          "trade_ids": [
+            "1ef14cc5-53fb-4475-b8b4-0d5a0c4ab0ca",
+            "5ec04f2c-a861-48a0-92f9-725b98b26369"
+          ]
+        }
+      ],
+      "gross_premium": 1176000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Partial intraday reversal/unwind candidate against the earlier 7700 defensive package.",
+      "ui_title": "7700 Defense Reversal / Unwind Candidate"
+    },
+    {
+      "id": "str-7720p-7780c-bullish-rr",
+      "timestamp": "22:20:10.000",
+      "type": "risk_reversal",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7720,
+          "contracts": 550,
+          "premium": 429000,
+          "trade_ids": [
+            "8eb9e5fb-272c-454a-87ee-e867583580ba",
+            "4e876438-c48d-4b61-abc8-bb5eb69fb185",
+            "6d45bb81-b1a0-420e-a127-7d5ac4d852c0"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7780,
+          "contracts": 550,
+          "premium": 418000,
+          "trade_ids": [
+            "0ed192ab-998b-4d7c-96cf-7002bac33b84",
+            "d0e320f4-bf26-47e6-8c5b-0018186dba43",
+            "1b1fab17-989c-432d-919d-09b53b334c38"
+          ]
+        }
+      ],
+      "gross_premium": 847000,
+      "net_premium": -11000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7720,
+        7780
+      ],
+      "interpretation": "Bullish risk-reversal-like package: downside risk is accepted at 7720 while upside convexity is bought at 7780.",
+      "ui_title": "7720P / 7780C Bullish Risk-Reversal-Like"
+    },
+    {
+      "id": "str-7720c-7760c-late-supply",
+      "timestamp": "22:56:17.000",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7720,
+          "contracts": 195,
+          "premium": 706000,
+          "trade_ids": [
+            "f762e5fe-4fa1-43e8-b7e3-08323dcfbbb7"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7760,
+          "contracts": 195,
+          "premium": 242000,
+          "trade_ids": [
+            "b050fa9a-9127-46ed-ad7e-e330c3a46925"
+          ]
+        }
+      ],
+      "gross_premium": 948000,
+      "net_premium": 464000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7720,
+        7760
+      ],
+      "interpretation": "Late-session call-credit-like supply reduced the continuation signal above 7750.",
+      "ui_title": "7720C / 7760C Late Call Supply"
+    },
+    {
+      "id": "str-7680c-7755c-late-supply",
+      "timestamp": "22:57:39.000",
+      "type": "multi_call_sell_cluster",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7680,
+          "contracts": 105,
+          "premium": 740000,
+          "trade_ids": [
+            "a25153f6-6a6c-4498-8290-d2eb273312e6",
+            "468a0d78-b6ec-4c88-97f3-85c04c8057dc"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7755,
+          "contracts": 90,
+          "premium": 134000,
+          "trade_ids": [
+            "c3c0c592-b585-4a46-931f-1144675338dd",
+            "efb77924-af35-4d04-ac31-fbbb8cd7a9c6"
+          ]
+        }
+      ],
+      "gross_premium": 874000,
+      "net_premium": -874000,
+      "bias": "bearish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7680,
+        7755
+      ],
+      "interpretation": "Late call supply or recovery-call monetization candidate.",
+      "ui_title": "7680C / 7755C Late Call-Sell Cluster"
+    },
+    {
+      "id": "str-7775-defensive-overlay",
+      "timestamp": "23:02:35.000",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7775,
+          "contracts": 100,
+          "premium": 71000,
+          "trade_ids": [
+            "3253a2e7-46a8-4bd0-91c9-c26b5840d916"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7775,
+          "contracts": 200,
+          "premium": 732000,
+          "trade_ids": [
+            "93fffd27-cc58-4e2c-af10-e458c385076d",
+            "90c33e9f-4677-4c0d-ad2c-cd9f5d6a900a",
+            "ba824d74-7dcb-42de-883f-5d9d242f64ae"
+          ]
+        }
+      ],
+      "gross_premium": 803000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7775
+      ],
+      "interpretation": "Approximately 100x synthetic-short-like plus an extra 100x long put, creating a clear late defensive overlay at the upper decision zone.",
+      "ui_title": "7775 Late Defensive Overlay"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7750-pin",
+      "low": 7745,
+      "high": 7755,
+      "type": "pinning",
+      "beneficiaries": [
+        "balanced near-spot inventory",
+        "short-dated gamma books"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-7750"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "7750 is the most likely local pin/battlefield while price remains inside 7725-7780.",
+      "caveat": "Contract gamma_notional is unsigned and is not dealer gamma sign."
+    },
+    {
+      "id": "mz-7700-breakdown",
+      "low": 7680,
+      "high": 7700,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "downside protection if 7700 fails",
+        "legacy recovery inventory on reclaim"
+      ],
+      "source_structure_ids": [
+        "str-7700-intraday-defense",
+        "str-7700-defense-reversal"
+      ],
+      "source_level_ids": [
+        "lvl-7700",
+        "lvl-7680-7690"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "7700 is the structural breakdown trigger; below it the book transitions toward 7680-7690 and 7650.",
+      "caveat": "Opening/closing cannot be proven from tape side alone."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-08-31",
+      "label": "MON EXPIRED",
+      "expiration": "2026-08-31",
+      "dte": null,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Historical Monday slice: balanced/pin-oriented book around 7700-7750; retained only as week-state context."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-01",
+      "label": "TUE EXPIRED",
+      "expiration": "2026-09-01",
+      "dte": null,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Historical Tuesday slice: defensive asymmetry around 7700/7750; now expired and excluded from forward risk."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-02",
+      "label": "WED EXPIRED",
+      "expiration": "2026-09-02",
+      "dte": null,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Historical Wednesday slice: long-convexity/recovery-skew book that helped seed the move higher."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-03",
+      "label": "THU EXPIRED",
+      "expiration": "2026-09-03",
+      "dte": 0,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Thursday recovery book realized; 7650 support and 7680-7720 supply are now historical context."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-04",
+      "label": "FRI 1DTE",
+      "expiration": "2026-09-04",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7742.55,
+      "summary": {
+        "headline": "7750-centered Friday gamma/vega battlefield with confirmed recovery inventory and a late defensive overlay."
+      },
+      "flow_aggregate": {
+        "gross_premium": 89978000,
+        "calls": {
+          "bought": 36961000,
+          "sold": 34397000,
+          "net": 2564000
+        },
+        "puts": {
+          "bought": 8997000,
+          "sold": 9623000,
+          "net": -626000
+        },
+        "signed_transaction_delta": 415689000,
+        "leave_one_out": {
+          "dominant_timestamp": "18:39:50.000",
+          "result_signed_transaction_delta": 689000,
+          "changes_interpretation": true
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-7800-7825"
+        },
+        {
+          "id": "lvl-7775-7780"
+        },
+        {
+          "id": "lvl-7750"
+        },
+        {
+          "id": "lvl-7720-7725"
+        },
+        {
+          "id": "lvl-7700"
+        },
+        {
+          "id": "lvl-7680-7690"
+        },
+        {
+          "id": "lvl-7650"
+        },
+        {
+          "id": "lvl-7600-7610"
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-7685c-7710c-dominant-cluster"
+        },
+        {
+          "id": "str-7700-intraday-defense"
+        },
+        {
+          "id": "str-7700-defense-reversal"
+        },
+        {
+          "id": "str-7720p-7780c-bullish-rr"
+        },
+        {
+          "id": "str-7720c-7760c-late-supply"
+        },
+        {
+          "id": "str-7680c-7755c-late-supply"
+        },
+        {
+          "id": "str-7775-defensive-overlay"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-7750-pin"
+        },
+        {
+          "id": "mz-7700-breakdown"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "7750 pin / battlefield",
+      "bias": "mixed",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7725,
+          "description": "First lower transition holds"
+        },
+        {
+          "type": "hold_below",
+          "level": 7780,
+          "description": "Upper decision zone remains unaccepted"
+        }
+      ],
+      "route": [
+        7725,
+        7750,
+        7780
+      ],
+      "invalidations": [
+        "Acceptance above 7780",
+        "Acceptance below 7720"
+      ],
+      "interpretation": "Dense near-spot gamma/vega and opposing flow favor pin/chop around 7750 while 7725-7780 contains price."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Continuation above upper decision",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7780,
+          "description": "Absorb late defensive overlay and upper call supply"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7780,
+          "description": "Fresh upside convexity persists"
+        }
+      ],
+      "route": [
+        7780,
+        7800,
+        7820,
+        7825
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7770"
+      ],
+      "interpretation": "Acceptance above 7775-7780 activates the upper structural call shelf at 7800-7825."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Recovery failure / defensive realization",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7720,
+          "description": "Lose the first lower transition"
+        },
+        {
+          "type": "accept_below",
+          "level": 7700,
+          "description": "Break the lower structural pivot"
+        }
+      ],
+      "route": [
+        7720,
+        7700,
+        7690,
+        7680,
+        7650,
+        7610,
+        7600
+      ],
+      "invalidations": [
+        "Reclaim above 7750"
+      ],
+      "interpretation": "Loss of 7720-7725 warns of recovery failure; acceptance below 7700 materially worsens the book and activates 7680-7650 downside inventory."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 724,
+    "deduplicated_rows": 724,
+    "duplicates_removed": 0,
+    "contract_profile_rows": 157,
+    "expiration_coverage": [
+      "2026-09-04"
+    ],
+    "iv_coverage": "high",
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "oi_snapshot_quality": "stateful_snapshot_evidence_not_official_exchange_delta_oi",
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening or closing.",
+      "Complex-order IDs are unavailable for many inferred packages.",
+      "Snapshot OI changes are useful lifecycle evidence but are not treated as official exchange delta-OI.",
+      "Contract gamma_notional and vega_notional are used as unsigned sensitivity weights, not signed dealer exposure.",
+      "One dominant call-buying timestamp explains almost all positive session transaction delta.",
+      "Historical expired slices are retained only for weekly state context and are excluded from current forward risk."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": {
+      "source": "spotgamma-contract-profile-2026-09-03(3).csv",
+      "basis": "observed",
+      "confidence": "medium",
+      "interpretation": "Contract-level gamma/vega are used to identify where current sensitivity is concentrated; they are not dealer-position signs.",
+      "active_gamma_vega_center": [
+        7750
+      ],
+      "secondary_gamma_vega_nodes": [
+        7700,
+        7720,
+        7725,
+        7775,
+        7780
+      ],
+      "structural_oi_center": [
+        7700,
+        7750,
+        7800,
+        7825
+      ],
+      "oi_watchlist": [
+        {
+          "expiration": "2026-09-04",
+          "strike": 7680,
+          "option_type": "CALL",
+          "previous_oi": 1600,
+          "current_oi": 2000,
+          "snapshot_oi_change": 400,
+          "gamma_notional": 3600000,
+          "vega_notional": 975000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7680,
+          "option_type": "PUT",
+          "previous_oi": 1500,
+          "current_oi": 1800,
+          "snapshot_oi_change": 300,
+          "gamma_notional": 2300000,
+          "vega_notional": 636000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7685,
+          "option_type": "CALL",
+          "previous_oi": 458,
+          "current_oi": 653,
+          "snapshot_oi_change": 195,
+          "gamma_notional": 3400000,
+          "vega_notional": 934000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7690,
+          "option_type": "CALL",
+          "previous_oi": 441,
+          "current_oi": 708,
+          "snapshot_oi_change": 267,
+          "gamma_notional": 1100000,
+          "vega_notional": 288000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7695,
+          "option_type": "CALL",
+          "previous_oi": 537,
+          "current_oi": 751,
+          "snapshot_oi_change": 214,
+          "gamma_notional": 1700000,
+          "vega_notional": 439000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7700,
+          "option_type": "CALL",
+          "previous_oi": 3500,
+          "current_oi": 4700,
+          "snapshot_oi_change": 1200,
+          "gamma_notional": 8300000,
+          "vega_notional": 2100000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7700,
+          "option_type": "PUT",
+          "previous_oi": 3600,
+          "current_oi": 3400,
+          "snapshot_oi_change": -200,
+          "gamma_notional": 9100000,
+          "vega_notional": 2400000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7710,
+          "option_type": "CALL",
+          "previous_oi": 778,
+          "current_oi": 1100,
+          "snapshot_oi_change": 322,
+          "gamma_notional": 5600000,
+          "vega_notional": 1400000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7715,
+          "option_type": "CALL",
+          "previous_oi": 2100,
+          "current_oi": 2400,
+          "snapshot_oi_change": 300,
+          "gamma_notional": 1700000,
+          "vega_notional": 416000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7720,
+          "option_type": "CALL",
+          "previous_oi": 1100,
+          "current_oi": 1500,
+          "snapshot_oi_change": 400,
+          "gamma_notional": 6400000,
+          "vega_notional": 1500000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7720,
+          "option_type": "PUT",
+          "previous_oi": 818,
+          "current_oi": 873,
+          "snapshot_oi_change": 55,
+          "gamma_notional": 8500000,
+          "vega_notional": 1900000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7725,
+          "option_type": "CALL",
+          "previous_oi": 2200,
+          "current_oi": 3100,
+          "snapshot_oi_change": 900,
+          "gamma_notional": 6200000,
+          "vega_notional": 1600000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7725,
+          "option_type": "PUT",
+          "previous_oi": 1800,
+          "current_oi": 1600,
+          "snapshot_oi_change": -200,
+          "gamma_notional": 6200000,
+          "vega_notional": 1400000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7730,
+          "option_type": "CALL",
+          "previous_oi": 719,
+          "current_oi": 1000,
+          "snapshot_oi_change": 281,
+          "gamma_notional": 2200000,
+          "vega_notional": 520000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7750,
+          "option_type": "CALL",
+          "previous_oi": 4400,
+          "current_oi": 5400,
+          "snapshot_oi_change": 1000,
+          "gamma_notional": 23000000,
+          "vega_notional": 5000000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7750,
+          "option_type": "PUT",
+          "previous_oi": 3300,
+          "current_oi": 3300,
+          "snapshot_oi_change": 0,
+          "gamma_notional": 11000000,
+          "vega_notional": 2300000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7775,
+          "option_type": "CALL",
+          "previous_oi": null,
+          "current_oi": 2000,
+          "snapshot_oi_change": null,
+          "gamma_notional": 4400000,
+          "vega_notional": 895000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7775,
+          "option_type": "PUT",
+          "previous_oi": 309,
+          "current_oi": 314,
+          "snapshot_oi_change": 5,
+          "gamma_notional": 1800000,
+          "vega_notional": 328000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7780,
+          "option_type": "CALL",
+          "previous_oi": null,
+          "current_oi": 1300,
+          "snapshot_oi_change": null,
+          "gamma_notional": 9000000,
+          "vega_notional": 1700000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7600,
+          "option_type": "PUT",
+          "previous_oi": 6000,
+          "current_oi": 6400,
+          "snapshot_oi_change": 400,
+          "gamma_notional": 1800000,
+          "vega_notional": 566000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7610,
+          "option_type": "PUT",
+          "previous_oi": 852,
+          "current_oi": 1300,
+          "snapshot_oi_change": 448,
+          "gamma_notional": 349000,
+          "vega_notional": 110000000
+        },
+        {
+          "expiration": "2026-09-04",
+          "strike": 7650,
+          "option_type": "PUT",
+          "previous_oi": 3900,
+          "current_oi": 4100,
+          "snapshot_oi_change": 200,
+          "gamma_notional": 3900000,
+          "vega_notional": 1100000000
+        }
+      ],
+      "aggregate_stateful_notes": [
+        "Matched call OI across 7680-7750 increased by approximately 5637 contracts between snapshots.",
+        "Matched put OI across 7680-7750 changed by approximately -147 contracts.",
+        "The prior recovery call build is therefore materially supported by snapshot OI evolution.",
+        "The large prior 7720P protection print is weakly supported by OI (+55) relative to its visible size and remains a churn/partial-opening candidate."
+      ]
+    }
+  }
+}
