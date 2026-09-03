@@ -34,14 +34,14 @@
     "lower_decision_level": 7660
   },
   "summary": {
-    "headline": "7660-7670 - центральный пивот; 7680-7700 остается основной зоной предложения коллов",
+    "headline": "7660-7670 is the central pivot; 7680-7700 remains the main call-supply zone",
     "key_points": [
-      "После удаления deep-ITM шума чистая продажа коллов сохраняется именно около spot.",
-      "Последовательность колл-кредитов смещалась вниз от 7700/7710 к 7670/7680, что усиливает верхнюю supply.",
-      "7660P показывает сильный churn и поздний обратный выкуп, поэтому нижний пол слабее верхнего cap.",
-      "Дважды повторилась связка продажи 7630P/7680C, похожая на продажу диапазона примерно 7610-7700 по breakeven при opening-гипотезе."
+      "After removing deep-ITM noise, net call selling remains concentrated near spot.",
+      "The sequence of call credit spreads shifted lower from 7700/7710 to 7670/7680, reinforcing upper call supply.",
+      "7660P shows heavy churn and late reverse buying, so the lower floor is weaker than the upper cap.",
+      "The 7630P/7680C sale repeated twice, resembling range selling with approximate 7610-7700 breakevens under the opening hypothesis."
     ],
-    "daily_note": "Базовый режим - диапазон с ограниченным ростом. Центр книги 7660-7670. Поглощение 7680-7700 открывает путь к 7720; потеря 7660 с продолжением покупки путов переводит внимание на 7650 и 7645-7630."
+    "daily_note": "Base regime: range with capped upside. The book center is 7660-7670. Absorption of 7680-7700 opens the path toward 7720; loss of 7660 with continued put buying shifts focus to 7650 and 7645-7630."
   },
   "flow_aggregate": {
     "gross_premium": 42466000,
@@ -92,7 +92,7 @@
         "net_puts": -844000
       },
       "changes_interpretation": true,
-      "comment": "Крупнейший deep-ITM 5200C SELL объясняет большую часть raw net-call imbalance; без него net calls сжимаются с -3.644m до -1.144m."
+      "comment": "The largest deep-ITM 5200C SELL explains most of the raw net-call imbalance; excluding it, net calls shrink from -3.644m to -1.144m."
     }
   },
   "levels": [
@@ -106,7 +106,7 @@
         "potential_cap",
         "transition"
       ],
-      "label": "ВЕРХНЯЯ ЗОНА ПРЕДЛОЖЕНИЯ КОЛЛОВ",
+      "label": "UPPER CALL-SUPPLY ZONE",
       "strength": 0.9,
       "basis": "derived",
       "confidence": "medium",
@@ -121,7 +121,7 @@
         "net_puts": -283000,
         "gross": 5752000
       },
-      "interpretation": "Повторяющиеся колл-кредитные спреды и чистая продажа коллов делают 7680-7700 основной верхней зоной решения.",
+      "interpretation": "Repeated call credit spreads and net call selling make 7680-7700 the primary upper decision zone.",
       "evidence": {
         "trade_ids": [
           "61eeb8ef-747a-4037-a7cf-60ff3ed9fa7a",
@@ -136,7 +136,7 @@
           "str-7670-7680-call-credit"
         ],
         "notes": [
-          "Зона предложения по ходу сессии смещалась вниз от 7700/7710 к 7670/7680."
+          "The supply zone migrated lower during the session from 7700/7710 to 7670/7680."
         ]
       }
     },
@@ -150,7 +150,7 @@
         "inventory_center",
         "complex_zone"
       ],
-      "label": "ГЛАВНЫЙ ПИВОТ / ЗОНА ПЕРЕСТРОЙКИ",
+      "label": "MAIN PIVOT / REPOSITIONING ZONE",
       "strength": 0.88,
       "basis": "derived",
       "confidence": "medium",
@@ -165,7 +165,7 @@
         "net_puts": -346000,
         "gross": 6122000
       },
-      "interpretation": "Здесь сходятся churn в 7660P, крупный 7660/7670 колл-дебит и поздняя монетизация выше 7670.",
+      "interpretation": "This zone combines 7660P churn, a large 7660/7670 call debit spread, and late monetization above 7670.",
       "evidence": {
         "trade_ids": [
           "5c224776-3b47-4f94-8d5f-381b6d384a6e",
@@ -175,7 +175,7 @@
           "str-7660-7670-call-debit"
         ],
         "notes": [
-          "7660P показывает повторную продажу и последующий обратный выкуп; пол условный."
+          "7660P shows repeated selling followed by reverse buying; the floor is conditional."
         ]
       }
     },
@@ -189,7 +189,7 @@
         "conditional_floor",
         "breakdown_trigger"
       ],
-      "label": "НИЖНИЙ ИНВЕНТАРНЫЙ УЗЕЛ",
+      "label": "LOWER INVENTORY NODE",
       "strength": 0.75,
       "basis": "derived",
       "confidence": "medium",
@@ -204,12 +204,12 @@
         "net_puts": 396000,
         "gross": 3248000
       },
-      "interpretation": "При потере 7660 зона 7650 становится следующим крупным узлом существующего пут-инвентаря и переходом к 7645-7635.",
+      "interpretation": "If 7660 is lost, 7650 becomes the next major node of existing put inventory and the transition toward 7645-7635.",
       "evidence": {
         "trade_ids": [],
         "structure_ids": [],
         "notes": [
-          "В contract profile OI 7650P заметно выше, чем на 7660P."
+          "In the contract profile, 7650P OI is materially higher than 7660P OI."
         ]
       }
     },
@@ -223,7 +223,7 @@
         "breakdown_trigger",
         "transition"
       ],
-      "label": "НИЖНЯЯ ГРАНИЦА ПРОДАЖИ ДИАПАЗОНА",
+      "label": "LOWER RANGE-SELLING BOUNDARY",
       "strength": 0.8,
       "basis": "inferred",
       "confidence": "medium",
@@ -238,7 +238,7 @@
         "net_puts": -126000,
         "gross": 1579000
       },
-      "interpretation": "7630P дважды продавался одновременно с 7680C; при opening-гипотезе это нижняя короткая нога диапазонной конструкции.",
+      "interpretation": "7630P was sold twice simultaneously with 7680C; under the opening hypothesis, it is the lower short leg of a range-selling structure.",
       "evidence": {
         "trade_ids": [
           "e154bd11-1db1-4f30-bd4e-4114f30d5b03",
@@ -250,7 +250,7 @@
           "str-7630p-7680c-short-strangle-repeat"
         ],
         "notes": [
-          "Opening/closing не подтвержден."
+          "Opening/closing is not confirmed."
         ]
       }
     },
@@ -263,7 +263,7 @@
         "downside_protection",
         "tail_zone"
       ],
-      "label": "ДАЛЬНИЙ ХВОСТОВОЙ КЛАСТЕР",
+      "label": "DEEP DOWNSIDE TAIL CLUSTER",
       "strength": 0.68,
       "basis": "derived",
       "confidence": "low",
@@ -278,7 +278,7 @@
         "net_puts": 547000,
         "gross": 1394000
       },
-      "interpretation": "Крупные блоки покупки путов совпадают с тяжелым существующим OI, но без следующего OI нельзя доказать новый набор защиты.",
+      "interpretation": "Large put-buying blocks overlap with heavy existing OI, but without the next OI update, a fresh hedge build cannot be confirmed.",
       "evidence": {
         "trade_ids": [
           "fbe004fc-3009-4573-84b6-8141e6b097fb",
@@ -289,7 +289,7 @@
           "str-7490-7500-tail-put-block"
         ],
         "notes": [
-          "Хвостовой fingerprint, а не ближайший directional trigger."
+          "Tail fingerprint rather than a near-term directional trigger."
         ]
       }
     },
@@ -302,7 +302,7 @@
         "upside_demand",
         "transition"
       ],
-      "label": "СЛЕДУЮЩАЯ ВЕРХНЯЯ ЗОНА АКТИВНОСТИ",
+      "label": "NEXT UPSIDE ACTIVITY ZONE",
       "strength": 0.62,
       "basis": "derived",
       "confidence": "low",
@@ -317,12 +317,12 @@
         "net_puts": -34000,
         "gross": 1089000
       },
-      "interpretation": "При поглощении 7680-7700 следующий заметный узел купленных коллов находится около 7720.",
+      "interpretation": "If 7680-7700 is absorbed, the next notable bought-call node is near 7720.",
       "evidence": {
         "trade_ids": [],
         "structure_ids": [],
         "notes": [
-          "Не считать целью без принятия выше 7700."
+          "Do not treat it as a target without acceptance above 7700."
         ]
       }
     }
@@ -415,8 +415,8 @@
         "breakeven_approx": 7684.05,
         "max_value_zone": "at_or_below_7680_if_opening"
       },
-      "interpretation": "Повторная продажа 7680C с покупкой 7690C формирует устойчивую локальную верхнюю supply; opening не подтвержден.",
-      "ui_title": "Повторный 7680/7690 колл-кредит"
+      "interpretation": "Repeated 7680C selling paired with 7690C buying creates persistent local upper supply; opening is not confirmed.",
+      "ui_title": "Repeated 7680/7690 Call Credit"
     },
     {
       "id": "str-7670-7680-call-credit",
@@ -463,8 +463,8 @@
         "breakeven": 7674.5802,
         "max_value_zone": "at_or_below_7670_if_opening"
       },
-      "interpretation": "Еще один шаг вниз в последовательности call-supply; усиливает 7670-7680 как ближайшую верхнюю friction-зону.",
-      "ui_title": "7670/7680 колл-кредит"
+      "interpretation": "Another step lower in the call-supply sequence, reinforcing 7670-7680 as the nearest upper friction zone.",
+      "ui_title": "7670/7680 Call Credit"
     },
     {
       "id": "str-7660-7670-call-debit",
@@ -511,8 +511,8 @@
         "breakeven": 7665.88,
         "max_value_zone": "at_or_above_7670_if_opening"
       },
-      "interpretation": "Контрпоток поддерживает удержание выше ~7666, но одновременно монетизирует весь прирост выше 7670.",
-      "ui_title": "7660/7670 колл-дебит"
+      "interpretation": "Counterflow supports holding above approximately 7666, while simultaneously monetizing all upside above 7670.",
+      "ui_title": "7660/7670 Call Debit"
     },
     {
       "id": "str-7630p-7680c-short-strangle-repeat",
@@ -589,8 +589,8 @@
           7700.5443
         ]
       },
-      "interpretation": "Два почти одинаковых пакета продажи 7630P/7680C выглядят как продажа диапазона; без OI это не доказанный fresh short strangle.",
-      "ui_title": "Повторная продажа диапазона 7630P/7680C"
+      "interpretation": "Two nearly identical 7630P/7680C sell packages look like range selling; without OI, this is not a confirmed fresh short strangle.",
+      "ui_title": "Repeated 7630P/7680C Range Sale"
     },
     {
       "id": "str-7490-7500-tail-put-block",
@@ -642,8 +642,8 @@
         7490,
         7500
       ],
-      "interpretation": "Крупный хвостовой put-buy block; новый hedge build не подтвержден из-за неизвестного position state.",
-      "ui_title": "7490-7500 хвостовой put block"
+      "interpretation": "Large tail put-buy block; a fresh hedge build is not confirmed because the position state is unknown.",
+      "ui_title": "7490-7500 Tail Put Block"
     }
   ],
   "monetization_zones": [
@@ -665,8 +665,8 @@
       ],
       "basis": "inferred",
       "confidence": "medium",
-      "description": "Удержание ниже 7680-7700 сохраняет ценность проданной верхней выпуклости.",
-      "caveat": "Opening/closing не подтвержден."
+      "description": "Holding below 7680-7700 preserves the value of sold upside convexity.",
+      "caveat": "Opening/closing is not confirmed."
     },
     {
       "id": "mz-pivot-7660-7670",
@@ -684,8 +684,8 @@
       ],
       "basis": "inferred",
       "confidence": "medium",
-      "description": "Зона максимального конфликта между put-risk, обратным выкупом и capped bullish spread.",
-      "caveat": "Не является гарантированным pin."
+      "description": "Zone of maximum conflict between put-risk acceptance, reverse buying, and a capped bullish spread.",
+      "caveat": "This is not a guaranteed pin."
     },
     {
       "id": "mz-downside-activation",
@@ -704,27 +704,27 @@
       ],
       "basis": "inferred",
       "confidence": "low",
-      "description": "После потери 7660 и продолжения put-buy риск смещается к 7650 и 7645-7630.",
-      "caveat": "Нужны fresh put buying, IV expansion и price acceptance."
+      "description": "After losing 7660 with continued put buying, risk shifts toward 7650 and 7645-7630.",
+      "caveat": "Requires fresh put buying, IV expansion, and price acceptance."
     }
   ],
   "expiration_slices": [],
   "scenarios": [
     {
       "id": "sc-base-range",
-      "name": "Удержание диапазона",
+      "name": "Range Hold",
       "bias": "mixed",
       "priority": 0.5,
       "triggers": [
         {
           "type": "hold_above",
           "level": 7660,
-          "description": "7660 остается рабочим нижним пивотом"
+          "description": "7660 remains the active lower pivot"
         },
         {
           "type": "hold_below",
           "level": 7680,
-          "description": "7680 call-supply не поглощена"
+          "description": "7680 call supply remains unabsorbed"
         }
       ],
       "route": [
@@ -736,23 +736,23 @@
         "Acceptance above 7680-7700",
         "Acceptance below 7660 with fresh put buying"
       ],
-      "interpretation": "Пока рынок между условным floor и верхней call-supply, базовый режим остается range/chop с асимметрично более сильным cap."
+      "interpretation": "While the market remains between the conditional floor and upper call supply, the base regime stays range/chop with an asymmetrically stronger cap."
     },
     {
       "id": "sc-upside",
-      "name": "Поглощение верхней supply",
+      "name": "Upper Supply Absorption",
       "bias": "bullish",
       "priority": 0.25,
       "triggers": [
         {
           "type": "accept_above",
           "level": 7680,
-          "description": "Поглотить ближайшую call-supply"
+          "description": "Absorb the nearest call-supply zone"
         },
         {
           "type": "new_call_buying",
           "level": 7690,
-          "description": "Новые коллы покупаются, а не только закрывают short calls"
+          "description": "New calls are being bought rather than merely closing short calls"
         }
       ],
       "route": [
@@ -764,23 +764,23 @@
       "invalidations": [
         "Failed acceptance back below 7670"
       ],
-      "interpretation": "Принятие выше 7680-7700 переводит карту из capped range к следующему узлу около 7720."
+      "interpretation": "Acceptance above 7680-7700 shifts the map from a capped range toward the next node near 7720."
     },
     {
       "id": "sc-downside",
-      "name": "Потеря нижнего пивота",
+      "name": "Lower Pivot Loss",
       "bias": "bearish",
       "priority": 0.25,
       "triggers": [
         {
           "type": "accept_below",
           "level": 7660,
-          "description": "Цена не возвращает 7660"
+          "description": "Price fails to reclaim 7660"
         },
         {
           "type": "new_put_buying",
           "level": 7650,
-          "description": "Покупка путов распространяется ниже пивота"
+          "description": "Put buying spreads below the pivot"
         }
       ],
       "route": [
@@ -793,7 +793,7 @@
       "invalidations": [
         "Reclaim above 7660 with put demand fading"
       ],
-      "interpretation": "Потеря 7660 при расширении put-demand ослабляет supportive inventory и открывает переход к 7650 и 7645-7630."
+      "interpretation": "Losing 7660 while put demand expands weakens supportive inventory and opens the transition toward 7650 and 7645-7630."
     }
   ],
   "data_quality": {
@@ -808,11 +808,11 @@
     "contract_profile_rows": 108,
     "oi_coverage": 0.9537,
     "caveats": [
-      "BUY/SELL не доказывает opening/closing.",
-      "Около 79% gross premium имеет Spread flag, но complex_order_id отсутствует.",
-      "Крупные deep-ITM принты искажают premium headline и должны проходить leave-one-out.",
-      "Исходное поле timezone конфликтует с фактической сеткой часов; временная шкала не конвертировалась.",
-      "Visible tape с фильтром $50k+ не является полной рыночной позицией."
+      "BUY/SELL does not prove opening/closing.",
+      "About 79% of gross premium carries a Spread flag, but complex_order_id is missing.",
+      "Large deep-ITM prints distort the premium headline and must be tested with leave-one-out.",
+      "The source timezone field conflicts with the observed clock pattern; the timeline was not converted.",
+      "Visible tape filtered at $50k+ does not represent the full market position."
     ]
   },
   "optional_layers": {
