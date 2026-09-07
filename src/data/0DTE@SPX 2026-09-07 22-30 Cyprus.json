@@ -1,0 +1,771 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-07 22:30 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-08",
+    "dte": 1,
+    "snapshot_time": "2026-09-07T22:30:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "pre_session_baseline",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_trade_date": "2026-09-04",
+    "source_timezone": "America/New_York",
+    "source_files": [
+      "spotgamma-contract-profile-2026-09-07 (1).csv",
+      "spotgamma-tape-profile-1-2026-09-07 (2).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7709.05,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_conflict",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7700,
+    "upper_decision_level": 7750,
+    "lower_decision_level": 7670
+  },
+  "summary": {
+    "headline": "7700 is the main battlefield; 7750 is the upper inventory/volatility center",
+    "key_points": [
+      "7700 carries the largest visible premium concentration and combines call supply with net put demand.",
+      "The largest bullish call bias is package-dependent: removing the 22:59:41 package leaves near-flat net call premium.",
+      "7675 and the 7650P/7750C package show meaningful downside-risk acceptance and upside participation.",
+      "A coherent 7700P/7670P buy plus 7750C sell package creates a defensive layer below the main pivot.",
+      "Acceptance above 7750 is needed for clean upside realization; sustained trade below 7700 activates the 7675/7670 then 7650 downside route."
+    ],
+    "daily_note": "Baseline for the 2026-09-08 expiry: mixed/conflicted positioning. 7700 is the main regime boundary, 7750 the upper inventory/volatility center, and 7670 the first active downside-protection zone. The aggregate call-buy/put-sell headline is materially influenced by one bullish package, so confirmation from the next dump and OI is required."
+  },
+  "flow_aggregate": {
+    "gross_premium": 50581000,
+    "signed_delta": 933474000,
+    "calls": {
+      "bought": 15445000,
+      "sold": 12791000,
+      "net": 2654000
+    },
+    "puts": {
+      "bought": 9850000,
+      "sold": 12495000,
+      "net": -2645000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "gross_premium": 21186000,
+      "calls": {
+        "bought": 5323000,
+        "sold": 4786000,
+        "net": 537000
+      },
+      "puts": {
+        "bought": 5362000,
+        "sold": 5715000,
+        "net": -353000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "b1fe1ea3-8249-4afc-ad01-280d5a5380ee",
+      "dominant_premium": 1500000,
+      "dominant_share": 0.0296554042,
+      "result": {
+        "net_calls": 1154000,
+        "net_puts": -2645000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest single 7675C buy weakens but does not reverse the raw call-buy / put-sell headline.",
+      "package_test": {
+        "package_timestamp_raw": "22:59:41.000, 09-04",
+        "package_gross_premium": 3038000,
+        "package_share": 0.0600620786,
+        "result": {
+          "net_calls": 202000,
+          "net_puts": -2059000
+        },
+        "changes_interpretation": true,
+        "comment": "Removing the dominant 7675/7750 bullish package leaves call flow essentially neutral; the headline call bias is package-dependent."
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7800",
+      "price": 7800,
+      "range_low": 7795,
+      "range_high": 7805,
+      "role": [
+        "upside_demand",
+        "tail_zone"
+      ],
+      "label": "UPSIDE CONVEXITY",
+      "strength": 0.12,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 90.95,
+      "flow": {
+        "call_buy": 342000,
+        "call_sell": 197000,
+        "put_buy": 87000,
+        "put_sell": 261000,
+        "net_calls": 145000,
+        "net_puts": -174000,
+        "gross": 887000
+      },
+      "interpretation": "Bought 7800 calls appear in an earlier bullish package financed by 7700 put selling; this is upside convexity rather than a standalone target.",
+      "evidence": {
+        "trade_ids": [
+          "717e7a6e-8661-4f2a-8a7e-ff96a44df011",
+          "cb1985ae-c535-47d6-8244-a5761a66f0d5",
+          "bb3d1982-59e1-450f-99d0-98d1bba150b9"
+        ],
+        "structure_ids": [
+          "str-7700p-7800c-bullish"
+        ],
+        "notes": [
+          "Contract-profile call OI is approximately 5700."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7750",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7755,
+      "role": [
+        "inventory_center",
+        "volatility_center",
+        "pin",
+        "potential_cap"
+      ],
+      "label": "UPPER INVENTORY / VOL CENTER",
+      "strength": 0.49,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 40.95,
+      "flow": {
+        "call_buy": 923000,
+        "call_sell": 904000,
+        "put_buy": 222000,
+        "put_sell": 1660000,
+        "net_calls": 19000,
+        "net_puts": -1438000,
+        "gross": 3709000
+      },
+      "interpretation": "Calls are nearly balanced while put selling and a confirmed-size short-straddle-like print make 7750 an inventory conflict and potential pin/monetization center.",
+      "evidence": {
+        "trade_ids": [
+          "2df6f8f3-9315-4732-8062-0628bfa724f8"
+        ],
+        "structure_ids": [
+          "str-7650p-7750c-risk-reversal",
+          "str-7750-short-straddle",
+          "str-defensive-7700-7670-7750"
+        ],
+        "notes": [
+          "Call OI approximately 2700; put OI approximately 2100."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720-7730",
+      "price": 7725,
+      "range_low": 7720,
+      "range_high": 7730,
+      "role": [
+        "transition",
+        "reclaim_support"
+      ],
+      "label": "RECLAIM / TRANSITION BAND",
+      "strength": 0.32,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 15.95,
+      "flow": {
+        "call_buy": 1114000,
+        "call_sell": 353000,
+        "put_buy": 1665000,
+        "put_sell": 2580000,
+        "net_calls": 761000,
+        "net_puts": -915000,
+        "gross": 5712000
+      },
+      "interpretation": "This band is mixed but acts as the first normalization/reclaim zone between the 7700 battlefield and 7750 upper inventory.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Aggregated from 7720, 7725 and 7730 strike flow."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "main_pivot",
+        "breakdown_trigger",
+        "inventory_center",
+        "complex_zone"
+      ],
+      "label": "MAIN BATTLEFIELD / REGIME BOUNDARY",
+      "strength": 1.0,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": -9.05,
+      "flow": {
+        "call_buy": 1306000,
+        "call_sell": 3044000,
+        "put_buy": 2012000,
+        "put_sell": 1176000,
+        "net_calls": -1738000,
+        "net_puts": 836000,
+        "gross": 7538000
+      },
+      "interpretation": "Largest visible premium concentration. Net call supply and net put demand coexist with earlier put selling, making 7700 the key regime boundary rather than a clean floor.",
+      "evidence": {
+        "trade_ids": [
+          "fb267fc0-af81-4c31-9bb0-454c94d7bcfd",
+          "a6151d45-2885-44ce-a920-3f3b702596f2",
+          "21c77b81-e62a-4497-a614-37407cc35bce",
+          "43c156a0-55e0-4ad8-967f-18e3a74fd858",
+          "90ae8448-98b1-497d-9ff3-397d6b66ba7d",
+          "477bdf8d-bacb-4baf-87d5-4fc7810f6707"
+        ],
+        "structure_ids": [
+          "str-defensive-7700-7670-7750",
+          "str-7700p-7800c-bullish"
+        ],
+        "notes": [
+          "Contract profile: 7700P premium about $6.4M on 4800 volume vs ~1200 OI.",
+          "Contract profile: 7700C premium about $5.9M on 1700 volume vs ~1300 OI."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7675",
+      "price": 7675,
+      "range_low": 7670,
+      "range_high": 7680,
+      "role": [
+        "put_risk_acceptance",
+        "upside_demand",
+        "conditional_floor",
+        "complex_zone"
+      ],
+      "label": "BULLISH RISK-ACCEPTANCE PACKAGE CENTER",
+      "strength": 0.48,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -34.05,
+      "flow": {
+        "call_buy": 2237000,
+        "call_sell": 801000,
+        "put_buy": 0,
+        "put_sell": 586000,
+        "net_calls": 1436000,
+        "net_puts": -586000,
+        "gross": 3624000
+      },
+      "interpretation": "Strong call buying plus put selling is supportive if opening, but the interpretation is heavily dependent on one large timestamp package.",
+      "evidence": {
+        "trade_ids": [
+          "b1fe1ea3-8249-4afc-ad01-280d5a5380ee",
+          "0ee74ae7-59ae-42f0-bb98-de7384dc8b20",
+          "b3d0b217-670c-4189-bbc9-7009a31d4130"
+        ],
+        "structure_ids": [
+          "str-7675-7750-bullish-package"
+        ],
+        "notes": [
+          "Opening/closing is unknown; next OI is the main confirmation."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7670",
+      "price": 7670,
+      "range_low": 7665,
+      "range_high": 7675,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger"
+      ],
+      "label": "DOWNSIDE PROTECTION",
+      "strength": 0.17,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -39.05,
+      "flow": {
+        "call_buy": 615000,
+        "call_sell": 108000,
+        "put_buy": 582000,
+        "put_sell": 0,
+        "net_calls": 507000,
+        "net_puts": 582000,
+        "gross": 1305000
+      },
+      "interpretation": "Direct put demand at 7670 forms the next downside-protection zone if 7700 is accepted below.",
+      "evidence": {
+        "trade_ids": [
+          "e58fe15e-077f-4b4d-af4a-f6eb47431d68",
+          "94748208-982e-4061-bafa-a11291739deb",
+          "9a19dca7-7cf4-4e71-95f3-5101d421f487"
+        ],
+        "structure_ids": [
+          "str-defensive-7700-7670-7750"
+        ],
+        "notes": [
+          "Contract-profile put OI approximately 832 with volume around 1500."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7650",
+      "price": 7650,
+      "range_low": 7645,
+      "range_high": 7655,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor"
+      ],
+      "label": "LOWER CONDITIONAL RISK FLOOR",
+      "strength": 0.09,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -59.05,
+      "flow": {
+        "call_buy": 139000,
+        "call_sell": 123000,
+        "put_buy": 122000,
+        "put_sell": 300000,
+        "net_calls": 16000,
+        "net_puts": -178000,
+        "gross": 684000
+      },
+      "interpretation": "The 1000x sold 7650 put matched with a 1000x bought 7750 call is a bullish risk-reversal-like package if opening; losing 7650 would challenge that risk acceptance.",
+      "evidence": {
+        "trade_ids": [
+          "ce722dae-a408-42f7-9d3a-18cef269c8c4"
+        ],
+        "structure_ids": [
+          "str-7650p-7750c-risk-reversal"
+        ],
+        "notes": [
+          "Contract-profile put OI approximately 3700."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7675-7750-bullish-package",
+      "timestamp": null,
+      "timestamp_raw": "22:59:41.000, 09-04",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 450,
+          "premium": 2237000,
+          "trade_ids": [
+            "b1fe1ea3-8249-4afc-ad01-280d5a5380ee",
+            "6fea3d4a-7b06-4215-b82d-732eb0031d84",
+            "b3d0b217-670c-4189-bbc9-7009a31d4130"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 900,
+          "premium": 586000,
+          "trade_ids": [
+            "0ee74ae7-59ae-42f0-bb98-de7384dc8b20",
+            "df730654-4e88-4843-902e-3d11658e9daf",
+            "518582c7-439b-4361-ae00-2e5a5472381d"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 400,
+          "premium": 215000,
+          "trade_ids": [
+            "40fd7a2a-471c-492f-b91d-dd76d97255dc",
+            "8a3a7f85-8e15-4f8b-b114-ca2d82fba8e3"
+          ]
+        }
+      ],
+      "gross_premium": 3038000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7675,
+        7750
+      ],
+      "interpretation": "Bullish delta/risk-acceptance package if opening, but its ratio geometry and absent complex-order ID require caution.",
+      "ui_title": "7675/7750 Bullish Package"
+    },
+    {
+      "id": "str-defensive-7700-7670-7750",
+      "timestamp": null,
+      "timestamp_raw": "18:36:36.000, 09-04",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 500,
+          "premium": 905000,
+          "trade_ids": [
+            "fb267fc0-af81-4c31-9bb0-454c94d7bcfd",
+            "a6151d45-2885-44ce-a920-3f3b702596f2",
+            "9ab9ba60-3248-4a89-ab9a-08ccc4370e0b",
+            "21c77b81-e62a-4497-a614-37407cc35bce",
+            "e43d6d87-d711-4cef-9c79-d837e5ea2b2d"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7670,
+          "contracts": 600,
+          "premium": 582000,
+          "trade_ids": [
+            "e58fe15e-077f-4b4d-af4a-f6eb47431d68",
+            "94748208-982e-4061-bafa-a11291739deb",
+            "9a19dca7-7cf4-4e71-95f3-5101d421f487"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 300,
+          "premium": 168000,
+          "trade_ids": [
+            "0dc32974-0584-4a1a-a8cc-fcff5a687994",
+            "8621f7ce-8e20-454d-b430-ec5d1cb349db"
+          ]
+        }
+      ],
+      "gross_premium": 1655000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7670,
+        7700,
+        7750
+      ],
+      "interpretation": "Coherent defensive geometry: downside protection at 7700/7670 financed partly with 7750 call sales.",
+      "ui_title": "7700/7670 Defensive Package"
+    },
+    {
+      "id": "str-7700p-7800c-bullish",
+      "timestamp": null,
+      "timestamp_raw": "16:42:18.000, 09-04",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 650,
+          "premium": 624000,
+          "trade_ids": [
+            "43c156a0-55e0-4ad8-967f-18e3a74fd858",
+            "90ae8448-98b1-497d-9ff3-397d6b66ba7d",
+            "477bdf8d-bacb-4baf-87d5-4fc7810f6707"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7800,
+          "contracts": 950,
+          "premium": 342000,
+          "trade_ids": [
+            "717e7a6e-8661-4f2a-8a7e-ff96a44df011",
+            "cb1985ae-c535-47d6-8244-a5761a66f0d5",
+            "bb3d1982-59e1-450f-99d0-98d1bba150b9"
+          ]
+        }
+      ],
+      "gross_premium": 966000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700,
+        7800
+      ],
+      "interpretation": "Earlier transaction flow accepted risk below 7700 while buying upside convexity toward 7800.",
+      "ui_title": "7700P Sell / 7800C Buy"
+    },
+    {
+      "id": "str-7650p-7750c-risk-reversal",
+      "timestamp": null,
+      "timestamp_raw": "21:57:43.000, 09-04",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 1000,
+          "premium": 550000,
+          "trade_ids": [
+            "2df6f8f3-9315-4732-8062-0628bfa724f8"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7650,
+          "contracts": 1000,
+          "premium": 300000,
+          "trade_ids": [
+            "ce722dae-a408-42f7-9d3a-18cef269c8c4"
+          ]
+        }
+      ],
+      "gross_premium": 850000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7750
+      ],
+      "interpretation": "One-for-one bullish risk-reversal-like transaction: upside participation financed with downside risk acceptance.",
+      "ui_title": "7650P / 7750C Bullish Risk-Reversal-like"
+    },
+    {
+      "id": "str-7750-short-straddle",
+      "timestamp": null,
+      "timestamp_raw": "19:49:48.000, 09-04",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 150,
+          "premium": 145000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 150,
+          "premium": 480000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 625000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "interpretation": "Matched-size same-strike call and put sales are consistent with short-vol inventory centered on 7750.",
+      "ui_title": "7750 Short-Straddle-like"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7750",
+      "low": 7745,
+      "high": 7755,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "balanced call inventory",
+        "premium sellers"
+      ],
+      "source_structure_ids": [
+        "str-7750-short-straddle",
+        "str-7650p-7750c-risk-reversal"
+      ],
+      "source_level_ids": [
+        "lvl-7750"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Balanced call flow plus short-straddle-like inventory makes 7750 the clearest pin/decay and monetization zone.",
+      "caveat": "Opening/closing and complex linkage are unconfirmed."
+    },
+    {
+      "id": "mz-downside-7670-7700",
+      "low": 7670,
+      "high": 7700,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "long-put protection",
+        "defensive packages"
+      ],
+      "source_structure_ids": [
+        "str-defensive-7700-7670-7750"
+      ],
+      "source_level_ids": [
+        "lvl-7700",
+        "lvl-7670"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Acceptance below 7700 would activate the visible 7700/7670 downside protection and make 7670 the next key realization zone.",
+      "caveat": "This is a flow-based activation zone, not a payoff-precise dealer hedge estimate."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base-range",
+      "name": "Mixed range / inventory balance",
+      "bias": "mixed",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7700,
+          "description": "Keep the main battlefield from turning into confirmed downside acceptance."
+        },
+        {
+          "type": "hold_below",
+          "level": 7750,
+          "description": "Remain below the upper inventory/volatility center."
+        }
+      ],
+      "route": [
+        7700,
+        7725,
+        7750
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7750",
+        "Sustained acceptance below 7700"
+      ],
+      "interpretation": "Inside 7700-7750, conflicting inventory favors chop, monetization and two-sided flow rather than a clean directional regime."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7725,
+          "description": "Reclaim the 7720-7730 transition band."
+        },
+        {
+          "type": "accept_above",
+          "level": 7750,
+          "description": "Absorb the main upper inventory and call-supply zone."
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7750,
+          "description": "Continuation should shift 7750 calls from churn toward fresh net buying."
+        }
+      ],
+      "route": [
+        7725,
+        7750,
+        7775,
+        7800
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7720",
+        "Renewed 7700 put demand with spot losing the pivot"
+      ],
+      "interpretation": "A clean upside route requires absorption of 7750; the 7800 convexity becomes relevant only after that acceptance."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside protection realization",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7700,
+          "description": "Lose the main battlefield and fail to reclaim it."
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7700,
+          "description": "Defensive flow must continue or migrate lower."
+        }
+      ],
+      "route": [
+        7700,
+        7675,
+        7670,
+        7650
+      ],
+      "invalidations": [
+        "Successful reclaim of 7720-7730",
+        "Return of broad put selling at 7700/7675"
+      ],
+      "interpretation": "Below 7700, visible 7700/7670 protection starts to realize while prior bullish risk-acceptance packages at 7675 and 7650 become increasingly stressed."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 449,
+    "deduplicated_rows": 426,
+    "duplicates_removed": 23,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL is transaction side and does not prove opening/closing.",
+      "Approximately 67% of deduplicated rows carry a Spread flag, while complex_order_id is not populated.",
+      "All visible tape rows are dated 2026-09-04 even though the source files were delivered on 2026-09-07; this snapshot is treated as the pre-session baseline for the 2026-09-08 expiry.",
+      "Source clock values extend to 23:xx while the timezone field says America/New_York, which is inconsistent with normal SPX option trading hours; absolute timestamp normalization is therefore not used.",
+      "flow_timeline is intentionally empty until timestamp semantics are resolved.",
+      "This is the first baseline in the current stateful chain, so historical opening/closing matching is not yet available."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
