@@ -1,0 +1,1240 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-08 23:07 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-08T23:07:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-09-08(2).csv",
+      "spotgamma-contract-profile-2026-09-08(2).csv",
+      "spotgamma-tape-profile-1-2026-09-07(2).csv",
+      "spotgamma-contract-profile-2026-09-07(2).csv"
+    ],
+    "analysis_type": "stateful_weekly_book",
+    "baseline_date": "2026-09-04"
+  },
+  "market_state": {
+    "spot": 7670.75,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_cross_expiry_risk_migration",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7700,
+    "upper_decision_level": 7750,
+    "lower_decision_level": 7650
+  },
+  "summary": {
+    "headline": "Risk is migrating from Thursday into Friday while 7700 remains the weekly reclaim pivot",
+    "key_points": [
+      "Wednesday finished with late rebound/reclaim flow around 7680-7700 rather than a clean bearish continuation book",
+      "Thursday became materially more supportive in transaction flow while the confirmed 7530/7520 downside-risk-sale structure began to turn over",
+      "Friday still carries confirmed opening 7720C upside inventory, but fresh 7700 synthetic-short-like and downside-protection flow now overlays it",
+      "Cross-expiry mirror packages and tail packages are consistent with term-structure risk migration from Thursday into Friday"
+    ],
+    "daily_note": "Weekly positioning is now conflict-heavy rather than one-directional: near-term rebound risk remains alive, Thursday downside is being monetized or restructured, and Friday carries both open upside convexity and new defense."
+  },
+  "flow_aggregate": {
+    "gross_premium": 141336000,
+    "calls": {
+      "bought": 34625000,
+      "sold": 33205000,
+      "net": 1420000
+    },
+    "puts": {
+      "bought": 33645000,
+      "sold": 39861000,
+      "net": -6216000
+    },
+    "signed_delta_notional": 125793000,
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 6278000,
+        "sold": 8354000,
+        "net": -2076000
+      },
+      "puts": {
+        "bought": 16168000,
+        "sold": 18952000,
+        "net": -2784000
+      },
+      "signed_delta_notional": 125900000,
+      "gross_premium": 49752000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-wed-7515-7600-call-vertical",
+      "dominant_premium": 12800000,
+      "dominant_share": 0.091,
+      "result": null,
+      "changes_interpretation": false,
+      "comment": "The large Wednesday deep-ITM 7515/7600 call vertical is premium-dominant but nearly delta-neutral as a package, so it should not drive the weekly directional headline."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7700-weekly",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "transition"
+      ],
+      "label": "WEEKLY RECLAIM / INVENTORY PIVOT",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 29.25,
+      "flow": null,
+      "interpretation": "7700 is active across all remaining expirations and separates the late Wednesday rebound attempt from the newer Friday defensive overlay.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7700-synth-long",
+          "str-fri-7700-synth-short"
+        ],
+        "notes": [
+          "Repeated opposite-direction structures make 7700 a battlefield rather than a one-sided support/resistance level"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7680-weekly",
+      "price": 7680,
+      "range_low": 7675,
+      "range_high": 7685,
+      "role": [
+        "transition",
+        "reclaim_support",
+        "complex_zone"
+      ],
+      "label": "OPERATIVE RECLAIM BATTLEFIELD",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 9.25,
+      "flow": null,
+      "interpretation": "Wednesday downside spreads were followed by late 7680 call demand, making 7680 the first operational reclaim test.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-wed-7680-7655-put-debit",
+          "str-wed-7680-call-buy"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7650-weekly",
+      "price": 7650,
+      "range_low": 7645,
+      "range_high": 7655,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger",
+        "conditional_floor"
+      ],
+      "label": "LOWER WEEKLY TRIGGER",
+      "strength": 0.88,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -20.75,
+      "flow": null,
+      "interpretation": "Loss of 7650 would invalidate much of the late supportive Wednesday flow and make the Friday defensive build materially more important.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7645p-7785c-defense"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7720-7725-weekly",
+      "price": 7722.5,
+      "range_low": 7720,
+      "range_high": 7725,
+      "role": [
+        "upside_demand",
+        "upside_monetization",
+        "potential_cap"
+      ],
+      "label": "FRIDAY UPSIDE INVENTORY / MONETIZATION",
+      "strength": 0.9,
+      "basis": "inferred",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 51.75,
+      "flow": null,
+      "interpretation": "7720C opening demand is strongly confirmed by OI while prior 7700/7725 call-spread activity appears to have been monetization or repositioning rather than broad new upside opening.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7720c-opening"
+        ],
+        "notes": [
+          "7720C OI increased from 395 to about 2200 after about 1800 contracts of baseline volume"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7750-weekly",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7755,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "upper_decision_level"
+      ],
+      "label": "UPPER WEEKLY CAP / DECISION",
+      "strength": 0.93,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 79.25,
+      "flow": null,
+      "interpretation": "Thursday 7750 call supply remains largely untouched and is reinforced by OI growth from the baseline session.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-thu-7750c-supply"
+        ],
+        "notes": [
+          "Thu 7750C OI rose from 872 to about 2800; current-day volume was only about 89 contracts"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-xexp-7715-7740-put-mirror",
+      "timestamp": "2026-09-08T21:33:16+03:00",
+      "type": "roll",
+      "legs": [
+        {
+          "expiration": "2026-09-10",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7715,
+          "contracts": 200,
+          "premium": 731000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-10",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7740,
+          "contracts": 200,
+          "premium": 1100000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-11",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7715,
+          "contracts": 200,
+          "premium": 904000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-11",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7740,
+          "contracts": 200,
+          "premium": 1200000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 3935000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7715,
+        7740
+      ],
+      "interpretation": "Near-perfect opposite put-spread geometry between Thursday and Friday is consistent with calendar risk migration rather than two independent directional bets.",
+      "ui_title": "Thu/Fri 7715-7740 Put Mirror Roll",
+      "lifecycle_state": "ROLL_CANDIDATE"
+    },
+    {
+      "id": "str-xexp-tail-7530-to-7500-7490",
+      "timestamp": "2026-09-08T16:48:17+03:00",
+      "type": "roll",
+      "legs": [
+        {
+          "expiration": "2026-09-10",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7530,
+          "contracts": 520,
+          "premium": 108000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-11",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7500,
+          "contracts": 520,
+          "premium": 197000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-11",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7490,
+          "contracts": 520,
+          "premium": 177000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 482000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7530,
+        7500,
+        7490
+      ],
+      "interpretation": "The matched-size Thu 7530P buyback with Friday 7500/7490 put-spread flow is consistent with partial tail-risk migration into Friday.",
+      "ui_title": "Thu 7530P to Fri 7500/7490 Tail Roll",
+      "lifecycle_state": "ROLL_CANDIDATE"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-weekly-7700-conflict",
+      "low": 7680,
+      "high": 7700,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "two-sided short-dated inventory",
+        "reclaim/rejection traders"
+      ],
+      "source_structure_ids": [
+        "str-wed-7700-synth-long",
+        "str-fri-7700-synth-short"
+      ],
+      "source_level_ids": [
+        "lvl-7680-weekly",
+        "lvl-7700-weekly"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The 7680-7700 corridor is the weekly conflict zone where late Wednesday rebound flow meets Friday defensive inventory.",
+      "caveat": "Opening/closing is not known for most same-day packages."
+    },
+    {
+      "id": "mz-fri-7720-7725",
+      "low": 7720,
+      "high": 7725,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "Friday 7720C longs",
+        "prior 7700/7725 call-spread inventory"
+      ],
+      "source_structure_ids": [
+        "str-fri-7720c-opening"
+      ],
+      "source_level_ids": [
+        "lvl-7720-7725-weekly"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "7720 is confirmed open upside inventory while 7725 remains the nearby monetization/decision zone.",
+      "caveat": "The old 7700/7725 spread family appears partly monetized based on OI decline."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-09",
+      "label": "WED 1DTE",
+      "expiration": "2026-09-09",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7670.75,
+      "summary": {
+        "headline": "Mixed reclaim battle: late 7680-7700 rebound demand offsets earlier downside spreads"
+      },
+      "flow_aggregate": {
+        "gross_premium": 67486000,
+        "calls": {
+          "bought": 23221000,
+          "sold": 20692000,
+          "net": 2529000
+        },
+        "puts": {
+          "bought": 9247000,
+          "sold": 14326000,
+          "net": -5079000
+        },
+        "signed_delta_notional": 15038000,
+        "near_spot": {
+          "distance_points": 30,
+          "calls": {
+            "bought": 3947000,
+            "sold": 5226000,
+            "net": -1279000
+          },
+          "puts": {
+            "bought": 5392000,
+            "sold": 5996000,
+            "net": -604000
+          },
+          "signed_delta_notional": -64800000,
+          "gross_premium": 20561000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-wed-7700",
+          "price": 7700,
+          "range_low": 7695,
+          "range_high": 7705,
+          "role": [
+            "main_pivot",
+            "reclaim_support",
+            "transition"
+          ],
+          "label": "WED RECLAIM PIVOT",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 29.25,
+          "flow": null,
+          "interpretation": "Late synthetic-long-like activity makes 7700 the decisive reclaim level after the selloff.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-wed-7700-synth-long"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-wed-7680",
+          "price": 7680,
+          "range_low": 7675,
+          "range_high": 7685,
+          "role": [
+            "transition",
+            "complex_zone"
+          ],
+          "label": "WED BATTLEFIELD",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": 9.25,
+          "flow": null,
+          "interpretation": "Earlier put-debit protection was followed by a 271-lot call purchase near the lows.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-wed-7680-7655-put-debit",
+              "str-wed-7680-call-buy"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-wed-7650",
+          "price": 7650,
+          "range_low": 7645,
+          "range_high": 7655,
+          "role": [
+            "downside_protection",
+            "breakdown_trigger"
+          ],
+          "label": "WED LOWER TRIGGER",
+          "strength": 0.82,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -20.75,
+          "flow": null,
+          "interpretation": "Loss of 7650 would invalidate the late rebound attempt and reopen the route toward 7625/7600.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-wed-7515-7600-call-vertical",
+          "timestamp": "2026-09-08T21:03:27+03:00",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7515,
+              "contracts": 475,
+              "premium": 8400000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7600,
+              "contracts": 475,
+              "premium": 4400000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 12800000,
+          "net_premium": 4000000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7515,
+            7600
+          ],
+          "interpretation": "Deep-ITM premium-heavy vertical with only about +14M package transaction delta; treated as complex inventory rather than directional headline.",
+          "ui_title": "7515/7600 Deep-ITM Call Vertical"
+        },
+        {
+          "id": "str-wed-7680-7655-put-debit",
+          "timestamp": "2026-09-08T22:54:48+03:00",
+          "type": "put_debit_spread",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7680,
+              "contracts": 349,
+              "premium": 759000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7655,
+              "contracts": 349,
+              "premium": 399000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1158000,
+          "net_premium": 360000,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7680,
+            7655
+          ],
+          "interpretation": "Direct downside protection from 7680 toward 7655 immediately before late rebound flow appeared.",
+          "ui_title": "7680/7655 Put Debit Spread"
+        },
+        {
+          "id": "str-wed-7680-call-buy",
+          "timestamp": "2026-09-08T23:03:58+03:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7680,
+              "contracts": 271,
+              "premium": 388000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 388000,
+          "net_premium": 388000,
+          "bias": "bullish",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7680
+          ],
+          "interpretation": "Late call buying near session lows supports a rebound/reclaim attempt but does not prove fresh opening demand.",
+          "ui_title": "Late 7680C Rebound Buy"
+        },
+        {
+          "id": "str-wed-7700-synth-long",
+          "timestamp": "2026-09-08T23:06:02+03:00",
+          "type": "synthetic_long",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7700,
+              "contracts": 100,
+              "premium": 66000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7700,
+              "contracts": 100,
+              "premium": 342000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 408000,
+          "net_premium": null,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7700
+          ],
+          "interpretation": "Late synthetic-long-like package creates a clear reclaim attempt at 7700.",
+          "ui_title": "7700 Synthetic Long-like"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-wed-7680-7700",
+          "low": 7680,
+          "high": 7700,
+          "type": "complex_inventory_zone",
+          "beneficiaries": [
+            "late rebound inventory",
+            "two-sided intraday structures"
+          ],
+          "source_structure_ids": [
+            "str-wed-7680-call-buy",
+            "str-wed-7700-synth-long"
+          ],
+          "source_level_ids": [
+            "lvl-wed-7680",
+            "lvl-wed-7700"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Acceptance through 7680 and then 7700 is needed to convert late rebound flow into an upside realization regime.",
+          "caveat": "Earlier downside spreads remain active evidence below 7680."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-09-10",
+      "label": "THU 2DTE",
+      "expiration": "2026-09-10",
+      "dte": 2,
+      "forward": null,
+      "reference_price": 7670.75,
+      "summary": {
+        "headline": "Thursday turned more supportive as near-term puts were sold and the confirmed 7530/7520 tail-risk-sale book began to restructure"
+      },
+      "flow_aggregate": {
+        "gross_premium": 31342000,
+        "calls": {
+          "bought": 6028000,
+          "sold": 6037000,
+          "net": -9000
+        },
+        "puts": {
+          "bought": 8355000,
+          "sold": 10922000,
+          "net": -2567000
+        },
+        "signed_delta_notional": 298762000,
+        "near_spot": {
+          "distance_points": 30,
+          "calls": {
+            "bought": 791000,
+            "sold": 890000,
+            "net": -99000
+          },
+          "puts": {
+            "bought": 4004000,
+            "sold": 6031000,
+            "net": -2027000
+          },
+          "signed_delta_notional": 253400000,
+          "gross_premium": 11716000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-thu-7750",
+          "price": 7750,
+          "range_low": 7745,
+          "range_high": 7755,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "THU CONFIRMED CALL SUPPLY",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 79.25,
+          "flow": null,
+          "interpretation": "Baseline 7750C call supply is supported by OI growth and was barely traded today, so the cap remains intact.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7750c-supply"
+            ],
+            "notes": [
+              "OI 872 -> about 2800; current volume about 89"
+            ]
+          }
+        },
+        {
+          "id": "lvl-thu-7700",
+          "price": 7700,
+          "range_low": 7675,
+          "range_high": 7700,
+          "role": [
+            "inventory_center",
+            "put_risk_acceptance",
+            "transition"
+          ],
+          "label": "THU NEAR-TERM RISK ACCEPTANCE",
+          "strength": 0.88,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 29.25,
+          "flow": null,
+          "interpretation": "Near-spot puts were sold aggressively, making 7675-7700 more supportive in transaction flow, though opening/closing remains unresolved.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-thu-7520-7530",
+          "price": 7525,
+          "range_low": 7520,
+          "range_high": 7530,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor",
+            "tail_zone"
+          ],
+          "label": "THU CONFIRMED TAIL RISK SALE / RESTRUCTURE",
+          "strength": 0.93,
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "testing",
+          "distance_from_spot": -145.75,
+          "flow": null,
+          "interpretation": "The original 6000x 7530/7520 put credit spread is strongly supported by OI growth, but large current turnover and 7530P buybacks indicate partial unwind or roll.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-thu-7530-7520-put-credit"
+            ],
+            "notes": [
+              "7530P OI 269 -> about 6300",
+              "7520P OI 185 -> about 6100"
+            ]
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-thu-7750c-supply",
+          "timestamp": null,
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7750,
+              "contracts": 1600,
+              "premium": 3800000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 3800000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "probable_open",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7750
+          ],
+          "interpretation": "Baseline call supply is supported by a large OI increase and little current turnover, so it remains active inventory.",
+          "ui_title": "7750C Call Supply",
+          "lifecycle_state": "ACTIVE"
+        },
+        {
+          "id": "str-thu-7530-7520-put-credit",
+          "timestamp": null,
+          "type": "put_credit_spread",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7530,
+              "contracts": 6000,
+              "premium": 1400000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7520,
+              "contracts": 6000,
+              "premium": 1300000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 2700000,
+          "net_premium": null,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "probable_open",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7530,
+            7520
+          ],
+          "interpretation": "Strong OI confirmation supports the baseline opening of a large distant put credit spread; current 7530P buybacks suggest partial unwind/restructure.",
+          "ui_title": "6000x 7530/7520 Put Credit Spread",
+          "lifecycle_state": "REACTIVATED"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-thu-7530-plus",
+          "low": 7530,
+          "high": 7750,
+          "type": "spread_max_value_zone",
+          "beneficiaries": [
+            "7530/7520 put-credit inventory"
+          ],
+          "source_structure_ids": [
+            "str-thu-7530-7520-put-credit"
+          ],
+          "source_level_ids": [
+            "lvl-thu-7520-7530"
+          ],
+          "basis": "inferred",
+          "confidence": "high",
+          "description": "The original tail-risk-sale structure monetizes if Thursday stays above 7530, but current buyback activity suggests part of that exposure is being restructured before expiry.",
+          "caveat": "Exact residual size cannot be proven without next OI and complex-order linkage."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-09-11",
+      "label": "FRI 3DTE",
+      "expiration": "2026-09-11",
+      "dte": 3,
+      "forward": null,
+      "reference_price": 7670.75,
+      "summary": {
+        "headline": "Friday is now a conflicted book: confirmed 7720C opening upside inventory remains while fresh 7700 synthetic-short-like and downside-protection flow overlays it"
+      },
+      "flow_aggregate": {
+        "gross_premium": 42508000,
+        "calls": {
+          "bought": 5376000,
+          "sold": 6476000,
+          "net": -1100000
+        },
+        "puts": {
+          "bought": 16043000,
+          "sold": 14613000,
+          "net": 1430000
+        },
+        "signed_delta_notional": -188007000,
+        "near_spot": {
+          "distance_points": 30,
+          "calls": {
+            "bought": 1540000,
+            "sold": 2238000,
+            "net": -698000
+          },
+          "puts": {
+            "bought": 6772000,
+            "sold": 6925000,
+            "net": -153000
+          },
+          "signed_delta_notional": -62700000,
+          "gross_premium": 17475000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-fri-7720",
+          "price": 7720,
+          "range_low": 7715,
+          "range_high": 7725,
+          "role": [
+            "upside_demand",
+            "upside_monetization"
+          ],
+          "label": "FRI CONFIRMED UPSIDE INVENTORY",
+          "strength": 0.97,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 49.25,
+          "flow": null,
+          "interpretation": "The baseline 7720C buy is strongly supported as fresh opening by the OI jump and saw almost no unwind today.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7720c-opening"
+            ],
+            "notes": [
+              "OI 395 -> about 2200 after about 1800 baseline volume",
+              "Current-day 7720C volume only about 78"
+            ]
+          }
+        },
+        {
+          "id": "lvl-fri-7700",
+          "price": 7700,
+          "range_low": 7695,
+          "range_high": 7705,
+          "role": [
+            "inventory_center",
+            "breakdown_trigger",
+            "complex_zone"
+          ],
+          "label": "FRI DEFENSIVE OVERLAY CENTER",
+          "strength": 0.94,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 29.25,
+          "flow": null,
+          "interpretation": "Repeated same-strike call selling plus put buying created a fresh synthetic-short-like overlay at 7700.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7700-synth-short"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-fri-7645",
+          "price": 7645,
+          "range_low": 7640,
+          "range_high": 7650,
+          "role": [
+            "downside_protection",
+            "conditional_floor"
+          ],
+          "label": "FRI BOUGHT DOWNSIDE PROTECTION",
+          "strength": 0.86,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -25.75,
+          "flow": null,
+          "interpretation": "Large 7645P buying, partly financed with 7785C selling, adds protection below the weekly pivot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-fri-7645p-7785c-defense"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-fri-7490-7500",
+          "price": 7495,
+          "range_low": 7490,
+          "range_high": 7500,
+          "role": [
+            "tail_zone",
+            "put_risk_acceptance"
+          ],
+          "label": "FRI TAIL ROLL ZONE",
+          "strength": 0.74,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": -175.75,
+          "flow": null,
+          "interpretation": "Matched-size 7500P selling and 7490P buying appears linked to partial Thursday 7530P buyback and therefore looks like tail-risk migration rather than isolated fresh downside demand.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-xexp-tail-7530-to-7500-7490"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-fri-7720c-opening",
+          "timestamp": null,
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7720,
+              "contracts": 1800,
+              "premium": 7000000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 7000000,
+          "net_premium": null,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "probable_open",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7720
+          ],
+          "interpretation": "OI rose from 395 to about 2200 after roughly 1800 contracts of baseline 7720C volume, strongly supporting fresh opening upside inventory.",
+          "ui_title": "7720C Opening Upside Inventory",
+          "lifecycle_state": "ACTIVE"
+        },
+        {
+          "id": "str-fri-7700-synth-short",
+          "timestamp": "2026-09-08T23:06:07+03:00",
+          "type": "synthetic_short",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7700,
+              "contracts": 100,
+              "premium": 232000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7700,
+              "contracts": 100,
+              "premium": 514000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 746000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7700
+          ],
+          "interpretation": "One of several repeated same-strike defensive packages at 7700; fresh transaction geometry is bearish but opening is not proven.",
+          "ui_title": "Repeated 7700 Synthetic Short-like Overlay",
+          "lifecycle_state": "ACTIVE"
+        },
+        {
+          "id": "str-fri-7645p-7785c-defense",
+          "timestamp": "2026-09-08T20:54:03+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7645,
+              "contracts": 410,
+              "premium": 755000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7785,
+              "contracts": 300,
+              "premium": 150000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 905000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7645,
+            7785
+          ],
+          "interpretation": "Downside protection appears partly financed by upper-call selling, adding a defensive overlay to the Friday book.",
+          "ui_title": "7645P / 7785C Defensive Overlay",
+          "lifecycle_state": "ACTIVE"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-fri-7700-conflict",
+          "low": 7695,
+          "high": 7725,
+          "type": "complex_inventory_zone",
+          "beneficiaries": [
+            "old 7720C upside inventory",
+            "new 7700 defensive overlay"
+          ],
+          "source_structure_ids": [
+            "str-fri-7720c-opening",
+            "str-fri-7700-synth-short"
+          ],
+          "source_level_ids": [
+            "lvl-fri-7700",
+            "lvl-fri-7720"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Friday is a direct inventory conflict: old confirmed upside convexity around 7720 versus new defensive 7700 structures.",
+          "caveat": "Direction depends on whether price can reclaim and hold 7700 before the Friday overlay expands."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base-range",
+      "name": "Weekly conflict / reclaim battle",
+      "bias": "mixed",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7650,
+          "description": "Keep the late Wednesday rebound structure alive while price battles 7680-7700"
+        }
+      ],
+      "route": [
+        7650,
+        7680,
+        7700
+      ],
+      "invalidations": [
+        "Acceptance below 7650"
+      ],
+      "interpretation": "Base case is a conflicted short-dated book around 7680-7700 rather than clean directional continuation."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Reclaim and upside realization",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7680,
+          "description": "Confirm the late Wednesday rebound attempt"
+        },
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Absorb the weekly inventory pivot and Friday defensive overlay"
+        }
+      ],
+      "route": [
+        7680,
+        7700,
+        7720,
+        7725,
+        7750
+      ],
+      "invalidations": [
+        "Failed reclaim back below 7680",
+        "Loss of 7650"
+      ],
+      "interpretation": "A clean 7700 reclaim reactivates the confirmed Friday 7720C upside inventory; 7750 remains the major upper cap."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Defensive overlay takes control",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7650,
+          "description": "Invalidate the late rebound structure"
+        },
+        {
+          "type": "failed_reclaim",
+          "level": 7700,
+          "description": "Keep Friday synthetic-short-like inventory in control"
+        }
+      ],
+      "route": [
+        7650,
+        7625,
+        7600,
+        7530,
+        7520
+      ],
+      "invalidations": [
+        "Reclaim and hold above 7700"
+      ],
+      "interpretation": "Below 7650 the Friday defensive build matters more and the old 7720C inventory should be treated as hedged or stranded rather than as a clean bullish forecast."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 926,
+    "deduplicated_rows": 926,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL describes transaction side and does not by itself prove opening or closing",
+      "Twenty-six exact-like economic-key repetitions exist with distinct trade IDs; they were retained because they may be execution fragments rather than export duplicates",
+      "Many rows are marked Spread while complex_order_id is unavailable, so package linkage is inferred from timestamps, sizes and strike geometry",
+      "OI comparison materially improves confidence for the baseline 7720C, Thu 7750C and Thu 7530/7520 structures but does not identify the end customer",
+      "Cross-expiry mirror packages are roll/restructure candidates, not confirmed calendar orders"
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
