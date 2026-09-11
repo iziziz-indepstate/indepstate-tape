@@ -1,0 +1,786 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-10 23:15 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-11",
+    "dte": 1,
+    "snapshot_time": "2026-09-10T23:15:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-09-10 (1)(3).csv",
+      "spotgamma-contract-profile-2026-09-10 (1)(3).csv"
+    ],
+    "notes": [
+      "Tape timestamps appear aligned with Cyprus local time despite America/New_York metadata in the export.",
+      "Snapshot represents the 2026-09-11 expiry book captured after the 2026-09-10 RTH session."
+    ]
+  },
+  "market_state": {
+    "spot": 7599.45,
+    "regime": "mixed_supportive",
+    "bias": "conditional_bullish_asymmetry",
+    "confidence": "medium",
+    "main_pivot": 7600,
+    "upper_decision_level": 7635,
+    "lower_decision_level": 7585
+  },
+  "summary": {
+    "headline": "7600 is the main inventory pivot; late upside demand at 7630-7635 is paired with protection below spot",
+    "key_points": [
+      "7600 is the dominant premium and synthetic-long-like inventory center.",
+      "Repeated BUY 7600C + SELL 7600P packages create a positive-delta synthetic-long-like signature, but opening versus closing remains unconfirmed.",
+      "Late-session 7630C/7635C buying adds conditional upside convexity above the 7600 pivot.",
+      "7585-7595 is the nearest downside-protection zone; 7575-7580 is conditional risk acceptance with an estimated payoff boundary near 7573.",
+      "7655-7690 is primarily an ITM put churn / monetization / restructure corridor rather than a clean directional signal."
+    ],
+    "daily_note": "7600 remains the active pivot. Above 7630-7635, upside realization can extend toward 7650-7655 and then 7675-7690 if new call buying confirms. Below 7585-7590, protection starts to activate; loss of 7575-7580 shifts the map toward 7550 and then 7525-7500."
+  },
+  "flow_aggregate": {
+    "gross_premium": 125753000,
+    "calls": {
+      "bought": 25759000,
+      "sold": 24753000,
+      "net": 1006000
+    },
+    "puts": {
+      "bought": 35350000,
+      "sold": 39891000,
+      "net": -4541000
+    },
+    "signed_delta": 1005000000,
+    "otm": {
+      "calls_net": 4080000,
+      "puts_net": -850000,
+      "signed_delta": 756000000
+    },
+    "non_spread": {
+      "calls_net": 3410000,
+      "puts_net": -3210000,
+      "signed_delta": 757000000
+    },
+    "spread_tagged": {
+      "signed_delta": 59000000
+    },
+    "leave_one_out": {
+      "largest_print_premium": 1900000,
+      "largest_print_share": 0.0151,
+      "largest_timestamp_package_premium": 3200000,
+      "largest_timestamp_package_share": 0.0254,
+      "dominant_strike": 7600,
+      "dominant_strike_premium": 35104000,
+      "dominant_strike_share": 0.2791,
+      "ex_dominant_strike": {
+        "net_calls": -2246000,
+        "net_puts": -2361000,
+        "signed_delta": 331000000
+      },
+      "changes_interpretation": true,
+      "comment": "Positive transaction delta survives removal of 7600, but 7600 is what changes the book from generic premium-selling/churn into a pronounced long-delta inventory center."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7690",
+      "price": 7690,
+      "range_low": 7675,
+      "range_high": 7690,
+      "role": [
+        "complex_zone",
+        "upside_monetization"
+      ],
+      "label": "ITM PUT CHURN / MONETIZATION",
+      "strength": 0.68,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 90.55,
+      "interpretation": "Repeated opposite-side ITM put vertical activity suggests closing, monetization or restructure rather than clean fresh bearish positioning.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7690-7655-reversal",
+          "str-7680-7655-reversal"
+        ],
+        "notes": [
+          "Opening/closing remains unconfirmed without next-day OI."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7655",
+      "price": 7655,
+      "range_low": 7650,
+      "range_high": 7655,
+      "role": [
+        "transition",
+        "upside_monetization",
+        "complex_zone"
+      ],
+      "label": "FIRST UPSIDE REALIZATION / COMPLEX CORRIDOR",
+      "strength": 0.72,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 55.55,
+      "interpretation": "First meaningful transition above the late call-demand zone; also part of repeated ITM put vertical churn.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7690-7655-reversal",
+          "str-7680-7655-reversal"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7635",
+      "price": 7635,
+      "range_low": 7630,
+      "range_high": 7635,
+      "role": [
+        "upside_demand",
+        "transition"
+      ],
+      "label": "LATE UPSIDE DEMAND / UPPER DECISION",
+      "strength": 0.83,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 35.55,
+      "flow": {
+        "late_call_buying_premium": 2080000
+      },
+      "interpretation": "Late-session call demand makes 7630-7635 the first confirmation zone for upside realization.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7630-7635-late-call-demand"
+        ],
+        "notes": [
+          "Approx. $1.10M bought at 7630C and $0.98M at 7635C late in the session."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "range_low": 7598,
+      "range_high": 7602,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center",
+        "magnet"
+      ],
+      "label": "MAIN PIVOT / SYNTHETIC-LONG-LIKE INVENTORY",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 0.55,
+      "flow": {
+        "gross_premium": 35104000,
+        "synthetic_like_contracts": 483,
+        "synthetic_like_gross_premium": 3015000,
+        "synthetic_like_signed_delta": 368000000
+      },
+      "interpretation": "Dominant premium center with repeated BUY 7600C + SELL 7600P packages; functions as both directional pivot and high-turnover inventory/churn center.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7600-synthetic-long-like"
+        ],
+        "notes": [
+          "Approximately seven same-strike call-buy/put-sell packages with matching timestamps and sizes."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7590",
+      "price": 7590,
+      "range_low": 7585,
+      "range_high": 7595,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger"
+      ],
+      "label": "NEAR-SPOT DOWNSIDE PROTECTION",
+      "strength": 0.82,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -9.45,
+      "interpretation": "Nearest active protection zone. Acceptance below shifts the map from pivot-supportive to protection realization.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7580",
+      "price": 7580,
+      "range_low": 7575,
+      "range_high": 7580,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "CONDITIONAL RISK ACCEPTANCE",
+      "strength": 0.86,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -19.45,
+      "interpretation": "Likely 7580P/7550P put-credit-spread-like risk acceptance. The structure is supportive while price holds above the payoff boundary.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7580-7550-put-credit"
+        ],
+        "notes": [
+          "Estimated package size 286x."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7573",
+      "price": 7572.9,
+      "range_low": 7570,
+      "range_high": 7575,
+      "role": [
+        "breakdown_trigger",
+        "transition"
+      ],
+      "label": "ESTIMATED PAYOFF BOUNDARY",
+      "strength": 0.78,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -26.55,
+      "interpretation": "Approximate expiry breakeven of the 7580P/7550P put-credit-spread-like package.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7580-7550-put-credit"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7550",
+      "price": 7550,
+      "range_low": 7548,
+      "range_high": 7552,
+      "role": [
+        "reclaim_support",
+        "tail_zone"
+      ],
+      "label": "DEFINED-RISK DOWNSIDE BOUNDARY",
+      "strength": 0.8,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -49.45,
+      "interpretation": "Long wing of the 7580/7550 structure and next major downside shelf.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7580-7550-put-credit"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7512",
+      "price": 7512.5,
+      "range_low": 7500,
+      "range_high": 7525,
+      "role": [
+        "tail_zone"
+      ],
+      "label": "NEXT DOWNSIDE ZONE",
+      "strength": 0.55,
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": -86.95,
+      "interpretation": "Next route zone if 7550 fails with fresh put demand and expanding IV.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-10T22:15:00+03:00",
+      "end": "2026-09-10T23:15:00+03:00",
+      "calls": {
+        "net": 1080000
+      },
+      "puts": {
+        "net": -1060000
+      },
+      "signed_delta": 592000000,
+      "regime": "late_positive_delta",
+      "events": [
+        "7600 pivot remained active",
+        "late 7630-7635 call demand emerged"
+      ]
+    },
+    {
+      "start": "2026-09-10T23:00:00+03:00",
+      "end": "2026-09-10T23:15:00+03:00",
+      "calls": {
+        "net": 2305000
+      },
+      "puts": {
+        "net": 494000
+      },
+      "signed_delta": 345000000,
+      "regime": "late_convexity_add",
+      "events": [
+        "7630C/7635C bought",
+        "near-spot puts also bought"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7600-synthetic-long-like",
+      "timestamp": null,
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7600,
+          "contracts": 483,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7600,
+          "contracts": 483,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 3015000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7600
+      ],
+      "interpretation": "Repeated synthetic-long-like transaction packages support 7600 as an active long-delta inventory center, but could also represent closing of prior synthetic shorts.",
+      "ui_title": "7600 Synthetic Long-like"
+    },
+    {
+      "id": "str-7630-7635-late-call-demand",
+      "timestamp": "2026-09-10T23:03:00+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7630,
+          "contracts": null,
+          "premium": 1100000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7635,
+          "contracts": null,
+          "premium": 980000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 2080000,
+      "net_premium": 2080000,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7630,
+        7635
+      ],
+      "interpretation": "Late-session call demand adds conditional upside convexity. Next-day OI is required to distinguish opening demand from closing/roll activity.",
+      "ui_title": "7630-7635 Late Call Demand"
+    },
+    {
+      "id": "str-7580-7550-put-credit",
+      "timestamp": "2026-09-10T20:02:00+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7580,
+          "contracts": 286,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7550,
+          "contracts": 286,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": 201916,
+      "net_premium_points_per_contract": 7.06,
+      "bias": "supportive",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7580,
+        7572.9,
+        7550
+      ],
+      "payoff": {
+        "width_points": 30,
+        "estimated_credit_points": 7.06,
+        "estimated_breakeven": 7572.94,
+        "max_value_zone": "SPX >= 7580",
+        "defined_risk_boundary": 7550
+      },
+      "interpretation": "Economically natural supportive/defined-risk package if opening. Below the estimated breakeven, the supportive read weakens materially.",
+      "ui_title": "7580/7550 Put Credit-like"
+    },
+    {
+      "id": "str-7690-7655-reversal",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "mixed",
+          "strike": 7690,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "mixed",
+          "strike": 7655,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7655,
+        7690
+      ],
+      "interpretation": "Opposite-side 7690P/7655P packages with comparable size are a strong churn/closing/restructure candidate.",
+      "ui_title": "7690/7655 Put Vertical Reversal-like"
+    },
+    {
+      "id": "str-7680-7655-reversal",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "mixed",
+          "strike": 7680,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "mixed",
+          "strike": 7655,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7655,
+        7680
+      ],
+      "interpretation": "Opposite-side 7680P/7655P packages late in the session are consistent with monetization, closing or intraday restructure.",
+      "ui_title": "7680/7655 Put Vertical Reversal-like"
+    },
+    {
+      "id": "str-7575-7675-call-ratio",
+      "timestamp": "2026-09-10T19:22:00+03:00",
+      "type": "ratio_call_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7575,
+          "contracts": 210,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 315,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "convex_upside",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7575,
+        7613,
+        7675,
+        7800
+      ],
+      "payoff": {
+        "structure_ratio": "2:3",
+        "lower_breakeven_estimate": 7613,
+        "maximum_loss_zone_estimate": 7675,
+        "upper_breakeven_estimate": 7800
+      },
+      "interpretation": "Short-middle / long-extreme-upside convexity. Not a simple bullish 7675C purchase.",
+      "ui_title": "7575/7675 2:3 Call Ratio-like"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pivot-7600",
+      "low": 7598,
+      "high": 7602,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "balanced/churn inventory",
+        "synthetic-long-like inventory"
+      ],
+      "source_structure_ids": [
+        "str-7600-synthetic-long-like"
+      ],
+      "source_level_ids": [
+        "lvl-7600"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "7600 is the dominant inventory and transaction center.",
+      "caveat": "High turnover means the strike may behave as both directional pivot and magnet/pin."
+    },
+    {
+      "id": "mz-upside-7655-7690",
+      "low": 7655,
+      "high": 7690,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "ITM put vertical holders",
+        "late upside books if breakout confirms"
+      ],
+      "source_structure_ids": [
+        "str-7690-7655-reversal",
+        "str-7680-7655-reversal"
+      ],
+      "source_level_ids": [
+        "lvl-7655",
+        "lvl-7690"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "ITM put vertical churn makes this a monetization/restructure corridor rather than a clean resistance wall.",
+      "caveat": "Opening/closing remains unresolved without next-day OI."
+    },
+    {
+      "id": "mz-downside-7573",
+      "low": 7570,
+      "high": 7575,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "7580/7550 put-credit-like inventory"
+      ],
+      "source_structure_ids": [
+        "str-7580-7550-put-credit"
+      ],
+      "source_level_ids": [
+        "lvl-7580",
+        "lvl-7573",
+        "lvl-7550"
+      ],
+      "basis": "derived",
+      "confidence": "medium",
+      "description": "Approximate payoff transition where the supportive put-credit-like book begins to deteriorate.",
+      "caveat": "Estimated from inferred package linkage and average credit."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Pivot / chop",
+      "bias": "mixed",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7590,
+          "description": "Hold the near-spot protection zone"
+        },
+        {
+          "type": "hold_below",
+          "level": 7635,
+          "description": "No confirmed acceptance above late call-demand zone"
+        }
+      ],
+      "route": [
+        7590,
+        7600,
+        7635
+      ],
+      "invalidations": [
+        "Acceptance above 7635",
+        "Failed reclaim below 7585-7590"
+      ],
+      "interpretation": "While price remains inside 7590-7635, 7600 is the dominant pivot and pin/chop center with a mild upside asymmetry."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7635,
+          "description": "Accept above the late call-demand zone"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7635,
+          "description": "New call buying confirms rather than call selling"
+        }
+      ],
+      "route": [
+        7635,
+        7650,
+        7655,
+        7675,
+        7680,
+        7690
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7630-7635",
+        "New call selling replaces call demand"
+      ],
+      "interpretation": "Acceptance above 7630-7635 activates the 7650-7655 transition and then the 7675-7690 monetization corridor."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Protection realization / downside",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7585,
+          "description": "Lose the near-spot protection zone"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7580,
+          "description": "Fresh put buying expands below the conditional floor"
+        },
+        {
+          "type": "iv_expand",
+          "level": 7580,
+          "description": "Put IV expands as price fails to reclaim"
+        }
+      ],
+      "route": [
+        7585,
+        7580,
+        7572.9,
+        7550,
+        7525,
+        7500
+      ],
+      "invalidations": [
+        "Reclaim of 7590-7600",
+        "Put demand fails to broaden"
+      ],
+      "interpretation": "Below 7585-7590, near-spot protection starts to realize. Loss of the 7575-7580 risk-acceptance zone exposes the estimated 7573 payoff boundary and then 7550."
+    },
+    {
+      "id": "sc-stateful-confirmation",
+      "name": "Next OI resolves opening vs unwind",
+      "bias": "mixed",
+      "priority": 0.0,
+      "triggers": [],
+      "route": [],
+      "invalidations": [],
+      "interpretation": "OI increases at 7600C/P and 7630C/7635C would strengthen the fresh long-delta/upside interpretation; flat or falling OI would favor churn, closing or roll. Falling OI in the 7655/7680/7690 put corridor would support monetization/closing."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 1002,
+    "deduplicated_rows": 953,
+    "duplicates_removed": 49,
+    "iv_coverage": null,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Complex-order identifiers are unavailable.",
+      "Approximately 65% of rows are spread-tagged.",
+      "The export timezone metadata appears inconsistent with the timestamp clock values; timestamps were treated as Cyprus-local sequence for session ordering.",
+      "Several large ITM put prints are likely complex legs and should not be interpreted independently.",
+      "Visible tape is not the full market position.",
+      "Next-day OI is the highest-value confirmation for 7600, 7630-7635, 7580/7550 and 7655/7680/7690."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

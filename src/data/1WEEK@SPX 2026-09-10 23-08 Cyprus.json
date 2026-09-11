@@ -1,0 +1,648 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-10 23-08 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-10T23:08:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "spotgamma-tape-profile-1-2026-09-10 (1)(1).csv",
+      "spotgamma-contract-profile-2026-09-10 (1)(1).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7599.5,
+    "regime": "supportive_rebound_attempt",
+    "bias": "mixed_to_bullish_conditional",
+    "confidence": "medium",
+    "main_pivot": 7600,
+    "upper_decision_level": 7635,
+    "lower_decision_level": 7580
+  },
+  "summary": {
+    "headline": "Friday book turned materially more supportive near 7600, with large late call demand at 7630-7635 while 7695-7700 remains the confirmed upper cap",
+    "key_points": [
+      "Friday 7695C call supply is OI-confirmed and remains largely intact",
+      "Prior 7655-7680 put-selling was also confirmed by OI growth",
+      "Downside hedges opened earlier in the week are now being partly monetized around 7550-7580",
+      "Large late buying of 7630C and 7635C creates a new high-significance upside-demand candidate",
+      "7600 is now the main Friday inventory pivot"
+    ],
+    "daily_note": "The book improved materially versus the prior session: downside hedges were partly monetized and rebound exposure was added, but upside remains capped until 7695-7700 is absorbed."
+  },
+  "flow_aggregate": {
+    "gross_premium": 132380000,
+    "calls": {
+      "bought": 30870000,
+      "sold": 25210000,
+      "net": 5660000
+    },
+    "puts": {
+      "bought": 35510000,
+      "sold": 40790000,
+      "net": -5280000
+    },
+    "signed_transaction_delta": 1820000000,
+    "near_spot": {
+      "distance_points": 30,
+      "signed_transaction_delta": 672000000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_premium": 5980000,
+      "dominant_share": 0.045,
+      "result": {
+        "signed_transaction_delta": 831000000
+      },
+      "changes_interpretation": false,
+      "comment": "The late 7630C/7635C package contributes about +$991M transaction delta. Excluding it still leaves roughly +$831M. Excluding the entire 7600 strike turnover still leaves roughly +$1.10B."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7695-7700",
+      "price": 7697.5,
+      "range_low": 7695,
+      "range_high": 7700,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "CONFIRMED UPPER CAP / REGIME BOUNDARY",
+      "strength": 0.94,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 98.0,
+      "flow": null,
+      "interpretation": "Prior 7695C selling is now OI-confirmed. Acceptance above 7700 would reopen the route toward 7720-7750.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7695-7720-call-credit"
+        ],
+        "notes": [
+          "7695C OI increased from roughly 377 to 960, close to the prior ~650 contract sell flow"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7650-7660",
+      "price": 7655,
+      "range_low": 7650,
+      "range_high": 7660,
+      "role": [
+        "transition",
+        "downside_protection",
+        "reclaim_support"
+      ],
+      "label": "FIRST RECLAIM / RESIDUAL HEDGE ZONE",
+      "strength": 0.86,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 55.5,
+      "flow": null,
+      "interpretation": "Residual put demand remains around 7650-7660. A rebound through this area improves the path toward the confirmed 7695-7700 cap.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7630-7635",
+      "price": 7632.5,
+      "range_low": 7630,
+      "range_high": 7635,
+      "role": [
+        "upside_demand",
+        "transition",
+        "reclaim_support"
+      ],
+      "label": "NEW UPSIDE DEMAND / ACTIVATION ZONE",
+      "strength": 0.95,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 33.0,
+      "flow": {
+        "call_buy": 5980000,
+        "call_sell": 0,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": 5980000,
+        "net_puts": 0,
+        "gross": 5980000
+      },
+      "interpretation": "About 2,175 contracts each of 7630C and 7635C were bought late near SPX 7592.25, creating a new high-significance upside-demand candidate.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7630-7635-call-buy"
+        ],
+        "notes": [
+          "Package transaction delta about +$991M",
+          "Pre-trade OI was too small to explain the package primarily as closing short calls"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "range_low": 7595,
+      "range_high": 7605,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "reclaim_support"
+      ],
+      "label": "MAIN FRIDAY INVENTORY PIVOT",
+      "strength": 0.97,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "testing",
+      "distance_from_spot": 0.5,
+      "flow": {
+        "gross": 35700000,
+        "signed_transaction_delta": 723000000
+      },
+      "interpretation": "7600 carried the largest two-sided inventory turnover of the session, but the net transaction delta was strongly supportive. It is the primary pivot for Friday.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7600-synthetic-flow"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7580",
+      "price": 7580,
+      "range_low": 7575,
+      "range_high": 7585,
+      "role": [
+        "put_risk_acceptance",
+        "breakdown_trigger",
+        "transition"
+      ],
+      "label": "LOWER BATTLEFIELD / FIRST BREAKDOWN TRIGGER",
+      "strength": 0.88,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -19.5,
+      "flow": null,
+      "interpretation": "Put selling and hedge monetization dominated around 7575-7580. A clean break below 7580 with renewed put buying would weaken the supportive read.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7550-7580-hedge-monetization"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7550",
+      "price": 7550,
+      "range_low": 7545,
+      "range_high": 7555,
+      "role": [
+        "downside_protection",
+        "reclaim_support",
+        "complex_zone"
+      ],
+      "label": "PRIOR HEDGE / MONETIZATION CANDIDATE",
+      "strength": 0.84,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -49.5,
+      "flow": null,
+      "interpretation": "Prior downside protection had opened here, but current flow is dominated by selling, making 7550 a strong candidate for hedge monetization or partial closing.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7550-7580-hedge-monetization"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7500",
+      "price": 7500,
+      "range_low": 7490,
+      "range_high": 7505,
+      "role": [
+        "tail_zone",
+        "downside_protection"
+      ],
+      "label": "CONFIRMED DEEP TAIL INVENTORY",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -99.5,
+      "flow": null,
+      "interpretation": "Deep Friday tail protection remains large in OI, but current flow did not materially reinforce it.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "7500P OI remains around 17k after earlier increases"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720",
+      "price": 7720,
+      "range_low": 7715,
+      "range_high": 7725,
+      "role": [
+        "upside_demand",
+        "complex_zone"
+      ],
+      "label": "OLDER OPEN UPSIDE INVENTORY",
+      "strength": 0.86,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 120.5,
+      "flow": null,
+      "interpretation": "The original 7720C opening inventory remains relevant, but no major new reinforcement was observed today.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7695-7720-call-credit"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-fri-7630-7635-call-buy",
+      "timestamp": "2026-09-10T15:55:00-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7630,
+          "contracts": 2175,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7635,
+          "contracts": 2175,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 5980000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "probable_open",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7630,
+        7635
+      ],
+      "interpretation": "Large late same-side call demand near spot. Existing OI was too small for the package to be explained primarily as closing short calls.",
+      "ui_title": "Friday 7630-7635 Call Demand"
+    },
+    {
+      "id": "str-fri-7600-synthetic-flow",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7600,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7600,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 35700000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "derived",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7600
+      ],
+      "interpretation": "Repeated call buying and put selling around 7600 generated strongly positive transaction delta despite heavy two-sided churn.",
+      "ui_title": "Friday 7600 Supportive Inventory"
+    },
+    {
+      "id": "str-fri-7550-7580-hedge-monetization",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7550,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7575,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7580,
+          "contracts": null,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7550,
+        7575,
+        7580
+      ],
+      "interpretation": "Previously opened downside hedges were partly sold back or monetized as SPX traded lower, reducing evidence for immediate downside continuation.",
+      "ui_title": "Friday Downside Hedge Monetization"
+    },
+    {
+      "id": "str-fri-7695-7720-call-credit",
+      "timestamp": null,
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7695,
+          "contracts": 650,
+          "premium": null,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7720,
+          "contracts": 597,
+          "premium": null,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "probable_open",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7695,
+        7720
+      ],
+      "interpretation": "Prior call-credit-spread-like flow is now supported by OI growth in 7695C and remains the main upper cap.",
+      "ui_title": "Friday 7695-7720 Call Supply"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-friday-7580-7635",
+      "low": 7580,
+      "high": 7635,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "balanced Friday inventory",
+        "short-term mean-reversion books"
+      ],
+      "source_structure_ids": [
+        "str-fri-7630-7635-call-buy",
+        "str-fri-7600-synthetic-flow",
+        "str-fri-7550-7580-hedge-monetization"
+      ],
+      "source_level_ids": [
+        "lvl-7580",
+        "lvl-7600",
+        "lvl-7630-7635"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The active Friday inventory center has shifted lower to 7580-7635, with 7600 as the main pivot and new call demand at the upper edge.",
+      "caveat": "The 7630-7635 package requires next-day OI to confirm opening status."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-11",
+      "label": "FRI 0DTE",
+      "expiration": "2026-09-11",
+      "dte": 0,
+      "forward": null,
+      "reference_price": 7599.5,
+      "summary": {
+        "headline": "Friday shifted supportive near 7600: prior hedges are being monetized, large late call demand appeared at 7630-7635, and 7695-7700 remains the OI-confirmed cap"
+      },
+      "flow_aggregate": {
+        "gross_premium": 132380000,
+        "calls": {
+          "bought": 30870000,
+          "sold": 25210000,
+          "net": 5660000
+        },
+        "puts": {
+          "bought": 35510000,
+          "sold": 40790000,
+          "net": -5280000
+        },
+        "signed_transaction_delta": 1820000000,
+        "near_spot_signed_transaction_delta": 672000000,
+        "leave_one_out_comment": "Excluding the large late 7630C/7635C package still leaves about +$831M signed transaction delta."
+      },
+      "levels": [
+        "lvl-7695-7700",
+        "lvl-7650-7660",
+        "lvl-7630-7635",
+        "lvl-7600",
+        "lvl-7580",
+        "lvl-7550",
+        "lvl-7500",
+        "lvl-7720"
+      ],
+      "structures": [
+        "str-fri-7630-7635-call-buy",
+        "str-fri-7600-synthetic-flow",
+        "str-fri-7550-7580-hedge-monetization",
+        "str-fri-7695-7720-call-credit"
+      ],
+      "monetization_zones": [
+        "mz-friday-7580-7635"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-friday-base",
+      "name": "Friday inventory balance",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7580,
+          "description": "Keep downside monetization intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7635,
+          "description": "Remain inside the active inventory center"
+        }
+      ],
+      "route": [
+        7580,
+        7600,
+        7635
+      ],
+      "invalidations": [
+        "Acceptance outside 7580-7635"
+      ],
+      "interpretation": "Inside 7580-7635 the book is most consistent with a sticky 0DTE inventory regime centered on 7600."
+    },
+    {
+      "id": "sc-friday-upside",
+      "name": "Upside rebound realization",
+      "bias": "bullish",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7600,
+          "description": "Hold the main inventory pivot"
+        },
+        {
+          "type": "accept_above",
+          "level": 7635,
+          "description": "Validate the new call-demand zone"
+        }
+      ],
+      "route": [
+        7600,
+        7635,
+        7650,
+        7660,
+        7695,
+        7700
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7600"
+      ],
+      "interpretation": "Acceptance above 7630-7635 activates the rebound route toward 7650-7660 and then the OI-confirmed 7695-7700 cap."
+    },
+    {
+      "id": "sc-friday-breakout",
+      "name": "Upper cap absorption",
+      "bias": "bullish",
+      "priority": 0.15,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Absorb the confirmed 7695C supply"
+        }
+      ],
+      "route": [
+        7700,
+        7720,
+        7750
+      ],
+      "invalidations": [
+        "Failed acceptance below 7695"
+      ],
+      "interpretation": "A clean break and acceptance above 7700 would reopen the route through old 7720C upside inventory toward 7750."
+    },
+    {
+      "id": "sc-friday-downside",
+      "name": "Downside reactivation",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7580,
+          "description": "Lose the current lower battlefield"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7580,
+          "description": "Fresh put demand must replace today's monetization flow"
+        }
+      ],
+      "route": [
+        7580,
+        7550,
+        7525,
+        7500
+      ],
+      "invalidations": [
+        "Reclaim back above 7600"
+      ],
+      "interpretation": "The current tape does not support immediate downside continuation. A bearish route requires both loss of 7580 and renewed put buying."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": null,
+    "deduplicated_rows": null,
+    "duplicates_removed": null,
+    "iv_coverage": null,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening/closing",
+      "The late 7630C/7635C call package is highly significant but next-day OI is still required to confirm opening",
+      "Some put selling may represent hedge monetization rather than fresh short-put opening",
+      "Thursday 2026-09-10 has expired and is removed from active expiration slices",
+      "The deep 7500P tail remains open but was not materially reinforced in the current session"
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
