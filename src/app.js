@@ -67,6 +67,15 @@ const appState = {
   structuresCollapsed: false,
 };
 
+class SnapshotDataError extends Error {
+  constructor(snapshotPath, missingFields) {
+    super(`Snapshot data is damaged: ${missingFields.join(", ")}`);
+    this.name = "SnapshotDataError";
+    this.snapshotPath = snapshotPath;
+    this.missingFields = missingFields;
+  }
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -154,6 +163,20 @@ function isMultiExpiry(data) {
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
+}
+
+function validateDashboardData(data, snapshotPath) {
+  const missingFields = [];
+  if (!data || typeof data !== "object") missingFields.push("root object");
+  if (!data?.session || typeof data.session !== "object") missingFields.push("session");
+  if (!data?.market_state || typeof data.market_state !== "object") missingFields.push("market_state");
+  if (typeof data?.market_state?.spot !== "number") missingFields.push("market_state.spot");
+  if (!data?.summary || typeof data.summary !== "object") missingFields.push("summary");
+  if (!Array.isArray(data?.scenarios)) missingFields.push("scenarios[]");
+
+  if (missingFields.length > 0) {
+    throw new SnapshotDataError(snapshotPath, missingFields);
+  }
 }
 
 function selectedKey() {
@@ -811,15 +834,66 @@ function render(data) {
   syncStructuresPanel();
 }
 
+function renderSnapshotError(error, snapshotPath) {
+  console.error(error);
+  appState.data = null;
+  appState.selectedLevel = null;
+  appState.structuresCollapsed = false;
+
+  const missingFields = error instanceof SnapshotDataError ? error.missingFields : [];
+  const detail = missingFields.length > 0 ? `Missing fields: ${missingFields.join(", ")}` : error.message;
+
+  byId("mainGrid")?.classList.remove("multi-expiry");
+  byId("timelineSection")?.classList.remove("expiry-strip");
+  byId("structuresPanel")?.classList.remove("drawer-mode", "awaiting-selection", "collapsed");
+
+  setText("dashboardEyebrow", `${appState.selectedCategory ?? "Option Flow"} / Data error`);
+  setText("dashboardTitle", "Данные повреждены");
+  setText("dashboardSubtitle", `${filenameLabel(snapshotPath)} не соответствует формату dashboard.`);
+  setText("spotValue", "—");
+  setText("spotState", "");
+  setText("statusBadge", "DATA ERROR");
+  renderSnapshotNav();
+  renderControls();
+
+  setHtml(
+    "levelmap",
+    `<div class="map-empty corrupt-data"><strong>Cannot render this snapshot</strong><span>${escapeHtml(detail)}</span></div>`,
+  );
+  setText("timelineTitle", "FLOW TIMELINE");
+  setText("timelineSubtitle", "snapshot skipped");
+  setHtml(
+    "timelinePanel",
+    `<div class="chartbox data-error-panel"><strong>Данные повреждены</strong><span>Этот snapshot пропущен, переключение на другие категории и snapshots доступно выше.</span></div>`,
+  );
+  setText("structuresLabel", "skipped");
+  setHtml("books", `<div class="structure-empty"><strong>Snapshot skipped</strong><span>${escapeHtml(snapshotPath)}</span></div>`);
+  setText("monetizationLabel", "skipped");
+  setHtml("monetization", "");
+  setText("monetizationNote", detail);
+  setText("scenariosLabel", "skipped");
+  setHtml("scenarios", "");
+  setText("scenariosNote", "Fix or regenerate the JSON data, then reload this snapshot.");
+  bindSnapshotNav();
+}
+
 async function loadSnapshot(snapshotPath) {
-  const response = await fetch(`${DATA_ROOT}${snapshotPath}`, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`Failed to load ${snapshotPath}: ${response.status}`);
-  }
   appState.selectedSnapshot = snapshotPath;
   appState.selectedLevel = null;
   appState.structuresCollapsed = false;
-  render(await response.json());
+
+  try {
+    const response = await fetch(`${DATA_ROOT}${snapshotPath}`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Failed to load ${snapshotPath}: ${response.status}`);
+    }
+
+    const data = await response.json();
+    validateDashboardData(data, snapshotPath);
+    render(data);
+  } catch (error) {
+    renderSnapshotError(error, snapshotPath);
+  }
 }
 
 function selectCategory(category) {
