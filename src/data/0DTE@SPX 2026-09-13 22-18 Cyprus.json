@@ -1,0 +1,467 @@
+{
+  "schema_version": "0DTE-SPX-stateful-v1",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-13 22-18 Cyprus",
+  "snapshot_timestamp": "2026-09-13T22:18:00+03:00",
+  "timezone": "Asia/Nicosia",
+  "underlying": "SPX",
+  "session_date": "2026-09-11",
+  "expiration": "2026-09-14",
+  "snapshot_role": "baseline_for_monday_0DTE",
+  "source_files": [
+    "SPX-0DTE-tape-2026-09-13_19-16-16.csv",
+    "SPX-0DTE-contract-2026-09-13_19-16-47.csv"
+  ],
+  "reference": {
+    "spot_source": "last_visible_underlying_price_in_tape",
+    "spot": 7655.65,
+    "visible_spot_min": 7602.7,
+    "visible_spot_max": 7675.2,
+    "premium_filter_usd": 50000
+  },
+  "data_quality": {
+    "raw_rows": 680,
+    "deduplicated_rows": 636,
+    "duplicates_removed": 44,
+    "trade_ids_unique": 680,
+    "complex_order_id_available": false,
+    "exchange_available": false,
+    "historical_baseline_available": false,
+    "opening_closing_known": false,
+    "position_state_confidence": "low_to_medium",
+    "structure_confidence": "medium_to_high",
+    "notes": [
+      "Экономические дубли удалены по timestamp/expiration/type/strike/price/contracts/premium/side.",
+      "Это первый baseline для данной экспирации; historical reverse-match недоступен.",
+      "BUY/SELL трактуется как сторона сделки, а не как доказанный opening/closing."
+    ]
+  },
+  "session_digest": {
+    "gross_premium_usd": 91104000,
+    "signed_delta_usd": 1032200000,
+    "flow": {
+      "bought_calls_usd": 29968000,
+      "sold_calls_usd": 30221000,
+      "net_calls_usd": -253000,
+      "bought_puts_usd": 13213000,
+      "sold_puts_usd": 17702000,
+      "net_puts_usd": -4489000,
+      "net_premium_usd": -4742000
+    },
+    "headline_regime": "mixed_conflict",
+    "baseline_range": [
+      7650,
+      7680
+    ],
+    "central_battlefield": [
+      7675,
+      7680
+    ],
+    "headline_read": "Агрегат выглядит положительным по signed delta, но режим зависит от одного крупного синтетического пакета 7680. Без него directional edge исчезает и signed delta меняет знак."
+  },
+  "leave_one_out": {
+    "all_trades_signed_delta_usd": 1032200000,
+    "largest_package": {
+      "timestamp": "21:55:21.000, 09-11",
+      "structure": "7680 synthetic-long candidate",
+      "gross_premium_usd": 6000000,
+      "signed_delta_usd": 1149000000
+    },
+    "signed_delta_ex_largest_package_usd": -116800000,
+    "classification": "package_dependent",
+    "interpretation": "Headline signed delta не является широким режимным сигналом. После исключения доминирующего пакета знак меняется."
+  },
+  "top_structures": [
+    {
+      "id": "SPX-20260914-7680-SYNTH",
+      "timestamp": "21:55:21.000, 09-11",
+      "strike_set": [
+        7680
+      ],
+      "probable_structure": "synthetic_long_candidate",
+      "legs": [
+        {
+          "option_type": "CALL",
+          "strike": 7680,
+          "side": "BUY",
+          "contracts": 1500,
+          "trade_price": 12.55,
+          "premium_usd": 1900000,
+          "signed_delta_usd": 441000000
+        },
+        {
+          "option_type": "PUT",
+          "strike": 7680,
+          "side": "SELL",
+          "contracts": 1500,
+          "trade_price": 27.2,
+          "premium_usd": 4100000,
+          "signed_delta_usd": 708000000
+        }
+      ],
+      "gross_premium_usd": 6000000,
+      "net_premium_usd": -2200000,
+      "signed_delta_usd": 1149000000,
+      "reference_spot": 7663.4,
+      "synthetic_forward_equivalent": 7665.35,
+      "key_role": "dominant_package_and_7680_battlefield",
+      "structure_confidence": "high",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "none_baseline",
+      "confirmation_needed": [
+        "next_OI_7680C",
+        "next_OI_7680P",
+        "next_dump_same_strike_flow"
+      ]
+    },
+    {
+      "id": "SPX-20260914-7675-7680-CALL-CREDIT",
+      "timestamp_window": "20:54:55-20:55:10, 09-11",
+      "strike_set": [
+        7675,
+        7680
+      ],
+      "probable_structure": "call_credit_spread_cluster",
+      "legs": [
+        {
+          "option_type": "CALL",
+          "strike": 7675,
+          "side": "SELL",
+          "contracts_approx": 1218,
+          "premium_usd": 2301000,
+          "signed_delta_usd": -460000000
+        },
+        {
+          "option_type": "CALL",
+          "strike": 7680,
+          "side": "BUY",
+          "contracts_approx": 1210,
+          "premium_usd": 1976000,
+          "signed_delta_usd": 419000000
+        }
+      ],
+      "gross_premium_usd": 4277000,
+      "net_credit_usd": 325000,
+      "signed_delta_usd": -41000000,
+      "key_role": "call_supply_and_upper_battlefield",
+      "structure_confidence": "high",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "none_baseline",
+      "confirmation_needed": [
+        "next_OI_7675C",
+        "next_OI_7680C",
+        "price_acceptance_above_7680"
+      ]
+    },
+    {
+      "id": "SPX-20260914-7720C-7400P",
+      "timestamp": "23:01:14.000, 09-11",
+      "strike_set": [
+        7400,
+        7720
+      ],
+      "probable_structure": "upside_risk_reversal_like",
+      "legs": [
+        {
+          "option_type": "CALL",
+          "strike": 7720,
+          "side": "BUY",
+          "contracts": 3000,
+          "trade_price": 1.35,
+          "premium_usd": 405000,
+          "signed_delta_usd": 172000000
+        },
+        {
+          "option_type": "PUT",
+          "strike": 7400,
+          "side": "SELL",
+          "contracts": 3000,
+          "trade_price": 0.55,
+          "premium_usd": 165000,
+          "signed_delta_usd": 30000000
+        }
+      ],
+      "gross_premium_usd": 570000,
+      "net_debit_usd": 240000,
+      "signed_delta_usd": 202000000,
+      "key_role": "upside_convexity_financed_by_tail_risk_acceptance",
+      "structure_confidence": "high",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "none_baseline",
+      "confirmation_needed": [
+        "next_OI_7720C",
+        "next_OI_7400P",
+        "follow_through_above_7700"
+      ]
+    },
+    {
+      "id": "SPX-20260914-7650-7655-CHURN",
+      "timestamp_window": "22:57:17-22:57:49, 09-11",
+      "strike_set": [
+        7650,
+        7655
+      ],
+      "probable_structure": "rapid_reverse_call_vertical_churn",
+      "details": [
+        "400x SELL 7650C / BUY 7655C",
+        "через 32 секунды 400x BUY 7650C / SELL 7655C"
+      ],
+      "gross_premium_usd": 3763000,
+      "key_role": "pivot_and_churn_center",
+      "structure_confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "intraday_strong_reverse",
+      "confirmation_needed": [
+        "next_OI_7650C",
+        "next_OI_7655C"
+      ]
+    }
+  ],
+  "key_levels": [
+    {
+      "zone": [
+        7720,
+        7720
+      ],
+      "role": "upside_convexity",
+      "interpretation": "Крупная покупка 7720C; следующий маршрут после принятия 7700."
+    },
+    {
+      "zone": [
+        7695,
+        7700
+      ],
+      "role": "upper_transition",
+      "interpretation": "Промежуточная зона между battlefield 7680 и 7720."
+    },
+    {
+      "zone": [
+        7675,
+        7680
+      ],
+      "role": "main_battlefield",
+      "interpretation": "Крупнейшая концентрация премии, call-supply и доминирующий 7680 synthetic."
+    },
+    {
+      "zone": [
+        7665,
+        7670
+      ],
+      "role": "immediate_call_supply",
+      "interpretation": "Зона локального предложения коллов ниже основного battlefield."
+    },
+    {
+      "zone": [
+        7650,
+        7655
+      ],
+      "role": "pivot_churn_center",
+      "interpretation": "Сильный внутридневной turnover и обратные конструкции."
+    },
+    {
+      "zone": [
+        7625,
+        7640
+      ],
+      "role": "downside_protection",
+      "interpretation": "Видимый спрос на защиту и отрицательная transaction delta."
+    },
+    {
+      "zone": [
+        7600,
+        7600
+      ],
+      "role": "secondary_lower_node",
+      "interpretation": "Крупный нижний узел OI/volume; tape смешанный."
+    },
+    {
+      "zone": [
+        7400,
+        7440
+      ],
+      "role": "tail_financing_risk_acceptance",
+      "interpretation": "Дальние путы использовались как финансирование/принятие хвостового риска."
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "condition": "SPX остается внутри 7650-7680",
+      "regime": "range_chop_mean_reversion",
+      "route": [
+        7650,
+        7655,
+        7675,
+        7680
+      ],
+      "note": "До выхода из структуры directional edge слабый."
+    },
+    "upside": {
+      "trigger": "принятие выше 7680 с удержанием/ретестом",
+      "route": [
+        7695,
+        7700,
+        7720
+      ],
+      "confirmation": [
+        "свежие покупки коллов выше 7680",
+        "отсутствие быстрого возврата под 7675",
+        "рост спроса на соседние верхние страйки"
+      ],
+      "invalidation": "возврат ниже 7675 после попытки пробоя"
+    },
+    "downside": {
+      "trigger": "потеря 7650 с неудачным возвратом",
+      "route": [
+        7640,
+        7625,
+        7600
+      ],
+      "confirmation": [
+        "новая покупка путов",
+        "расширение put IV",
+        "распространение downside flow на соседние страйки"
+      ],
+      "invalidation": "быстрый возврат и удержание выше 7655"
+    },
+    "failed_upside": {
+      "trigger": "отбой от 7675-7680 и возврат ниже 7665",
+      "route": [
+        7655,
+        7650
+      ],
+      "interpretation": "Подтверждает, что call-supply важнее headline synthetic delta."
+    }
+  },
+  "stateful_changes": {
+    "status": "baseline_created",
+    "previous_active_window": [],
+    "previous_ledger_matches": [],
+    "archive_matches": [],
+    "note": "Следующий дамп сравнивать с этим снимком как с первой точкой Active Window."
+  },
+  "position_ledger": [
+    {
+      "ledger_id": "SPX-20260914-7680-SYNTH",
+      "underlying": "SPX",
+      "first_seen": "2026-09-11",
+      "last_seen": "2026-09-11",
+      "expiration": "2026-09-14",
+      "option_type": "CALL+PUT",
+      "strike_set": [
+        7680
+      ],
+      "side_pattern": "BUY_CALL+SELL_PUT",
+      "contracts_pattern": 1500,
+      "ratio": "1:1",
+      "probable_structure": "synthetic_long_candidate",
+      "gross_premium_usd": 6000000,
+      "signed_delta_usd": 1149000000,
+      "reference_forward": null,
+      "key_role": "dominant_7680_battlefield",
+      "position_state_hypothesis": "opening_or_restructure_unknown",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "none_baseline",
+      "confidence": "medium",
+      "confirmation_needed": "next OI and next-dump reverse/continuation check",
+      "notes": "Доминирует headline signed delta; leave-one-out меняет знак режима."
+    },
+    {
+      "ledger_id": "SPX-20260914-7675-7680-CCS",
+      "underlying": "SPX",
+      "first_seen": "2026-09-11",
+      "last_seen": "2026-09-11",
+      "expiration": "2026-09-14",
+      "option_type": "CALL",
+      "strike_set": [
+        7675,
+        7680
+      ],
+      "side_pattern": "SELL_LOWER+BUY_HIGHER",
+      "contracts_pattern": "approx_1210",
+      "ratio": "1:1",
+      "probable_structure": "call_credit_spread_cluster",
+      "gross_premium_usd": 4277000,
+      "signed_delta_usd": -41000000,
+      "reference_forward": null,
+      "key_role": "upper_call_supply",
+      "position_state_hypothesis": "possible_opening_supply_or_restructure",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "none_baseline",
+      "confidence": "medium",
+      "confirmation_needed": "next OI and price reaction at 7675-7680",
+      "notes": "Повторный пакет делает 7675-7680 главным верхним battlefield."
+    },
+    {
+      "ledger_id": "SPX-20260914-7720C-7400P-RR",
+      "underlying": "SPX",
+      "first_seen": "2026-09-11",
+      "last_seen": "2026-09-11",
+      "expiration": "2026-09-14",
+      "option_type": "CALL+PUT",
+      "strike_set": [
+        7400,
+        7720
+      ],
+      "side_pattern": "BUY_CALL+SELL_PUT",
+      "contracts_pattern": 3000,
+      "ratio": "1:1",
+      "probable_structure": "upside_risk_reversal_like",
+      "gross_premium_usd": 570000,
+      "signed_delta_usd": 202000000,
+      "reference_forward": null,
+      "key_role": "upside_convexity_and_tail_financing",
+      "position_state_hypothesis": "possible_opening_bullish_convexity",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "none_baseline",
+      "confidence": "medium",
+      "confirmation_needed": "next OI 7720C/7400P",
+      "notes": "Покупка роста финансируется продажей далекого downside-tail."
+    },
+    {
+      "ledger_id": "SPX-20260914-7650-7655-CHURN",
+      "underlying": "SPX",
+      "first_seen": "2026-09-11",
+      "last_seen": "2026-09-11",
+      "expiration": "2026-09-14",
+      "option_type": "CALL",
+      "strike_set": [
+        7650,
+        7655
+      ],
+      "side_pattern": "CREDIT_VERTICAL->REVERSE_DEBIT_VERTICAL",
+      "contracts_pattern": 400,
+      "ratio": "1:1",
+      "probable_structure": "rapid_reverse_churn",
+      "gross_premium_usd": 3763000,
+      "signed_delta_usd": 0,
+      "reference_forward": null,
+      "key_role": "pivot_churn_center",
+      "position_state_hypothesis": "intraday_restructure_or_round_trip",
+      "opening_status": "roll_or_restructure",
+      "lifecycle_state": "ACTIVE",
+      "historical_match_strength": "strong_intraday_reverse",
+      "confidence": "high",
+      "confirmation_needed": "next OI",
+      "notes": "Считать 7650-7655 зоной борьбы, а не чистым directional сигналом."
+    }
+  ],
+  "next_checks": [
+    "OI на 7680C и 7680P",
+    "OI на 7675C",
+    "OI на 7720C и 7400P",
+    "первый новый flow вокруг 7650 и 7680",
+    "реакция цены при принятии/отказе от зоны 7675-7680"
+  ],
+  "baseline_formula": {
+    "inside": "7650-7680 -> range/chop/mean reversion",
+    "upside": "acceptance > 7680 -> 7695/7700 -> 7720",
+    "downside": "acceptance < 7650 -> 7640/7625 -> 7600"
+  }
+}

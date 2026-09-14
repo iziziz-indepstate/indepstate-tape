@@ -1,0 +1,596 @@
+{
+  "schema_version": "1.0-fallback",
+  "report_type": "multi_expiration_option_flow",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-13 19:18 Cyprus",
+  "snapshot_timestamp": "2026-09-13T19:18:00+03:00",
+  "timezone": "Asia/Nicosia",
+  "underlying": "SPX",
+  "analysis_week": {
+    "start": "2026-09-14",
+    "end": "2026-09-18"
+  },
+  "baseline": true,
+  "stateful_mode": true,
+  "source_trade_date": "2026-09-11",
+  "source_files": [
+    "SPX-contract-2026-09-13_18-05-44.csv",
+    "UNKNOWN-tape-2026-09-13_18-04-49.csv"
+  ],
+  "format_basis": {
+    "requested_reference": "option-flow-session(3).md",
+    "requested_reference_available": false,
+    "fallback_basis": [
+      "Skill.-OptionsFlow-Tape-Analysis.md",
+      "Skill.-SPX.-Weekly-Book.txt",
+      "Format$OptionFlow$1WEEK@SPX.txt"
+    ],
+    "note": "Referenced option-flow-session(3).md was not available in the current Project file surface; schema uses the available stateful multi-expiry flow specification without inventing missing fields."
+  },
+  "data_quality": {
+    "raw_tape_rows": 1595,
+    "deduplicated_tape_rows": 1529,
+    "duplicates_removed": 66,
+    "raw_visible_premium_usd": 247101000,
+    "deduplicated_visible_premium_usd": 237925000,
+    "duplicate_premium_removed_usd": 9176000,
+    "premium_filter_usd": 50000,
+    "contract_rows": 448,
+    "expirations_present": [
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "opening_closing_known": false,
+    "complex_order_linkage_available": false,
+    "historical_state_before_baseline": false,
+    "side_quality": "aggressor BUY/SELL present; opening/closing unresolved",
+    "timestamp_note": "All visible tape rows are dated 2026-09-11; timestamp clock and timezone metadata were not used for RTH/GTH segmentation because of consistency concerns.",
+    "confidence": "medium"
+  },
+  "reference": {
+    "last_observed_spx": 7656.15,
+    "observed_spx_session_low": 7602.7,
+    "observed_spx_session_high": 7676.4
+  },
+  "aggregate_transaction_flow": {
+    "bought_calls_premium_usd": 48708000,
+    "sold_calls_premium_usd": 49845000,
+    "net_call_flow_usd": -1137000,
+    "bought_puts_premium_usd": 67129000,
+    "sold_puts_premium_usd": 72243000,
+    "net_put_flow_usd": -5114000,
+    "signed_delta_usd": 605456000,
+    "interpretation": "Headline transaction delta is positive but not robust; it is dominated by the Sep14 7680 synthetic-long candidate."
+  },
+  "cross_expiry_matching": {
+    "exact_reverse_pair_count": 70,
+    "rows_involved": 140,
+    "paired_premium_usd": 35983000,
+    "paired_net_delta_usd": -21997000,
+    "paired_premium_share_of_dedup_pct": 15.1237,
+    "interpretation": "Large gross multi-expiry turnover is close to delta-neutral and is primarily treated as calendar/term-transfer mechanics rather than independent directional bets.",
+    "pairs": [
+      {
+        "expiries": [
+          "2026-09-14",
+          "2026-09-15"
+        ],
+        "pair_count": 7,
+        "paired_premium_usd": 1237000,
+        "net_delta_usd": 1000000,
+        "contracts": 105
+      },
+      {
+        "expiries": [
+          "2026-09-14",
+          "2026-09-16"
+        ],
+        "pair_count": 8,
+        "paired_premium_usd": 5356000,
+        "net_delta_usd": 5103000,
+        "contracts": 512
+      },
+      {
+        "expiries": [
+          "2026-09-14",
+          "2026-09-17"
+        ],
+        "pair_count": 4,
+        "paired_premium_usd": 855000,
+        "net_delta_usd": 700000,
+        "contracts": 79
+      },
+      {
+        "expiries": [
+          "2026-09-14",
+          "2026-09-18"
+        ],
+        "pair_count": 5,
+        "paired_premium_usd": 4081000,
+        "net_delta_usd": -18800000,
+        "contracts": 659
+      },
+      {
+        "expiries": [
+          "2026-09-15",
+          "2026-09-17"
+        ],
+        "pair_count": 38,
+        "paired_premium_usd": 20456000,
+        "net_delta_usd": -3900000,
+        "contracts": 2989
+      },
+      {
+        "expiries": [
+          "2026-09-16",
+          "2026-09-18"
+        ],
+        "pair_count": 6,
+        "paired_premium_usd": 3774000,
+        "net_delta_usd": -6200000,
+        "contracts": 404
+      },
+      {
+        "expiries": [
+          "2026-09-17",
+          "2026-09-18"
+        ],
+        "pair_count": 2,
+        "paired_premium_usd": 224000,
+        "net_delta_usd": 100000,
+        "contracts": 24
+      }
+    ]
+  },
+  "leave_one_out": {
+    "all_deduplicated": {
+      "premium_usd": 237925000,
+      "net_call_flow_usd": -1137000,
+      "net_put_flow_usd": -5114000,
+      "signed_delta_usd": 605456000
+    },
+    "excluding_exact_cross_expiry_reverse_pairs": {
+      "premium_usd": 201942000,
+      "net_call_flow_usd": -945000,
+      "net_put_flow_usd": -4749000,
+      "signed_delta_usd": 627453000
+    },
+    "excluding_cross_expiry_pairs_and_sep14_7680_synthetic": {
+      "premium_usd": 195942000,
+      "net_call_flow_usd": -2845000,
+      "net_put_flow_usd": -649000,
+      "signed_delta_usd": -521547000
+    },
+    "conclusion": "Removing the dominant Sep14 7680 synthetic changes the residual weekly transaction delta from positive to negative; the headline weekly sign is therefore conditional on that structure."
+  },
+  "expirations": [
+    {
+      "expiration": "2026-09-14",
+      "weekday": "Monday",
+      "visible_premium_usd": 64581000,
+      "premium_share_pct": 27.1434,
+      "bought_calls_premium_usd": 19768000,
+      "sold_calls_premium_usd": 19836000,
+      "net_call_flow_usd": -68000,
+      "bought_puts_premium_usd": 11510000,
+      "sold_puts_premium_usd": 13467000,
+      "net_put_flow_usd": -1957000,
+      "signed_delta_usd": 426668000,
+      "signed_delta_ex_cross_expiry_pairs_usd": 536403000,
+      "residual_premium_ex_cross_expiry_pairs_usd": 60142000,
+      "regime": "binary / conflict",
+      "key_zones": [
+        {
+          "level": "7675-7680",
+          "role": "early-week battlefield / synthetic pivot"
+        },
+        {
+          "level": "7650",
+          "role": "lower activity/support candidate"
+        },
+        {
+          "level": "7700",
+          "role": "upper transition"
+        },
+        {
+          "level": "7730",
+          "role": "upper put/roll cluster"
+        }
+      ],
+      "dominant_structure_ids": [
+        "W14-7680-SYN",
+        "W14-16-PUTROLL"
+      ],
+      "interpretation": "The 7680 synthetic-long candidate dominates the expiry. Without the 7680 package, the remaining Monday book is materially more defensive/capped."
+    },
+    {
+      "expiration": "2026-09-15",
+      "weekday": "Tuesday",
+      "visible_premium_usd": 26724000,
+      "premium_share_pct": 11.2321,
+      "bought_calls_premium_usd": 6075000,
+      "sold_calls_premium_usd": 5305000,
+      "net_call_flow_usd": 770000,
+      "bought_puts_premium_usd": 6808000,
+      "sold_puts_premium_usd": 8536000,
+      "net_put_flow_usd": -1728000,
+      "signed_delta_usd": 335700000,
+      "signed_delta_ex_cross_expiry_pairs_usd": 303800000,
+      "residual_premium_ex_cross_expiry_pairs_usd": 18325000,
+      "regime": "supportive range / pin",
+      "key_zones": [
+        {
+          "level": "7650",
+          "role": "downside risk-acceptance / support candidate"
+        },
+        {
+          "level": "7675",
+          "role": "activity and pin center"
+        },
+        {
+          "level": "7700",
+          "role": "upper transition / cap candidate"
+        }
+      ],
+      "dominant_structure_ids": [
+        "W15-17-CAL"
+      ],
+      "interpretation": "After calendar cleaning, Tuesday remains moderately supportive but much of gross activity is tied to the Tue-Thu calendar complex."
+    },
+    {
+      "expiration": "2026-09-16",
+      "weekday": "Wednesday",
+      "visible_premium_usd": 17905000,
+      "premium_share_pct": 7.5255,
+      "bought_calls_premium_usd": 2413000,
+      "sold_calls_premium_usd": 2913000,
+      "net_call_flow_usd": -500000,
+      "bought_puts_premium_usd": 5288000,
+      "sold_puts_premium_usd": 7291000,
+      "net_put_flow_usd": -2003000,
+      "signed_delta_usd": 67498000,
+      "signed_delta_ex_cross_expiry_pairs_usd": 67160000,
+      "residual_premium_ex_cross_expiry_pairs_usd": 13172000,
+      "regime": "roll-heavy / low directional conviction",
+      "key_zones": [
+        {
+          "level": "7640",
+          "role": "lower functional/supportive zone"
+        },
+        {
+          "level": "7675-7700",
+          "role": "midweek roll complex"
+        },
+        {
+          "level": "7705-7730",
+          "role": "upper transition/supply cluster"
+        }
+      ],
+      "dominant_structure_ids": [
+        "W14-16-PUTROLL",
+        "W16-18-PUTROLL"
+      ],
+      "interpretation": "Wednesday is the weakest standalone directional expiry and acts primarily as a bridge for risk transfer between earlier expiries and Friday."
+    },
+    {
+      "expiration": "2026-09-17",
+      "weekday": "Thursday",
+      "visible_premium_usd": 25433000,
+      "premium_share_pct": 10.6895,
+      "bought_calls_premium_usd": 5334000,
+      "sold_calls_premium_usd": 6368000,
+      "net_call_flow_usd": -1034000,
+      "bought_puts_premium_usd": 5869000,
+      "sold_puts_premium_usd": 7862000,
+      "net_put_flow_usd": -1993000,
+      "signed_delta_usd": 104400000,
+      "signed_delta_ex_cross_expiry_pairs_usd": 140000000,
+      "residual_premium_ex_cross_expiry_pairs_usd": 12122000,
+      "regime": "supportive range / pin with heavy calendar contamination",
+      "key_zones": [
+        {
+          "level": "7650",
+          "role": "lower range/support candidate"
+        },
+        {
+          "level": "7675",
+          "role": "primary pin/activity center"
+        },
+        {
+          "level": "7700",
+          "role": "upper transition"
+        }
+      ],
+      "dominant_structure_ids": [
+        "W15-17-CAL"
+      ],
+      "interpretation": "The Tue-Thu exact reverse complex is the dominant feature; residual Thursday flow is still moderately supportive but conviction is reduced."
+    },
+    {
+      "expiration": "2026-09-18",
+      "weekday": "Friday",
+      "visible_premium_usd": 103282000,
+      "premium_share_pct": 43.4095,
+      "bought_calls_premium_usd": 15118000,
+      "sold_calls_premium_usd": 15423000,
+      "net_call_flow_usd": -305000,
+      "bought_puts_premium_usd": 37654000,
+      "sold_puts_premium_usd": 35087000,
+      "net_put_flow_usd": 2567000,
+      "signed_delta_usd": -328810000,
+      "signed_delta_ex_cross_expiry_pairs_usd": -419910000,
+      "residual_premium_ex_cross_expiry_pairs_usd": 98181000,
+      "regime": "defensive + central vol supply",
+      "key_zones": [
+        {
+          "level": "7660",
+          "role": "central short-vol / pin-like center"
+        },
+        {
+          "level": "7635",
+          "role": "downside protection zone"
+        },
+        {
+          "level": "7600",
+          "role": "major downside hedge zone"
+        },
+        {
+          "level": "7675-7705",
+          "role": "upper/near-spot put-demand transition"
+        },
+        {
+          "level": "7750",
+          "role": "upper call-demand / put-sale cluster"
+        }
+      ],
+      "dominant_structure_ids": [
+        "W18-7660-VOL",
+        "W18-7600-HEDGE",
+        "W16-18-PUTROLL"
+      ],
+      "interpretation": "Friday carries the cleanest residual defensive signal: central vol supply near 7660 coexists with meaningful downside protection, especially at 7600 and 7635."
+    }
+  ],
+  "major_structures": [
+    {
+      "id": "W14-7680-SYN",
+      "trade_date": "2026-09-11",
+      "expiration": "2026-09-14",
+      "timestamp": "21:55:21.000, 09-11",
+      "structure": "synthetic_long_candidate",
+      "legs": [
+        {
+          "strike": 7680,
+          "option_type": "CALL",
+          "side": "BUY",
+          "contracts": 1500,
+          "premium_usd": 1900000,
+          "signed_delta_usd": 441000000
+        },
+        {
+          "strike": 7680,
+          "option_type": "PUT",
+          "side": "SELL",
+          "contracts": 1500,
+          "premium_usd": 4100000,
+          "signed_delta_usd": 708000000
+        }
+      ],
+      "package_premium_usd": 6000000,
+      "package_signed_delta_usd": 1149000000,
+      "reference_spx": 7663.4,
+      "structure_confidence": "high",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "position_state_hypotheses": [
+        "opening synthetic long",
+        "closing prior synthetic short",
+        "financing/forward-like transaction"
+      ],
+      "note": "Dominant leave-one-out structure; removing it flips the residual weekly transaction delta negative."
+    },
+    {
+      "id": "W14-16-PUTROLL",
+      "trade_date": "2026-09-11",
+      "expirations": [
+        "2026-09-14",
+        "2026-09-16"
+      ],
+      "structure": "calendar_put_roll_candidate",
+      "key_strikes": [
+        7675,
+        7700,
+        7705,
+        7730
+      ],
+      "structure_confidence": "medium-high",
+      "opening_status": "roll_or_restructure",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "note": "Exact same-timestamp reverse-side legs across expiries indicate probable term transfer; complex-order ID is unavailable."
+    },
+    {
+      "id": "W15-17-CAL",
+      "trade_date": "2026-09-11",
+      "expirations": [
+        "2026-09-15",
+        "2026-09-17"
+      ],
+      "structure": "calendar_term_transfer_complex",
+      "key_strikes": [
+        7650,
+        7675,
+        7700
+      ],
+      "exact_pair_count": 38,
+      "paired_premium_usd": 20456000,
+      "paired_net_delta_usd": -3900000,
+      "paired_contracts": 2989,
+      "structure_confidence": "high for linkage / low for ultimate position state",
+      "opening_status": "roll_or_restructure",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "note": "Dominant midweek calendar complex. Gross turnover is large while pair-level directional delta is near neutral."
+    },
+    {
+      "id": "W16-18-PUTROLL",
+      "trade_date": "2026-09-11",
+      "expirations": [
+        "2026-09-16",
+        "2026-09-18"
+      ],
+      "structure": "calendar_put_roll_candidate",
+      "key_strikes": [
+        7675,
+        7700
+      ],
+      "highlight_size_contracts": 143,
+      "structure_confidence": "high for linkage / low for ultimate position state",
+      "opening_status": "roll_or_restructure",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "note": "Visible risk migration from Wednesday toward Friday."
+    },
+    {
+      "id": "W18-7660-VOL",
+      "trade_date": "2026-09-11",
+      "expiration": "2026-09-18",
+      "structure": "short_vol_pin_candidate",
+      "strike": 7660,
+      "call_buy_premium_usd": 843000,
+      "call_sell_premium_usd": 3814000,
+      "put_buy_premium_usd": 1633000,
+      "put_sell_premium_usd": 4824000,
+      "net_call_flow_usd": -2971000,
+      "net_put_flow_usd": -3191000,
+      "net_signed_delta_usd": 7300000,
+      "structure_confidence": "medium",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "note": "Strong call and put selling around the same near-spot strike is pin/short-vol-like, but unified straddle linkage is not proven."
+    },
+    {
+      "id": "W18-7600-HEDGE",
+      "trade_date": "2026-09-11",
+      "expiration": "2026-09-18",
+      "structure": "downside_put_demand",
+      "strike": 7600,
+      "put_buy_premium_usd": 4098000,
+      "put_sell_premium_usd": 1411000,
+      "net_put_flow_usd": 2687000,
+      "net_signed_delta_usd": -196000000,
+      "structure_confidence": "medium",
+      "opening_status": "unknown",
+      "lifecycle_state": "ACTIVE",
+      "note": "Material Friday downside protection candidate."
+    }
+  ],
+  "position_ledger": [
+    {
+      "id": "W14-7680-SYN",
+      "lifecycle_state": "ACTIVE",
+      "role": "dominant Monday synthetic-long candidate",
+      "last_confirmation_date": "2026-09-11"
+    },
+    {
+      "id": "W14-16-PUTROLL",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "role": "Mon-Wed term transfer",
+      "last_confirmation_date": "2026-09-11"
+    },
+    {
+      "id": "W15-17-CAL",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "role": "dominant Tue-Thu calendar complex",
+      "last_confirmation_date": "2026-09-11"
+    },
+    {
+      "id": "W16-18-PUTROLL",
+      "lifecycle_state": "ROLL_CANDIDATE",
+      "role": "Wed-Fri risk migration",
+      "last_confirmation_date": "2026-09-11"
+    },
+    {
+      "id": "W18-7660-VOL",
+      "lifecycle_state": "ACTIVE",
+      "role": "Friday pin / central vol supply candidate",
+      "last_confirmation_date": "2026-09-11"
+    },
+    {
+      "id": "W18-7600-HEDGE",
+      "lifecycle_state": "ACTIVE",
+      "role": "Friday downside protection candidate",
+      "last_confirmation_date": "2026-09-11"
+    }
+  ],
+  "weekly_level_map": [
+    {
+      "level": "7600-7635",
+      "role": "Friday downside protection zone",
+      "activation": "more important on sustained acceptance below 7635; 7600 is the stronger hedge boundary"
+    },
+    {
+      "level": "7640-7650",
+      "role": "lower midweek support/risk-acceptance zone",
+      "activation": "loss weakens Tue-Thu supportive-range interpretation"
+    },
+    {
+      "level": "7675-7680",
+      "role": "primary early-week battlefield / synthetic pivot",
+      "activation": "acceptance above strengthens the Monday synthetic-long interpretation"
+    },
+    {
+      "level": "7700-7705",
+      "role": "upper transition zone",
+      "activation": "requires new call demand or clean acceptance to avoid cap behavior"
+    },
+    {
+      "level": "7730-7750",
+      "role": "upper secondary transition/supply zone",
+      "activation": "becomes relevant after acceptance above 7700-7705"
+    }
+  ],
+  "weekly_regime": {
+    "classification": "mixed / expiry-sensitive",
+    "central_corridor": "7650-7700",
+    "primary_battlefield": "7675-7680",
+    "cleanest_defensive_expiry": "2026-09-18",
+    "midweek_state": "calendar/roll dominated",
+    "summary": "Monday is binary because of one dominant 7680 synthetic package; Tuesday and Thursday are range/pin-like but heavily linked by calendar mechanics; Wednesday is a transition expiry; Friday carries the strongest residual defensive positioning around a 7660 central-vol node and 7600-7635 downside protection."
+  },
+  "conditional_scenarios": {
+    "base": {
+      "condition": "SPX remains inside 7650-7700 and no new fresh directional flow overwhelms the existing structures",
+      "expected_structure": "chop / pin / expiry-dependent rotation, especially around 7675-7680"
+    },
+    "upside": {
+      "trigger": "sustained acceptance above 7680, then 7700-7705, with fresh call demand rather than only closing/roll flow",
+      "route": "7680 -> 7700-7705 -> 7730-7750",
+      "invalidation": "failed acceptance back below 7675-7680"
+    },
+    "downside": {
+      "trigger": "loss of 7650 followed by acceptance below 7635 with persistent/fresh put demand",
+      "route": "7650 -> 7635 -> 7600",
+      "invalidation": "reclaim of 7650-7675 with defensive flow failing to reinforce"
+    },
+    "stateful_confirmation": {
+      "focus": [
+        "next OI change at 7680 Sep14",
+        "continuation or reversal of the Tue-Thu 7650/7675/7700 calendar complex",
+        "whether Friday 7600/7635 put protection grows or unwinds",
+        "whether Friday 7660 central vol supply persists"
+      ]
+    }
+  },
+  "next_update_comparison_keys": [
+    "same-side reinforcement",
+    "opposite-side reversal",
+    "strike migration",
+    "expiry migration",
+    "OI confirmation",
+    "change in 7675-7680 role",
+    "change in Friday 7600-7635 protection",
+    "change in Friday 7660 pin/vol-supply structure"
+  ],
+  "disclaimer": "This is a map of visible transactions and probable position-state changes. BUY/SELL and transaction signed delta do not prove fresh opening. Without next-day OI or complex-order linkage, opening, closing, roll, restructure and independent-flow hypotheses cannot be separated with certainty."
+}
