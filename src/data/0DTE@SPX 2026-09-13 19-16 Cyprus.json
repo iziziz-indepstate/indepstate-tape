@@ -1,0 +1,699 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-13 19-16 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-14",
+    "dte": 1,
+    "snapshot_time": "2026-09-13T19:16:16+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "baseline_pre_0dte",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-0DTE-tape-2026-09-13_19-16-16.csv",
+      "SPX-0DTE-contract-2026-09-13_19-16-47.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7655.65,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7652.5,
+    "upper_decision_level": 7680,
+    "lower_decision_level": 7650
+  },
+  "summary": {
+    "headline": "7650-7680 задаёт базовый диапазон, 7675-7680 остаётся главным верхним полем борьбы",
+    "key_points": [
+      "7650-7655 выглядит как центр оборота и внутридневной перестройки, а не как чистая направленная ставка",
+      "7675-7680 сочетает крупную концентрацию премии, повторную продажу 7675C против покупки 7680C и доминирующий синтетический пакет на 7680",
+      "Общая signed transaction delta положительная, но пакет 7680 полностью определяет этот вывод; без него знак меняется",
+      "Принятие выше 7680 открывает маршрут 7695-7700 и далее 7720; потеря 7650 открывает 7640-7625 и 7600"
+    ],
+    "daily_note": null
+  },
+  "flow_aggregate": {
+    "gross_premium": 91104000,
+    "calls": {
+      "bought": 29968000,
+      "sold": 30221000,
+      "net": -253000
+    },
+    "puts": {
+      "bought": 13213000,
+      "sold": 17702000,
+      "net": -4489000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 22653000,
+        "sold": 19998000,
+        "net": 2655000
+      },
+      "puts": {
+        "bought": 5793000,
+        "sold": 7858000,
+        "net": -2065000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "ad6e90ac-1f7c-4e3f-a789-c0036432fa2b",
+      "dominant_premium": 4100000,
+      "dominant_share": 0.0450035125,
+      "result": {
+        "net_calls": -253000,
+        "net_puts": -389000
+      },
+      "changes_interpretation": false,
+      "comment": "Удаление крупнейшего одиночного принта не меняет знак net put flow. Но пакетный leave-one-out по str-7680-synthetic меняет signed transaction delta с +1.0322B на -116.8M, поэтому headline directional read package-dependent."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7650-7655",
+      "price": 7652.5,
+      "range_low": 7650,
+      "range_high": 7655,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "pin",
+        "complex_zone"
+      ],
+      "label": "MAIN PIVOT / CHURN CENTER",
+      "strength": 0.85,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "unconfirmed",
+      "distance_from_spot": -3.15,
+      "flow": {
+        "call_buy": 4098000,
+        "call_sell": 4052000,
+        "put_buy": 1032000,
+        "put_sell": 1318000,
+        "net_calls": 46000,
+        "net_puts": -286000,
+        "gross": 10500000
+      },
+      "interpretation": "Сильный двусторонний оборот, точный разворот 400-lot вертикали и почти сбалансированные синтетики делают 7650-7655 главным центром оборота.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7650-7655-roundtrip"
+        ],
+        "notes": [
+          "Роль уровня для понедельника требует подтверждения новым 0DTE flow"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7665-7670",
+      "price": 7667.5,
+      "range_low": 7665,
+      "range_high": 7670,
+      "role": [
+        "call_supply",
+        "transition"
+      ],
+      "label": "IMMEDIATE CALL SUPPLY",
+      "strength": 0.55,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 11.85,
+      "flow": {
+        "call_buy": 1091000,
+        "call_sell": 2382000,
+        "put_buy": 886000,
+        "put_sell": 394000,
+        "net_calls": -1291000,
+        "net_puts": 492000,
+        "gross": 4753000
+      },
+      "interpretation": "Видимая продажа коллов создаёт локальное трение перед основным узлом 7675-7680.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Уровень вторичен относительно 7675-7680"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7675-7680",
+      "price": 7677.5,
+      "range_low": 7675,
+      "range_high": 7680,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "MAIN UPPER BATTLEFIELD",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "unconfirmed",
+      "distance_from_spot": 21.85,
+      "flow": {
+        "call_buy": 16757000,
+        "call_sell": 12532000,
+        "put_buy": 2035000,
+        "put_sell": 5163000,
+        "net_calls": 4225000,
+        "net_puts": -3128000,
+        "gross": 36487000
+      },
+      "interpretation": "Крупнейшая концентрация премии сочетает повторную call-supply конструкцию 7675/7680 и доминирующий синтетический пакет на 7680. Это главный верхний decision-zone, а не чистое сопротивление.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7675-7680-call-credit",
+          "str-7680-synthetic"
+        ],
+        "notes": [
+          "Пакеты имеют противоположный экономический смысл; зона классифицируется как battlefield"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7695-7700",
+      "price": 7697.5,
+      "range_low": 7695,
+      "range_high": 7700,
+      "role": [
+        "transition",
+        "upside_demand"
+      ],
+      "label": "UPPER TRANSITION",
+      "strength": 0.52,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 41.85,
+      "flow": {
+        "call_buy": 859000,
+        "call_sell": 740000,
+        "put_buy": 1430000,
+        "put_sell": 2059000,
+        "net_calls": 119000,
+        "net_puts": -629000,
+        "gross": 5088000
+      },
+      "interpretation": "Промежуточная зона после принятия 7680 перед более заметной верхней выпуклостью на 7720.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Используется как маршрут, а не как самостоятельная цель"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720",
+      "price": 7720,
+      "range_low": 7720,
+      "range_high": 7720,
+      "role": [
+        "upside_demand"
+      ],
+      "label": "UPSIDE CONVEXITY",
+      "strength": 0.58,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 64.35,
+      "flow": {
+        "call_buy": 457000,
+        "call_sell": 221000,
+        "put_buy": 351000,
+        "put_sell": 67000,
+        "net_calls": 236000,
+        "net_puts": 284000,
+        "gross": 1096000
+      },
+      "interpretation": "Крупный 3000-lot купленный 7720C в связке с проданным 7400P делает 7720 следующей зоной реализации upside после принятия 7700.",
+      "evidence": {
+        "trade_ids": [
+          "a88cf6f6-ac89-40dc-9a8f-07f5c9159c35"
+        ],
+        "structure_ids": [
+          "str-7720c-7400p-risk-reversal"
+        ],
+        "notes": [
+          "Opening/closing не подтверждён"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7625-7640",
+      "price": 7632.5,
+      "range_low": 7625,
+      "range_high": 7640,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "DOWNSIDE PROTECTION ZONE",
+      "strength": 0.62,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -23.15,
+      "flow": {
+        "call_buy": 267000,
+        "call_sell": 1978000,
+        "put_buy": 1112000,
+        "put_sell": 635000,
+        "net_calls": -1711000,
+        "net_puts": 477000,
+        "gross": 3992000
+      },
+      "interpretation": "Ниже 7650 появляется сочетание продажи коллов и покупки путов. Потеря 7650 повышает значимость этой зоны как следующего downside-маршрута.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Fresh opening не подтверждён"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "range_low": 7600,
+      "range_high": 7600,
+      "role": [
+        "transition",
+        "reclaim_support"
+      ],
+      "label": "SECONDARY LOWER NODE",
+      "strength": 0.48,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -55.65,
+      "flow": {
+        "call_buy": 1145000,
+        "call_sell": 579000,
+        "put_buy": 425000,
+        "put_sell": 361000,
+        "net_calls": 566000,
+        "net_puts": 64000,
+        "gross": 2510000
+      },
+      "interpretation": "Вторичный нижний узел. Используется как следующий маршрут после 7625, но сам по себе не является доказанным floor.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Роль требует price-action подтверждения"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7680-synthetic",
+      "timestamp": "2026-09-11T21:55:21",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7680,
+          "contracts": 1500,
+          "premium": 1900000,
+          "trade_ids": [
+            "4c35fea1-dc13-4b40-b2ce-d2bd0a00db5b"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7680,
+          "contracts": 1500,
+          "premium": 4100000,
+          "trade_ids": [
+            "ad6e90ac-1f7c-4e3f-a789-c0036432fa2b"
+          ]
+        }
+      ],
+      "gross_premium": 6000000,
+      "net_premium": -2200000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7680
+      ],
+      "interpretation": "Структурно пакет очень похож на синтетический лонг/форвардный перенос дельты. Opening не подтверждён, поэтому его нельзя считать чистой новой bullish-ставкой.",
+      "ui_title": "7680 Synthetic Long-like"
+    },
+    {
+      "id": "str-7675-7680-call-credit",
+      "timestamp": "2026-09-11T20:54:55",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 1218,
+          "premium": 2301000,
+          "trade_ids": [
+            "7d8c3b55-1319-477e-a008-6317c3c98353",
+            "0e84a797-abcc-4e90-bbd7-74f4281744d7",
+            "278317d4-d599-40ff-9937-5a9913fae93a",
+            "00f47917-f03d-430c-9bf3-88f198ca847b",
+            "bbdd06e0-2ca8-4d4e-acee-f893fc180cb8",
+            "ea313c5f-09a8-4e9d-abdf-756d91b78ff4",
+            "73ea8ccb-7191-44ad-a08f-096eb8b942ba"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7680,
+          "contracts": 1210,
+          "premium": 1976000,
+          "trade_ids": [
+            "d244df09-b2b3-4668-8c35-f5e9f1369dd2",
+            "cf1ae47b-912b-4708-b530-2f81088503c8",
+            "17a00247-d5c4-4f0b-b4aa-583edda93a3f",
+            "e36af4fb-ed88-439c-8c28-5d21a4966e89",
+            "f810d7dc-0949-4cf7-b56f-ae130cdc8a06",
+            "af54054b-8ac4-4609-9591-0bb62ef50983",
+            "997e9c08-39ea-41f4-bd2e-18b74a97e874"
+          ]
+        }
+      ],
+      "gross_premium": 4277000,
+      "net_premium": -325000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7675,
+        7680
+      ],
+      "interpretation": "Повторяющаяся продажа 7675C против покупки 7680C создаёт локальный capped-upside профиль. Без OI и complex linkage opening не доказан.",
+      "ui_title": "7675/7680 Repeated Call Credit Supply"
+    },
+    {
+      "id": "str-7720c-7400p-risk-reversal",
+      "timestamp": "2026-09-11T23:01:14",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7720,
+          "contracts": 3000,
+          "premium": 405000,
+          "trade_ids": [
+            "a88cf6f6-ac89-40dc-9a8f-07f5c9159c35"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7400,
+          "contracts": 3000,
+          "premium": 165000,
+          "trade_ids": [
+            "43126d83-5635-4c23-9a7f-1f615fe9c99b"
+          ]
+        }
+      ],
+      "gross_premium": 570000,
+      "net_premium": 240000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7400,
+        7720
+      ],
+      "interpretation": "Risk-reversal-like пакет покупает upside через 7720C и финансирует его продажей далекого 7400P. Экономически это принятие хвостового downside-риска в обмен на участие в росте.",
+      "ui_title": "7720C / 7400P Upside Risk-Reversal-like"
+    },
+    {
+      "id": "str-7650-7655-roundtrip",
+      "timestamp": "2026-09-11T22:57:17",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7650,
+          "contracts": 400,
+          "premium": 1000000,
+          "trade_ids": [
+            "8d1b2ce7-9ae1-4cab-82b8-ff3f5b7a95da"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7655,
+          "contracts": 400,
+          "premium": 883000,
+          "trade_ids": [
+            "bbd54fbd-95e6-4246-898c-3b7966f6443e"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7650,
+          "contracts": 400,
+          "premium": 1000000,
+          "trade_ids": [
+            "24409ebf-3d0f-404b-beed-f1b0aec49e33"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7655,
+          "contracts": 400,
+          "premium": 880000,
+          "trade_ids": [
+            "36467073-7922-4a94-aebf-39c8b67cc1ee"
+          ]
+        }
+      ],
+      "gross_premium": 3763000,
+      "net_premium": 3000,
+      "bias": "mixed",
+      "basis": "observed",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7655
+      ],
+      "interpretation": "Вертикаль была практически полностью развернута через 32 секунды. Это сильное свидетельство churn/перестройки, а не устойчивого directional inventory.",
+      "ui_title": "7650/7655 Rapid Vertical Round-trip"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7650-7655-pin",
+      "low": 7650,
+      "high": 7655,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "balanced intraday inventory",
+        "short-lived spread inventory"
+      ],
+      "source_structure_ids": [
+        "str-7650-7655-roundtrip"
+      ],
+      "source_level_ids": [
+        "lvl-7650-7655"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Высокий оборот и быстрый разворот вертикали делают 7650-7655 вероятной зоной churn/pin при отсутствии нового направленного потока.",
+      "caveat": "Это не payoff-precise зона без подтверждённого opening/closing и нового Monday tape."
+    },
+    {
+      "id": "mz-7675-7680-call-supply",
+      "low": 7675,
+      "high": 7680,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "short lower-call vertical inventory",
+        "capped-upside structures"
+      ],
+      "source_structure_ids": [
+        "str-7675-7680-call-credit",
+        "str-7680-synthetic"
+      ],
+      "source_level_ids": [
+        "lvl-7675-7680"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Повторная call-supply на 7675/7680 делает зону выгодной для capped-upside inventory, пока рынок не принимает цену выше 7680.",
+      "caveat": "Доминирующий 7680 synthetic создаёт конфликт; зона является battlefield, а не гарантированным cap."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base-range",
+      "name": "Base range / churn",
+      "bias": "mixed",
+      "priority": 1.0,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7650,
+          "description": "Сохранение нижней границы базового диапазона"
+        },
+        {
+          "type": "hold_below",
+          "level": 7680,
+          "description": "Отсутствие принятия выше главного верхнего battlefield"
+        }
+      ],
+      "route": [
+        7650,
+        7655,
+        7675,
+        7680
+      ],
+      "invalidations": [
+        "Принятие выше 7680",
+        "Принятие ниже 7650"
+      ],
+      "interpretation": "Пока рынок остаётся внутри 7650-7680, базовый режим — chop, оборот позиций и возврат к среднему."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.7,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7680,
+          "description": "Поглощение верхней call-supply зоны"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7680,
+          "description": "Новый спрос на коллы выше battlefield"
+        }
+      ],
+      "route": [
+        7680,
+        7695,
+        7700,
+        7720
+      ],
+      "invalidations": [
+        "Возврат ниже 7675 после попытки принятия выше 7680"
+      ],
+      "interpretation": "Устойчивое принятие выше 7680 переводит карту из range в реализацию верхней выпуклости с транзитом через 7695-7700 к 7720."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside continuation",
+      "bias": "bearish",
+      "priority": 0.7,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7650,
+          "description": "Потеря главного pivot/churn центра"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7640,
+          "description": "Свежий спрос на downside protection"
+        },
+        {
+          "type": "iv_expand",
+          "level": 7650,
+          "description": "Расширение put IV подтверждает ухудшение режима"
+        }
+      ],
+      "route": [
+        7650,
+        7640,
+        7625,
+        7600
+      ],
+      "invalidations": [
+        "Быстрый reclaim и удержание выше 7655"
+      ],
+      "interpretation": "Потеря 7650 с подтверждением новым put demand открывает маршрут 7640-7625 и далее 7600."
+    },
+    {
+      "id": "sc-failed-upside",
+      "name": "Failed upside / return to pivot",
+      "bias": "bearish",
+      "priority": 0.6,
+      "triggers": [
+        {
+          "type": "failed_reclaim",
+          "level": 7680,
+          "description": "Неудачная попытка принять цену выше верхней зоны"
+        },
+        {
+          "type": "accept_below",
+          "level": 7665,
+          "description": "Возврат ниже локальной transition-зоны"
+        }
+      ],
+      "route": [
+        7665,
+        7655,
+        7650
+      ],
+      "invalidations": [
+        "Новый устойчивый reclaim 7680"
+      ],
+      "interpretation": "Отказ 7675-7680 и возврат ниже 7665 возвращает рынок к 7655-7650."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 680,
+    "deduplicated_rows": 636,
+    "duplicates_removed": 44,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL показывает сторону сделки, но не доказывает opening/closing",
+      "complex_order_id отсутствует, поэтому связность multileg остаётся гипотезой даже при совпадающих timestamp и размерах",
+      "Это первый baseline: historical reverse-match до этого снимка отсутствует",
+      "Raw trade timestamps помечены America/New_York, но видимый часовой диапазон не согласуется с обычной RTH-сессией; flow_timeline поэтому оставлен пустым",
+      "Headline signed transaction delta зависит от одного крупного 7680 package и не является широким directional сигналом"
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
