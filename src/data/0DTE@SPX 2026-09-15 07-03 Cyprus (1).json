@@ -1,0 +1,1266 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-15 07:03 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-15",
+    "dte": 0,
+    "snapshot_time": "2026-09-15T07:03:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight_baseline",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "UNKNOWN-tape-2026-09-14_23-07-00.csv",
+      "SPX-contract-2026-09-14_23-06-15.csv"
+    ],
+    "source_snapshot_time": "2026-09-14T23:07:00+03:00",
+    "source_timestamp_timezone_claim": "America/New_York",
+    "timestamp_timezone_status": "inconsistent_with_snapshot_context; analysis uses Cyprus clock as working assumption"
+  },
+  "market_state": {
+    "spot": 7622.25,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_capped_range",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7600,
+    "upper_decision_level": 7645,
+    "lower_decision_level": 7600,
+    "active_transition_zone": [
+      7620,
+      7630
+    ],
+    "upper_supply_zone": [
+      7645,
+      7660
+    ],
+    "lower_support_zone": [
+      7590,
+      7600
+    ],
+    "ratio_break_even": 7665
+  },
+  "summary": {
+    "headline": "7600 is the main compensating inventory center; 7620-7630 is the active battlefield and 7645-7660 is the upper supply/monetization zone.",
+    "key_points": [
+      "Visible flow is mixed/range-oriented with a defensive downside asymmetry rather than a clean outright bearish opening book.",
+      "Calls are net sold by $4.432M and total signed transaction delta is -$657.3M, but opening/closing is not confirmed.",
+      "7600 materially offsets the negative delta picture and contains exact same-session reversal evidence, so it is an inventory center rather than a clean fresh-support signal.",
+      "The fresh 7625C/2x7645C ratio candidate monetizes around 7645 and becomes unfavorable above roughly 7665, reinforcing the 7645-7660 upper decision zone.",
+      "A loss of 7600 with fresh put buying would activate 7595-7590 then 7580; acceptance above 7660-7665 would challenge the current cap and open 7670 then 7690-7700."
+    ],
+    "daily_note": "First 2026-09-15 0DTE baseline. No prior snapshot for same expiry is used as a historical reverse-match source yet."
+  },
+  "flow_aggregate": {
+    "gross_premium": 66397000,
+    "signed_delta": -657321000,
+    "calls": {
+      "bought": 14204000,
+      "sold": 18636000,
+      "net": -4432000
+    },
+    "puts": {
+      "bought": 15800000,
+      "sold": 17757000,
+      "net": -1957000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "gross_premium": 35735000,
+      "signed_delta": -345100000,
+      "calls": {
+        "bought": 8546000,
+        "sold": 10567000,
+        "net": -2021000
+      },
+      "puts": {
+        "bought": 8085000,
+        "sold": 8537000,
+        "net": -452000
+      }
+    },
+    "otm": {
+      "reference_spot": 7622.25,
+      "gross_premium": 22290000,
+      "signed_delta": -735600000,
+      "calls": {
+        "bought": 2834000,
+        "sold": 6253000,
+        "net": -3419000
+      },
+      "puts": {
+        "bought": 6574000,
+        "sold": 6629000,
+        "net": -55000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "cf5f2703-83a7-4712-9823-bd98c05b45e4",
+      "dominant_premium": 1300000,
+      "dominant_share": 0.019579,
+      "result": {
+        "net_calls": -4432000,
+        "net_puts": -657000,
+        "signed_delta": -746321000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest single 7720P sell makes signed delta more negative; the mixed/capped headline is not created by this trade.",
+      "additional_tests": [
+        {
+          "test": "exclude_largest_timestamp_package",
+          "excluded": "16:46:38 7700P/7720P vertical",
+          "gross_premium_remaining": 63997000,
+          "net_calls": -4432000,
+          "net_puts": -1757000,
+          "signed_delta": -658321000,
+          "changes_interpretation": false
+        },
+        {
+          "test": "exclude_22_16_to_22_18_defensive_cluster",
+          "excluded": "7580P/7620P/7660C cluster",
+          "gross_premium_remaining": 62577000,
+          "net_calls": -3503000,
+          "net_puts": -2364000,
+          "signed_delta": -303321000,
+          "changes_interpretation": false
+        }
+      ]
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "range_low": 7595,
+      "range_high": 7605,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "conditional_floor"
+      ],
+      "label": "7600 MAIN INVENTORY CENTER",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -22.25,
+      "flow": {
+        "call_buy": 4641000,
+        "call_sell": 4415000,
+        "put_buy": 1259000,
+        "put_sell": 2702000,
+        "net_calls": 226000,
+        "net_puts": -1443000,
+        "gross": 13017000,
+        "signed_delta": 285500000
+      },
+      "contract_context": {
+        "oi": 1681,
+        "volume": 8600,
+        "total_premium": 15200000,
+        "gamma_notional": 41000000
+      },
+      "interpretation": "Largest visible strike by premium and contract activity. Net put selling provides a supportive component, while exact intraday reversals show heavy churn. Treat as the main compensating inventory center, not as confirmed fresh support.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7600-same-session-reversal",
+          "str-7600c-7610p-long-movement"
+        ],
+        "notes": [
+          "Removing 7600 worsens aggregate signed delta materially."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7620-7630",
+      "price": 7625,
+      "range_low": 7620,
+      "range_high": 7630,
+      "role": [
+        "transition",
+        "complex_zone",
+        "magnet"
+      ],
+      "label": "7620-7630 ACTIVE BATTLEFIELD",
+      "strength": 0.93,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 2.75,
+      "flow": {
+        "call_buy": 2334000,
+        "call_sell": 3845000,
+        "put_buy": 2640000,
+        "put_sell": 2942000,
+        "net_calls": -1511000,
+        "net_puts": -302000,
+        "gross": 11761000,
+        "signed_delta": -206700000
+      },
+      "contract_context": {
+        "oi": 5114,
+        "volume": 7568,
+        "total_premium": 14084000,
+        "gamma_notional": 45000000
+      },
+      "interpretation": "Dense two-sided premium and repeated reversals make 7620-7630 the active decision/battlefield zone around the current spot. Directional meaning remains unresolved until price accepts outside the zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7580-7620-7660-defensive-cluster",
+          "str-7625-7645-call-ratio"
+        ],
+        "notes": [
+          "Current spot is inside this range."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7645-7660",
+      "price": 7650,
+      "range_low": 7645,
+      "range_high": 7660,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "complex_zone"
+      ],
+      "label": "7645-7660 UPPER SUPPLY",
+      "strength": 0.95,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 27.75,
+      "flow": {
+        "call_buy": 1183000,
+        "call_sell": 2704000,
+        "put_buy": 2336000,
+        "put_sell": 1745000,
+        "net_calls": -1521000,
+        "net_puts": 591000,
+        "gross": 7968000,
+        "signed_delta": -478500000
+      },
+      "contract_context": {
+        "oi": 5250,
+        "volume": 6153,
+        "total_premium": 8554000,
+        "gamma_notional": 36321000
+      },
+      "interpretation": "Repeated call selling is concentrated in this band, with 7660 carrying the most negative strike-level transaction delta. The fresh 7625/7645 ratio adds explicit monetization geometry near 7645 and an unfavorable zone above about 7665.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7580-7620-7660-defensive-cluster",
+          "str-7625-7645-call-ratio",
+          "str-7585-7590-7650-7655-range-package"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7590-7600",
+      "price": 7595,
+      "range_low": 7590,
+      "range_high": 7600,
+      "role": [
+        "conditional_floor",
+        "put_risk_acceptance",
+        "downside_protection"
+      ],
+      "label": "7590-7600 CONDITIONAL FLOOR / PROTECTION",
+      "strength": 0.87,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -27.25,
+      "flow": {
+        "call_buy": 5330000,
+        "call_sell": 4617000,
+        "put_buy": 2168000,
+        "put_sell": 3014000,
+        "net_calls": 713000,
+        "net_puts": -846000,
+        "gross": 15129000,
+        "signed_delta": 255100000
+      },
+      "contract_context": {
+        "oi": 5656,
+        "volume": 10300,
+        "total_premium": 18293000,
+        "gamma_notional": 48576000
+      },
+      "interpretation": "The band mixes 7600 put selling with bought protection at 7595 and nearby strikes. It is supportive only conditionally; acceptance below 7600 would invalidate the clean floor interpretation and expose 7595-7590.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7600-same-session-reversal",
+          "str-7585-7590-7650-7655-range-package"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7580",
+      "price": 7580,
+      "range_low": 7575,
+      "range_high": 7585,
+      "role": [
+        "transition",
+        "downside_protection"
+      ],
+      "label": "7580 LOWER TRANSITION",
+      "strength": 0.74,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -42.25,
+      "flow": {
+        "call_buy": 102000,
+        "call_sell": 203000,
+        "put_buy": 542000,
+        "put_sell": 485000,
+        "net_calls": -101000,
+        "net_puts": 57000,
+        "gross": 1332000,
+        "signed_delta": -14400000
+      },
+      "contract_context": {
+        "oi": 784,
+        "volume": 2279,
+        "total_premium": 1686000,
+        "gamma_notional": 7717000
+      },
+      "interpretation": "Large put turnover with both buys and sells makes 7580 a lower transition/battlefield rather than a confirmed floor.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7580-7620-7660-defensive-cluster"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7665",
+      "price": 7665,
+      "range_low": 7660,
+      "range_high": 7670,
+      "role": [
+        "transition",
+        "potential_cap"
+      ],
+      "label": "7665 RATIO BREAK-EVEN / UPSIDE TEST",
+      "strength": 0.8,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 42.75,
+      "flow": {
+        "call_buy": 318000,
+        "call_sell": 1277000,
+        "put_buy": 1556000,
+        "put_sell": 978000,
+        "net_calls": -959000,
+        "net_puts": 578000,
+        "gross": 4129000,
+        "signed_delta": -291800000
+      },
+      "contract_context": {
+        "oi": 1798,
+        "volume": 3117,
+        "total_premium": 3811000,
+        "gamma_notional": 17198000
+      },
+      "interpretation": "Approximate upper breakeven of the fresh 7625C/2x7645C ratio. Sustained acceptance above 7660-7665 would challenge the current upper-supply/monetization structure.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7625-7645-call-ratio"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "id": "tl-pre-1630",
+      "start": "2026-09-14T03:20:29+03:00",
+      "end": "2026-09-14T16:30:00+03:00",
+      "spot_open": 7618.05,
+      "spot_high": 7630.05,
+      "spot_low": 7593.25,
+      "spot_close": 7605.05,
+      "calls": {
+        "bought": 786000,
+        "sold": 1589000,
+        "net": -803000
+      },
+      "puts": {
+        "bought": 1450000,
+        "sold": 1585000,
+        "net": -135000
+      },
+      "gross_premium": 5410000,
+      "signed_delta": -121900000,
+      "near_spot": null,
+      "regime": "mixed",
+      "events": []
+    },
+    {
+      "id": "tl-1630-1800",
+      "start": "2026-09-14T16:30:00+03:00",
+      "end": "2026-09-14T18:00:00+03:00",
+      "spot_open": 7604.4,
+      "spot_high": 7624.0,
+      "spot_low": 7593.5,
+      "spot_close": 7599.25,
+      "calls": {
+        "bought": 5639000,
+        "sold": 6703000,
+        "net": -1064000
+      },
+      "puts": {
+        "bought": 5283000,
+        "sold": 5933000,
+        "net": -650000
+      },
+      "gross_premium": 23558000,
+      "signed_delta": -92382000,
+      "near_spot": null,
+      "regime": "mixed",
+      "events": [
+        "7600 exact same-session synthetic reversal",
+        "largest 7700P/7720P vertical package earlier in the interval"
+      ]
+    },
+    {
+      "id": "tl-1800-2000",
+      "start": "2026-09-14T18:00:00+03:00",
+      "end": "2026-09-14T20:00:00+03:00",
+      "spot_open": 7596.75,
+      "spot_high": 7648.3,
+      "spot_low": 7596.75,
+      "spot_close": 7644.5,
+      "calls": {
+        "bought": 3574000,
+        "sold": 4291000,
+        "net": -717000
+      },
+      "puts": {
+        "bought": 2273000,
+        "sold": 2716000,
+        "net": -443000
+      },
+      "gross_premium": 12854000,
+      "signed_delta": -80539000,
+      "near_spot": null,
+      "regime": "mixed",
+      "events": []
+    },
+    {
+      "id": "tl-2000-2200",
+      "start": "2026-09-14T20:00:00+03:00",
+      "end": "2026-09-14T22:00:00+03:00",
+      "spot_open": 7643.3,
+      "spot_high": 7643.3,
+      "spot_low": 7633.5,
+      "spot_close": 7635.8,
+      "calls": {
+        "bought": 1672000,
+        "sold": 2547000,
+        "net": -875000
+      },
+      "puts": {
+        "bought": 2382000,
+        "sold": 3331000,
+        "net": -949000
+      },
+      "gross_premium": 9932000,
+      "signed_delta": 36900000,
+      "near_spot": null,
+      "regime": "mixed",
+      "events": []
+    },
+    {
+      "id": "tl-2200-2230",
+      "start": "2026-09-14T22:00:00+03:00",
+      "end": "2026-09-14T22:30:00+03:00",
+      "spot_open": 7634.3,
+      "spot_high": 7634.5,
+      "spot_low": 7631.3,
+      "spot_close": 7632.5,
+      "calls": {
+        "bought": 370000,
+        "sold": 1885000,
+        "net": -1515000
+      },
+      "puts": {
+        "bought": 2959000,
+        "sold": 2268000,
+        "net": 691000
+      },
+      "gross_premium": 7482000,
+      "signed_delta": -490200000,
+      "near_spot": null,
+      "regime": "defensive_burst",
+      "events": [
+        "7660 call-supply burst",
+        "7620/7580 put churn",
+        "transaction delta about -$490M in bucket"
+      ]
+    },
+    {
+      "id": "tl-2230-2300",
+      "start": "2026-09-14T22:30:00+03:00",
+      "end": "2026-09-14T23:00:00+03:00",
+      "spot_open": 7633.0,
+      "spot_high": 7633.3,
+      "spot_low": 7623.0,
+      "spot_close": 7623.3,
+      "calls": {
+        "bought": 2045000,
+        "sold": 1350000,
+        "net": 695000
+      },
+      "puts": {
+        "bought": 1372000,
+        "sold": 1833000,
+        "net": -461000
+      },
+      "gross_premium": 6600000,
+      "signed_delta": 134800000,
+      "near_spot": null,
+      "regime": "late_offsetting",
+      "events": [
+        "late offsetting flow",
+        "7600C + 7610P long-movement-like package"
+      ]
+    },
+    {
+      "id": "tl-2300-plus",
+      "start": "2026-09-14T23:00:00+03:00",
+      "end": "2026-09-14T23:07:00+03:00",
+      "spot_open": 7623.75,
+      "spot_high": 7623.75,
+      "spot_low": 7621.05,
+      "spot_close": 7622.25,
+      "calls": {
+        "bought": 118000,
+        "sold": 271000,
+        "net": -153000
+      },
+      "puts": {
+        "bought": 81000,
+        "sold": 91000,
+        "net": -10000
+      },
+      "gross_premium": 561000,
+      "signed_delta": -44000000,
+      "near_spot": null,
+      "regime": "post_close_call_supply",
+      "events": [
+        "7625C/2x7645C ratio candidate",
+        "7650-7655 call sales with 7585/7590 put spread-like legs"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7700-7720-put-vertical",
+      "timestamp": "2026-09-14T16:46:38+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700.0,
+          "contracts": 120,
+          "premium": 1100000,
+          "price": 92.29,
+          "trade_ids": [
+            "9a6d87a5-3cda-4e2b-8b55-2a3786dfd71c"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7720.0,
+          "contracts": 120,
+          "premium": 1300000,
+          "price": 112.39,
+          "trade_ids": [
+            "cf5f2703-83a7-4712-9823-bd98c05b45e4"
+          ]
+        }
+      ],
+      "gross_premium": 2400000,
+      "net_premium": 241200,
+      "bias": "unclear",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700,
+        7720
+      ],
+      "interpretation": "Equal-size 7700P buy / 7720P sell is nearly delta-neutral. The quoted credit slightly exceeds the 20-point width, so fresh-opening economics are implausible at displayed prices; closing, restructure, or timestamp/quote artifact is more natural than a directional read.",
+      "ui_title": "7700P / 7720P Deep-ITM Vertical",
+      "evidence": {
+        "trade_ids": [
+          "9a6d87a5-3cda-4e2b-8b55-2a3786dfd71c",
+          "cf5f2703-83a7-4712-9823-bd98c05b45e4"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Largest timestamp package; removing it barely changes aggregate signed delta."
+        ]
+      }
+    },
+    {
+      "id": "str-7600-same-session-reversal",
+      "timestamp": "2026-09-14T17:49:42+03:00",
+      "type": "reversal",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7600.0,
+          "contracts": 100,
+          "premium": 218000,
+          "price": 21.83,
+          "trade_ids": [
+            "7a9e9346-ee0d-47d0-ac8f-4481799c66fa"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7600.0,
+          "contracts": 100,
+          "premium": 220000,
+          "price": 21.97,
+          "trade_ids": [
+            "6eccf129-002d-44a5-912d-abf4c6388892"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7600.0,
+          "contracts": 100,
+          "premium": 232000,
+          "price": 23.23,
+          "trade_ids": [
+            "f2012f88-dc73-40b3-b200-5758fdb6a5ef"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7600.0,
+          "contracts": 100,
+          "premium": 234000,
+          "price": 23.4,
+          "trade_ids": [
+            "9b40df30-c1f8-48a0-b4bf-c22a88144eaa"
+          ]
+        }
+      ],
+      "gross_premium": 904000,
+      "net_premium": null,
+      "bias": "neutral",
+      "basis": "observed",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7600
+      ],
+      "interpretation": "A 100-lot 7600C sell + 7600P buy is reversed 15 seconds later by 100-lot 7600C buy + 7600P sell. This is strong same-session churn/reversal evidence and argues against reading all 7600 volume as fresh positioning.",
+      "ui_title": "7600 Same-Session Synthetic Reversal",
+      "evidence": {
+        "trade_ids": [
+          "7a9e9346-ee0d-47d0-ac8f-4481799c66fa",
+          "6eccf129-002d-44a5-912d-abf4c6388892",
+          "f2012f88-dc73-40b3-b200-5758fdb6a5ef",
+          "9b40df30-c1f8-48a0-b4bf-c22a88144eaa"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Exact size and opposite-side reverse within 15 seconds."
+        ]
+      }
+    },
+    {
+      "id": "str-7580-7620-7660-defensive-cluster",
+      "timestamp": "2026-09-14T22:16:27+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7660.0,
+          "contracts": 300,
+          "premium": 204000,
+          "price": 6.8,
+          "trade_ids": [
+            "feeca555-1013-4058-87fd-0abf57e45f3f",
+            "ec5b704e-b587-417b-b3c7-21d82e8ae8bd"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7660.0,
+          "contracts": 1050,
+          "premium": 725000,
+          "price": 6.9,
+          "trade_ids": [
+            "af88ef18-1f70-4963-a79c-91ea095ee92b",
+            "f11d50c0-f780-4690-8b99-ac939c82499c",
+            "ecc47553-a050-4537-b689-271fb6af95d8"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7580.0,
+          "contracts": 450,
+          "premium": 270000,
+          "price": 6.0,
+          "trade_ids": [
+            "31d12772-e6d2-4606-adda-a3d2d2ed17d8"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7580.0,
+          "contracts": 300,
+          "premium": 183000,
+          "price": 6.1,
+          "trade_ids": [
+            "c80ce653-6f87-42ea-9816-f76e35794738",
+            "2407d82b-fd73-42a6-98f7-917e81690822"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7580.0,
+          "contracts": 600,
+          "premium": 354000,
+          "price": 5.9,
+          "trade_ids": [
+            "63b0f35b-cfd1-41e2-a0fc-97a581cc253b",
+            "002ab90c-be79-4c53-99a8-877375d6dbec"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7620.0,
+          "contracts": 450,
+          "premium": 671000,
+          "price": 14.9,
+          "trade_ids": [
+            "22ee11e8-eef4-4ae5-a2d6-e5c14bb749f6"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7620.0,
+          "contracts": 350,
+          "premium": 525000,
+          "price": 15.0,
+          "trade_ids": [
+            "7ba9f2cd-fb72-4295-bdf8-50930cde95c6",
+            "1c587096-45ee-4671-b91c-7ba2d0fb8ac2",
+            "15e5af1f-0a22-4c2c-aa13-f477353268d5"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7620.0,
+          "contracts": 600,
+          "premium": 888000,
+          "price": 14.8,
+          "trade_ids": [
+            "b31be947-88eb-4b50-b543-5bcfa3f794b1",
+            "2d707e01-cd89-4627-891c-4c0e56e131aa"
+          ]
+        }
+      ],
+      "gross_premium": 3820000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7580,
+        7620,
+        7660
+      ],
+      "interpretation": "Three-minute cluster combines repeated 7660C selling with heavy 7620P/7580P two-sided churn. Transaction delta is strongly negative, but put legs reverse inside the cluster, so the most durable component is upper call supply rather than a clean fresh downside opening.",
+      "ui_title": "7580 / 7620 / 7660 Defensive Cluster",
+      "evidence": {
+        "trade_ids": [
+          "feeca555-1013-4058-87fd-0abf57e45f3f",
+          "ec5b704e-b587-417b-b3c7-21d82e8ae8bd",
+          "af88ef18-1f70-4963-a79c-91ea095ee92b",
+          "f11d50c0-f780-4690-8b99-ac939c82499c",
+          "ecc47553-a050-4537-b689-271fb6af95d8",
+          "31d12772-e6d2-4606-adda-a3d2d2ed17d8",
+          "c80ce653-6f87-42ea-9816-f76e35794738",
+          "2407d82b-fd73-42a6-98f7-917e81690822",
+          "63b0f35b-cfd1-41e2-a0fc-97a581cc253b",
+          "002ab90c-be79-4c53-99a8-877375d6dbec",
+          "22ee11e8-eef4-4ae5-a2d6-e5c14bb749f6",
+          "7ba9f2cd-fb72-4295-bdf8-50930cde95c6",
+          "1c587096-45ee-4671-b91c-7ba2d0fb8ac2",
+          "15e5af1f-0a22-4c2c-aa13-f477353268d5",
+          "b31be947-88eb-4b50-b543-5bcfa3f794b1",
+          "2d707e01-cd89-4627-891c-4c0e56e131aa"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Cluster signed transaction delta about -$354M; removing it still leaves the session delta negative."
+        ]
+      }
+    },
+    {
+      "id": "str-7600c-7610p-long-movement",
+      "timestamp": "2026-09-14T22:44:03+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7600.0,
+          "contracts": 195,
+          "premium": 749000,
+          "price": 38.4,
+          "trade_ids": [
+            "7b483ace-9d64-4d02-8b2d-e2dedf69b737",
+            "0106e730-459a-493f-96c9-98f1154ddca0"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7610.0,
+          "contracts": 195,
+          "premium": 237000,
+          "price": 12.2,
+          "trade_ids": [
+            "c7335903-47ea-494b-865e-6dc716d04859",
+            "65ac870b-8b27-4cc6-a720-6b039b928629"
+          ]
+        }
+      ],
+      "gross_premium": 986000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7600,
+        7610
+      ],
+      "interpretation": "Matched 195-lot buys of 7600C and 7610P create a long-movement / positive-delta package candidate that partially offsets the earlier defensive burst. Linkage is not confirmed.",
+      "ui_title": "7600C + 7610P Long-Movement-like",
+      "evidence": {
+        "trade_ids": [
+          "7b483ace-9d64-4d02-8b2d-e2dedf69b737",
+          "0106e730-459a-493f-96c9-98f1154ddca0",
+          "c7335903-47ea-494b-865e-6dc716d04859",
+          "65ac870b-8b27-4cc6-a720-6b039b928629"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Same timestamp and matched aggregate size."
+        ]
+      }
+    },
+    {
+      "id": "str-7625-7645-call-ratio",
+      "timestamp": "2026-09-14T23:02:12+03:00",
+      "type": "ratio_call_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7625.0,
+          "contracts": 40,
+          "premium": 68000,
+          "price": 16.95,
+          "trade_ids": [
+            "88e386dd-c4c5-4e51-979c-73e403506e55"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7645.0,
+          "contracts": 80,
+          "premium": 68000,
+          "price": 8.48,
+          "trade_ids": [
+            "8bb22a31-c51c-43d6-948e-ecd4a7f3c25d"
+          ]
+        }
+      ],
+      "gross_premium": 136000,
+      "net_premium": 40,
+      "bias": "capped_upside",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7625,
+        7645,
+        7665
+      ],
+      "interpretation": "Likely 1x2 call ratio: buy 40 7625C and sell 80 7645C for approximately flat premium. Expiry value is maximized near 7645 and turns unfavorable above roughly 7665, making 7645-7665 a meaningful monetization/cap zone if the package is linked.",
+      "ui_title": "7625C / 2x7645C Call Ratio",
+      "evidence": {
+        "trade_ids": [
+          "88e386dd-c4c5-4e51-979c-73e403506e55",
+          "8bb22a31-c51c-43d6-948e-ecd4a7f3c25d"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Exact 1:2 size ratio and same timestamp."
+        ]
+      }
+    },
+    {
+      "id": "str-7585-7590-7650-7655-range-package",
+      "timestamp": "2026-09-14T23:04:58+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7650.0,
+          "contracts": 97,
+          "premium": 69000,
+          "price": 7.08,
+          "trade_ids": [
+            "58027961-18c1-4057-b30f-40c8b7e093f9"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7655.0,
+          "contracts": 97,
+          "premium": 56000,
+          "price": 5.75,
+          "trade_ids": [
+            "72931f7a-57a9-4ab0-ae47-679c2dcd4dce"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7585.0,
+          "contracts": 97,
+          "premium": 81000,
+          "price": 8.31,
+          "trade_ids": [
+            "929c3c6a-00da-4b49-aa2e-bfdfb146568c"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7590.0,
+          "contracts": 97,
+          "premium": 91000,
+          "price": 9.33,
+          "trade_ids": [
+            "c345415a-449d-4bac-9a90-5f9d9ae736a6"
+          ]
+        }
+      ],
+      "gross_premium": 297000,
+      "net_premium": 134345,
+      "bias": "range_capped",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7585,
+        7590,
+        7650,
+        7655
+      ],
+      "interpretation": "Same-time 7585P buy / 7590P sell plus 7650C and 7655C sales is consistent with a range-premium or financed downside-protection package. If linked, it prefers holding above roughly 7590 while keeping upside below 7650-7655; linkage is not proven.",
+      "ui_title": "7590 Floor / 7650-7655 Cap Package",
+      "evidence": {
+        "trade_ids": [
+          "58027961-18c1-4057-b30f-40c8b7e093f9",
+          "72931f7a-57a9-4ab0-ae47-679c2dcd4dce",
+          "929c3c6a-00da-4b49-aa2e-bfdfb146568c",
+          "c345415a-449d-4bac-9a90-5f9d9ae736a6"
+        ],
+        "structure_ids": [],
+        "notes": [
+          "Equal 97-lot sizing across all four visible legs."
+        ]
+      }
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7645-7665-ratio-cap",
+      "low": 7645,
+      "high": 7665,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "7625C/2x7645C ratio",
+        "upper call-supply inventory"
+      ],
+      "source_structure_ids": [
+        "str-7625-7645-call-ratio"
+      ],
+      "source_level_ids": [
+        "lvl-7645-7660",
+        "lvl-7665"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "The ratio-call payoff is maximized near 7645 and becomes unfavorable above roughly 7665.",
+      "caveat": "Package linkage is inferred from same timestamp and exact 1:2 sizing; complex-order ID is absent."
+    },
+    {
+      "id": "mz-7590-7600-conditional-floor",
+      "low": 7590,
+      "high": 7600,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "conditional put-risk acceptance",
+        "range inventory"
+      ],
+      "source_structure_ids": [
+        "str-7600-same-session-reversal",
+        "str-7585-7590-7650-7655-range-package"
+      ],
+      "source_level_ids": [
+        "lvl-7590-7600",
+        "lvl-7600"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Supportive 7600 inventory coexists with bought downside protection, creating a conditional rather than clean floor.",
+      "caveat": "Opening/closing is unknown; acceptance below 7600 can flip the role from support to instability."
+    },
+    {
+      "id": "mz-7620-7630-pin-chop",
+      "low": 7620,
+      "high": 7630,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "balanced short-dated inventory",
+        "two-sided churn"
+      ],
+      "source_structure_ids": [
+        "str-7580-7620-7660-defensive-cluster"
+      ],
+      "source_level_ids": [
+        "lvl-7620-7630"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "High two-sided activity around spot favors unresolved chop/pinning until price accepts outside the zone.",
+      "caveat": "No direct dealer-inventory proof and no next-day OI confirmation yet."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base-range",
+      "name": "Base range / unresolved inventory",
+      "bias": "mixed",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7600,
+          "description": "Keep the main compensating inventory center intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7645,
+          "description": "Remain below the first upper monetization/supply boundary"
+        }
+      ],
+      "route": [
+        7600,
+        7620,
+        7630,
+        7645
+      ],
+      "invalidations": [
+        "Acceptance below 7600",
+        "Acceptance above 7660-7665"
+      ],
+      "interpretation": "Inside 7600-7645/7660 the book is best treated as mixed inventory/chop, with 7620-7630 as the active battlefield."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside acceptance",
+      "bias": "bullish",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7660,
+          "description": "Absorb the main upper call-supply band"
+        },
+        {
+          "type": "hold_above",
+          "level": 7665,
+          "description": "Hold above the approximate upper ratio breakeven"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7660,
+          "description": "Fresh call demand should replace or absorb call supply"
+        }
+      ],
+      "route": [
+        7670,
+        7690,
+        7700
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7645"
+      ],
+      "interpretation": "Acceptance above 7660-7665 would challenge the current capped-range geometry and open a route toward 7670, then 7690-7700."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside acceptance",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7600,
+          "description": "Lose the main compensating inventory center"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7595,
+          "description": "Fresh downside protection expands through the lower band"
+        },
+        {
+          "type": "iv_expand",
+          "level": 7600,
+          "description": "Put volatility should confirm rather than compress"
+        }
+      ],
+      "route": [
+        7595,
+        7590,
+        7580
+      ],
+      "invalidations": [
+        "Fast reclaim of 7600 followed by acceptance back above 7620"
+      ],
+      "interpretation": "Loss of 7600 with fresh put demand converts the conditional floor into a downside route through 7595-7590 toward 7580."
+    },
+    {
+      "id": "sc-bullish-reversal",
+      "name": "Bullish reversal after failed downside",
+      "bias": "bullish",
+      "priority": 0.1,
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7600,
+          "description": "Recover 7600 after a downside probe"
+        },
+        {
+          "type": "accept_above",
+          "level": 7620,
+          "description": "Confirm return into the active transition zone"
+        }
+      ],
+      "route": [
+        7630,
+        7645
+      ],
+      "invalidations": [
+        "Renewed acceptance below 7590"
+      ],
+      "interpretation": "A failed break below 7600 followed by reclaim of 7600 and 7620 would favor a squeeze back through 7630 toward the upper supply band."
+    },
+    {
+      "id": "sc-bearish-reversal",
+      "name": "Bearish reversal after failed upside",
+      "bias": "bearish",
+      "priority": 0.1,
+      "triggers": [
+        {
+          "type": "failed_reclaim",
+          "level": 7660,
+          "description": "Fail to sustain trade through 7645-7660 supply"
+        },
+        {
+          "type": "accept_below",
+          "level": 7630,
+          "description": "Return below the upper edge of the active battlefield"
+        }
+      ],
+      "route": [
+        7620,
+        7600
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7665"
+      ],
+      "interpretation": "Failure in 7645-7660 followed by loss of 7630 would activate a mean-reversion/downside route back toward 7620 and 7600."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 596,
+    "deduplicated_rows": 567,
+    "duplicates_removed": 29,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "complex_order_id_coverage": 0.0,
+    "contract_profile_rows": 109,
+    "visible_contract_volume_share": 0.841641,
+    "visible_premium_share": 0.857986,
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening or closing.",
+      "complex_order_id is absent, so multileg linkage is inferred from timestamps, size ratios, strikes, and execution geometry.",
+      "29 economic duplicates were removed even though trade IDs differed.",
+      "Source rows claim America/New_York timezone, but the dump timing is inconsistent with that label; Cyprus clock is used as a working assumption for timeline buckets.",
+      "The visible $50k+ tape is not the full market position.",
+      "Next-day OI is required to distinguish fresh opening from churn, unwind, and restructure on key strikes."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

@@ -1,0 +1,798 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-14 23:04 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-14T23:04:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-tape-2026-09-14_23-03-10.csv",
+      "SPX-contract-2026-09-14_23-04-24.csv",
+      "UNKNOWN-tape-2026-09-13_18-04-49.csv",
+      "SPX-contract-2026-09-13_18-05-44.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7621.05,
+    "spot_change_from_previous_snapshot": -35.1,
+    "regime": "front_end_defensive_event_sensitive",
+    "bias": "bearish_front_end_mixed_curve",
+    "confidence": "medium",
+    "main_pivot": 7620,
+    "upper_decision_level": 7660,
+    "lower_decision_level": 7600
+  },
+  "summary": {
+    "headline": "Front-end SPX positioning shifted defensive into Tue/Wed while Thu/Fri remain materially more balanced.",
+    "key_points": [
+      "Tuesday carries the strongest immediate adverse transaction flow, with call supply at 7630-7660 and downside protection around 7580-7620.",
+      "Wednesday evolved into a clear FOMC event book: 7600 is the central volatility strike and 7380-7400 is the visible tail-protection zone.",
+      "Thursday added little new Monday risk because a 7650/7675/7700 post-FOMC structure was already established and is supported by OI migration.",
+      "Friday remains much more balanced; prior 7660 short-vol inventory received strong OI confirmation while 7600 became a new two-sided volatility center."
+    ],
+    "daily_note": "Stateful update from the Friday baseline through the Monday 2026-09-14 snapshot."
+  },
+  "flow_aggregate": {
+    "gross_premium": 118725000,
+    "signed_delta": -1021100000,
+    "calls": {
+      "bought": 24639000,
+      "sold": 28193000,
+      "net": -3554000
+    },
+    "puts": {
+      "bought": 34454000,
+      "sold": 31439000,
+      "net": 3015000
+    },
+    "near_spot": {
+      "distance_points": 50,
+      "gross_premium": 71946000,
+      "signed_delta": -1101700000,
+      "calls": {
+        "bought": 15379000,
+        "sold": 18910000,
+        "net": -3531000
+      },
+      "puts": {
+        "bought": 20533000,
+        "sold": 17124000,
+        "net": 3409000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "3f14f782-967e-4996-9524-cf900dc528a6",
+      "dominant_premium": 1300000,
+      "dominant_share": 0.0109,
+      "result": {
+        "net_calls": -3554000,
+        "net_puts": 4315000,
+        "signed_delta": -1095100000
+      },
+      "changes_interpretation": false,
+      "comment": "The largest single print does not explain the front-end defensive shift; the negative transaction delta remains broad."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-week-7660",
+      "price": 7660,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "inventory_center"
+      ],
+      "label": "WEEKLY UPPER REPAIR / INVENTORY ZONE",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 38.95,
+      "interpretation": "Tuesday call supply and previously confirmed Friday short-vol inventory converge near 7660."
+    },
+    {
+      "id": "lvl-week-7630",
+      "price": 7630,
+      "role": [
+        "transition",
+        "call_supply"
+      ],
+      "label": "FIRST UPSIDE TRANSITION",
+      "strength": 0.8,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 8.95,
+      "interpretation": "The first meaningful call-supply zone above the latest spot."
+    },
+    {
+      "id": "lvl-week-7620",
+      "price": 7620,
+      "role": [
+        "main_pivot",
+        "transition"
+      ],
+      "label": "ACTIVE WEEKLY PIVOT",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "testing",
+      "distance_from_spot": -1.05,
+      "interpretation": "Latest spot finished near 7620 and front-end put activity makes it the immediate decision pivot."
+    },
+    {
+      "id": "lvl-week-7600",
+      "price": 7600,
+      "role": [
+        "volatility_center",
+        "breakdown_trigger",
+        "complex_zone"
+      ],
+      "label": "MAJOR EVENT / VOLATILITY CENTER",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -21.05,
+      "interpretation": "Large Tuesday, Wednesday, and Friday activity makes 7600 the dominant cross-expiry event center."
+    },
+    {
+      "id": "lvl-week-7580-7595",
+      "range_low": 7580,
+      "range_high": 7595,
+      "role": [
+        "downside_protection",
+        "tail_zone"
+      ],
+      "label": "FRONT-END DOWNSIDE PROTECTION",
+      "strength": 0.75,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Bought Tuesday puts define the first downside realization zone below 7600."
+    },
+    {
+      "id": "lvl-week-7380-7400",
+      "range_low": 7380,
+      "range_high": 7400,
+      "role": [
+        "tail_zone",
+        "downside_protection"
+      ],
+      "label": "FOMC TAIL ZONE",
+      "strength": 0.7,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Large Wednesday put blocks define a far-downside FOMC tail hedge; opening requires OI confirmation."
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-tue-thu-stateful-roll",
+      "timestamp": null,
+      "type": "roll",
+      "legs": [],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "derived",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7675,
+        7700
+      ],
+      "interpretation": "The Friday Tue/Thu calendar complex is now supported by OI migration: Tuesday inventory fell while Thursday 7650P/7675P/7700C OI rose materially.",
+      "ui_title": "Tue-to-Thu Post-FOMC Risk Transfer",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Sep15 7650P OI change: -900",
+          "Sep15 7675P OI change: -1300",
+          "Sep17 7650P OI change: 1900",
+          "Sep17 7675P OI change: 2300",
+          "Sep17 7700C OI change: 2206"
+        ]
+      }
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-week-7600-7660",
+      "low": 7600,
+      "high": 7660,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "short-vol inventory",
+        "range structures",
+        "post-event inventory"
+      ],
+      "source_structure_ids": [
+        "str-tue-thu-stateful-roll"
+      ],
+      "source_level_ids": [
+        "lvl-week-7600",
+        "lvl-week-7620",
+        "lvl-week-7630",
+        "lvl-week-7660"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The cross-expiry book is densest from 7600 to 7660; staying inside this corridor favors churn and event-volatility pricing over a clean directional read.",
+      "caveat": "Tuesday transaction flow is materially more defensive than the rest of the curve, so a break below 7600 would weaken the range interpretation."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-15",
+      "label": "TUE 1DTE",
+      "expiration": "2026-09-15",
+      "dte": 1,
+      "reference_price": 7621.05,
+      "summary": {
+        "headline": "Front-end stress: call supply above spot and downside demand around 7580-7620."
+      },
+      "flow_aggregate": {
+        "gross_premium": 52025000,
+        "signed_delta": -728180000,
+        "calls": {
+          "bought": 10829000,
+          "sold": 14949000,
+          "net": -4120000
+        },
+        "puts": {
+          "bought": 12603000,
+          "sold": 13644000,
+          "net": -1041000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-tue-7660",
+          "price": 7660,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "TUE CALL SUPPLY / RECLAIM LEVEL",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Large 1DTE call selling makes 7660 the main upper repair level."
+        },
+        {
+          "id": "lvl-tue-7630",
+          "price": 7630,
+          "role": [
+            "call_supply",
+            "transition"
+          ],
+          "label": "TUE FIRST CAP / TRANSITION",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Heavy call selling around 7630 makes it the first upside friction zone."
+        },
+        {
+          "id": "lvl-tue-7620",
+          "price": 7620,
+          "role": [
+            "main_pivot",
+            "downside_protection",
+            "transition"
+          ],
+          "label": "TUE ACTIVE PIVOT",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "testing",
+          "interpretation": "Large put demand clusters near 7620 while spot finished close to this strike."
+        },
+        {
+          "id": "lvl-tue-7600",
+          "price": 7600,
+          "role": [
+            "complex_zone",
+            "breakdown_trigger"
+          ],
+          "label": "TUE DECISION / BREAKDOWN ZONE",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Very large two-sided flow makes 7600 the next decision zone rather than a one-way support."
+        },
+        {
+          "id": "lvl-tue-7580-7595",
+          "range_low": 7580,
+          "range_high": 7595,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "TUE DOWNSIDE PROTECTION",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Bought puts below the 7600 center define the immediate downside protection layer."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-tue-7580-7620-7660-defensive",
+          "timestamp": "2026-09-14T22:18:38+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7580,
+              "contracts": 450,
+              "premium": 270000
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7620,
+              "contracts": 450,
+              "premium": 671000
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7660,
+              "contracts": 450,
+              "premium": 311000
+            }
+          ],
+          "gross_premium": 1252000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "observed",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7580,
+            7620,
+            7660
+          ],
+          "interpretation": "Downside puts were bought while upside calls were sold; opening state is not proven.",
+          "ui_title": "Tue 7580/7620 puts + 7660 call-sale"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-16",
+      "label": "WED 2DTE / FOMC",
+      "expiration": "2026-09-16",
+      "dte": 2,
+      "reference_price": 7621.05,
+      "summary": {
+        "headline": "FOMC event book: dense 7600 volatility trading plus far-downside 7380-7400 convexity."
+      },
+      "flow_aggregate": {
+        "gross_premium": 24095000,
+        "signed_delta": -261701000,
+        "calls": {
+          "bought": 5298000,
+          "sold": 5714000,
+          "net": -416000
+        },
+        "puts": {
+          "bought": 7223000,
+          "sold": 5860000,
+          "net": 1363000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-wed-7600",
+          "price": 7600,
+          "role": [
+            "volatility_center",
+            "inventory_center",
+            "complex_zone"
+          ],
+          "label": "FOMC VOLATILITY CENTER",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Nearly $9M of gross call/put premium concentrates on 7600, with both long- and short-vol packages."
+        },
+        {
+          "id": "lvl-wed-7380-7400",
+          "range_low": 7380,
+          "range_high": 7400,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "FOMC TAIL CONVEXITY",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Large 7380P/7390P blocks create a far-downside event tail; next OI is needed to prove fresh opening."
+        },
+        {
+          "id": "lvl-wed-7675",
+          "price": 7675,
+          "role": [
+            "transition",
+            "upside_demand"
+          ],
+          "label": "WED UPPER TRANSITION",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Call buying and put selling appeared around 7675, but linkage/opening state remains uncertain."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-wed-7600-vol-cluster",
+          "timestamp": null,
+          "type": "unknown_complex",
+          "legs": [],
+          "gross_premium": 8944000,
+          "net_premium": null,
+          "bias": "mixed",
+          "basis": "derived",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7600
+          ],
+          "interpretation": "Multiple long- and short-vol packages make 7600 the dominant FOMC event-volatility center.",
+          "ui_title": "Wed 7600 FOMC Volatility Center"
+        },
+        {
+          "id": "str-wed-7380-7390-tail",
+          "timestamp": "2026-09-14T16:39:43+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7380,
+              "contracts": 2850,
+              "premium": 1148000
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 7390,
+              "contracts": 450,
+              "premium": 195000
+            }
+          ],
+          "gross_premium": 1343000,
+          "net_premium": null,
+          "bias": "bearish",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7380,
+            7390,
+            7400
+          ],
+          "interpretation": "Large put blocks define FOMC tail protection; OI confirmation is pending.",
+          "ui_title": "Wed 7380-7400 Tail Hedge"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-17",
+      "label": "THU 3DTE / POST-FOMC",
+      "expiration": "2026-09-17",
+      "dte": 3,
+      "reference_price": 7621.05,
+      "summary": {
+        "headline": "Post-FOMC book was largely pre-positioned; Monday added little new directional risk."
+      },
+      "flow_aggregate": {
+        "gross_premium": 7202000,
+        "signed_delta": -28261000,
+        "calls": {
+          "bought": 1342000,
+          "sold": 1015000,
+          "net": 327000
+        },
+        "puts": {
+          "bought": 2803000,
+          "sold": 2042000,
+          "net": 761000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-thu-7650",
+          "price": 7650,
+          "role": [
+            "downside_protection",
+            "transition"
+          ],
+          "label": "THU LOWER POST-FOMC LEG",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Baseline flow plus OI increase support a live downside-protection role."
+        },
+        {
+          "id": "lvl-thu-7675",
+          "price": 7675,
+          "role": [
+            "inventory_center",
+            "put_risk_acceptance"
+          ],
+          "label": "THU CENTRAL INVENTORY",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Large OI increase in 7675P is consistent with fresh short-put inventory within the post-FOMC structure."
+        },
+        {
+          "id": "lvl-thu-7700",
+          "price": 7700,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "THU UPSIDE CONVEXITY",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Large OI growth in 7700C supports a pre-positioned upside leg for post-FOMC repricing."
+        }
+      ],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-18",
+      "label": "FRI 4DTE",
+      "expiration": "2026-09-18",
+      "dte": 4,
+      "reference_price": 7621.05,
+      "summary": {
+        "headline": "Friday remains balanced: confirmed 7660 short-vol inventory with a newer 7600 volatility center."
+      },
+      "flow_aggregate": {
+        "gross_premium": 35403000,
+        "signed_delta": -2958000,
+        "calls": {
+          "bought": 7170000,
+          "sold": 6515000,
+          "net": 655000
+        },
+        "puts": {
+          "bought": 11825000,
+          "sold": 9893000,
+          "net": 1932000
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-fri-7660",
+          "price": 7660,
+          "role": [
+            "inventory_center",
+            "volatility_center",
+            "pin"
+          ],
+          "label": "FRI CONFIRMED SHORT-VOL INVENTORY",
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Prior 7660 call/put selling was followed by roughly +1348 call OI and +1300 put OI, strongly supporting fresh short-vol inventory."
+        },
+        {
+          "id": "lvl-fri-7600",
+          "price": 7600,
+          "role": [
+            "volatility_center",
+            "complex_zone",
+            "transition"
+          ],
+          "label": "FRI NEW VOLATILITY CENTER",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Monday added large two-sided call/put premium around 7600, broadening the weekly vol center lower."
+        },
+        {
+          "id": "lvl-fri-7500",
+          "price": 7500,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "FRI TAIL LAYER",
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Fresh-looking put buying adds a lower Friday protection layer, though opening remains unconfirmed."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-fri-7660-short-vol",
+          "timestamp": null,
+          "type": "short_straddle",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7660,
+              "contracts": null,
+              "premium": null
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7660,
+              "contracts": null,
+              "premium": null
+            }
+          ],
+          "gross_premium": null,
+          "net_premium": null,
+          "bias": "neutral",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "probable_open",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7660
+          ],
+          "interpretation": "The prior 7660 short-vol cluster received strong next-day OI confirmation; exact complex linkage remains unproven.",
+          "ui_title": "Fri 7660 Short-Vol Inventory"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-fri-7660-pin",
+          "low": 7655,
+          "high": 7665,
+          "type": "pin_decay",
+          "beneficiaries": [
+            "probable short-vol inventory"
+          ],
+          "source_structure_ids": [
+            "str-fri-7660-short-vol"
+          ],
+          "source_level_ids": [
+            "lvl-fri-7660"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "If price returns to 7660 without renewed IV expansion, the confirmed short-vol inventory favors decay/pinning.",
+          "caveat": "Pinning is conditional; the Monday front-end tape shifted the active battlefield lower."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-downside-front-end",
+      "name": "Front-end downside realization",
+      "bias": "bearish",
+      "priority": 0.45,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7600,
+          "description": "Lose the cross-expiry event center"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7600,
+          "description": "Fresh put demand spreads below the current pivot"
+        }
+      ],
+      "route": [
+        7595,
+        7580,
+        7500,
+        7400
+      ],
+      "invalidations": [
+        "Reclaim 7620 and hold above 7630",
+        "Front-end put demand reverses or OI fails to confirm"
+      ],
+      "interpretation": "Acceptance below 7600 would activate the Tuesday protection layer first and increase the relevance of the lower Wednesday/FOMC tail."
+    },
+    {
+      "id": "sc-upside-repair",
+      "name": "Upside repair / defensive unwind",
+      "bias": "bullish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7630,
+          "description": "Recover the first call-supply zone"
+        },
+        {
+          "type": "accept_above",
+          "level": 7660,
+          "description": "Absorb the main front-end call supply and Friday inventory center"
+        }
+      ],
+      "route": [
+        7630,
+        7660,
+        7700
+      ],
+      "invalidations": [
+        "Lose 7620 after reclaim",
+        "New 1DTE call selling rebuilds at 7630-7660"
+      ],
+      "interpretation": "A sustained reclaim of 7630 followed by acceptance above 7660 would argue that Monday defensive flow is being absorbed or unwound."
+    },
+    {
+      "id": "sc-event-range",
+      "name": "Event range / volatility pricing",
+      "bias": "mixed",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7600,
+          "description": "Keep the event center intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7660,
+          "description": "Fail to absorb the upper inventory/call-supply zone"
+        }
+      ],
+      "route": [
+        7600,
+        7620,
+        7630,
+        7660
+      ],
+      "invalidations": [
+        "Sustained acceptance below 7600",
+        "Sustained acceptance above 7660"
+      ],
+      "interpretation": "Inside 7600-7660 the weekly book remains event-sensitive and internally offset, favoring churn until FOMC risk resolves."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 1008,
+    "deduplicated_rows": 969,
+    "duplicates_removed": 39,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening/closing.",
+      "Many prints are flagged Spread but complex_order_id is unavailable.",
+      "Raw timestamp clock and timezone metadata are internally inconsistent, so flow_timeline is intentionally left empty.",
+      "OI is netted and is confirmation evidence, not proof of a single participant's position.",
+      "Visible tape is filtered and is not the complete option market."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
