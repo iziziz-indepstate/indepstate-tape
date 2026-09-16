@@ -1,0 +1,1276 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-16 07:01 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-16T07:01:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-tape-2026-09-16_06-18-02.csv",
+      "SPX-contract-2026-09-16_06-18-52.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7593.45,
+    "spot_change_from_previous_snapshot": -27.6,
+    "regime": "event_convexity",
+    "bias": "downside_skewed_mixed",
+    "confidence": "medium",
+    "main_pivot": 7600,
+    "upper_decision_level": 7660,
+    "lower_decision_level": 7580
+  },
+  "summary": {
+    "headline": "FOMC-day weekly book: 7580-7600 event center, confirmed 7390 tail, new Friday 7600 synthetic-short-like package.",
+    "key_points": [
+      "Wednesday 7380P/7390P tail flow is strongly supported by OI growth and remains active into FOMC.",
+      "Thursday shifted from quiet to long-convexity/downside-skewed as tail risk was extended through the event.",
+      "Friday negative transaction delta is concentrated in the 7600 synthetic-short-like package rather than broad uniform selling.",
+      "Prior Friday 7500 put protection and 7660 call-cap inventory both show opposite-side flow consistent with monetization or partial unwind."
+    ],
+    "daily_note": "Latest tape covers the 2026-09-15 session; this payload is packaged on 2026-09-16 before the FOMC decision."
+  },
+  "flow_aggregate": {
+    "gross_premium": 132990000,
+    "calls": {
+      "bought": 30189000,
+      "sold": 23522000,
+      "net": 6667000
+    },
+    "puts": {
+      "bought": 42446000,
+      "sold": 36833000,
+      "net": 5613000
+    },
+    "signed_delta": -645138000,
+    "near_spot": {
+      "distance_points": 50,
+      "calls": {
+        "bought": 10684000,
+        "sold": 11953000,
+        "net": -1269000
+      },
+      "puts": {
+        "bought": 16250000,
+        "sold": 12871000,
+        "net": 3379000
+      },
+      "gross_premium": 51758000,
+      "signed_delta": -392600000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-fri-5500-deep-itm-calls",
+      "dominant_premium": 8400000,
+      "dominant_share": 0.0632,
+      "result": {
+        "net_calls": -1733000,
+        "net_puts": 5613000,
+        "signed_delta": -675538000
+      },
+      "changes_interpretation": true,
+      "comment": "Removing the 5500 deep-ITM call package flips raw net-call premium from positive to negative; it is excluded from directional call-demand interpretation."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-weekly-7600",
+      "price": 7600.0,
+      "range_low": null,
+      "range_high": null,
+      "role": [
+        "main_pivot",
+        "volatility_center",
+        "transition"
+      ],
+      "label": "WEEKLY EVENT PIVOT / FRI SYNTHETIC CENTER",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 6.55,
+      "flow": {
+        "call_buy": 595000,
+        "call_sell": 1459000,
+        "put_buy": 3217000,
+        "put_sell": 1694000,
+        "net_calls": -864000,
+        "net_puts": 1523000,
+        "gross": 6965000,
+        "signed_delta": -187700000
+      },
+      "interpretation": "7600 is the dominant weekly decision area: Wednesday event activity clusters nearby and Friday carries the new synthetic-short-like package here.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7600-synthetic-short"
+        ],
+        "notes": [
+          "Friday OI: 7600P 4600->6000; 7600C 3800->4300."
+        ]
+      }
+    },
+    {
+      "id": "lvl-weekly-7580",
+      "price": 7580.0,
+      "range_low": null,
+      "range_high": null,
+      "role": [
+        "transition",
+        "volatility_center"
+      ],
+      "label": "FOMC NOISY MIDDLE",
+      "strength": 0.86,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -13.45,
+      "flow": {
+        "call_buy": 398000,
+        "call_sell": 294000,
+        "put_buy": 1518000,
+        "put_sell": 1193000,
+        "net_calls": 104000,
+        "net_puts": 325000,
+        "gross": 3403000,
+        "signed_delta": -25900000
+      },
+      "interpretation": "7580-7600 is the dense event-volatility middle rather than a clean directional strike.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-weekly-7390",
+      "price": 7390.0,
+      "range_low": null,
+      "range_high": null,
+      "role": [
+        "downside_protection",
+        "tail_zone"
+      ],
+      "label": "CONFIRMED WED/THU TAIL ANCHOR",
+      "strength": 0.97,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -203.45,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 440000,
+        "put_sell": 0,
+        "net_calls": 0,
+        "net_puts": 440000,
+        "gross": 440000,
+        "signed_delta": -80000000
+      },
+      "interpretation": "7390 is the strongest confirmed downside-convexity anchor: opening-like Wednesday tail flow was followed by a large OI increase and extension into Thursday.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-cross-wed-thu-7380-7390-tail",
+          "str-thu-7390-7380-put-spread-roll"
+        ],
+        "notes": [
+          "Sep16 7390P OI: 406->6400."
+        ]
+      }
+    },
+    {
+      "id": "lvl-weekly-7380",
+      "price": 7380.0,
+      "range_low": null,
+      "range_high": null,
+      "role": [
+        "tail_zone",
+        "complex_zone"
+      ],
+      "label": "LOWER TAIL WING / FINANCING LEG",
+      "strength": 0.91,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -213.45,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 295000,
+        "put_sell": 268000,
+        "net_calls": 0,
+        "net_puts": 27000,
+        "gross": 563000,
+        "signed_delta": -6000000
+      },
+      "interpretation": "7380 remains part of the tail complex but later selling makes it increasingly look like a lower financing wing beneath 7390.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-cross-wed-thu-7380-7390-tail",
+          "str-thu-7390-7380-put-spread-roll"
+        ],
+        "notes": [
+          "Sep16 7380P OI: 456->6500."
+        ]
+      }
+    },
+    {
+      "id": "lvl-weekly-7660",
+      "price": 7660.0,
+      "range_low": null,
+      "range_high": null,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "LEGACY FRI CALL CAP / UNWIND WATCH",
+      "strength": 0.78,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 66.55,
+      "flow": {
+        "call_buy": 704000,
+        "call_sell": 0,
+        "put_buy": 266000,
+        "put_sell": 72000,
+        "net_calls": 704000,
+        "net_puts": 194000,
+        "gross": 1042000,
+        "signed_delta": 66300000
+      },
+      "interpretation": "The earlier 7660 short-vol/call-supply inventory remains relevant, but new 7660C buying creates a partial-unwind hypothesis.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7660-call-unwind"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-weekly-7500",
+      "price": 7500.0,
+      "range_low": null,
+      "range_high": null,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "FRI HEDGE MONETIZATION ZONE",
+      "strength": 0.74,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -93.45,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 163000,
+        "put_sell": 1322000,
+        "net_calls": 0,
+        "net_puts": -1159000,
+        "gross": 1485000,
+        "signed_delta": 102500000
+      },
+      "interpretation": "Prior Friday 7500 put buying is met by a near-size put sale, consistent with hedge monetization or closing.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7500-put-monetization"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-cross-wed-thu-7380-7390-tail",
+      "timestamp": "2026-09-15T16:37:27-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7380,
+          "contracts": 1990,
+          "premium": 233000,
+          "trade_ids": [
+            "9a9385ea-3692-43f5-8fb5-2695b56c926c"
+          ]
+        },
+        {
+          "expiration": "2026-09-16",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7390,
+          "contracts": 2843,
+          "premium": 370000,
+          "trade_ids": [
+            "03de2af2-5101-400d-acc7-f74038600d9b",
+            "a1e47975-0d9c-4f1c-9aa8-c30542202c47",
+            "6c756de3-d3c2-41fa-951c-304b5e2b71dc"
+          ]
+        },
+        {
+          "expiration": "2026-09-17",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7380,
+          "contracts": 2843,
+          "premium": 1094000,
+          "trade_ids": [
+            "b7a29935-6351-440e-9ead-704a8155307e",
+            "867daee8-a82b-44a9-a602-1aadbf6e9b2b",
+            "557f7527-5f7f-43c1-9371-fcb27bb15372"
+          ]
+        },
+        {
+          "expiration": "2026-09-17",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7390,
+          "contracts": 853,
+          "premium": 356000,
+          "trade_ids": [
+            "21dcb772-382b-4b60-9dde-062416166928",
+            "73554d99-9948-4333-8e99-99128cd1099a"
+          ]
+        }
+      ],
+      "gross_premium": 2053000,
+      "net_premium": -2053000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "probable_open",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7380,
+        7390
+      ],
+      "interpretation": "Cross-expiry downside convexity carried through FOMC into Thursday; Wednesday OI confirmation materially strengthens the fresh-opening hypothesis.",
+      "ui_title": "Wed/Thu 7380-7390 FOMC Tail"
+    },
+    {
+      "id": "str-thu-7390-7380-put-spread-roll",
+      "timestamp": "2026-09-15T23:02:35-04:00",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "expiration": "2026-09-17",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7380,
+          "contracts": 2850,
+          "premium": 1083000,
+          "trade_ids": [
+            "3e05e0de-0659-4516-b9c5-3fb4f17aa533",
+            "0c1dbebc-b852-4926-b21f-4f354d5cb764"
+          ]
+        },
+        {
+          "expiration": "2026-09-17",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7390,
+          "contracts": 2850,
+          "premium": 1189000,
+          "trade_ids": [
+            "013a5f91-7c42-4372-8668-3159d500ad03",
+            "c25047e9-e57b-4c63-b650-6ecfdb86a8c4"
+          ]
+        }
+      ],
+      "gross_premium": 2272000,
+      "net_premium": -106000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7380,
+        7390
+      ],
+      "interpretation": "Lower 7380 wing is sold while 7390 is bought, concentrating Thursday tail exposure at 7390.",
+      "ui_title": "Thu 7390/7380 Put-Spread Roll"
+    },
+    {
+      "id": "str-fri-7600-synthetic-short",
+      "timestamp": "2026-09-15T20:18:50-04:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "expiration": "2026-09-18",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7600,
+          "contracts": 250,
+          "premium": 1000000,
+          "trade_ids": [
+            "d631c7cc-a425-4440-a457-707fb3d5e35e"
+          ]
+        },
+        {
+          "expiration": "2026-09-18",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7600,
+          "contracts": 250,
+          "premium": 1400000,
+          "trade_ids": [
+            "72f24dee-6c8a-4176-9f71-986d024eb6ae"
+          ]
+        }
+      ],
+      "gross_premium": 2400000,
+      "net_premium": -400000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7600
+      ],
+      "interpretation": "Same-strike, same-size call sale plus put purchase creates a synthetic-short-like Friday package. Freshness still requires next OI.",
+      "ui_title": "Fri 7600 Synthetic Short-like"
+    },
+    {
+      "id": "str-fri-5500-deep-itm-calls",
+      "timestamp": null,
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 5500,
+          "contracts": 40,
+          "premium": 8400000,
+          "trade_ids": [
+            "6623498b-095c-44e8-9bff-f22ca15f4824",
+            "fd32085e-0312-493d-a03b-a61d379b5dad",
+            "baa00bc3-fd2a-44f3-a874-8bfa7a9f7096",
+            "354f3690-f855-4d55-ac49-bd2c5752b2d6"
+          ]
+        }
+      ],
+      "gross_premium": 8400000,
+      "net_premium": -8400000,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        5500
+      ],
+      "interpretation": "Deep-ITM intrinsic-heavy package; treated as financing/complex-like and excluded from directional call-premium interpretation.",
+      "ui_title": "Fri 5500 Deep-ITM Financing-like Calls"
+    },
+    {
+      "id": "str-fri-7500-put-monetization",
+      "timestamp": "2026-09-15T20:58:12-04:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "expiration": "2026-09-18",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7500,
+          "contracts": 400,
+          "premium": 895000,
+          "trade_ids": [
+            "2cb6f3e4-5a24-42ea-9280-8fb4e85b5246",
+            "5940e0e3-592f-41c8-9518-cb08bd249eb3"
+          ]
+        }
+      ],
+      "gross_premium": 895000,
+      "net_premium": 895000,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "probable_close",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7500
+      ],
+      "interpretation": "Near-size reverse to the prior-session Friday 7500 put buying; monetization/closing is a stronger competing hypothesis than fresh short-put risk acceptance.",
+      "ui_title": "Fri 7500 Put Monetization Candidate"
+    },
+    {
+      "id": "str-fri-7660-call-unwind",
+      "timestamp": "2026-09-15T20:58:12-04:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "expiration": "2026-09-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7660,
+          "contracts": 400,
+          "premium": 704000,
+          "trade_ids": [
+            "b1a6b68b-f7f5-405d-b557-a03584e5b572",
+            "0dade52e-95fe-4994-a35e-f74ab2aa62a2"
+          ]
+        }
+      ],
+      "gross_premium": 704000,
+      "net_premium": -704000,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "probable_close",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7660
+      ],
+      "interpretation": "Opposite-side flow versus the earlier large 7660C sale; possible partial unwind of the old Friday call cap.",
+      "ui_title": "Fri 7660 Call-Cap Unwind Candidate"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7580-7600-event-middle",
+      "low": 7580,
+      "high": 7600,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "event-volatility inventory",
+        "short-dated spread books"
+      ],
+      "source_structure_ids": [
+        "str-fri-7600-synthetic-short"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7580",
+        "lvl-weekly-7600"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Dense two-sided flow creates the main FOMC decision middle.",
+      "caveat": "This is an activity/transition zone, not a guaranteed pin."
+    },
+    {
+      "id": "mz-7380-7390-tail",
+      "low": 7380,
+      "high": 7390,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "long-put tail inventory",
+        "post-FOMC downside convexity"
+      ],
+      "source_structure_ids": [
+        "str-cross-wed-thu-7380-7390-tail",
+        "str-thu-7390-7380-put-spread-roll"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7380",
+        "lvl-weekly-7390"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Confirmed tail-inventory zone with 7390 increasingly acting as the active anchor and 7380 as the lower financing wing.",
+      "caveat": "A tail hedge is not a price target."
+    },
+    {
+      "id": "mz-fri-7500-monetization",
+      "low": 7495,
+      "high": 7505,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "holders monetizing prior downside protection"
+      ],
+      "source_structure_ids": [
+        "str-fri-7500-put-monetization"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7500"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Near-size opposite-side flow suggests prior Friday 7500 protection is being reduced.",
+      "caveat": "Closing remains a hypothesis without direct participant identity."
+    },
+    {
+      "id": "mz-fri-7660-cap-unwind",
+      "low": 7655,
+      "high": 7665,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "participants unwinding prior short-call inventory"
+      ],
+      "source_structure_ids": [
+        "str-fri-7660-call-unwind"
+      ],
+      "source_level_ids": [
+        "lvl-weekly-7660"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Opposite-side call buying makes the old 7660 cap less secure than at baseline.",
+      "caveat": "Next OI is needed to confirm actual cap removal."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-16",
+      "label": "WED 0DTE / FOMC",
+      "expiration": "2026-09-16",
+      "dte": 0,
+      "forward": null,
+      "reference_price": 7593.45,
+      "summary": {
+        "headline": "FOMC event book: 7580-7600 noisy center with confirmed 7380-7390 downside tail inventory."
+      },
+      "flow_aggregate": {
+        "gross_premium": 54151000,
+        "calls": {
+          "bought": 7966000,
+          "sold": 11299000,
+          "net": -3333000
+        },
+        "puts": {
+          "bought": 16926000,
+          "sold": 17960000,
+          "net": -1034000
+        },
+        "signed_delta": -148962000
+      },
+      "levels": [
+        {
+          "id": "lvl-2026-09-16-7600",
+          "price": 7600.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "main_pivot",
+            "volatility_center"
+          ],
+          "label": "FOMC 7600 EVENT CENTER",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 6.55,
+          "flow": {
+            "call_buy": 665000,
+            "call_sell": 757000,
+            "put_buy": 1120000,
+            "put_sell": 478000,
+            "net_calls": -92000,
+            "net_puts": 642000,
+            "gross": 3020000,
+            "signed_delta": -85900000
+          },
+          "interpretation": "Heavy two-sided activity; near-spot book is mixed despite negative total transaction delta.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-16-7580",
+          "price": 7580.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "transition",
+            "volatility_center"
+          ],
+          "label": "7580 EVENT TRANSITION",
+          "strength": 0.84,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -13.45,
+          "flow": {
+            "call_buy": 398000,
+            "call_sell": 294000,
+            "put_buy": 1518000,
+            "put_sell": 1193000,
+            "net_calls": 104000,
+            "net_puts": 325000,
+            "gross": 3403000,
+            "signed_delta": -25900000
+          },
+          "interpretation": "Dense call/put turnover makes this part of the noisy event middle.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-16-7390",
+          "price": 7390.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "7390 CONFIRMED TAIL",
+          "strength": 0.98,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -203.45,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 440000,
+            "put_sell": 0,
+            "net_calls": 0,
+            "net_puts": 440000,
+            "gross": 440000,
+            "signed_delta": -80000000
+          },
+          "interpretation": "Repeated put buying plus large OI increase confirms material downside convexity.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "OI 406->6400."
+            ]
+          }
+        },
+        {
+          "id": "lvl-2026-09-16-7380",
+          "price": 7380.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "tail_zone",
+            "complex_zone"
+          ],
+          "label": "7380 LOWER TAIL WING",
+          "strength": 0.92,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -213.45,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 295000,
+            "put_sell": 268000,
+            "net_calls": 0,
+            "net_puts": 27000,
+            "gross": 563000,
+            "signed_delta": -6000000
+          },
+          "interpretation": "Large OI increase confirms opening tail inventory, but same-session sells make this a lower wing rather than a pure standalone directional put.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "OI 456->6500."
+            ]
+          }
+        }
+      ],
+      "structures": [
+        "str-cross-wed-thu-7380-7390-tail"
+      ],
+      "monetization_zones": [
+        "mz-7580-7600-event-middle",
+        "mz-7380-7390-tail"
+      ]
+    },
+    {
+      "id": "exp-2026-09-17",
+      "label": "THU 1DTE / POST-FOMC",
+      "expiration": "2026-09-17",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7593.45,
+      "summary": {
+        "headline": "Post-FOMC book shifted from quiet to long-convexity with strong downside skew concentrated in 7380-7390."
+      },
+      "flow_aggregate": {
+        "gross_premium": 24500000,
+        "calls": {
+          "bought": 4642000,
+          "sold": 2722000,
+          "net": 1920000
+        },
+        "puts": {
+          "bought": 10457000,
+          "sold": 6679000,
+          "net": 3778000
+        },
+        "signed_delta": -244894000
+      },
+      "levels": [
+        {
+          "id": "lvl-2026-09-17-7600",
+          "price": 7600.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "volatility_center",
+            "transition"
+          ],
+          "label": "POST-FOMC 7600 CENTER",
+          "strength": 0.8,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 6.55,
+          "flow": {
+            "call_buy": 667000,
+            "call_sell": 408000,
+            "put_buy": 636000,
+            "put_sell": 351000,
+            "net_calls": 259000,
+            "net_puts": 285000,
+            "gross": 2062000,
+            "signed_delta": 5300000
+          },
+          "interpretation": "Near-spot flow is comparatively balanced; the negative expiry headline is mostly tail-driven.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-17-7675",
+          "price": 7675.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "7675 UPSIDE CONVEXITY",
+          "strength": 0.72,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 81.55,
+          "flow": {
+            "call_buy": 688000,
+            "call_sell": 115000,
+            "put_buy": 84000,
+            "put_sell": 0,
+            "net_calls": 573000,
+            "net_puts": 84000,
+            "gross": 887000,
+            "signed_delta": 81900000
+          },
+          "interpretation": "Net call buying keeps upside convexity alive in the post-FOMC expiry.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-17-7500",
+          "price": 7500.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "downside_protection"
+          ],
+          "label": "7500 WORKING PROTECTION",
+          "strength": 0.76,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -93.45,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 1080000,
+            "put_sell": 745000,
+            "net_calls": 0,
+            "net_puts": 335000,
+            "gross": 1825000,
+            "signed_delta": -38000000
+          },
+          "interpretation": "Material put demand below spot extends protection above the extreme tail.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-17-7390",
+          "price": 7390.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "downside_protection",
+            "tail_zone"
+          ],
+          "label": "7390 POST-FOMC TAIL ANCHOR",
+          "strength": 0.97,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -203.45,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 1767000,
+            "put_sell": 0,
+            "net_calls": 0,
+            "net_puts": 1767000,
+            "gross": 1767000,
+            "signed_delta": -221000000
+          },
+          "interpretation": "Large put buying and the 7390/7380 spread-roll concentrate downside convexity here.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-17-7380",
+          "price": 7380.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "tail_zone",
+            "complex_zone"
+          ],
+          "label": "7380 LOWER FINANCING WING",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -213.45,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 1298000,
+            "put_sell": 1083000,
+            "net_calls": 0,
+            "net_puts": 215000,
+            "gross": 2381000,
+            "signed_delta": -28000000
+          },
+          "interpretation": "Large same-day sells offset earlier buys; increasingly functions as the lower wing beneath 7390.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        "str-cross-wed-thu-7380-7390-tail",
+        "str-thu-7390-7380-put-spread-roll"
+      ],
+      "monetization_zones": [
+        "mz-7380-7390-tail"
+      ]
+    },
+    {
+      "id": "exp-2026-09-18",
+      "label": "FRI 2DTE",
+      "expiration": "2026-09-18",
+      "dte": 2,
+      "forward": null,
+      "reference_price": 7593.45,
+      "summary": {
+        "headline": "Friday headline delta is concentrated in a new 7600 synthetic-short-like package while older 7500 protection and 7660 call-cap inventory show unwind signals."
+      },
+      "flow_aggregate": {
+        "gross_premium": 54339000,
+        "calls": {
+          "bought": 17581000,
+          "sold": 9501000,
+          "net": 8080000
+        },
+        "puts": {
+          "bought": 15063000,
+          "sold": 12194000,
+          "net": 2869000
+        },
+        "signed_delta": -251282000
+      },
+      "levels": [
+        {
+          "id": "lvl-2026-09-18-7600",
+          "price": 7600.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "main_pivot",
+            "volatility_center",
+            "transition"
+          ],
+          "label": "7600 SYNTHETIC-SHORT CENTER",
+          "strength": 0.97,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 6.55,
+          "flow": {
+            "call_buy": 595000,
+            "call_sell": 1459000,
+            "put_buy": 3217000,
+            "put_sell": 1694000,
+            "net_calls": -864000,
+            "net_puts": 1523000,
+            "gross": 6965000,
+            "signed_delta": -187700000
+          },
+          "interpretation": "Friday's largest directional package is centered here; OI confirmation is still needed for fresh-position status.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-18-7500",
+          "price": 7500.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "downside_protection",
+            "transition"
+          ],
+          "label": "7500 HEDGE MONETIZATION",
+          "strength": 0.76,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -93.45,
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "put_buy": 163000,
+            "put_sell": 1322000,
+            "net_calls": 0,
+            "net_puts": -1159000,
+            "gross": 1485000,
+            "signed_delta": 102500000
+          },
+          "interpretation": "Put sales reverse a near-size prior protection build, favoring a closing/monetization hypothesis.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-18-7660",
+          "price": 7660.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "call_supply",
+            "potential_cap",
+            "transition"
+          ],
+          "label": "7660 LEGACY CAP / UNWIND WATCH",
+          "strength": 0.78,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 66.55,
+          "flow": {
+            "call_buy": 704000,
+            "call_sell": 0,
+            "put_buy": 266000,
+            "put_sell": 72000,
+            "net_calls": 704000,
+            "net_puts": 194000,
+            "gross": 1042000,
+            "signed_delta": 66300000
+          },
+          "interpretation": "New call buying is opposite to the earlier large 7660C sale and may reduce the old cap.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-2026-09-18-7700",
+          "price": 7700.0,
+          "range_low": null,
+          "range_high": null,
+          "role": [
+            "call_supply",
+            "downside_protection",
+            "complex_zone"
+          ],
+          "label": "7700 UPPER COMPLEX",
+          "strength": 0.7,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 106.55,
+          "flow": {
+            "call_buy": 202000,
+            "call_sell": 384000,
+            "put_buy": 1029000,
+            "put_sell": 165000,
+            "net_calls": -182000,
+            "net_puts": 864000,
+            "gross": 1780000,
+            "signed_delta": -73900000
+          },
+          "interpretation": "Call selling and put buying create an upper defensive cluster rather than clean upside demand.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        "str-fri-7600-synthetic-short",
+        "str-fri-5500-deep-itm-calls",
+        "str-fri-7500-put-monetization",
+        "str-fri-7660-call-unwind"
+      ],
+      "monetization_zones": [
+        "mz-7580-7600-event-middle",
+        "mz-fri-7500-monetization",
+        "mz-fri-7660-cap-unwind"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-range-event-middle",
+      "name": "FOMC event middle / unresolved",
+      "bias": "mixed",
+      "priority": 1.0,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7580,
+          "description": "Remain inside the dense 7580-7600 event-flow zone"
+        },
+        {
+          "type": "hold_below",
+          "level": 7600,
+          "description": "No durable acceptance away from the event center"
+        }
+      ],
+      "route": [
+        7580,
+        7590,
+        7600
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7600 or below 7580 with confirming IV/flow"
+      ],
+      "interpretation": "Inside 7580-7600, the tape is better read as event-volatility churn than as a clean directional book."
+    },
+    {
+      "id": "sc-downside-realization",
+      "name": "Downside convexity realization",
+      "bias": "bearish",
+      "priority": 0.9,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7580,
+          "description": "Leave the FOMC event middle to the downside"
+        },
+        {
+          "type": "iv_expand",
+          "level": null,
+          "description": "Put volatility expands with downside acceptance"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7500,
+          "description": "Fresh protection persists into Thursday/Friday rather than being monetized"
+        }
+      ],
+      "route": [
+        7550,
+        7500,
+        7390
+      ],
+      "invalidations": [
+        "Reclaim and hold back above 7600 with tail hedges being sold"
+      ],
+      "interpretation": "7390 is the confirmed tail anchor and should be treated as an activation/convexity zone, not a deterministic downside target."
+    },
+    {
+      "id": "sc-upside-reclaim",
+      "name": "Upside reclaim / cap absorption",
+      "bias": "bullish",
+      "priority": 0.8,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7600,
+          "description": "Clear the main event pivot"
+        },
+        {
+          "type": "reclaim",
+          "level": 7660,
+          "description": "Absorb or unwind the legacy Friday call cap"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7675,
+          "description": "Post-FOMC upside convexity persists"
+        }
+      ],
+      "route": [
+        7600,
+        7640,
+        7660,
+        7675,
+        7700
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7580"
+      ],
+      "interpretation": "Upside improves if 7600 is accepted and the old 7660 supply continues to unwind; existing tail hedges alone do not prevent this route."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 995,
+    "deduplicated_rows": 948,
+    "duplicates_removed": 47,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL identifies transaction side but does not prove opening or closing.",
+      "Several major packages are inferred from timestamp/size geometry because complex_order_id is unavailable.",
+      "The 5500 deep-ITM call package is intrinsic-heavy and materially distorts raw call-premium aggregates.",
+      "Visible premium-filtered tape is not the full market position.",
+      "Cross-expiry tail hedges are conditional convexity, not deterministic price targets."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
