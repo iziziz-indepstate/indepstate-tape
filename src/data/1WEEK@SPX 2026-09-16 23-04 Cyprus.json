@@ -1,0 +1,840 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-16 23-04 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-16T23:04:00+03:00",
+    "timezone": "Europe/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-contract-2026-09-16_23-04-59.csv",
+      "SPX-tape-2026-09-16_23-04-00.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7553.55,
+    "spot_change_from_previous_snapshot": -39.9,
+    "regime": "post_fomc_repricing_with_tail_monetization",
+    "bias": "mixed_downside_skew",
+    "confidence": "medium",
+    "main_pivot": 7550,
+    "upper_decision_level": 7600,
+    "lower_decision_level": 7500
+  },
+  "summary": {
+    "headline": "Post-FOMC flow reversed toward monetization; the raw -$1.47B transaction delta is dominated by one pre-event Sep18 7700 package.",
+    "key_points": [
+      "The dominant Sep18 7700 package at 18:58:47 contributes about -$1.862B transaction delta and $26.0M gross premium; excluding it, the full visible tape is about +$389M delta.",
+      "Using the displayed clock as Cyprus-equivalent, flow after the 21:00 FOMC boundary is about +$349M transaction delta with net put selling of about $2.7M despite the selloff to roughly 7504.5.",
+      "Thursday 7380P/7390P OI increased by only about 921/904 versus roughly 12k prior-session volume at each strike, so the earlier tail book was much more churn/complex than gross tape implied.",
+      "The Sep18 7600 synthetic-short-like 250x package from the prior session is substantially supported by OI changes of roughly +200 calls and +200 puts.",
+      "The current weekly battlefield is 7500-7600 with 7550 as the active pivot; Friday still carries material put demand at 7575/7660."
+    ],
+    "daily_note": "FOMC-day resolved from pre-event hedge accumulation into post-event put monetization/risk acceptance. Raw headline delta is not broad: one Sep18 7700 complex determines it."
+  },
+  "flow_aggregate": {
+    "gross_premium": 162680000,
+    "transaction_delta": -1473064000,
+    "calls": {
+      "bought": 21696000,
+      "sold": 21318000,
+      "net": 378000
+    },
+    "puts": {
+      "bought": 71369000,
+      "sold": 48297000,
+      "net": 23072000
+    },
+    "near_spot": {
+      "distance_points": 50,
+      "reference_spot": 7553.55,
+      "calls": {
+        "bought": 8826000,
+        "sold": 8274000,
+        "net": 552000
+      },
+      "puts": {
+        "bought": 17948000,
+        "sold": 19687000,
+        "net": -1739000
+      },
+      "transaction_delta": 226900000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "pkg-20260916-185847-fri-7700",
+      "dominant_premium": 26000000,
+      "dominant_share": 0.159823,
+      "result": {
+        "net_calls": 1678000,
+        "net_puts": -1628000,
+        "transaction_delta": 388936000
+      },
+      "changes_interpretation": true,
+      "comment": "The negative headline is not broad. Removing the 18:58:47 Sep18 7700 complex flips visible transaction delta from -$1.47B to about +$389M."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "role": [
+        "main_pivot",
+        "transition",
+        "reclaim_support"
+      ],
+      "label": "UPPER POST-FOMC DECISION / RECLAIM",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "lost",
+      "distance_from_spot": 46.45,
+      "flow": {
+        "call_buy": 1176000,
+        "call_sell": 795000,
+        "put_buy": 1119000,
+        "put_sell": 3110000,
+        "net_calls": 381000,
+        "net_puts": -1991000,
+        "gross": 6200000
+      },
+      "interpretation": "Across Thu/Fri, 7600 shows put selling/risk acceptance after the event, but spot finished below it; reclaim is required before it can function as support.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7600-synthetic-short-w2"
+        ],
+        "notes": [
+          "Prior-session 7600 synthetic-short-like package received partial OI confirmation"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7575",
+      "price": 7575,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "FRIDAY PROTECTION / TRANSITION",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 21.45,
+      "flow": {
+        "call_buy": 413000,
+        "call_sell": 711000,
+        "put_buy": 2818000,
+        "put_sell": 391000,
+        "net_calls": -298000,
+        "net_puts": 2427000,
+        "gross": 4333000
+      },
+      "interpretation": "Material put demand remains around 7575, particularly in Friday, making this an active protection/transition strike above the close.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7550",
+      "price": 7550,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "complex_zone"
+      ],
+      "label": "ACTIVE POST-FOMC PIVOT",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": -3.55,
+      "flow": {
+        "call_buy": 1908000,
+        "call_sell": 1160000,
+        "put_buy": 2786000,
+        "put_sell": 2393000,
+        "net_calls": 748000,
+        "net_puts": 393000,
+        "gross": 8247000
+      },
+      "interpretation": "Largest near-close two-expiry activity center near spot. Thursday flow is more supportive while Friday flow remains defensive, so 7550 is a battlefield rather than a clean support.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Spot ended near 7553.55"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7520-7525",
+      "price": 7522.5,
+      "range_low": 7520,
+      "range_high": 7525,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor"
+      ],
+      "label": "THURSDAY PUT-SALE / RISK-ACCEPTANCE ZONE",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -31.05,
+      "interpretation": "Post-event Thursday flow contains repeated put selling around 7520-7525, consistent with monetization or new risk acceptance; opening versus closing is unresolved.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-thu-7490-7520-put-complex"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7500",
+      "price": 7500,
+      "role": [
+        "lower_decision_level",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER WEEKLY DECISION",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -53.55,
+      "flow": {
+        "call_buy": 205000,
+        "call_sell": 192000,
+        "put_buy": 1866000,
+        "put_sell": 1585000,
+        "net_calls": 13000,
+        "net_puts": 281000,
+        "gross": 3848000
+      },
+      "interpretation": "7500 remains the lower weekly decision level. Prior-session Sep18 7500P selling was followed by roughly +400 OI, making fresh short-put risk acceptance more plausible than the earlier closing hypothesis.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Sep18 7500P OI increased from about 3900 to 4300"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-16T03:38:36+03:00",
+      "end": "2026-09-16T20:57:35+03:00",
+      "spot_open": 7594.65,
+      "spot_high": 7626.8,
+      "spot_low": 7594.65,
+      "spot_close": 7609.6,
+      "calls": {
+        "bought": 8544000,
+        "sold": 7711000,
+        "net": 833000
+      },
+      "puts": {
+        "bought": 35760000,
+        "sold": 9983000,
+        "net": 25777000
+      },
+      "gross_premium": 61998000,
+      "transaction_delta": -1822269000,
+      "regime": "pre_fomc_hedge_build",
+      "events": [
+        "Sep18 7700 dominant downside package at 18:58:47"
+      ]
+    },
+    {
+      "start": "2026-09-16T21:00:01+03:00",
+      "end": "2026-09-16T23:02:18+03:00",
+      "spot_open": 7611.2,
+      "spot_high": 7617.7,
+      "spot_low": 7504.5,
+      "spot_close": 7553.55,
+      "calls": {
+        "bought": 13152000,
+        "sold": 13607000,
+        "net": -455000
+      },
+      "puts": {
+        "bought": 35609000,
+        "sold": 38314000,
+        "net": -2705000
+      },
+      "gross_premium": 100682000,
+      "transaction_delta": 349205000,
+      "regime": "post_fomc_monetization_and_repricing",
+      "events": [
+        "Sharp selloff to roughly 7504.5",
+        "Net put selling after the event boundary"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-fri-7700-pre-fomc-downside",
+      "timestamp": "2026-09-16T18:58:47+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 1100,
+          "premium": 1300000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 2800,
+          "premium": 24700000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 26000000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Same-time same-strike spread-flagged package. A 1100x synthetic-short-like core plus roughly 1700 extra long puts is a plausible decomposition. It dominates raw delta but opening/closing is not yet known.",
+      "ui_title": "Sep18 7700 Dominant Pre-FOMC Downside Complex"
+    },
+    {
+      "id": "str-fri-7600-synthetic-short-w2",
+      "timestamp": "2026-09-15T20:18:50+03:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7600,
+          "contracts": 250,
+          "premium": 1000000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7600,
+          "contracts": 250,
+          "premium": 1400000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 2400000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "probable_open",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7600
+      ],
+      "interpretation": "Prior-session 250x call-sell/put-buy synthetic-short-like package. Subsequent OI changed by roughly +200 on both 7600C and 7600P, materially supporting an opening interpretation.",
+      "ui_title": "Sep18 7600 Synthetic Short-like — OI Supported"
+    },
+    {
+      "id": "str-thu-7390-tail-roll-down",
+      "timestamp": "2026-09-16T22:25:53+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7380,
+          "contracts": 105,
+          "premium": 56000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7390,
+          "contracts": 105,
+          "premium": 65000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 121000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7380,
+        7390
+      ],
+      "interpretation": "Small post-event roll-down/monetization candidate: sell the higher 7390 protection and retain lower 7380 disaster protection. It is consistent with reducing the prior tail hedge after the event.",
+      "ui_title": "Thu 7390→7380 Tail Roll-down"
+    },
+    {
+      "id": "str-thu-7700-7720-put-sale",
+      "timestamp": "2026-09-16T21:45:10+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 120,
+          "premium": 1200000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7720,
+          "contracts": 120,
+          "premium": 1400000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 2600000,
+      "net_premium": null,
+      "bias": "supportive_or_monetization",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700,
+        7720
+      ],
+      "interpretation": "Post-event deep-ITM put selling adds about +$173M transaction delta. Closing/monetization of long protection is at least as plausible as fresh short-put opening.",
+      "ui_title": "Thu 7700/7720 Post-FOMC Put Sale"
+    },
+    {
+      "id": "str-thu-7490-7520-put-complex",
+      "timestamp": "2026-09-16T22:17:46+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7490,
+          "contracts": 120,
+          "premium": 249000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7500,
+          "contracts": 120,
+          "premium": 286000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7510,
+          "contracts": 120,
+          "premium": 327000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7520,
+          "contracts": 120,
+          "premium": 374000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1236000,
+      "net_premium": null,
+      "bias": "supportive_or_monetization",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7490,
+        7500,
+        7510,
+        7520
+      ],
+      "interpretation": "Post-event multi-strike put package with about +$80M transaction delta. It supports the 7500-7520 risk-acceptance/monetization read but is not a simple directional short-put trade.",
+      "ui_title": "Thu 7490-7520 Put Complex"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-post-fomc-7500-7550",
+      "low": 7500,
+      "high": 7550,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "prior long-put inventory",
+        "post-event put monetization",
+        "short-put risk acceptance"
+      ],
+      "source_structure_ids": [
+        "str-thu-7490-7520-put-complex"
+      ],
+      "source_level_ids": [
+        "lvl-7500",
+        "lvl-7520-7525",
+        "lvl-7550"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The selloff into 7500-7550 coincided with strong post-event put selling in Thursday and mixed Friday flow, consistent with hedge monetization and selective risk acceptance.",
+      "caveat": "Opening/closing is not known and a large share of the tape is multileg."
+    },
+    {
+      "id": "mz-fri-7575-7660-protection",
+      "low": 7575,
+      "high": 7660,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "Friday downside protection"
+      ],
+      "source_structure_ids": [
+        "str-fri-7600-synthetic-short-w2"
+      ],
+      "source_level_ids": [
+        "lvl-7575",
+        "lvl-7600"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Friday retains material put demand at 7575 and 7660 even after event-day monetization elsewhere.",
+      "caveat": "The dominant 7700 package must be separated from broad Friday positioning."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-17",
+      "label": "THU 1DTE",
+      "expiration": "2026-09-17",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7553.55,
+      "summary": {
+        "headline": "Post-FOMC Thursday shifted toward put monetization/risk acceptance after the selloff; near-spot flow is supportive rather than broadly defensive."
+      },
+      "flow_aggregate": {
+        "gross_premium": 67296000,
+        "transaction_delta": 273540000,
+        "calls": {
+          "bought": 10344000,
+          "sold": 9968000,
+          "net": 376000
+        },
+        "puts": {
+          "bought": 21717000,
+          "sold": 25267000,
+          "net": -3550000
+        },
+        "near_spot_50": {
+          "gross_premium": 35495000,
+          "transaction_delta": 366100000,
+          "net_calls": 831000,
+          "net_puts": -2794000
+        }
+      },
+      "levels": [
+        {
+          "id": "thu-lvl-7600",
+          "price": 7600,
+          "role": [
+            "transition",
+            "reclaim_support"
+          ],
+          "label": "THU UPPER DECISION",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "lost",
+          "distance_from_spot": 46.45,
+          "interpretation": "Flow at 7600 is roughly balanced after the event; OI evidence from the prior session suggests much of earlier 7600 put inventory was closing/churn."
+        },
+        {
+          "id": "thu-lvl-7550",
+          "price": 7550,
+          "role": [
+            "main_pivot",
+            "put_risk_acceptance"
+          ],
+          "label": "THU ACTIVE PIVOT",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": -3.55,
+          "interpretation": "Net call buying and put selling make 7550 the clearest supportive Thursday node near the close."
+        },
+        {
+          "id": "thu-lvl-7520",
+          "price": 7520,
+          "role": [
+            "conditional_floor",
+            "put_risk_acceptance"
+          ],
+          "label": "THU RISK ACCEPTANCE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -33.55,
+          "interpretation": "Repeated post-event put sales around 7510-7525 create a conditional floor only if price holds/reclaims the zone."
+        },
+        {
+          "id": "thu-lvl-7390",
+          "price": 7390,
+          "role": [
+            "tail_zone",
+            "historical"
+          ],
+          "label": "THU HISTORICAL FOMC TAIL",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "historical",
+          "distance_from_spot": -163.55,
+          "interpretation": "Prior tail activity produced only modest OI growth relative to gross volume. Post-event 7390 sell/7380 buy is consistent with partial hedge roll-down."
+        }
+      ],
+      "structures": [
+        "str-thu-7390-tail-roll-down",
+        "str-thu-7700-7720-put-sale",
+        "str-thu-7490-7520-put-complex"
+      ],
+      "monetization_zones": [
+        "mz-post-fomc-7500-7550"
+      ]
+    },
+    {
+      "id": "exp-2026-09-18",
+      "label": "FRI 2DTE",
+      "expiration": "2026-09-18",
+      "dte": 2,
+      "forward": null,
+      "reference_price": 7553.55,
+      "summary": {
+        "headline": "Friday raw flow is strongly negative only because of one pre-event 7700 complex; post-event Friday itself is near delta-neutral but retains downside protection at 7575/7660."
+      },
+      "flow_aggregate": {
+        "gross_premium": 95384000,
+        "transaction_delta": -1746604000,
+        "calls": {
+          "bought": 11352000,
+          "sold": 11350000,
+          "net": 2000
+        },
+        "puts": {
+          "bought": 49652000,
+          "sold": 23030000,
+          "net": 26622000
+        },
+        "near_spot_50": {
+          "gross_premium": 19240000,
+          "transaction_delta": -139200000,
+          "net_calls": -279000,
+          "net_puts": 1055000
+        },
+        "leave_one_out": {
+          "exclude": "str-fri-7700-pre-fomc-downside",
+          "transaction_delta": 115396000,
+          "comment": "The dominant 7700 package accounts for more than the entire negative Friday headline delta."
+        }
+      },
+      "levels": [
+        {
+          "id": "fri-lvl-7700",
+          "price": 7700,
+          "role": [
+            "complex_zone",
+            "tail_zone"
+          ],
+          "label": "DOMINANT PRE-FOMC COMPLEX",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 146.45,
+          "interpretation": "Large 7700 put-buy/call-sell package dominates Friday raw delta. It should be treated as a specific complex, not as a broad market level or target."
+        },
+        {
+          "id": "fri-lvl-7660",
+          "price": 7660,
+          "role": [
+            "downside_protection",
+            "complex_zone"
+          ],
+          "label": "FRIDAY PUT-DEMAND NODE",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 106.45,
+          "interpretation": "About $5.45M net put buying and roughly -$273M transaction delta keep 7660 as an important Friday protection node."
+        },
+        {
+          "id": "fri-lvl-7600",
+          "price": 7600,
+          "role": [
+            "main_pivot",
+            "put_risk_acceptance"
+          ],
+          "label": "FRIDAY 7600 PIVOT",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "lost",
+          "distance_from_spot": 46.45,
+          "interpretation": "Current-day Friday 7600 puts are net sold, while the prior 250x synthetic-short-like package has partial OI confirmation. The level remains a stateful pivot rather than simple support."
+        },
+        {
+          "id": "fri-lvl-7575",
+          "price": 7575,
+          "role": [
+            "downside_protection",
+            "transition"
+          ],
+          "label": "FRIDAY NEAR-SPOT PROTECTION",
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": 21.45,
+          "interpretation": "Friday has about $1.41M net put buying at 7575, making it the nearest clean protection node above the close."
+        },
+        {
+          "id": "fri-lvl-7500",
+          "price": 7500,
+          "role": [
+            "conditional_floor",
+            "breakdown_trigger"
+          ],
+          "label": "FRIDAY LOWER DECISION",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "distance_from_spot": -53.55,
+          "interpretation": "Prior-session 7500P selling was followed by roughly +400 OI, favoring fresh short-put risk acceptance over a pure hedge-close interpretation."
+        }
+      ],
+      "structures": [
+        "str-fri-7700-pre-fomc-downside",
+        "str-fri-7600-synthetic-short-w2"
+      ],
+      "monetization_zones": [
+        "mz-fri-7575-7660-protection"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-range-post-fomc",
+      "name": "Post-FOMC digestion / range",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7500,
+          "description": "Lower risk-acceptance zone holds"
+        },
+        {
+          "type": "hold_below",
+          "level": 7600,
+          "description": "No full reclaim of the former event pivot"
+        }
+      ],
+      "route": [
+        7500,
+        7550,
+        7600
+      ],
+      "invalidations": [
+        "Acceptance below 7500",
+        "Sustained reclaim above 7600"
+      ],
+      "interpretation": "The most internally consistent post-event state is digestion between 7500 and 7600 with 7550 as the active battlefield."
+    },
+    {
+      "id": "sc-upside-reclaim",
+      "name": "Upside reclaim after hedge monetization",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7600,
+          "description": "Recover the event pivot"
+        },
+        {
+          "type": "new_put_selling",
+          "level": 7575,
+          "description": "Protection continues to be monetized rather than rebuilt"
+        }
+      ],
+      "route": [
+        7600,
+        7660,
+        7700
+      ],
+      "invalidations": [
+        "Failed reclaim back below 7575",
+        "Renewed broad Friday put buying"
+      ],
+      "interpretation": "A 7600 reclaim with continued put monetization would shift the map toward 7660 and the 7700 inventory complex."
+    },
+    {
+      "id": "sc-downside-continuation",
+      "name": "Downside continuation / protection reactivation",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7500,
+          "description": "Conditional floor fails"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7500,
+          "description": "Fresh Friday protection expands below the floor"
+        }
+      ],
+      "route": [
+        7500,
+        7450,
+        7390
+      ],
+      "invalidations": [
+        "Reclaim 7525-7550 with continued put selling"
+      ],
+      "interpretation": "Acceptance below 7500 would invalidate the post-event risk-acceptance read and reactivate lower protection zones. 7390 is a historical tail anchor, not an automatic target."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 1059,
+    "deduplicated_rows": 1030,
+    "duplicates_removed": 29,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening/closing.",
+      "About 79% of deduplicated rows are flagged Spread, but complex_order_id is absent, so multileg linkage is inferred from timestamp/size/strike geometry.",
+      "The timestamp clock is inconsistent with the source timezone label; the event split assumes the displayed clock is Cyprus-equivalent, consistent with prior dumps.",
+      "OI in the 23:04 contract snapshot is used to confirm the previous session's flow, not same-day Sep16 opening/closing.",
+      "Visible tape is premium-filtered at approximately $50k and is not the full option market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
