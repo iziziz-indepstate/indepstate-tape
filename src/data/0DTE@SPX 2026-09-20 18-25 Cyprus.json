@@ -1,0 +1,1325 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-20 18-25 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-21",
+    "dte": 0,
+    "snapshot_time": "2026-09-20T17:59:40+03:00",
+    "timezone": "Asia/Nicosia",
+    "source_timestamp_timezone": "America/New_York",
+    "session_scope": "overnight_baseline_from_visible_tape",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-tape-2026-09-20_17-59-40.csv",
+      "SPX-contract-2026-09-20_17-58-44.csv"
+    ],
+    "source_trade_date": "2026-09-18",
+    "note": "The export was captured on Sep 20, but all visible tape rows are dated Sep 18 in the source data."
+  },
+  "market_state": {
+    "spot": 7657.65,
+    "spot_basis": "latest_observed_tape_print",
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_complex_with_late_positive_delta_overlay",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7640,
+    "upper_decision_level": 7665,
+    "lower_decision_level": 7630
+  },
+  "summary": {
+    "headline": "7635-7645 is the main 0DTE inventory corridor; headline positive delta is concentrated in one late complex burst",
+    "key_points": [
+      "Deduplicated visible premium is $63.362M across 472 economic prints.",
+      "Calls are net bought by $2.281M and puts are net sold by $2.923M, but opening/closing is unknown.",
+      "The 22:55-22:59 burst contributes about 92% of total positive signed delta; excluding it leaves only about +$76M signed delta.",
+      "A repeated 250x then 650x 7615P/7620P/7635C/7640C long-outside-like package makes 7615-7620 and 7635-7640 the main structural boundaries.",
+      "7650-7665 is the nearest upper call-supply/friction zone."
+    ],
+    "daily_note": "Initial baseline snapshot. Stateful interpretation should prioritize continuation/reversal matches in the next dump."
+  },
+  "flow_aggregate": {
+    "gross_premium": 63362000,
+    "signed_delta": 949452000,
+    "calls": {
+      "bought": 18965000,
+      "sold": 16684000,
+      "net": 2281000
+    },
+    "puts": {
+      "bought": 12395000,
+      "sold": 15318000,
+      "net": -2923000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "gross_premium": 29251000,
+      "signed_delta": 608200000,
+      "calls": {
+        "bought": 10271000,
+        "sold": 8048000,
+        "net": 2223000
+      },
+      "puts": {
+        "bought": 5067000,
+        "sold": 5865000,
+        "net": -798000
+      }
+    },
+    "otm": {
+      "gross_premium": 18354000,
+      "signed_delta": 246400000,
+      "calls": {
+        "bought": 1181000,
+        "sold": 1561000,
+        "net": -380000
+      },
+      "puts": {
+        "bought": 7262000,
+        "sold": 8350000,
+        "net": -1088000
+      }
+    },
+    "leave_one_out": {
+      "largest_trade": {
+        "trade_id": "c8ca7f24-1c16-4452-b7e9-2c2b49d4be84",
+        "strike": 7635.0,
+        "option_type": "call",
+        "side": "buy",
+        "premium": 1800000,
+        "share_of_gross": 0.0284,
+        "result": {
+          "net_calls": 481000,
+          "net_puts": -2923000,
+          "signed_delta": 660452000
+        }
+      },
+      "dominant_timestamp_package": {
+        "window": "2026-09-18T22:55:00-04:00/2026-09-18T23:00:00-04:00",
+        "gross_premium": 11310000,
+        "share_of_gross": 0.1785,
+        "share_of_signed_delta": 0.9198,
+        "result_excluding_package": {
+          "net_calls": -828000,
+          "net_puts": -1934000,
+          "signed_delta": 76152000
+        },
+        "changes_interpretation": true,
+        "comment": "Excluding the late burst turns calls net sold and leaves only a small positive signed-delta balance."
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7615-7620",
+      "price": 7617.5,
+      "range_low": 7615,
+      "range_high": 7620,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger",
+        "complex_zone"
+      ],
+      "label": "LOWER CONVEXITY / BREAKDOWN BOUNDARY",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -40.15,
+      "flow": {
+        "call_buy": 492000,
+        "call_sell": 429000,
+        "put_buy": 1616000,
+        "put_sell": 1990000,
+        "net_calls": 63000,
+        "net_puts": -374000,
+        "gross": 4527000,
+        "signed_delta": 135400000
+      },
+      "interpretation": "Repeated lower wing in the 900x outside complex; loss of 7615-7620 with fresh put demand would materially strengthen downside realization.",
+      "evidence": {
+        "trade_ids": [
+          "aacdbc9a-4f1b-4617-91e1-a53f097b8552",
+          "198d1dfb-b4f8-46f1-9bad-058054639103",
+          "83351fec-b14c-4188-a81f-484d3c619438",
+          "e934be28-74a1-491d-b208-616abb53f3f3"
+        ],
+        "structure_ids": [
+          "str-7615-7640-repeated-outside"
+        ],
+        "notes": [
+          "Opening/closing is unknown."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7630",
+      "price": 7630,
+      "range_low": 7627.5,
+      "range_high": 7632.5,
+      "role": [
+        "put_risk_acceptance",
+        "transition"
+      ],
+      "label": "LOWER TRANSITION / PUT-RISK ACCEPTANCE",
+      "strength": 0.72,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -27.65,
+      "flow": {
+        "call_buy": 668000,
+        "call_sell": 778000,
+        "put_buy": 233000,
+        "put_sell": 1740000,
+        "net_calls": -110000,
+        "net_puts": -1507000,
+        "gross": 3419000,
+        "signed_delta": 241800000
+      },
+      "interpretation": "Net put selling is concentrated here; acceptance below this zone would weaken the supportive interpretation.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7635-7645",
+      "price": 7640,
+      "range_low": 7635,
+      "range_high": 7645,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "MAIN 0DTE INVENTORY / TRANSITION CORRIDOR",
+      "strength": 0.97,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -17.65,
+      "flow": {
+        "call_buy": 7107000,
+        "call_sell": 3932000,
+        "put_buy": 2791000,
+        "put_sell": 2600000,
+        "net_calls": 3175000,
+        "net_puts": 191000,
+        "gross": 16430000,
+        "signed_delta": 657000000
+      },
+      "interpretation": "Largest combined premium cluster and center of the repeated outside package plus the late positive-delta call complex.",
+      "evidence": {
+        "trade_ids": [
+          "15ee5daa-14d7-42af-a5d5-a041b08db5d7",
+          "afaa72c5-e37f-4565-a4fb-575b719de892",
+          "c8ca7f24-1c16-4452-b7e9-2c2b49d4be84",
+          "c628f0b2-9059-4663-b3dd-65d4747b9758",
+          "d3ea3560-60a1-4dbb-bf9b-c8a7c8ad1b42",
+          "76709f05-b77a-4cbd-a4a6-759f39369518"
+        ],
+        "structure_ids": [
+          "str-7615-7640-repeated-outside",
+          "str-7640-7645-late-calls"
+        ],
+        "notes": [
+          "Headline positive delta is highly concentrated in the late burst."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7650-7665",
+      "price": 7657.5,
+      "range_low": 7650,
+      "range_high": 7665,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "UPPER CALL-SUPPLY / FRICTION",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -0.15,
+      "flow": {
+        "call_buy": 2139000,
+        "call_sell": 3010000,
+        "put_buy": 1268000,
+        "put_sell": 431000,
+        "net_calls": -871000,
+        "net_puts": 837000,
+        "gross": 6848000,
+        "signed_delta": -331800000
+      },
+      "interpretation": "Calls are net sold across the band while puts are net bought; clean upside acceptance requires absorption and fresh call demand.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7685-7700",
+      "price": 7692.5,
+      "range_low": 7685,
+      "range_high": 7700,
+      "role": [
+        "complex_zone",
+        "transition"
+      ],
+      "label": "UPPER COMPLEX / ROLL ZONE",
+      "strength": 0.58,
+      "basis": "inferred",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": 34.85,
+      "flow": {
+        "call_buy": 69000,
+        "call_sell": 176000,
+        "put_buy": 2865000,
+        "put_sell": 3122000,
+        "net_calls": -107000,
+        "net_puts": -257000,
+        "gross": 6232000,
+        "signed_delta": 44000000
+      },
+      "interpretation": "Large ITM put vertical activity makes this a flow-check zone rather than a directional target.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "ITM premium may overstate conviction."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-18T04:00:00-04:00",
+      "end": "2026-09-18T04:30:00-04:00",
+      "spot_open": 7630.45,
+      "spot_high": 7630.45,
+      "spot_low": 7630.45,
+      "spot_close": 7630.45,
+      "calls": {
+        "bought": 68000,
+        "sold": 0,
+        "net": 68000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 68000,
+      "signed_delta": 8100000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T04:30:00-04:00",
+      "end": "2026-09-18T05:00:00-04:00",
+      "spot_open": 7632.25,
+      "spot_high": 7632.25,
+      "spot_low": 7632.25,
+      "spot_close": 7632.25,
+      "calls": {
+        "bought": 0,
+        "sold": 69000,
+        "net": -69000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 69000,
+      "signed_delta": -8100000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T05:00:00-04:00",
+      "end": "2026-09-18T05:30:00-04:00",
+      "spot_open": 7634.75,
+      "spot_high": 7634.75,
+      "spot_low": 7634.75,
+      "spot_close": 7634.75,
+      "calls": {
+        "bought": 0,
+        "sold": 183000,
+        "net": -183000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 183000,
+      "signed_delta": -761000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T06:00:00-04:00",
+      "end": "2026-09-18T06:30:00-04:00",
+      "spot_open": 7640.25,
+      "spot_high": 7641.75,
+      "spot_low": 7640.25,
+      "spot_close": 7641.75,
+      "calls": {
+        "bought": 99000,
+        "sold": 83000,
+        "net": 16000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 182000,
+      "signed_delta": 2000000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 16000,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T07:00:00-04:00",
+      "end": "2026-09-18T07:30:00-04:00",
+      "spot_open": 7647.45,
+      "spot_high": 7647.45,
+      "spot_low": 7647.45,
+      "spot_close": 7647.45,
+      "calls": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "puts": {
+        "bought": 125000,
+        "sold": 125000,
+        "net": 0
+      },
+      "gross_premium": 250000,
+      "signed_delta": 0,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T07:30:00-04:00",
+      "end": "2026-09-18T08:00:00-04:00",
+      "spot_open": 7653.75,
+      "spot_high": 7653.75,
+      "spot_low": 7653.75,
+      "spot_close": 7653.75,
+      "calls": {
+        "bought": 0,
+        "sold": 63000,
+        "net": -63000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 63000,
+      "signed_delta": -8300000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -63000,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T09:30:00-04:00",
+      "end": "2026-09-18T10:00:00-04:00",
+      "spot_open": 7666.75,
+      "spot_high": 7666.75,
+      "spot_low": 7666.75,
+      "spot_close": 7666.75,
+      "calls": {
+        "bought": 50000,
+        "sold": 0,
+        "net": 50000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 50000,
+      "signed_delta": 7300000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 50000,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T13:30:00-04:00",
+      "end": "2026-09-18T14:00:00-04:00",
+      "spot_open": 7657.95,
+      "spot_high": 7657.95,
+      "spot_low": 7657.95,
+      "spot_close": 7657.95,
+      "calls": {
+        "bought": 0,
+        "sold": 286000,
+        "net": -286000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 286000,
+      "signed_delta": -766000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T15:00:00-04:00",
+      "end": "2026-09-18T15:30:00-04:00",
+      "spot_open": 7642.45,
+      "spot_high": 7642.45,
+      "spot_low": 7634.25,
+      "spot_close": 7634.25,
+      "calls": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "puts": {
+        "bought": 119000,
+        "sold": 123000,
+        "net": -4000
+      },
+      "gross_premium": 242000,
+      "signed_delta": 2800000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 119000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T15:30:00-04:00",
+      "end": "2026-09-18T16:00:00-04:00",
+      "spot_open": 7635.2,
+      "spot_high": 7635.5,
+      "spot_low": 7635.2,
+      "spot_close": 7635.5,
+      "calls": {
+        "bought": 77000,
+        "sold": 75000,
+        "net": 2000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 152000,
+      "signed_delta": 0,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 2000,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T16:30:00-04:00",
+      "end": "2026-09-18T17:00:00-04:00",
+      "spot_open": 7642.2,
+      "spot_high": 7645.7,
+      "spot_low": 7627.45,
+      "spot_close": 7627.45,
+      "calls": {
+        "bought": 1388000,
+        "sold": 2437000,
+        "net": -1049000
+      },
+      "puts": {
+        "bought": 524000,
+        "sold": 1571000,
+        "net": -1047000
+      },
+      "gross_premium": 5920000,
+      "signed_delta": 97000000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -145000,
+        "net_puts": -860000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T17:00:00-04:00",
+      "end": "2026-09-18T17:30:00-04:00",
+      "spot_open": 7627.95,
+      "spot_high": 7628.25,
+      "spot_low": 7616.45,
+      "spot_close": 7621.75,
+      "calls": {
+        "bought": 1499000,
+        "sold": 1424000,
+        "net": 75000
+      },
+      "puts": {
+        "bought": 971000,
+        "sold": 557000,
+        "net": 414000
+      },
+      "gross_premium": 4451000,
+      "signed_delta": -22100000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 63000,
+        "net_puts": -119000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T17:30:00-04:00",
+      "end": "2026-09-18T18:00:00-04:00",
+      "spot_open": 7622.45,
+      "spot_high": 7628.1,
+      "spot_low": 7618.0,
+      "spot_close": 7627.3,
+      "calls": {
+        "bought": 651000,
+        "sold": 794000,
+        "net": -143000
+      },
+      "puts": {
+        "bought": 2449000,
+        "sold": 1575000,
+        "net": 874000
+      },
+      "gross_premium": 5469000,
+      "signed_delta": -204739000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -292000,
+        "net_puts": 562000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T18:00:00-04:00",
+      "end": "2026-09-18T18:30:00-04:00",
+      "spot_open": 7629.1,
+      "spot_high": 7630.35,
+      "spot_low": 7625.8,
+      "spot_close": 7629.1,
+      "calls": {
+        "bought": 813000,
+        "sold": 955000,
+        "net": -142000
+      },
+      "puts": {
+        "bought": 452000,
+        "sold": 367000,
+        "net": 85000
+      },
+      "gross_premium": 2587000,
+      "signed_delta": -43899000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -131000,
+        "net_puts": 0
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T18:30:00-04:00",
+      "end": "2026-09-18T19:00:00-04:00",
+      "spot_open": 7627.6,
+      "spot_high": 7628.3,
+      "spot_low": 7619.1,
+      "spot_close": 7619.3,
+      "calls": {
+        "bought": 570000,
+        "sold": 321000,
+        "net": 249000
+      },
+      "puts": {
+        "bought": 659000,
+        "sold": 443000,
+        "net": 216000
+      },
+      "gross_premium": 1993000,
+      "signed_delta": -17540000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 115000,
+        "net_puts": 259000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T19:00:00-04:00",
+      "end": "2026-09-18T19:30:00-04:00",
+      "spot_open": 7618.3,
+      "spot_high": 7620.8,
+      "spot_low": 7612.6,
+      "spot_close": 7618.35,
+      "calls": {
+        "bought": 670000,
+        "sold": 459000,
+        "net": 211000
+      },
+      "puts": {
+        "bought": 1650000,
+        "sold": 1762000,
+        "net": -112000
+      },
+      "gross_premium": 4541000,
+      "signed_delta": 6300000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -48000,
+        "net_puts": 250000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T19:30:00-04:00",
+      "end": "2026-09-18T20:00:00-04:00",
+      "spot_open": 7619.1,
+      "spot_high": 7625.6,
+      "spot_low": 7619.1,
+      "spot_close": 7624.3,
+      "calls": {
+        "bought": 901000,
+        "sold": 1011000,
+        "net": -110000
+      },
+      "puts": {
+        "bought": 427000,
+        "sold": 549000,
+        "net": -122000
+      },
+      "gross_premium": 2888000,
+      "signed_delta": -16100000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -154000,
+        "net_puts": -486000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T20:00:00-04:00",
+      "end": "2026-09-18T20:30:00-04:00",
+      "spot_open": 7623.8,
+      "spot_high": 7626.1,
+      "spot_low": 7623.3,
+      "spot_close": 7625.3,
+      "calls": {
+        "bought": 252000,
+        "sold": 332000,
+        "net": -80000
+      },
+      "puts": {
+        "bought": 129000,
+        "sold": 349000,
+        "net": -220000
+      },
+      "gross_premium": 1062000,
+      "signed_delta": 24800000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -68000,
+        "net_puts": -132000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T20:30:00-04:00",
+      "end": "2026-09-18T21:00:00-04:00",
+      "spot_open": 7624.1,
+      "spot_high": 7629.1,
+      "spot_low": 7624.1,
+      "spot_close": 7629.1,
+      "calls": {
+        "bought": 274000,
+        "sold": 56000,
+        "net": 218000
+      },
+      "puts": {
+        "bought": 763000,
+        "sold": 1698000,
+        "net": -935000
+      },
+      "gross_premium": 2791000,
+      "signed_delta": 137900000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 94000,
+        "net_puts": -178000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T21:00:00-04:00",
+      "end": "2026-09-18T21:30:00-04:00",
+      "spot_open": 7628.3,
+      "spot_high": 7637.1,
+      "spot_low": 7628.3,
+      "spot_close": 7636.1,
+      "calls": {
+        "bought": 995000,
+        "sold": 841000,
+        "net": 154000
+      },
+      "puts": {
+        "bought": 1672000,
+        "sold": 724000,
+        "net": 948000
+      },
+      "gross_premium": 4232000,
+      "signed_delta": -100800000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 164000,
+        "net_puts": 309000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T21:30:00-04:00",
+      "end": "2026-09-18T22:00:00-04:00",
+      "spot_open": 7636.8,
+      "spot_high": 7648.0,
+      "spot_low": 7634.6,
+      "spot_close": 7644.2,
+      "calls": {
+        "bought": 720000,
+        "sold": 641000,
+        "net": 79000
+      },
+      "puts": {
+        "bought": 702000,
+        "sold": 715000,
+        "net": -13000
+      },
+      "gross_premium": 2778000,
+      "signed_delta": -35700000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -46000,
+        "net_puts": -16000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T22:00:00-04:00",
+      "end": "2026-09-18T22:30:00-04:00",
+      "spot_open": 7642.5,
+      "spot_high": 7644.0,
+      "spot_low": 7639.4,
+      "spot_close": 7639.4,
+      "calls": {
+        "bought": 1396000,
+        "sold": 801000,
+        "net": 595000
+      },
+      "puts": {
+        "bought": 445000,
+        "sold": 1078000,
+        "net": -633000
+      },
+      "gross_premium": 3720000,
+      "signed_delta": 129990000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -23000,
+        "net_puts": 139000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T22:30:00-04:00",
+      "end": "2026-09-18T23:00:00-04:00",
+      "spot_open": 7639.6,
+      "spot_high": 7650.1,
+      "spot_low": 7639.6,
+      "spot_close": 7645.1,
+      "calls": {
+        "bought": 6937000,
+        "sold": 4551000,
+        "net": 2386000
+      },
+      "puts": {
+        "bought": 870000,
+        "sold": 2692000,
+        "net": -1822000
+      },
+      "gross_premium": 15050000,
+      "signed_delta": 882100000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 2566000,
+        "net_puts": -318000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T23:00:00-04:00",
+      "end": "2026-09-18T23:30:00-04:00",
+      "spot_open": 7645.15,
+      "spot_high": 7661.95,
+      "spot_low": 7645.15,
+      "spot_close": 7658.65,
+      "calls": {
+        "bought": 1546000,
+        "sold": 1138000,
+        "net": 408000
+      },
+      "puts": {
+        "bought": 372000,
+        "sold": 810000,
+        "net": -438000
+      },
+      "gross_premium": 3866000,
+      "signed_delta": 107967000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 228000,
+        "net_puts": -213000
+      },
+      "regime": "mixed_complex"
+    },
+    {
+      "start": "2026-09-18T23:30:00-04:00",
+      "end": "2026-09-19T00:00:00-04:00",
+      "spot_open": 7659.35,
+      "spot_high": 7659.65,
+      "spot_low": 7657.65,
+      "spot_close": 7657.65,
+      "calls": {
+        "bought": 59000,
+        "sold": 164000,
+        "net": -105000
+      },
+      "puts": {
+        "bought": 66000,
+        "sold": 180000,
+        "net": -114000
+      },
+      "gross_premium": 469000,
+      "signed_delta": 2000000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -105000,
+        "net_puts": -114000
+      },
+      "regime": "mixed_complex"
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7615-7640-repeated-outside",
+      "timestamp": "2026-09-18T21:00:50-04:00",
+      "first_seen": "2026-09-18T21:00:50-04:00",
+      "last_seen": "2026-09-18T22:55:06-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7635.0,
+          "contracts": 900,
+          "premium": 2188000,
+          "trade_ids": [
+            "15ee5daa-14d7-42af-a5d5-a041b08db5d7",
+            "c8ca7f24-1c16-4452-b7e9-2c2b49d4be84"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7640.0,
+          "contracts": 900,
+          "premium": 1830000,
+          "trade_ids": [
+            "afaa72c5-e37f-4565-a4fb-575b719de892",
+            "c628f0b2-9059-4663-b3dd-65d4747b9758"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7620.0,
+          "contracts": 900,
+          "premium": 956000,
+          "trade_ids": [
+            "aacdbc9a-4f1b-4617-91e1-a53f097b8552",
+            "83351fec-b14c-4188-a81f-484d3c619438"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7615.0,
+          "contracts": 900,
+          "premium": 842000,
+          "trade_ids": [
+            "198d1dfb-b4f8-46f1-9bad-058054639103",
+            "e934be28-74a1-491d-b208-616abb53f3f3"
+          ]
+        }
+      ],
+      "gross_premium": 5816000,
+      "net_premium": 383250,
+      "bias": "two_sided_long_outside",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7615,
+        7620,
+        7635,
+        7640
+      ],
+      "payoff": {
+        "net_debit_points": 4.2583,
+        "lower_breakeven": 7615.74,
+        "upper_breakeven": 7639.26,
+        "maximum_loss_zone": [
+          7620,
+          7635
+        ],
+        "outside_max_value_begins": {
+          "downside": 7615,
+          "upside": 7640
+        }
+      },
+      "interpretation": "Repeated 250x then 650x same-side package. Economically consistent with a long-outside/reverse-iron-condor-like hypothesis, but linkage and opening state are not confirmed.",
+      "ui_title": "7615-7640 Repeated Long-Outside Complex"
+    },
+    {
+      "id": "str-7640-7645-late-calls",
+      "timestamp": "2026-09-18T22:59:06-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7640,
+          "contracts": 750,
+          "premium": 1600000,
+          "trade_ids": [
+            "76709f05-b77a-4cbd-a4a6-759f39369518"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7645,
+          "contracts": 750,
+          "premium": 1400000,
+          "trade_ids": [
+            "d3ea3560-60a1-4dbb-bf9b-c8a7c8ad1b42"
+          ]
+        }
+      ],
+      "gross_premium": 3000000,
+      "net_premium": null,
+      "signed_delta": 638000000,
+      "bias": "bullish_transaction_delta",
+      "basis": "observed",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7640,
+        7645
+      ],
+      "interpretation": "Both legs are Spread-flagged, same size and executed around mid. The package creates +$638M transaction delta but does not prove fresh upside positioning.",
+      "ui_title": "7640C/7645C Late Positive-Delta Complex"
+    },
+    {
+      "id": "str-7620-7645-downside-block",
+      "timestamp": "2026-09-18T17:51:10-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7620,
+          "contracts": 197,
+          "premium": 392000,
+          "trade_ids": [
+            "141a87fb-2d8f-410c-8825-d1f662922457",
+            "cfb3d69e-ac63-4426-bbed-35b4c3ca2911"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7645,
+          "contracts": 395,
+          "premium": 1284000,
+          "trade_ids": [
+            "18a15b2c-0239-4b51-ac0d-bccbc50fd384",
+            "2a537273-47db-4efa-84e2-da516acfdcad",
+            "858ff3ee-a571-4261-afac-c74f231917ed"
+          ]
+        }
+      ],
+      "gross_premium": 1676000,
+      "net_premium": null,
+      "signed_delta": -265000000,
+      "bias": "downside_transaction_delta",
+      "basis": "observed",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7620,
+        7645
+      ],
+      "interpretation": "Material downside-convexity purchase is visible, but the approximate 2:1 size geometry and absent complex ID prevent treating the legs as a confirmed single opening structure.",
+      "ui_title": "7620P/7645P Downside Block"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7620-7635-dead-zone",
+      "low": 7620,
+      "high": 7635,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "short-vol inventory",
+        "counterparties to the repeated long-outside package"
+      ],
+      "source_structure_ids": [
+        "str-7615-7640-repeated-outside"
+      ],
+      "source_level_ids": [
+        "lvl-7615-7620",
+        "lvl-7635-7645"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "For the repeated outside-package hypothesis, expiry inside 7620-7635 is the maximum-loss zone for the long-outside buyer.",
+      "caveat": "Payoff interpretation is conditional on the four legs belonging to one package and being opening."
+    },
+    {
+      "id": "mz-upside-7640-plus",
+      "low": 7639.26,
+      "high": 7665,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "repeated long-outside package if opening"
+      ],
+      "source_structure_ids": [
+        "str-7615-7640-repeated-outside"
+      ],
+      "source_level_ids": [
+        "lvl-7635-7645",
+        "lvl-7650-7665"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Above the estimated upper breakeven the repeated package begins to monetize upside, with 7650-7665 still acting as visible call-supply friction.",
+      "caveat": "This is not a forecast and depends on opening/linkage assumptions."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base-range",
+      "name": "Base structure / mixed range",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7635,
+          "description": "Remain above the lower edge of the main inventory corridor"
+        },
+        {
+          "type": "hold_below",
+          "level": 7665,
+          "description": "Upper call-supply is not cleanly absorbed"
+        }
+      ],
+      "route": [
+        7635,
+        7640,
+        7645,
+        7650,
+        7665
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7665 with fresh call buying",
+        "Acceptance below 7630 with spreading put demand"
+      ],
+      "interpretation": "Inside the structure the baseline is mixed complex churn / decay rather than a clean directional regime.",
+      "basis": "inferred",
+      "confidence": "medium"
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside acceptance / continuation",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7665,
+          "description": "Absorb the 7650-7665 call-supply band"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7665,
+          "description": "Fresh call demand should extend above the existing Spread-at-mid burst"
+        },
+        {
+          "type": "iv_expand",
+          "level": null,
+          "description": "Call-side IV or convexity demand should confirm rather than fade"
+        }
+      ],
+      "route": [
+        7665,
+        7685,
+        7700
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7645-7640"
+      ],
+      "interpretation": "Only confirmed absorption above 7665 upgrades the late positive-delta complex from a concentrated transaction event to useful upside evidence.",
+      "basis": "inferred",
+      "confidence": "low"
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside acceptance / continuation",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7630,
+          "description": "Lose lower transition and fail to reclaim"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7620,
+          "description": "Fresh put demand should spread through 7620-7615"
+        },
+        {
+          "type": "iv_expand",
+          "level": null,
+          "description": "Put IV expansion should confirm downside realization"
+        }
+      ],
+      "route": [
+        7630,
+        7620,
+        7615
+      ],
+      "invalidations": [
+        "Flush into 7620-7615 followed by a fast reclaim of 7630-7635 without continuing put demand"
+      ],
+      "interpretation": "A break below 7630 is warning; acceptance below 7620-7615 with fresh put buying is the stronger downside regime signal.",
+      "basis": "inferred",
+      "confidence": "medium"
+    },
+    {
+      "id": "sc-stateful-restructure",
+      "name": "Stateful unwind / restructure confirmation",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "new_call_selling",
+          "level": 7640,
+          "description": "Reverse-side match against the 750x 7640C/7645C late package"
+        },
+        {
+          "type": "new_put_selling",
+          "level": 7620,
+          "description": "Reverse-side match against visible downside protection"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7640,
+          "description": "Same-side repeat would reinforce continuation of the central complex"
+        }
+      ],
+      "route": [
+        7615,
+        7620,
+        7635,
+        7640,
+        7645
+      ],
+      "invalidations": [],
+      "interpretation": "The next dump should first be matched against the 900x repeated outside complex, the 750x/750x late calls and the 7620P/7645P downside block before assigning fresh directional meaning.",
+      "basis": "inferred",
+      "confidence": "medium"
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 490,
+    "deduplicated_rows": 472,
+    "duplicates_removed": 18,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "side_price_consistency": 1.0,
+    "multileg_quality": "mixed",
+    "spread_flag_rows": 347,
+    "spread_flag_premium_share": 0.7694,
+    "opening_closing_known": false,
+    "complex_order_id_available": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL is transaction side and does not prove opening/closing.",
+      "76.9% of visible premium is Spread-flagged and complex_order_id is unavailable.",
+      "All visible tape rows are dated Sep 18 although the export was captured Sep 20.",
+      "The +$949M headline signed delta is highly concentrated in the 22:55-22:59 burst.",
+      "Visible tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
