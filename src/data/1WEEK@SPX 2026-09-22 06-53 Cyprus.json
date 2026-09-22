@@ -1,0 +1,1124 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-09-22 06-53 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-09-22T06:53:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-contract-2026-09-22_06-40-42.csv",
+      "SPX-tape-2026-09-22_06-40-02.csv"
+    ],
+    "stateful_context_files": [
+      "SPX-contract-2026-09-20_16-32-56.csv",
+      "SPX-tape-2026-09-20_16-31-01.csv"
+    ],
+    "source_trade_date": "2026-09-21",
+    "latest_visible_source_timestamp": "23:55:10.000, 09-21",
+    "timestamp_note": "The tape labels timestamps as America/New_York, but the clock sequence is inconsistent with a normal SPX session in that timezone. No silent timezone conversion was applied to source trade timestamps."
+  },
+  "market_state": {
+    "spot": 7759.55,
+    "spot_reference": "latest visible underlying_price in the supplied tape",
+    "spot_change_from_previous_snapshot": 101.9,
+    "regime": "pin_centered_with_upside_migration",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7750,
+    "upper_decision_level": 7800,
+    "lower_decision_level": 7730
+  },
+  "summary": {
+    "headline": "The weekly SPX inventory center migrated to 7750 after Monday's rally",
+    "key_points": [
+      "The previous 7635-7650 center is superseded; 7750 is now the largest visible combined premium concentration.",
+      "Tuesday flow is centered on a 7750 short-straddle-like package, with protection ratcheted upward toward 7715-7770.",
+      "Wednesday shifted from a capped defensive book toward a mixed transition with fresh upside optionality near 7785-7790.",
+      "Thursday carries the clearest call-supply and overwrite pressure, especially below and around the current spot.",
+      "Friday changed most materially: prior downside protection was partly monetized while fresh call demand appeared from 7750 through 7825."
+    ],
+    "daily_note": "Stateful update versus the September 20 baseline. Transaction side is not treated as confirmed opening or closing."
+  },
+  "flow_aggregate": {
+    "gross_premium": 206528000,
+    "calls": {
+      "bought": 82040000,
+      "sold": 82612000,
+      "net": -572000
+    },
+    "puts": {
+      "bought": 19911000,
+      "sold": 21965000,
+      "net": -2054000
+    },
+    "signed_delta": -531647000,
+    "near_spot": {
+      "distance_points": 30,
+      "gross_premium": 68510000,
+      "calls": {
+        "bought": 21485000,
+        "sold": 28274000,
+        "net": -6789000
+      },
+      "puts": {
+        "bought": 8856000,
+        "sold": 9895000,
+        "net": -1039000
+      },
+      "signed_delta": -1008100000
+    },
+    "non_spread": {
+      "gross_premium": 45236000,
+      "calls": {
+        "net": 6966000
+      },
+      "puts": {
+        "net": 2762000
+      },
+      "signed_delta": 66870000,
+      "interpretation": "Outside rows flagged Spread, visible flow is modestly positive-delta and two-sided rather than broadly defensive."
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "2370983c-bf36-4109-83fa-3b5711f61e74",
+      "dominant_premium": 2200000,
+      "dominant_share": 0.01065,
+      "result": {
+        "net_calls": -2772000,
+        "net_puts": -2054000,
+        "signed_delta": -763647000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest single print does not change the weekly stateful conclusion because the dominant information comes from clustered structures and expiry migration."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7730-weekly-lower-pivot",
+      "price": 7730,
+      "range_low": 7725,
+      "range_high": 7735,
+      "role": [
+        "transition",
+        "reclaim_support",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER WEEKLY DECISION ZONE",
+      "strength": 0.78,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -29.55,
+      "flow": {
+        "call_buy": 9232000,
+        "call_sell": 9029000,
+        "put_buy": 1474000,
+        "put_sell": 1480000,
+        "net_calls": 203000,
+        "net_puts": -6000,
+        "gross": 21215000,
+        "signed_delta": -133100000
+      },
+      "interpretation": "A break back below 7725-7730 would move the book away from the new 7750 center and toward the raised downside-protection band.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-fri-7725-call-demand",
+          "str-thu-call-supply-cluster"
+        ],
+        "notes": [
+          "The zone sits below the new weekly inventory center and above the older 7700 risk boundary."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7750-weekly-center",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7755,
+      "role": [
+        "main_pivot",
+        "pin",
+        "inventory_center",
+        "complex_zone"
+      ],
+      "label": "MAIN WEEKLY INVENTORY CENTER",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -9.55,
+      "flow": {
+        "call_buy": 8781000,
+        "call_sell": 13203000,
+        "put_buy": 5051000,
+        "put_sell": 6335000,
+        "net_calls": -4422000,
+        "net_puts": -1284000,
+        "gross": 33370000,
+        "signed_delta": -549700000
+      },
+      "interpretation": "This is the dominant visible premium center. The Tuesday short-straddle-like package and Friday call demand make 7750 the main weekly pin and decision pivot.",
+      "evidence": {
+        "trade_ids": [
+          "091c2867-12d8-4fd5-9c1d-1cac497d2152",
+          "8e42f4ca-5f5e-41c3-9693-0dd5dee894a1",
+          "f43a587c-8f22-402e-988a-5622a86f6e43",
+          "681dcc50-c811-43cd-b582-6bc1d07534f8"
+        ],
+        "structure_ids": [
+          "str-tue-7750-short-straddle-like",
+          "str-fri-7750-7755-call-demand"
+        ],
+        "notes": [
+          "7750 is the largest combined strike cluster in the Monday tape."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7782-upside-transition",
+      "price": 7782.5,
+      "range_low": 7775,
+      "range_high": 7790,
+      "role": [
+        "transition",
+        "upside_demand"
+      ],
+      "label": "UPSIDE TRANSITION / CALL DEMAND",
+      "strength": 0.84,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 22.95,
+      "flow": {
+        "call_buy": 6742000,
+        "call_sell": 3452000,
+        "put_buy": 904000,
+        "put_sell": 1775000,
+        "net_calls": 3290000,
+        "net_puts": -871000,
+        "gross": 12873000,
+        "signed_delta": 642400000
+      },
+      "interpretation": "Fresh Friday block call demand and Wednesday upside optionality make 7775-7790 the first meaningful upside transition above the 7750 center.",
+      "evidence": {
+        "trade_ids": [
+          "df899347-7887-4eb8-aaf9-9fd832309f04",
+          "d5c9ad9d-e575-45b2-8033-1f177350fc03"
+        ],
+        "structure_ids": [
+          "str-fri-7775-7780-call-demand"
+        ],
+        "notes": [
+          "The zone carries positive net call premium and positive transaction delta across expiries."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7800-upper-decision",
+      "price": 7800,
+      "range_low": 7795,
+      "range_high": 7805,
+      "role": [
+        "transition",
+        "potential_cap",
+        "complex_zone"
+      ],
+      "label": "UPPER WEEKLY DECISION ZONE",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 40.45,
+      "flow": {
+        "call_buy": 2321000,
+        "call_sell": 2233000,
+        "put_buy": 1446000,
+        "put_sell": 1890000,
+        "net_calls": 88000,
+        "net_puts": -444000,
+        "gross": 7890000,
+        "signed_delta": -23400000
+      },
+      "interpretation": "Acceptance above 7800 would move the book beyond the current pin-centered range and make the Friday 7825 upside convexity more relevant.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Flow is balanced near 7800, so it is a decision zone rather than a confirmed cap."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7825-upside-extension",
+      "price": 7825,
+      "range_low": 7820,
+      "range_high": 7830,
+      "role": [
+        "upside_demand",
+        "tail_zone"
+      ],
+      "label": "FRIDAY UPSIDE EXTENSION",
+      "strength": 0.68,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 65.45,
+      "flow": {
+        "call_buy": 1629000,
+        "call_sell": 988000,
+        "put_buy": 230000,
+        "put_sell": 434000,
+        "net_calls": 641000,
+        "net_puts": -204000,
+        "gross": 3281000,
+        "signed_delta": 190300000
+      },
+      "interpretation": "This is the next visible Friday upside-extension zone if 7800 is accepted.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-5200c-calendar-roll",
+      "timestamp": null,
+      "source_timestamp": "17:47:24.000, 09-21",
+      "type": "roll",
+      "legs": [
+        {
+          "expiration": "2026-09-22",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 5200,
+          "contracts": 7,
+          "premium": 1800000,
+          "trade_ids": [
+            "3abce807-8340-42ca-9cc1-48379d725b34"
+          ]
+        },
+        {
+          "expiration": "2026-09-23",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 5200,
+          "contracts": 7,
+          "premium": 1800000,
+          "trade_ids": [
+            "2d7a7f1d-7f20-4f83-a632-84baf9bdfd35"
+          ]
+        }
+      ],
+      "gross_premium": 3600000,
+      "net_premium": 0,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        5200
+      ],
+      "interpretation": "Exact-time, exact-size deep-ITM cross-expiry pairing is best treated as calendar or financing mechanics and excluded from directional evidence.",
+      "ui_title": "5200C Deep-ITM Calendar Roll"
+    },
+    {
+      "id": "str-tue-7750-short-straddle-like",
+      "timestamp": null,
+      "source_timestamp": "17:45:02.000, 09-21",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "expiration": "2026-09-22",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 500,
+          "premium": 263000,
+          "trade_ids": [
+            "091c2867-12d8-4fd5-9c1d-1cac497d2152"
+          ]
+        },
+        {
+          "expiration": "2026-09-22",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 500,
+          "premium": 1800000,
+          "trade_ids": [
+            "8e42f4ca-5f5e-41c3-9693-0dd5dee894a1"
+          ]
+        }
+      ],
+      "gross_premium": 2063000,
+      "net_premium": -2063000,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "estimated_total_credit_points": 41.25,
+      "estimated_expiry_breakevens": [
+        7708.75,
+        7791.25
+      ],
+      "interpretation": "If opening, the package monetizes Tuesday expiry around a 7750 center. Opening versus closing is not known.",
+      "ui_title": "Tuesday 7750 Short-Straddle-like"
+    },
+    {
+      "id": "str-tue-7650-7675-call-restructure",
+      "timestamp": null,
+      "source_timestamp": "18:19-18:23, 09-21",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "expiration": "2026-09-22",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7650,
+          "contracts": 559,
+          "premium": 4800000,
+          "trade_ids": [
+            "e6830418-6705-4ab6-804b-7bd952ccb20e",
+            "ff07e254-86fd-4f04-a2a6-853a79148e34",
+            "cbacb7db-797e-4446-ba9b-2dbc33a012ad",
+            "5d2b2c55-7b08-4b5d-8fe6-e99491a221cd"
+          ]
+        },
+        {
+          "expiration": "2026-09-22",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 559,
+          "premium": 3351000,
+          "trade_ids": [
+            "8ad25620-9fd3-4f13-9fe6-744cb2f8faec",
+            "92c4acee-5d12-4a4d-a21a-54099479c1b3",
+            "913509c4-99cf-4f25-82f1-2de34233511f",
+            "54df176e-96a8-4ee3-a88c-a419319870af"
+          ]
+        }
+      ],
+      "gross_premium": 8151000,
+      "net_premium": 1449000,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7675
+      ],
+      "estimated_average_debit_points": 23.38,
+      "maximum_spread_value_points": 25,
+      "interpretation": "Because the spread traded deep ITM with little remaining payoff, monetization or restructuring is more plausible than a fresh bullish opening position.",
+      "ui_title": "Tuesday 7650/7675 Call Repositioning"
+    },
+    {
+      "id": "str-fri-7725-call-demand",
+      "timestamp": null,
+      "source_timestamp": "17:29:49.000, 09-21",
+      "type": "single_leg",
+      "legs": [
+        {
+          "expiration": "2026-09-25",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7725,
+          "contracts": 600,
+          "premium": 2200000,
+          "trade_ids": [
+            "2370983c-bf36-4109-83fa-3b5711f61e74"
+          ]
+        }
+      ],
+      "gross_premium": 2200000,
+      "net_premium": 2200000,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7725
+      ],
+      "interpretation": "Large Friday call purchase, but the Spread flag means it should not be treated as standalone fresh bullish demand.",
+      "ui_title": "Friday 7725C Large Buy"
+    },
+    {
+      "id": "str-fri-7750-7755-call-demand",
+      "timestamp": null,
+      "source_timestamp": "19:13:06.000, 09-21",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-25",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 217,
+          "premium": 808000,
+          "trade_ids": [
+            "f43a587c-8f22-402e-988a-5622a86f6e43",
+            "681dcc50-c811-43cd-b582-6bc1d07534f8"
+          ]
+        },
+        {
+          "expiration": "2026-09-25",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7755,
+          "contracts": 217,
+          "premium": 748000,
+          "trade_ids": [
+            "69856cab-86e1-4eb3-9ce6-889e69397ab5",
+            "844f36b8-ae0d-4232-8819-a712836bdf12"
+          ]
+        }
+      ],
+      "gross_premium": 1556000,
+      "net_premium": 1556000,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750,
+        7755
+      ],
+      "interpretation": "Matched Friday block call buying around spot is meaningful upside participation even though the exact position state is unknown.",
+      "ui_title": "Friday 7750/7755 Call Blocks"
+    },
+    {
+      "id": "str-fri-7775-7780-call-demand",
+      "timestamp": null,
+      "source_timestamp": "22:36:35.000, 09-21",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-09-25",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7775,
+          "contracts": 198,
+          "premium": 747000,
+          "trade_ids": [
+            "df899347-7887-4eb8-aaf9-9fd832309f04"
+          ]
+        },
+        {
+          "expiration": "2026-09-25",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7780,
+          "contracts": 198,
+          "premium": 693000,
+          "trade_ids": [
+            "d5c9ad9d-e575-45b2-8033-1f177350fc03"
+          ]
+        }
+      ],
+      "gross_premium": 1440000,
+      "net_premium": 1440000,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7775,
+        7780
+      ],
+      "interpretation": "Fresh-looking matched Friday call blocks establish an upside participation zone above the 7750 center.",
+      "ui_title": "Friday 7775/7780 Call Blocks"
+    },
+    {
+      "id": "str-fri-7700-protection-restructure",
+      "timestamp": null,
+      "source_timestamp": "multiple, 09-21",
+      "type": "roll",
+      "legs": [
+        {
+          "expiration": "2026-09-25",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 507,
+          "premium": 893000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-09-25",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 205,
+          "premium": 274000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1167000,
+      "net_premium": -619000,
+      "bias": "supportive",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Opposite-side flow versus the baseline 7700 put-buying fingerprint is consistent with partial protection monetization or restructuring after the rally.",
+      "ui_title": "Friday 7700P Protection Unwind Candidate"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7750-pin",
+      "low": 7745,
+      "high": 7755,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "Tuesday short-straddle-like inventory"
+      ],
+      "source_structure_ids": [
+        "str-tue-7750-short-straddle-like"
+      ],
+      "source_level_ids": [
+        "lvl-7750-weekly-center"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The dominant weekly premium concentration and Tuesday same-strike call/put selling favor decay and pin behavior around 7750 while price remains inside the zone.",
+      "caveat": "Pinning is conditional because opening versus closing is not confirmed."
+    },
+    {
+      "id": "mz-7775-7790-upside-realization",
+      "low": 7775,
+      "high": 7790,
+      "type": "vol_realization",
+      "beneficiaries": [
+        "Friday call buyers",
+        "Wednesday upside optionality"
+      ],
+      "source_structure_ids": [
+        "str-fri-7775-7780-call-demand"
+      ],
+      "source_level_ids": [
+        "lvl-7782-upside-transition"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Sustained trade above this band would move the book away from the 7750 pin and into visible upside-call participation.",
+      "caveat": "Acceptance and new call buying would strengthen the interpretation."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-22",
+      "label": "TUE 0DTE",
+      "expiration": "2026-09-22",
+      "dte": 0,
+      "forward": null,
+      "reference_price": 7759.55,
+      "summary": {
+        "headline": "Tuesday is a 7750 pin-centered book with protection ratcheted upward",
+        "stateful_change": "The baseline downside-heavy Tuesday book weakened materially; risk migrated from 7615-7640 toward 7715-7770 and 7750 became the dominant expiry center."
+      },
+      "flow_aggregate": {
+        "gross_premium": 84146000,
+        "calls": {
+          "bought": 32159000,
+          "sold": 34303000,
+          "net": -2144000
+        },
+        "puts": {
+          "bought": 9222000,
+          "sold": 8462000,
+          "net": 760000
+        },
+        "signed_delta": -710099000
+      },
+      "levels": [
+        {
+          "id": "exp22-lvl-7715",
+          "price": 7715,
+          "range_low": 7710,
+          "range_high": 7720,
+          "role": [
+            "downside_protection"
+          ],
+          "label": "RAISED DOWNSIDE PROTECTION",
+          "strength": 0.82,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Put buying is concentrated here after the rally."
+        },
+        {
+          "id": "exp22-lvl-7750",
+          "price": 7750,
+          "range_low": 7745,
+          "range_high": 7755,
+          "role": [
+            "main_pivot",
+            "pin",
+            "inventory_center"
+          ],
+          "label": "TUESDAY PIN CENTER",
+          "strength": 0.97,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Same-strike 500x call and put selling plus the largest expiry premium concentration make 7750 the primary Tuesday pin candidate."
+        },
+        {
+          "id": "exp22-lvl-7770",
+          "price": 7770,
+          "range_low": 7760,
+          "range_high": 7775,
+          "role": [
+            "transition",
+            "downside_protection"
+          ],
+          "label": "UPPER 0DTE TRANSITION",
+          "strength": 0.72,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Call and put activity above 7750 makes this the first upper 0DTE transition band."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-tue-7750-short-straddle-like",
+          "ref": "str-tue-7750-short-straddle-like"
+        },
+        {
+          "id": "str-tue-7650-7675-call-restructure",
+          "ref": "str-tue-7650-7675-call-restructure"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-tue-7750",
+          "low": 7745,
+          "high": 7755,
+          "type": "pin_decay",
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Primary Tuesday decay and pin zone."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-09-23",
+      "label": "WED 1DTE",
+      "expiration": "2026-09-23",
+      "dte": 1,
+      "forward": null,
+      "reference_price": 7759.55,
+      "summary": {
+        "headline": "Wednesday shifted from capped defensive to mixed transition",
+        "stateful_change": "Net call premium flipped from selling in the baseline to buying, while signed delta moved close to neutral."
+      },
+      "flow_aggregate": {
+        "gross_premium": 42987000,
+        "calls": {
+          "bought": 20313000,
+          "sold": 16995000,
+          "net": 3318000
+        },
+        "puts": {
+          "bought": 3264000,
+          "sold": 2415000,
+          "net": 849000
+        },
+        "signed_delta": -48836000
+      },
+      "levels": [
+        {
+          "id": "exp23-lvl-7750",
+          "price": 7750,
+          "range_low": 7745,
+          "range_high": 7755,
+          "role": [
+            "transition",
+            "potential_cap"
+          ],
+          "label": "WEDNESDAY PIVOT",
+          "strength": 0.83,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Large 7725/7750 call selling makes 7750 an active friction point, but other call buying offsets the cap."
+        },
+        {
+          "id": "exp23-lvl-7788",
+          "price": 7787.5,
+          "range_low": 7785,
+          "range_high": 7790,
+          "role": [
+            "upside_demand"
+          ],
+          "label": "WEDNESDAY UPSIDE OPTIONALITY",
+          "strength": 0.76,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "The strongest fresh-looking upside call demand is concentrated at 7785-7790."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-wed-7725-7750-call-supply",
+          "type": "unknown_complex",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "key_levels": [
+            7725,
+            7750
+          ],
+          "interpretation": "Matched call selling creates local friction but does not by itself prove a fresh bearish position."
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-24",
+      "label": "THU 2DTE",
+      "expiration": "2026-09-24",
+      "dte": 2,
+      "forward": null,
+      "reference_price": 7759.55,
+      "summary": {
+        "headline": "Thursday is the clearest call-overwrite and supply expiry",
+        "stateful_change": "Transaction delta turned negative and call selling concentrated at 7685-7710, while puts were net sold rather than bought."
+      },
+      "flow_aggregate": {
+        "gross_premium": 15001000,
+        "calls": {
+          "bought": 4743000,
+          "sold": 7270000,
+          "net": -2527000
+        },
+        "puts": {
+          "bought": 1018000,
+          "sold": 1970000,
+          "net": -952000
+        },
+        "signed_delta": -268530000
+      },
+      "levels": [
+        {
+          "id": "exp24-lvl-7710",
+          "price": 7710,
+          "range_low": 7685,
+          "range_high": 7710,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "THURSDAY CALL-SUPPLY CLUSTER",
+          "strength": 0.87,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "absorbed",
+          "interpretation": "Much of the supply is now below spot after the rally, so it behaves more like monetization or overwrite inventory than an untouched cap."
+        },
+        {
+          "id": "exp24-lvl-7775-7800",
+          "price": 7787.5,
+          "range_low": 7775,
+          "range_high": 7800,
+          "role": [
+            "call_supply",
+            "transition"
+          ],
+          "label": "UPPER THURSDAY SUPPLY",
+          "strength": 0.73,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Late call selling and 7800 put selling create a mixed upper boundary rather than a clean directional hedge."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-thu-call-supply-cluster",
+          "type": "unknown_complex",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "key_levels": [
+            7685,
+            7700,
+            7710
+          ],
+          "interpretation": "Repeated non-spread call selling is the strongest negative-delta component of the Thursday book."
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-thu-overwrite",
+          "low": 7685,
+          "high": 7710,
+          "type": "call_supply_monetization",
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Previously sold calls are now below spot and may represent monetization or trapped overwrite inventory."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-09-25",
+      "label": "FRI 3DTE",
+      "expiration": "2026-09-25",
+      "dte": 3,
+      "forward": null,
+      "reference_price": 7759.55,
+      "summary": {
+        "headline": "Friday shows the strongest bullish state change of the week",
+        "stateful_change": "The baseline defensive Friday book reversed toward put selling and positive signed delta while fresh call blocks appeared from 7750 through 7825."
+      },
+      "flow_aggregate": {
+        "gross_premium": 64394000,
+        "calls": {
+          "bought": 24825000,
+          "sold": 24044000,
+          "net": 781000
+        },
+        "puts": {
+          "bought": 6407000,
+          "sold": 9118000,
+          "net": -2711000
+        },
+        "signed_delta": 495818000
+      },
+      "levels": [
+        {
+          "id": "exp25-lvl-7700",
+          "price": 7700,
+          "range_low": 7695,
+          "range_high": 7705,
+          "role": [
+            "reclaim_support",
+            "put_risk_acceptance"
+          ],
+          "label": "FRIDAY PROTECTION-UNWIND ZONE",
+          "strength": 0.79,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Opposite-side 7700 put flow is consistent with partial monetization or restructuring of the prior defensive fingerprint."
+        },
+        {
+          "id": "exp25-lvl-7750",
+          "price": 7750,
+          "range_low": 7745,
+          "range_high": 7755,
+          "role": [
+            "main_pivot",
+            "upside_demand"
+          ],
+          "label": "FRIDAY UPSIDE BASE",
+          "strength": 0.88,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Matched block call buying at 7750-7755 establishes the base of Friday upside participation."
+        },
+        {
+          "id": "exp25-lvl-7775",
+          "price": 7777.5,
+          "range_low": 7775,
+          "range_high": 7780,
+          "role": [
+            "upside_demand",
+            "transition"
+          ],
+          "label": "FRIDAY CALL-DEMAND STEP",
+          "strength": 0.86,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Matched 198x call blocks at 7775 and 7780 create a clear upside-demand step."
+        },
+        {
+          "id": "exp25-lvl-7825",
+          "price": 7825,
+          "range_low": 7820,
+          "range_high": 7830,
+          "role": [
+            "upside_demand",
+            "tail_zone"
+          ],
+          "label": "FRIDAY UPSIDE EXTENSION",
+          "strength": 0.69,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "interpretation": "Visible call demand remains positive into 7825 and becomes more relevant above 7800."
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-fri-7725-call-demand",
+          "ref": "str-fri-7725-call-demand"
+        },
+        {
+          "id": "str-fri-7750-7755-call-demand",
+          "ref": "str-fri-7750-7755-call-demand"
+        },
+        {
+          "id": "str-fri-7775-7780-call-demand",
+          "ref": "str-fri-7775-7780-call-demand"
+        },
+        {
+          "id": "str-fri-7700-protection-restructure",
+          "ref": "str-fri-7700-protection-restructure"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-fri-7700-protection",
+          "low": 7695,
+          "high": 7705,
+          "type": "put_protection_activation",
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "This is the stateful boundary for the prior Friday downside hedge; continued put selling would strengthen the unwind interpretation."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-weekly-pin",
+      "name": "7750 pin and range",
+      "bias": "neutral",
+      "priority": 0.4,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7730,
+          "description": "Keep the lower weekly decision zone intact"
+        },
+        {
+          "type": "hold_below",
+          "level": 7800,
+          "description": "Fail to establish acceptance beyond the upper weekly decision zone"
+        }
+      ],
+      "route": [
+        7730,
+        7750,
+        7780,
+        7800
+      ],
+      "invalidations": [
+        "Acceptance below 7725",
+        "Acceptance above 7800 with renewed call buying"
+      ],
+      "interpretation": "Inside 7730-7800, the dominant 7750 inventory center favors chop, decay, and repeated mean reversion around the pivot."
+    },
+    {
+      "id": "sc-weekly-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.35,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7800,
+          "description": "Move beyond the balanced upper decision zone"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7825,
+          "description": "Confirm that Friday upside demand remains active"
+        }
+      ],
+      "route": [
+        7800,
+        7825
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7780",
+        "Fresh broad call selling across Friday strikes"
+      ],
+      "interpretation": "Acceptance above 7800 activates the Friday call-demand ladder and shifts the book from pin-centered to upside realization."
+    },
+    {
+      "id": "sc-weekly-downside",
+      "name": "Downside reactivation",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7730,
+          "description": "Lose the new lower weekly decision zone"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7715,
+          "description": "Rebuild protection below the current inventory center"
+        }
+      ],
+      "route": [
+        7730,
+        7725,
+        7715,
+        7700
+      ],
+      "invalidations": [
+        "Reclaim and hold above 7750",
+        "Continued Friday put selling"
+      ],
+      "interpretation": "A break below 7730 with renewed put demand would reactivate the downside-protection route toward 7715 and 7700."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 1532,
+    "deduplicated_rows": 1455,
+    "duplicates_removed": 77,
+    "deduplication_method": "economic key: timestamp, expiration, option type, strike, trade price, contracts, premium, side",
+    "unique_trade_ids_raw": 1532,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "spread_flag_share": 0.7588,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL is transaction side and does not prove opening or closing.",
+      "Approximately 76% of deduplicated rows are flagged Spread, so package-level interpretation is more reliable than raw directional aggregation.",
+      "Several large deep-ITM prints are financing, roll, or complex candidates and are not treated as standalone directional evidence.",
+      "The source timezone label is inconsistent with the observed session clock; source timestamps were not silently converted.",
+      "The latest visible spot is from the supplied tape and is not a live or overnight SPX quote.",
+      "Visible premium-filtered tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
