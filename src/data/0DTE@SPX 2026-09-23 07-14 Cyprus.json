@@ -1,0 +1,1241 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-23 07-14 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-23",
+    "dte": 0,
+    "snapshot_time": "2026-09-23T07:14:00+03:00",
+    "timezone": "Europe/Nicosia",
+    "source_timezone": "America/New_York",
+    "latest_visible_trade_time": "2026-09-22T23:58:50-04:00",
+    "session_scope": "overnight_premarket",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "reference_price_type": "latest_visible_tape_spot",
+    "source_files": [
+      "SPX-tape-2026-09-23_06-53-35.csv",
+      "SPX-contract-2026-09-23_06-53-06.csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7761.75,
+    "spot_change_from_previous_snapshot": null,
+    "observed_trade_spot_low": 7755.95,
+    "observed_trade_spot_high": 7780.6,
+    "regime": "mixed_range_decay_with_bearish_overlay",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7770,
+    "main_pivot_range": [
+      7760,
+      7775
+    ],
+    "upper_decision_level": 7785,
+    "upper_transition_range": [
+      7785,
+      7803.34
+    ],
+    "lower_decision_level": 7735,
+    "lower_transition_range": [
+      7730,
+      7735
+    ],
+    "baseline_status": "first_snapshot_for_2026-09-23_expiration"
+  },
+  "summary": {
+    "headline": "7760-7775 is the main overnight inventory center, with bearish financing and synthetic-short pressure concentrated in 7785-7800.",
+    "key_points": [
+      "Full-tape premium is net sold in both calls and puts, but near-spot calls are nearly balanced and OTM calls are net bought.",
+      "The 7760 synthetic-long-like package and 7800 synthetic-short-like packages create opposing delta structures around the central range.",
+      "Repeated 7735P/7730P downside protection financed through 7785C/7790C defines the clearest late-session bearish asymmetric package hypothesis.",
+      "7770-7775 shows rapid buy-sell-buy call churn, so gross call activity there is treated as inventory turnover rather than clean fresh upside demand.",
+      "The 7850P cluster materially inflates positive transaction delta, but its volume, tiny OI, and same-session reversals make churn or restructuring a strong competing hypothesis."
+    ],
+    "daily_note": "Premarket baseline: range/decay remains the default inside 7735-7785/7790. Downside protection activates below 7735 toward 7730, while sustained acceptance above 7800-7803 would weaken the bearish overlay. All directional interpretations remain conditional on opening/closing state, next OI, IV, and RTH price action."
+  },
+  "flow_aggregate": {
+    "gross_premium": 60105000,
+    "total_contracts": 31612,
+    "signed_delta_notional": 524228000,
+    "calls": {
+      "bought": 20766000,
+      "sold": 24945000,
+      "net": -4179000
+    },
+    "puts": {
+      "bought": 5016000,
+      "sold": 9378000,
+      "net": -4362000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "gross_premium": 24573000,
+      "signed_delta_notional": 577000000,
+      "calls": {
+        "bought": 8884000,
+        "sold": 8780000,
+        "net": 104000
+      },
+      "puts": {
+        "bought": 2791000,
+        "sold": 4118000,
+        "net": -1327000
+      }
+    },
+    "otm": {
+      "gross_premium": 17015000,
+      "signed_delta_notional": 460600000,
+      "calls": {
+        "bought": 6418000,
+        "sold": 5080000,
+        "net": 1338000
+      },
+      "puts": {
+        "bought": 2483000,
+        "sold": 3034000,
+        "net": -551000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": "e1968a50-6f5a-4e92-be68-202ffb991754",
+      "dominant_trade_description": "5200C sell, 7 contracts, deep ITM complex leg",
+      "dominant_premium": 1800000,
+      "dominant_share": 0.0299475917,
+      "result": {
+        "net_calls": -2379000,
+        "net_puts": -4362000,
+        "signed_delta_notional": 529628000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest print reduces headline call selling but does not change the mixed premium-selling regime."
+    },
+    "sensitivity": {
+      "ex_largest_timestamp_package": {
+        "excluded_timestamp": "2026-09-22T17:27:58-04:00",
+        "excluded_gross_premium": 3300000,
+        "net_calls": -4079000,
+        "net_puts": -4362000,
+        "signed_delta_notional": 524228000,
+        "changes_interpretation": false
+      },
+      "ex_7850_strike_cluster": {
+        "excluded_gross_premium": 5058000,
+        "net_calls": -4179000,
+        "net_puts": -1116000,
+        "signed_delta_notional": 233228000,
+        "changes_interpretation": false,
+        "comment": "The 7850P cluster materially amplifies supportive transaction delta but does not create the entire regime."
+      },
+      "ex_obvious_near_max_value_itm_verticals": {
+        "gross_premium_remaining": 50653000,
+        "net_calls": -4193000,
+        "net_puts": -4362000,
+        "signed_delta_notional": 524228000,
+        "changes_interpretation": false
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7711-5",
+      "price": 7711.5,
+      "range_low": 7710,
+      "range_high": 7713,
+      "role": [
+        "breakdown_trigger",
+        "transition"
+      ],
+      "label": "LOWER SHORT-VOL STRESS BOUNDARY",
+      "strength": 0.62,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -50.25,
+      "flow": null,
+      "interpretation": "Lower expiry breakeven of the aggregated 7750 short-straddle-like package; if that package is opening, losses accelerate below this zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-short-straddle"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7730",
+      "price": 7730,
+      "range_low": 7728,
+      "range_high": 7732,
+      "role": [
+        "downside_protection",
+        "transition",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER PUT-SPREAD VALUE ZONE",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -31.75,
+      "flow": {
+        "call_buy": 1162000,
+        "call_sell": 1364000,
+        "put_buy": 206000,
+        "put_sell": 222000,
+        "net_calls": -202000,
+        "net_puts": -16000,
+        "gross": 2954000,
+        "signed_delta_notional": -30000000
+      },
+      "interpretation": "Lower leg and max-value area of repeated 7735P/7730P downside spreads; sustained trade below 7735 increases the relevance of this zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7730-7790-bear-overlay"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7735",
+      "price": 7735,
+      "range_low": 7733,
+      "range_high": 7737,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger",
+        "complex_zone"
+      ],
+      "label": "DOWNSIDE PROTECTION ACTIVATION",
+      "strength": 0.91,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -26.75,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 1879000,
+        "put_buy": 368000,
+        "put_sell": 385000,
+        "net_calls": -1879000,
+        "net_puts": -17000,
+        "gross": 2632000,
+        "signed_delta_notional": -260800000
+      },
+      "interpretation": "Repeated bought 7735 puts create the clearest visible downside protection trigger, while large ITM call blocks make the strike structurally complex.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7730-7790-bear-overlay",
+          "str-7735-7745-call-block"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7750",
+      "price": 7750,
+      "range_low": 7748,
+      "range_high": 7752,
+      "role": [
+        "volatility_center",
+        "pin",
+        "inventory_center"
+      ],
+      "label": "SHORT-VOL CENTER",
+      "strength": 0.76,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -11.75,
+      "flow": {
+        "call_buy": 1059000,
+        "call_sell": 926000,
+        "put_buy": 246000,
+        "put_sell": 255000,
+        "net_calls": 133000,
+        "net_puts": -9000,
+        "gross": 2486000,
+        "signed_delta_notional": 25400000
+      },
+      "interpretation": "Two same-strike short-straddle-like packages total 125 matched contracts and define an expiry payoff band of approximately 7711.5-7788.5 if opening.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-short-straddle"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7760-7775",
+      "price": 7770,
+      "range_low": 7760,
+      "range_high": 7775,
+      "role": [
+        "main_pivot",
+        "pin",
+        "inventory_center",
+        "complex_zone"
+      ],
+      "label": "MAIN 0DTE INVENTORY CENTER",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 8.25,
+      "flow": {
+        "call_buy": 5276000,
+        "call_sell": 2954000,
+        "put_buy": 1037000,
+        "put_sell": 1653000,
+        "net_calls": 2322000,
+        "net_puts": -616000,
+        "gross": 10920000
+      },
+      "interpretation": "The highest-quality central range combines a 7760 synthetic-long-like package, 7770 short-vol flow, and repeated 7770-7775 buy-sell-buy call churn.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7760-synthetic-long",
+          "str-7770-short-straddle",
+          "str-7770-7775-churn"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7785-7790",
+      "price": 7785,
+      "range_low": 7785,
+      "range_high": 7790,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "UPSIDE FINANCING / CAPPED-UPSIDe ZONE",
+      "strength": 0.88,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 23.25,
+      "flow": {
+        "call_buy": 614000,
+        "call_sell": 680000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -66000,
+        "net_puts": 0,
+        "gross": 1294000
+      },
+      "interpretation": "7785 calls are repeatedly sold and 7790 calls bought as financing for the downside package. The derived upper breakeven of the fully visible package is approximately 7785.4.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7730-7790-bear-overlay"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7800",
+      "price": 7800,
+      "range_low": 7798,
+      "range_high": 7803.34,
+      "role": [
+        "potential_cap",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "SYNTHETIC-SHORT / UPPER REGIME ZONE",
+      "strength": 0.92,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 38.25,
+      "flow": {
+        "call_buy": 350000,
+        "call_sell": 284000,
+        "put_buy": 768000,
+        "put_sell": 50000,
+        "net_calls": 66000,
+        "net_puts": 718000,
+        "gross": 1452000,
+        "signed_delta_notional": -146200000
+      },
+      "interpretation": "Two same-strike call-sell/put-buy packages imply at least 200 matched synthetic shorts with effective entries near 7778.9, plus additional long-put convexity.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7800-synthetic-short",
+          "str-7770-short-straddle"
+        ],
+        "notes": [
+          "The contract summary file does not contain a 7800P row even though 7800P prints are present in tape."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7850",
+      "price": 7850,
+      "range_low": 7848,
+      "range_high": 7852,
+      "role": [
+        "complex_zone",
+        "put_risk_acceptance"
+      ],
+      "label": "LARGE ITM PUT TURNOVER",
+      "strength": 0.7,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 88.25,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 0,
+        "put_buy": 906000,
+        "put_sell": 4152000,
+        "net_calls": 0,
+        "net_puts": -3246000,
+        "gross": 5058000,
+        "signed_delta_notional": 291000000
+      },
+      "interpretation": "The nominal strike is misleading because the puts are deep ITM. Weighted sold-put economics imply an effective expiry breakeven near 7766.2, and reverse-side prints make churn or restructuring a strong alternative to fresh short-put opening.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7850-put-turnover"
+        ],
+        "notes": [
+          "Contract summary OI is 13 versus 610 visible total volume."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-22T17:27:58-04:00",
+      "end": "2026-09-22T17:27:59-04:00",
+      "spot_open": 7768.3,
+      "spot_high": 7768.3,
+      "spot_low": 7768.3,
+      "spot_close": 7768.3,
+      "calls": {
+        "bought": 1600000,
+        "sold": 1700000,
+        "net": -100000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 3300000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 0,
+        "net_puts": 0
+      },
+      "regime": "deep_itm_vertical_like",
+      "events": [
+        "7630C/7640C 120x near-max-value call credit spread-like package"
+      ]
+    },
+    {
+      "start": "2026-09-22T20:08:49-04:00",
+      "end": "2026-09-22T20:08:50-04:00",
+      "spot_open": 7762.8,
+      "spot_high": 7762.8,
+      "spot_low": 7762.8,
+      "spot_close": 7762.8,
+      "calls": {
+        "bought": 291000,
+        "sold": 0,
+        "net": 291000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 212000,
+        "net": -212000
+      },
+      "gross_premium": 503000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": 291000,
+        "net_puts": -212000
+      },
+      "regime": "synthetic_long_like",
+      "events": [
+        "7760 synthetic-long-like 150x matched package"
+      ]
+    },
+    {
+      "start": "2026-09-22T22:39:32-04:00",
+      "end": "2026-09-22T22:39:57-04:00",
+      "spot_open": 7779.5,
+      "spot_high": 7779.5,
+      "spot_low": 7779.0,
+      "spot_close": 7779.0,
+      "calls": {
+        "bought": 0,
+        "sold": 147000,
+        "net": -147000
+      },
+      "puts": {
+        "bought": 713000,
+        "sold": 0,
+        "net": 713000
+      },
+      "gross_premium": 860000,
+      "near_spot": {
+        "distance_points": 30,
+        "net_calls": -147000,
+        "net_puts": 713000
+      },
+      "regime": "synthetic_short_like",
+      "events": [
+        "At least 200 matched 7800 synthetic shorts plus 50 additional long puts"
+      ]
+    },
+    {
+      "start": "2026-09-22T22:52:23-04:00",
+      "end": "2026-09-22T22:52:24-04:00",
+      "spot_open": 7779.3,
+      "spot_high": 7779.3,
+      "spot_low": 7779.3,
+      "spot_close": 7779.3,
+      "calls": {
+        "bought": 0,
+        "sold": 2958000,
+        "net": -2958000
+      },
+      "puts": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "gross_premium": 2958000,
+      "near_spot": {
+        "distance_points": 50,
+        "net_calls": -2958000,
+        "net_puts": 0
+      },
+      "regime": "large_itm_call_block",
+      "events": [
+        "Matched-size 7735C and 7745C block sells, 350x aggregate each"
+      ]
+    },
+    {
+      "start": "2026-09-22T22:57:25-04:00",
+      "end": "2026-09-22T22:57:40-04:00",
+      "spot_open": 7768.25,
+      "spot_high": 7768.25,
+      "spot_low": 7767.55,
+      "spot_close": 7767.55,
+      "calls": {
+        "bought": 0,
+        "sold": 0,
+        "net": 0
+      },
+      "puts": {
+        "bought": 823000,
+        "sold": 2420000,
+        "net": -1597000
+      },
+      "gross_premium": 3243000,
+      "near_spot": {
+        "distance_points": 100,
+        "net_calls": 0,
+        "net_puts": -1597000
+      },
+      "regime": "itm_put_turnover",
+      "events": [
+        "7850P 100x buy followed seconds later by 300x sell"
+      ]
+    },
+    {
+      "start": "2026-09-22T23:24:07-04:00",
+      "end": "2026-09-22T23:24:34-04:00",
+      "spot_open": 7763.55,
+      "spot_high": 7763.75,
+      "spot_low": 7763.55,
+      "spot_close": 7763.75,
+      "calls": {
+        "bought": 251000,
+        "sold": 370000,
+        "net": -119000
+      },
+      "puts": {
+        "bought": 257000,
+        "sold": 168000,
+        "net": 89000
+      },
+      "gross_premium": 1046000,
+      "near_spot": {
+        "distance_points": 35,
+        "net_calls": -119000,
+        "net_puts": 89000
+      },
+      "regime": "financed_bearish_overlay",
+      "events": [
+        "Repeated 7735P/7730P downside spread financed by 7785C/7790C call spread-like package"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7760-synthetic-long",
+      "timestamp": "2026-09-22T20:08:49-04:00",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7760,
+          "contracts": 150,
+          "premium": 291000,
+          "trade_ids": [
+            "9a69832f-8130-4a2f-a37a-72e05e742ed2",
+            "e2f0c27d-c001-44d7-ba3c-387d0e9a9c73"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7760,
+          "contracts": 150,
+          "premium": 212000,
+          "trade_ids": [
+            "350ffe7f-35af-4de2-baec-25558f694b8f",
+            "b1856edd-3bf6-4f33-a020-930ed57fe367"
+          ]
+        }
+      ],
+      "gross_premium": 503000,
+      "net_premium": 79500,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "current_transaction_delta_notional": 117000000,
+      "key_levels": [
+        7760,
+        7765.3
+      ],
+      "payoff": {
+        "effective_entry": 7765.3
+      },
+      "interpretation": "Clean same-strike matched synthetic-long geometry. It is strong positive transaction delta but does not prove a fresh long because opening/closing is unknown.",
+      "ui_title": "7760 Synthetic Long-like"
+    },
+    {
+      "id": "str-7800-synthetic-short",
+      "timestamp": "2026-09-22T22:39:32-04:00",
+      "type": "synthetic_short",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7800,
+          "contracts": 200,
+          "premium": 147000,
+          "trade_ids": [
+            "b024f875-9f61-439c-a2da-ca14c9749d1a",
+            "9d70c9a3-acd5-49aa-8284-7104d5710a1b"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7800,
+          "contracts": 250,
+          "premium": 713000,
+          "trade_ids": [
+            "e7f888fb-c9b4-4645-af5d-8c3b6fb34c8c",
+            "f63b1520-c539-4cf3-aa42-b0a1f20d7b7b",
+            "87dc990f-4cf6-4bab-b8a9-74d38795ba9e"
+          ]
+        }
+      ],
+      "gross_premium": 860000,
+      "net_premium": 564950,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "current_transaction_delta_notional": -183000000,
+      "key_levels": [
+        7778.78,
+        7778.95,
+        7800
+      ],
+      "payoff": {
+        "matched_synthetic_contracts": 200,
+        "effective_entries": [
+          7778.95,
+          7778.78
+        ],
+        "additional_long_put_contracts": 50
+      },
+      "interpretation": "At least 200 contracts form clean synthetic-short geometry near the prevailing index level, with another 50 long puts adding downside convexity.",
+      "ui_title": "7800 Synthetic Short-like"
+    },
+    {
+      "id": "str-7730-7790-bear-overlay",
+      "timestamp": "2026-09-22T23:24:07-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7735,
+          "contracts": 509,
+          "premium": 257000,
+          "trade_ids": [
+            "989f65ad-45c7-4814-82f4-7a93ac0b447f",
+            "99de4646-6c09-41d1-814d-e2ebcfffbb8c",
+            "edd12131-3007-4296-bb89-e0bfbd9bcff9"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7730,
+          "contracts": 395,
+          "premium": 168000,
+          "trade_ids": [
+            "0553fce5-1049-4ccd-9af6-264ca2f7106c",
+            "b57722e5-2ce1-4e03-8c5e-e0895007ace1"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7785,
+          "contracts": 602,
+          "premium": 370000,
+          "trade_ids": [
+            "20bab659-29d9-412e-8569-ffd1030058dd",
+            "9e03eba4-0525-459a-885f-a42b22e8447d",
+            "349c5f54-8782-473c-8166-a936-54f394a0b2d8"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7790,
+          "contracts": 509,
+          "premium": 251000,
+          "trade_ids": [
+            "435903de-1d14-49a6-907a-d28a2737e285",
+            "8d0c4941-1842-453d-b444-4b62e1d4f5ac",
+            "d989e8f0-3117-4c85-9642-6f132673ee06"
+          ]
+        }
+      ],
+      "gross_premium": 1046000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7730,
+        7735,
+        7785,
+        7790
+      ],
+      "payoff": {
+        "fully_visible_matched_contracts": 395,
+        "additional_partial_filtered_contracts": 207,
+        "fully_visible_package_net_credit_points": 0.4,
+        "downside_max_value_below": 7730,
+        "upside_breakeven": 7785.4,
+        "upside_max_loss_above": 7790,
+        "note": "The 602-contract full-package hypothesis requires below-filter companion legs for the additional 207 contracts and is therefore unconfirmed."
+      },
+      "interpretation": "Repeated 5-point put-spread and 5-point call-spread geometry is consistent with downside convexity financed by capped upside. Linkage is probable but not confirmed without complex-order IDs.",
+      "ui_title": "7730-7790 Financed Bearish Overlay"
+    },
+    {
+      "id": "str-7750-short-straddle",
+      "timestamp": "2026-09-22T17:35:36-04:00",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 125,
+          "premium": 340000,
+          "trade_ids": [
+            "9499a617-28f9-41a7-aaae-4c8d688192c0",
+            "2b12f7a3-dc09-474b-a0c0-9da8aa771e4e"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 125,
+          "premium": 142000,
+          "trade_ids": [
+            "aee8ada4-cb06-404c-a351-fc00b8863617",
+            "d9485daa-0036-47f7-983a-68f2e0adae08"
+          ]
+        }
+      ],
+      "gross_premium": 482000,
+      "net_premium": -481275,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7711.5,
+        7750,
+        7788.5
+      ],
+      "payoff": {
+        "credit_points_weighted": 38.502,
+        "lower_breakeven": 7711.498,
+        "upper_breakeven": 7788.502
+      },
+      "interpretation": "If opening, the package sells expiry movement around 7750 and supports a broad decay band. Opening is not confirmed.",
+      "ui_title": "7750 Short Straddle-like"
+    },
+    {
+      "id": "str-7770-short-straddle",
+      "timestamp": "2026-09-22T20:01:34-04:00",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7770,
+          "contracts": 38,
+          "premium": 57000,
+          "trade_ids": [
+            "20061e6f-2af9-4d98-a103-6ca558236900"
+          ]
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7770,
+          "contracts": 38,
+          "premium": 69000,
+          "trade_ids": [
+            "810f309e-a9d6-4348-81c9-127ba52f1977"
+          ]
+        }
+      ],
+      "gross_premium": 126000,
+      "net_premium": -126692,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7736.66,
+        7770,
+        7803.34
+      ],
+      "payoff": {
+        "credit_points": 33.34,
+        "lower_breakeven": 7736.66,
+        "upper_breakeven": 7803.34
+      },
+      "interpretation": "A compact same-strike short-vol package centered on 7770; if opening, its upper breakeven overlaps the 7800 synthetic-short regime boundary.",
+      "ui_title": "7770 Short Straddle-like"
+    },
+    {
+      "id": "str-7770-7775-churn",
+      "timestamp": "2026-09-22T22:08:50-04:00",
+      "type": "roll",
+      "legs": [],
+      "gross_premium": 3095000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7770,
+        7775
+      ],
+      "interpretation": "Rapid call BUY to SELL to BUY sequences on the same strikes indicate high inventory turnover and make gross call demand unsuitable as clean fresh directional evidence.",
+      "ui_title": "7770-7775 Call Churn"
+    },
+    {
+      "id": "str-7850-put-turnover",
+      "timestamp": "2026-09-22T22:57:25-04:00",
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 110,
+          "premium": 906000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7850,
+          "contracts": 500,
+          "premium": 4152000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 5058000,
+      "net_premium": -3246000,
+      "bias": "mixed",
+      "basis": "derived",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7766.16,
+        7850
+      ],
+      "payoff": {
+        "weighted_sold_put_price": 83.84,
+        "weighted_sold_put_breakeven": 7766.16
+      },
+      "interpretation": "Large ITM put turnover with reverse-side prints. The economic center is near 7766 rather than the 7850 strike, and next OI is required to distinguish fresh short puts from churn or closing.",
+      "ui_title": "7850P Turnover / Churn Candidate"
+    },
+    {
+      "id": "str-7735-7745-call-block",
+      "timestamp": "2026-09-22T22:52:23-04:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7735,
+          "contracts": 350,
+          "premium": 1628000,
+          "trade_ids": [
+            "58ee3d30-b736-4327-8d2e-a15fdbfdb667",
+            "964f3dd5-d69b-49e0-8f2e-a3fe4972cfed"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7745,
+          "contracts": 350,
+          "premium": 1330000,
+          "trade_ids": [
+            "0d9f15c8-8b44-4f30-8b90-95cdf0894ccb",
+            "4d07b0e2-4a80-4abc-bf0c-02a84156093a"
+          ]
+        }
+      ],
+      "gross_premium": 2958000,
+      "net_premium": -2958000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "current_transaction_delta_notional": -445000000,
+      "key_levels": [
+        7735,
+        7745
+      ],
+      "interpretation": "Large matched-size ITM call sells create strongly negative transaction delta, but bounded payoff cannot be reconstructed from visible legs. Closing or hidden-complex hypotheses remain material.",
+      "ui_title": "7735/7745 ITM Call Block"
+    },
+    {
+      "id": "str-7630-7640-call-credit",
+      "timestamp": "2026-09-22T17:27:58-04:00",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7630,
+          "contracts": 120,
+          "premium": 1700000,
+          "trade_ids": [
+            "9d02a9af-3ee6-44e7-8765-cddebc727ee2"
+          ]
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7640,
+          "contracts": 120,
+          "premium": 1600000,
+          "trade_ids": [
+            "19a712d9-916f-485f-8ab0-4605561dba80"
+          ]
+        }
+      ],
+      "gross_premium": 3300000,
+      "net_premium": -118440,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7630,
+        7640
+      ],
+      "payoff": {
+        "credit_points": 9.87,
+        "spread_width": 10,
+        "max_loss_points": 0.13
+      },
+      "interpretation": "The spread traded deep ITM for almost the full width, making fresh bearish opening economically weak. Close, roll, financing, or arbitrage-like complex flow is more plausible than a standalone directional bet.",
+      "ui_title": "7630/7640 Near-Max-Value Call Spread"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7760-7775",
+      "low": 7760,
+      "high": 7775,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "balanced central books"
+      ],
+      "source_structure_ids": [
+        "str-7750-short-straddle",
+        "str-7770-short-straddle",
+        "str-7770-7775-churn"
+      ],
+      "source_level_ids": [
+        "lvl-7760-7775"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Dense two-sided activity and short-vol structures make this the main premarket decay and inventory zone.",
+      "caveat": "Pinning is conditional because opening/closing is unknown and RTH price action has not started."
+    },
+    {
+      "id": "mz-downside-7730-7735",
+      "low": 7730,
+      "high": 7735,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "7735P/7730P downside spread holders"
+      ],
+      "source_structure_ids": [
+        "str-7730-7790-bear-overlay"
+      ],
+      "source_level_ids": [
+        "lvl-7730",
+        "lvl-7735"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Below 7735 the visible downside-spread component gains relevance and reaches its capped intrinsic value below 7730.",
+      "caveat": "The full package is inferred from repeated timing and ratios; complex linkage is not confirmed."
+    },
+    {
+      "id": "mz-upside-7785-7803",
+      "low": 7785,
+      "high": 7803.34,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "financed bearish overlay",
+        "short-vol inventory",
+        "synthetic-short-like books"
+      ],
+      "source_structure_ids": [
+        "str-7730-7790-bear-overlay",
+        "str-7800-synthetic-short",
+        "str-7770-short-straddle"
+      ],
+      "source_level_ids": [
+        "lvl-7785-7790",
+        "lvl-7800"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "This band combines the bearish overlay breakeven, synthetic-short concentration, and the upper breakeven of the 7770 short-straddle-like package.",
+      "caveat": "Acceptance above the band would weaken this monetization logic; it is not an automatic resistance guarantee."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "Range / decay inside central inventory",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7735,
+          "description": "Keep downside protection from becoming the dominant realized leg"
+        },
+        {
+          "type": "hold_below",
+          "level": 7785,
+          "description": "Keep upside financing and synthetic-short pressure intact"
+        }
+      ],
+      "route": [
+        7735,
+        7760,
+        7770,
+        7775,
+        7785
+      ],
+      "invalidations": [
+        "Sustained acceptance below 7735",
+        "Sustained acceptance above 7800-7803"
+      ],
+      "interpretation": "The default premarket regime is churn, decay, and mean reversion around 7760-7775 while SPX remains inside the major transition boundaries."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7785,
+          "description": "Absorb the 7785 call-financing boundary"
+        },
+        {
+          "type": "accept_above",
+          "level": 7803.34,
+          "description": "Clear the synthetic-short and short-vol upper transition band"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7800,
+          "description": "Require fresh upside flow rather than only short-call closing"
+        }
+      ],
+      "route": [
+        7785,
+        7790,
+        7800,
+        7803.34,
+        7815
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7785"
+      ],
+      "interpretation": "Upside becomes structurally cleaner only after the full 7785-7803 transition band is absorbed."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside protection realization",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7735,
+          "description": "Activate repeated bought downside protection"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7735,
+          "description": "Confirm protection demand with fresh downside flow"
+        },
+        {
+          "type": "iv_expand",
+          "level": 7735,
+          "description": "Require downside IV confirmation"
+        }
+      ],
+      "route": [
+        7735,
+        7730,
+        7725,
+        7715,
+        7711.5
+      ],
+      "invalidations": [
+        "Fast reclaim of 7735-7740 with put demand fading"
+      ],
+      "interpretation": "Below 7735 the financed put spread becomes more relevant; below roughly 7711.5 the largest identified 7750 short-vol package would also be beyond its lower breakeven if opening."
+    },
+    {
+      "id": "sc-stateful-confirmation",
+      "name": "OI and next-dump position-state confirmation",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "new_put_buying",
+          "level": 7735,
+          "description": "Continuation at 7735/7730 supports an opening downside-protection hypothesis"
+        },
+        {
+          "type": "new_call_selling",
+          "level": 7785,
+          "description": "Continuation at 7785 with 7790 call hedges supports the financed overlay"
+        }
+      ],
+      "route": [
+        7730,
+        7735,
+        7785,
+        7790,
+        7800,
+        7850
+      ],
+      "invalidations": [
+        "Next OI fails to confirm key legs and reverse-side flow dominates"
+      ],
+      "interpretation": "If next OI rises across 7730P/7735P/7785C/7790C, the opening bearish-overlay hypothesis strengthens. Flat or falling OI with reverse flow would favor churn, closing, or restructuring."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 471,
+    "trade_id_duplicate_rows_removed": 31,
+    "economic_duplicate_rows_removed": 16,
+    "deduplicated_rows": 424,
+    "duplicates_removed": 47,
+    "premium_filter_floor_observed_usd": 50000,
+    "iv_coverage": 1.0,
+    "delta_coverage": 1.0,
+    "side_vs_mid_consistency": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "complex_order_id_coverage": 0.0,
+    "contract_summary_key_coverage": 0.9540229885,
+    "contract_summary_keys_covered": 83,
+    "tape_contract_keys": 87,
+    "missing_contract_summary_keys": [
+      "7685P",
+      "7700C",
+      "7770P",
+      "7800P"
+    ],
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening or closing.",
+      "Most visible premium is spread or block flow, and complex-order IDs are absent.",
+      "Several large deep-ITM prints carry high intrinsic value and should not be read as proportionally large directional conviction.",
+      "The 23:24 multi-leg package includes probable below-filter companion legs; the full package size is therefore partly inferred.",
+      "The contract summary does not cover four tape contract keys, including 7800P.",
+      "This is the first snapshot for the 2026-09-23 expiration, so there is no prior same-expiry Active Window state yet.",
+      "Visible tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
