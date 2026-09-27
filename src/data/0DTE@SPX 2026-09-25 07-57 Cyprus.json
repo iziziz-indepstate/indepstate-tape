@@ -1,0 +1,843 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-09-25 07-57 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-09-25",
+    "dte": 0,
+    "snapshot_time": "2026-09-25T07:57:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "carry_in_rth_plus_eth",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-09-25-spx-1dte-50k-flow(2).csv",
+      "2026-09-25-spx-1dte-50k-contract(2).csv"
+    ],
+    "baseline": true,
+    "baseline_note": "First overnight/carry-in baseline for the 2026-09-25 0DTE session. Visible rows are tagged 09-24 and are treated as prior-session RTH plus early ETH carry-in, not as realized 2026-09-25 RTH price action."
+  },
+  "market_state": {
+    "spot": 7697.05,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "mixed_defensive",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7697.5,
+    "upper_decision_level": 7725,
+    "lower_decision_level": 7685
+  },
+  "summary": {
+    "headline": "7695-7700 is the carry-in pivot; defensive put demand is masked by a late 7750 short-vol/restructure package",
+    "key_points": [
+      "Near-spot flow is materially more defensive than the headline aggregate: within ±30 SPX points, puts are +$4.046M net bought.",
+      "The repeated 7710P/7685P long-spread orientation places an estimated expiry breakeven near 7695.2 and makes 7695-7700 the main transition zone.",
+      "A late 7750 short-straddle-like package materially distorts the headline put aggregate; opening versus monetization/unwind is unconfirmed.",
+      "Fresh ETH added 7745/7755 call-credit supply and renewed 7650-7655 put protection."
+    ],
+    "daily_note": "Baseline only; next dump should be compared statefully against these structures and strike roles."
+  },
+  "flow_aggregate": {
+    "gross_premium": 97269000,
+    "signed_delta": -746775000,
+    "calls": {
+      "bought": 21301000,
+      "sold": 24508000,
+      "net": -3207000
+    },
+    "puts": {
+      "bought": 26197000,
+      "sold": 25162000,
+      "net": 1035000
+    },
+    "near_spot": {
+      "reference_spot": 7697.05,
+      "distance_points": 30,
+      "gross_premium": 40802000,
+      "signed_delta": -704200000,
+      "calls": {
+        "bought": 8784000,
+        "sold": 8790000,
+        "net": -6000
+      },
+      "puts": {
+        "bought": 13637000,
+        "sold": 9591000,
+        "net": 4046000
+      }
+    },
+    "segments": {
+      "rth_carry_in": {
+        "rows": 640,
+        "gross_premium": 92289000,
+        "calls": {
+          "bought": 19851000,
+          "sold": 22792000,
+          "net": -2941000
+        },
+        "puts": {
+          "bought": 25080000,
+          "sold": 24465000,
+          "net": 615000
+        }
+      },
+      "eth_carry_in": {
+        "rows": 55,
+        "gross_premium": 4980000,
+        "calls": {
+          "bought": 1450000,
+          "sold": 1716000,
+          "net": -266000
+        },
+        "puts": {
+          "bought": 1117000,
+          "sold": 697000,
+          "net": 420000
+        }
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-7750-late-short-vol",
+      "dominant_premium": 6900000,
+      "dominant_share": 0.07094,
+      "result_ex_largest_print": {
+        "net_calls": -3207000,
+        "net_puts": 7935000
+      },
+      "result_ex_late_7750_package": {
+        "net_calls": -2431000,
+        "net_puts": 8173000,
+        "removed_premium": 7914000
+      },
+      "changes_interpretation": true,
+      "comment": "The late 7750 short-vol/restructure package masks a much larger underlying put-buying imbalance. Headline net put flow is therefore not a broad neutral reading."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7695-7700",
+      "price": 7697.5,
+      "range_low": 7695,
+      "range_high": 7700,
+      "role": [
+        "main_pivot",
+        "transition",
+        "inventory_center"
+      ],
+      "label": "MAIN CARRY-IN PIVOT / BATTLEFIELD",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 0.45,
+      "flow": {
+        "call_buy": 2069000,
+        "call_sell": 1547000,
+        "put_buy": 3796000,
+        "put_sell": 2024000,
+        "net_calls": 522000,
+        "net_puts": 1772000,
+        "gross": 9436000
+      },
+      "interpretation": "Repeated near-spot premium plus the estimated 7710/7685 put-spread breakeven near 7695.2 make 7695-7700 the principal carry-in decision zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7710-7685-put-debit",
+          "str-eth-exit-from-center"
+        ],
+        "notes": [
+          "Baseline level; no new-session acceptance/rejection is assumed."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7710",
+      "price": 7710,
+      "range_low": 7705,
+      "range_high": 7715,
+      "role": [
+        "downside_protection",
+        "transition"
+      ],
+      "label": "PUT-SPREAD UPPER LEG / TRANSITION",
+      "strength": 0.88,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 12.95,
+      "flow": {
+        "call_buy": 1337000,
+        "call_sell": 659000,
+        "put_buy": 3099000,
+        "put_sell": 697000,
+        "net_calls": 678000,
+        "net_puts": 2402000,
+        "gross": 5792000
+      },
+      "interpretation": "Heavy bought-put activity makes 7710 an important upper leg of the dominant downside-protection geometry.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7710-7685-put-debit"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7720-7725",
+      "price": 7722.5,
+      "range_low": 7720,
+      "range_high": 7725,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "FIRST UPPER CALL-SUPPLY / DECISION ZONE",
+      "strength": 0.85,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 25.45,
+      "flow": {
+        "call_buy": 367000,
+        "call_sell": 2016000,
+        "put_buy": 605000,
+        "put_sell": 1106000,
+        "net_calls": -1649000,
+        "net_puts": -501000,
+        "gross": 4094000
+      },
+      "interpretation": "Call selling is concentrated here; acceptance above 7725 would be needed to weaken the carry-in cap geometry.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7700p-7725c-rr-like"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7745-7755",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7755,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "complex_zone",
+        "inventory_center"
+      ],
+      "label": "UPPER SUPPLY / 7750 INVENTORY COMPLEX",
+      "strength": 0.96,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 52.95,
+      "flow": {
+        "call_buy": 595000,
+        "call_sell": 1728000,
+        "put_buy": 6716000,
+        "put_sell": 9871000,
+        "net_calls": -1133000,
+        "net_puts": -3155000,
+        "gross": 19910000
+      },
+      "interpretation": "7750 is the largest premium concentration and contains repeated synthetic-like churn plus a late short-straddle-like package. ETH also added a 7745/7755 call-credit spread.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-late-short-vol",
+          "str-eth-7745-7755-call-credit"
+        ],
+        "notes": [
+          "Opening/closing state of the late 7750 package is unresolved."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7685",
+      "price": 7685,
+      "range_low": 7680,
+      "range_high": 7690,
+      "role": [
+        "transition",
+        "conditional_floor",
+        "downside_protection"
+      ],
+      "label": "PUT-SPREAD LOWER LEG / DOWNSIDE TRANSITION",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -12.05,
+      "flow": {
+        "call_buy": 74000,
+        "call_sell": 69000,
+        "put_buy": 723000,
+        "put_sell": 1778000,
+        "net_calls": 5000,
+        "net_puts": -1055000,
+        "gross": 2644000
+      },
+      "interpretation": "7685 is the short leg / max-value edge of the repeated 7710/7685 put-spread geometry. Below it, marginal protection from that spread no longer increases.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7710-7685-put-debit"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7650-7655",
+      "price": 7652.5,
+      "range_low": 7650,
+      "range_high": 7655,
+      "role": [
+        "downside_protection",
+        "tail_zone"
+      ],
+      "label": "FRESH ETH DOWNSIDE PROTECTION",
+      "strength": 0.72,
+      "basis": "observed",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -44.55,
+      "flow": {
+        "call_buy": 256000,
+        "call_sell": 238000,
+        "put_buy": 1533000,
+        "put_sell": 393000,
+        "net_calls": 18000,
+        "net_puts": 1140000,
+        "gross": 2420000
+      },
+      "interpretation": "ETH shows renewed paid downside protection at 7650-7655 after the late 7750 vol-selling package.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-eth-7650-7655-protection"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-7600",
+      "price": 7600,
+      "range_low": 7595,
+      "range_high": 7605,
+      "role": [
+        "tail_zone",
+        "downside_protection"
+      ],
+      "label": "LOWER TAIL INVENTORY",
+      "strength": 0.68,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -97.05,
+      "flow": {
+        "call_buy": 161000,
+        "call_sell": 326000,
+        "put_buy": 193000,
+        "put_sell": 251000,
+        "net_calls": -165000,
+        "net_puts": -58000,
+        "gross": 931000
+      },
+      "interpretation": "Contract dump shows large 7600 put OI/volume; the level is a lower-tail inventory reference rather than an immediate target.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7700p-7725c-rr-like"
+        ],
+        "notes": [
+          "7600P was bought as part of a larger 20:03 package and again later in the session."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7710-7685-put-debit",
+      "timestamp": "carry-in early RTH package",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7710,
+          "contracts": 616,
+          "premium": 2594000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7685,
+          "contracts": 616,
+          "premium": 1682000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 4276000,
+      "net_premium": 912000,
+      "bias": "bearish_protection",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7710,
+        7695.2,
+        7685
+      ],
+      "payoff": {
+        "width_points": 25,
+        "estimated_debit_points": 14.79,
+        "estimated_breakeven": 7695.21,
+        "max_value_zone": "at_or_below_7685"
+      },
+      "interpretation": "Repeated long-oriented 7710P/7685P packages dominate the early carry-in tape. An earlier ~100-contract reverse package exists, so the visible net orientation is closer to +516 spreads if treated as related.",
+      "ui_title": "7710/7685 Put Debit Spread-like"
+    },
+    {
+      "id": "str-7700p-7725c-rr-like",
+      "timestamp": "carry-in 20:03 Cyprus tag",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 400,
+          "premium": 760000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 400,
+          "premium": 653000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7600,
+          "contracts": 250,
+          "premium": 51000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1464000,
+      "net_premium": 158000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7725,
+        7700,
+        7600
+      ],
+      "interpretation": "Bearish risk-reversal-like package with extra lower-tail put protection. It supports 7725 as upper supply and 7700 as a central downside-demand strike.",
+      "ui_title": "7700P / 7725C Bearish RR-like"
+    },
+    {
+      "id": "str-7750-late-short-vol",
+      "timestamp": "carry-in 22:48:12-22:48:13 Cyprus tag",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 1450,
+          "premium": 6900000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 1450,
+          "premium": 776000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 7676000,
+      "net_premium": -7676000,
+      "bias": "neutral_short_vol",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7697,
+        7750,
+        7803
+      ],
+      "payoff": {
+        "estimated_credit_points": 53.0,
+        "estimated_lower_breakeven": 7697.0,
+        "estimated_upper_breakeven": 7803.0,
+        "max_value_level": 7750
+      },
+      "interpretation": "The matched 1450-contract put/call selling is short-straddle-like, but opening is not proven. Given earlier 7750 bought puts and synthetic-like churn, monetization/unwind/restructure remains a major competing hypothesis.",
+      "ui_title": "7750 Late Short-Vol / Restructure Candidate"
+    },
+    {
+      "id": "str-eth-exit-from-center",
+      "timestamp": "carry-in ETH 23:14:33 tag",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7695,
+          "contracts": 159,
+          "premium": 308000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7690,
+          "contracts": 159,
+          "premium": 274000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7710,
+          "contracts": 159,
+          "premium": 242000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7715,
+          "contracts": 159,
+          "premium": 208000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1032000,
+      "net_premium": 68000,
+      "bias": "long_movement",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7690,
+        7695,
+        7710,
+        7715
+      ],
+      "interpretation": "Paired put- and call-debit spreads buy a capped exit away from the narrow 7695-7710 center.",
+      "ui_title": "ETH 7690/7695 + 7710/7715 Exit-from-Center"
+    },
+    {
+      "id": "str-eth-7745-7755-call-credit",
+      "timestamp": "carry-in ETH 23:18:11 tag",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7745,
+          "contracts": 668,
+          "premium": 282000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7755,
+          "contracts": 668,
+          "premium": 199000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 481000,
+      "net_premium": -83000,
+      "bias": "bearish_capped",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7745,
+        7755
+      ],
+      "interpretation": "Fresh ETH call-credit supply reinforces the upper 7745-7755 cap zone.",
+      "ui_title": "ETH 7745/7755 Call Credit"
+    },
+    {
+      "id": "str-eth-7650-7655-protection",
+      "timestamp": "carry-in ETH 23:21:42 tag",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7650,
+          "contracts": 250,
+          "premium": 213000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7655,
+          "contracts": 250,
+          "premium": 238000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 451000,
+      "net_premium": 451000,
+      "bias": "bearish_protection",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7655
+      ],
+      "interpretation": "Paid ETH downside protection appears after the late 7750 short-vol package.",
+      "ui_title": "ETH 7650-7655 Put Protection"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7695-7700-transition",
+      "low": 7695,
+      "high": 7700,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "near-spot inventory",
+        "7710/7685 put-spread holders near breakeven"
+      ],
+      "source_structure_ids": [
+        "str-7710-7685-put-debit",
+        "str-eth-exit-from-center"
+      ],
+      "source_level_ids": [
+        "lvl-7695-7700"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Primary carry-in transition where the dominant put-spread breakeven and near-spot premium concentration overlap.",
+      "caveat": "This is a structural pivot, not proof of support or pinning before new-session price action."
+    },
+    {
+      "id": "mz-7750-inventory",
+      "low": 7745,
+      "high": 7755,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "short-vol inventory if the late package was opening",
+        "call-credit sellers"
+      ],
+      "source_structure_ids": [
+        "str-7750-late-short-vol",
+        "str-eth-7745-7755-call-credit"
+      ],
+      "source_level_ids": [
+        "lvl-7745-7755"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Largest premium concentration and the main upper inventory/monetization zone.",
+      "caveat": "The 7750 package may be monetization or unwind rather than fresh short-vol opening."
+    },
+    {
+      "id": "mz-7650-7685-downside",
+      "low": 7650,
+      "high": 7685,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "holders of paid downside protection"
+      ],
+      "source_structure_ids": [
+        "str-7710-7685-put-debit",
+        "str-eth-7650-7655-protection"
+      ],
+      "source_level_ids": [
+        "lvl-7685",
+        "lvl-7650-7655"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Downside route transitions from the 7685 put-spread lower leg toward fresh 7650-7655 protection.",
+      "caveat": "Below 7685 the 7710/7685 spread is already near maximum intrinsic value, so marginal hedge demand from that structure may no longer increase."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Carry-in unresolved / pivot trade",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7695,
+          "description": "Remain inside the 7695-7725 unresolved carry-in structure"
+        }
+      ],
+      "route": [
+        7695,
+        7700,
+        7710,
+        7725
+      ],
+      "invalidations": [
+        "Sustained acceptance below 7695",
+        "Sustained acceptance above 7725"
+      ],
+      "interpretation": "Inside 7695-7725, the book remains a conflict between defensive put positioning and late short-vol/restructure flow."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside acceptance",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7725,
+          "description": "Absorb first upper call-supply zone"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7725,
+          "description": "Preferably accompanied by fresh call demand rather than only short-call closing"
+        }
+      ],
+      "route": [
+        7745,
+        7750,
+        7755
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7710-7725"
+      ],
+      "interpretation": "Acceptance above 7725 weakens the defensive carry-in geometry and shifts attention to the 7745-7755 inventory/supply zone."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside acceptance",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7695,
+          "description": "Lose the main put-spread breakeven / carry-in pivot"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7690,
+          "description": "Fresh put demand would strengthen the downside route"
+        }
+      ],
+      "route": [
+        7685,
+        7655,
+        7650,
+        7600
+      ],
+      "invalidations": [
+        "Reclaim and hold back above 7695-7700"
+      ],
+      "interpretation": "Below 7695, the defensive put book becomes more relevant; 7685 is the first transition, followed by fresh ETH protection at 7655-7650."
+    },
+    {
+      "id": "sc-bullish-reversal",
+      "name": "Bullish reversal after failed downside",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "reclaim",
+          "level": 7695,
+          "description": "Reclaim the carry-in pivot after a failed downside move"
+        },
+        {
+          "type": "iv_compress",
+          "level": 7695,
+          "description": "Preferably accompanied by easing put bid / IV"
+        }
+      ],
+      "route": [
+        7710,
+        7725
+      ],
+      "invalidations": [
+        "Renewed acceptance below 7685"
+      ],
+      "interpretation": "A failed downside move followed by a 7695-7700 reclaim reopens 7710 and 7725."
+    },
+    {
+      "id": "sc-bearish-reversal",
+      "name": "Bearish reversal after failed upside",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "failed_reclaim",
+          "level": 7745,
+          "description": "Fail in the 7745-7755 supply/inventory zone"
+        },
+        {
+          "type": "hold_below",
+          "level": 7725,
+          "description": "Return below the first upper decision zone"
+        }
+      ],
+      "route": [
+        7725,
+        7710,
+        7700
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7755"
+      ],
+      "interpretation": "Failure in the upper supply zone followed by loss of 7725 returns the book toward the central 7710-7700 structure."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 696,
+    "deduplicated_rows": 695,
+    "duplicates_removed": 1,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "spread_flagged_share": 0.799,
+    "trade_ids_available": false,
+    "complex_order_ids_available": false,
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening/closing.",
+      "Approximately 80% of deduplicated rows are spread/block-spread flagged, but complex-order IDs are absent.",
+      "The source timestamp field is tagged 09-24 while the date prefix is 2026-09-25; this payload treats the tape as prior-session carry-in rather than current-session realized price action.",
+      "The late 7750 package dominates the headline put aggregate and may represent opening short-vol, monetization, unwind, or restructure.",
+      "Visible tape is filtered at $50k+ and is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
