@@ -1,0 +1,2274 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-09-29 07-11 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "trade_date": "2026-09-28",
+    "snapshot_time": "2026-09-29T07:11:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "rth_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-09-29-vix-all-50k-flow.csv",
+      "2026-09-29-vix-all-50k-contract.csv",
+      "VIX-contract-2026-09-27_19-09-35.csv"
+    ],
+    "source_timestamp_annotation": "Trailing 09-28 marker on all 136 trades identifies Monday session; the ISO date prefix 2026-09-29 is an export/date mismatch. Raw timezone column is ETH (session label), not an ISO timezone. Hour clock interpreted as Cyprus per reporting convention; no live quote was fetched.",
+    "previous_session_trade_date": "2026-09-25"
+  },
+  "market_state": {
+    "spot": 16.07,
+    "spot_reference": "last visible trade-linked spot (not a live quote)",
+    "spot_range_low": 15.72,
+    "spot_range_high": 16.51,
+    "spot_first_visible": 16.02,
+    "spot_change_from_previous_snapshot": 1.21,
+    "previous_snapshot_spot": 14.86,
+    "regime": "spot_stress_rebound_with_monthly_forward_absorption",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 17.75,
+    "pivot_basis": "October21 forward rather than spot VIX",
+    "upper_decision_level": 18,
+    "lower_decision_level": 17.5,
+    "forward_estimates": {
+      "2026-10-21": {
+        "early": 17.655,
+        "intraday_high": 17.955,
+        "late": 17.68,
+        "previous_late": 17.615
+      },
+      "2026-11-18": {
+        "early": 18.49,
+        "intraday_high": 18.59,
+        "late": 18.39,
+        "previous_late": 18.44
+      },
+      "2026-12-16": {
+        "observed_range": [
+          18.805,
+          18.88
+        ],
+        "previous_late": 18.88
+      },
+      "2027-01-20": null
+    }
+  },
+  "summary": {
+    "headline": "Spot VIX вновь вырос после пятничной нормализации, но месячные October/November forwards не удержали расширение; положительная reported delta зависит от November и вероятного закрытия прежнего OI-confirmed short synthetic.",
+    "key_points": [
+      "Дата торгов 28 сентября, выгрузка29 сентября; VIX по принтам15.72–16.51, поздно16.07.",
+      "Gross premium $30.012M; reported transaction delta +$11.557M; known-side net premium -$0.777M (5 записей без aggressor).",
+      "После исключения November expiry (+$20.05M delta) суммарный reported delta меняет знак до -$8.493M.",
+      "Пятничный Oct25C BUY22.5k при следующем OI-17k был преимущественно закрытием старых short calls.",
+      "Friday Nov18.5 synthetic-short подтвержден OI C+4k/P+5k; Monday nearly equal reverse at22:23 is CLOSE_CANDIDATE.",
+      "Главный monthly forward pivot Oct17.5–18: пик ~17.955, поздний~17.68."
+    ],
+    "daily_note": "Для SPX после пятничного спокойного режима spot stress снова выше; рилиф требует снижения и spot VIX, и October forward. Положительная VIX transaction delta не равна подтверждённому fresh risk-off позиционированию."
+  },
+  "flow_aggregate": {
+    "gross_premium": 30012000,
+    "contracts": 248852,
+    "reported_transaction_delta_usd": 11557000,
+    "calls": {
+      "bought": 10199000,
+      "sold": 7812000,
+      "net": 2387000,
+      "unclassified_premium": 530000
+    },
+    "puts": {
+      "bought": 3639000,
+      "sold": 6803000,
+      "net": -3164000,
+      "unclassified_premium": 1029000
+    },
+    "known_side_net_premium": -777000,
+    "unclassified_aggressor": {
+      "count": 5,
+      "gross_premium": 1559000,
+      "reported_delta_usd": -1792000
+    },
+    "near_spot": null,
+    "reference_basis": "VIX option moneyness is expiry-specific forward; uniform near-spot band not used.",
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-oct21-20p17p-credit",
+      "dominant_premium": 4040000,
+      "dominant_share": 0.1346,
+      "result": {
+        "reported_delta_ex_dominant_structure_usd": 7057000,
+        "reported_delta_ex_november_expiry_usd": -8493000,
+        "reported_delta_ex_november_reverse_timestamp_usd": 3127000,
+        "reported_delta_ex_unknown_side_rows_usd": 13349000,
+        "reported_delta_ex_put_sell_usd": -13250000,
+        "reported_delta_ex_call_buy_usd": -44171000
+      },
+      "changes_interpretation": true,
+      "comment": "Single-package removal retains positive headline, but removal of entire November flips it negative. Large Nov18.5 reverse synthetic is likely closing prior OI-confirmed short rather than all new directional long."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-global-oct17p5-18",
+      "price": 17.75,
+      "range_low": 17.5,
+      "range_high": 18,
+      "role": [
+        "main_pivot",
+        "transition",
+        "inventory_center"
+      ],
+      "label": "OCT FORWARD / СТРЕСС-ПИВОТ 17.5–18",
+      "strength": null,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "testing",
+      "interpretation": "Oct forward touched17.955 then faded to~17.68; OI-confirmed synthetic short at17.5 now confronted by reverse/closing candidates. This is a monthly-forward level, not spot VIX.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-oct21-20p17p-credit",
+          "str-oct-nov-outward-rotation"
+        ],
+        "notes": [
+          "Friday Oct17.5C/P OI+3k/+3k; Monday synchronous C/P mids; latest F~17.68"
+        ]
+      }
+    },
+    {
+      "id": "lvl-global-20-22",
+      "price": 21,
+      "range_low": 20,
+      "range_high": 22,
+      "role": [
+        "transition",
+        "call_supply",
+        "complex_zone"
+      ],
+      "label": "OCT 20–22: BATTLEFIELD И ПРЕДЛОЖЕНИЕ",
+      "strength": null,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Oct20C started at427k OI and receives heavy two-sided volume; 21C has closing/monetization candidates; 22C retains prior historical confirmed supply but omitted current profile.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "No single clean short-call cap for whole 20–22 zone; combine with next OI."
+        ]
+      }
+    },
+    {
+      "id": "lvl-global-25-35",
+      "price": 30,
+      "range_low": 25,
+      "range_high": 35,
+      "role": [
+        "complex_zone",
+        "tail_zone",
+        "call_supply"
+      ],
+      "label": "25–35: УПРАВЛЯЕМАЯ КОРРЕКЦИЯ И ВЕРХНИЙ ХВОСТ",
+      "strength": null,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Oct25 BUY on Friday closed shorts (OI-17k); Monday SELL25 role unresolved; Nov25/35 OI increased after sell skew; Nov29/33 and Dec30 have select correction/tail buys. These are option inventory zones, not VIX price targets.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Expiry-specific strikes have different roles and forwards."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-28T16:30:00+03:00",
+      "end": "2026-09-28T17:30:00+03:00",
+      "label": "16:30–17:30",
+      "spot_open": 16.02,
+      "spot_high": 16.09,
+      "spot_low": 15.81,
+      "spot_close": 15.89,
+      "calls": {
+        "bought": 2788000,
+        "sold": 2749000,
+        "net": 39000,
+        "unclassified_premium": 530000
+      },
+      "puts": {
+        "bought": 2147000,
+        "sold": 4105000,
+        "net": -1958000,
+        "unclassified_premium": 1029000
+      },
+      "gross_premium": 13348000,
+      "reported_transaction_delta_usd": -3852000,
+      "regime": "opening_spot_stress",
+      "events": [
+        "Oct20P/17P credit vertical at16:40",
+        "Jan15P/14P ambiguous cluster at17:13"
+      ]
+    },
+    {
+      "start": "2026-09-28T17:30:00+03:00",
+      "end": "2026-09-28T19:30:00+03:00",
+      "label": "17:30–19:30",
+      "spot_open": 15.88,
+      "spot_high": 16.51,
+      "spot_low": 15.72,
+      "spot_close": 15.74,
+      "calls": {
+        "bought": 3235000,
+        "sold": 2244000,
+        "net": 991000,
+        "unclassified_premium": 0
+      },
+      "puts": {
+        "bought": 1118000,
+        "sold": 616000,
+        "net": 502000,
+        "unclassified_premium": 0
+      },
+      "gross_premium": 7213000,
+      "reported_transaction_delta_usd": 2711000,
+      "regime": "stress_test_and_absorption",
+      "events": [
+        "VIX high16.51; Oct forward briefly~17.96",
+        "Oct18P +20C hedge near17:52"
+      ]
+    },
+    {
+      "start": "2026-09-28T19:30:00+03:00",
+      "end": "2026-09-28T22:00:00+03:00",
+      "label": "19:30–22:00",
+      "spot_open": 15.8,
+      "spot_high": 15.97,
+      "spot_low": 15.8,
+      "spot_close": 15.95,
+      "calls": {
+        "bought": 2242000,
+        "sold": 1599000,
+        "net": 643000,
+        "unclassified_premium": 0
+      },
+      "puts": {
+        "bought": 200000,
+        "sold": 579000,
+        "net": -379000,
+        "unclassified_premium": 0
+      },
+      "gross_premium": 4620000,
+      "reported_transaction_delta_usd": 4008000,
+      "regime": "monthly_forward_compression",
+      "events": [
+        "Oct20C/25C debit spread at19:35",
+        "Cross-expiry October/November rotation at20:26"
+      ]
+    },
+    {
+      "start": "2026-09-28T22:00:00+03:00",
+      "end": "2026-09-28T23:15:00+03:00",
+      "label": "22:00–23:15",
+      "spot_open": 16.06,
+      "spot_high": 16.14,
+      "spot_low": 16.03,
+      "spot_close": 16.07,
+      "calls": {
+        "bought": 1934000,
+        "sold": 1220000,
+        "net": 714000,
+        "unclassified_premium": 0
+      },
+      "puts": {
+        "bought": 174000,
+        "sold": 1503000,
+        "net": -1329000,
+        "unclassified_premium": 0
+      },
+      "gross_premium": 4831000,
+      "reported_transaction_delta_usd": 8690000,
+      "regime": "late_reverse_and_center_roll",
+      "events": [
+        "Nov18.5 near-exact reverse at22:23",
+        "Late Oct17.5 synthetic-long-like +SELL21C"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-oct-nov-outward-rotation",
+      "timestamp": "2026-09-28T20:26:08+03:00",
+      "type": "roll",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 17.5,
+          "contracts": 840,
+          "premium": 113000,
+          "reported_delta_usd": -815000,
+          "trade_ids": [],
+          "expiration": "2026-10-21"
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 17.5,
+          "contracts": 840,
+          "premium": 105000,
+          "reported_delta_usd": -662000,
+          "trade_ids": [],
+          "expiration": "2026-10-21"
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 30.0,
+          "contracts": 7000,
+          "premium": 238000,
+          "reported_delta_usd": 1400000,
+          "trade_ids": [],
+          "expiration": "2026-10-21"
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 18.5,
+          "contracts": 770,
+          "premium": 162000,
+          "reported_delta_usd": 775000,
+          "trade_ids": [],
+          "expiration": "2026-11-18"
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 18.5,
+          "contracts": 770,
+          "premium": 169000,
+          "reported_delta_usd": 633000,
+          "trade_ids": [],
+          "expiration": "2026-11-18"
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 29.0,
+          "contracts": 3500,
+          "premium": 319000,
+          "reported_delta_usd": 1400000,
+          "trade_ids": [],
+          "expiration": "2026-11-18"
+        }
+      ],
+      "gross_premium": 1106000,
+      "net_premium": 542000,
+      "reported_transaction_delta_usd": 2731000,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_candidate",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        17.5,
+        18.5,
+        29,
+        30
+      ],
+      "interpretation": "При одинаковой секунде October SELL17.5C/BUY17.5P по840 соседствует с November BUY18.5C/SELL18.5P по770 и купленными Oct30C7k/Nov29C3.5k. Возможный перенос центрального VIX-риска из Oct в Nov с сохранением correction calls; без complex ID нельзя доказать одну клиентскую стратегию.",
+      "ui_title": "October → November: перенос риска наружу",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "20:26:08; точные размеры синтетических пар, близкий forward Oct17.625 и Nov18.38."
+        ]
+      }
+    },
+    {
+      "id": "str-oct14-oct28-put-calendar",
+      "timestamp": "2026-09-28T22:49:41+03:00",
+      "type": "roll",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 28.0,
+          "contracts": 90,
+          "premium": 96000,
+          "reported_delta_usd": -141000,
+          "trade_ids": [],
+          "expiration": "2026-10-14"
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 26.0,
+          "contracts": 90,
+          "premium": 78000,
+          "reported_delta_usd": 137000,
+          "trade_ids": [],
+          "expiration": "2026-10-14"
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 28.0,
+          "contracts": 90,
+          "premium": 95000,
+          "reported_delta_usd": 135000,
+          "trade_ids": [],
+          "expiration": "2026-10-28"
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 26.0,
+          "contracts": 90,
+          "premium": 78000,
+          "reported_delta_usd": -130000,
+          "trade_ids": [],
+          "expiration": "2026-10-28"
+        }
+      ],
+      "gross_premium": 347000,
+      "net_premium": 1000,
+      "reported_transaction_delta_usd": 1000,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        26,
+        28
+      ],
+      "interpretation": "Два противоположных вертикальных put spread между Oct14 и Oct28, все ноги по90 контрактов; небольшой календарный перенос без значимого directional delta.",
+      "ui_title": "Oct14/Oct28: календарный put-комплекс26/28",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "22:49:41; одинаковые размеры 90 контрактов по четырем ногам."
+        ]
+      }
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-oct21-20p17p-credit",
+      "low": 17,
+      "high": 20,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "hypothetical opening short Oct20P/long Oct17P credit spread"
+      ],
+      "source_structure_ids": [
+        "str-oct21-20p17p-credit"
+      ],
+      "source_level_ids": [
+        "lvl-2026-10-21-17",
+        "lvl-global-oct17p5-18"
+      ],
+      "basis": "derived",
+      "confidence": "high",
+      "description": "Conditional opening payoff: credit2.36, breakeven17.64, profit max at settlement VIX≥20, maximum loss0.64 at VIX≤17.",
+      "caveat": "Opening/closing unconfirmed; the zone is payoff geometry, not a VIX forecast."
+    },
+    {
+      "id": "mz-oct21-20c25c",
+      "low": 20,
+      "high": 25,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "hypothetical opening long Oct20C/short Oct25C"
+      ],
+      "source_structure_ids": [
+        "str-oct21-20c25c-debit"
+      ],
+      "source_level_ids": [
+        "lvl-2026-10-21-20",
+        "lvl-2026-10-21-25"
+      ],
+      "basis": "derived",
+      "confidence": "high",
+      "description": "Conditional opening payoff: debit0.43, breakeven20.43, maximum capped payoff at settlement≥25.",
+      "caveat": "Prior Oct25C BUY turned out to be predominantly short-covering; new opening unknown."
+    },
+    {
+      "id": "mz-oct21-17p5-center",
+      "low": 17.5,
+      "high": 18,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "previously OI-confirmed Oct17.5 synthetic short if retained",
+        "center-restructure participants"
+      ],
+      "source_structure_ids": [
+        "str-oct21-175-movement-20cap",
+        "str-oct-nov-outward-rotation"
+      ],
+      "source_level_ids": [
+        "lvl-global-oct17p5-18"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "OI-confirmed prior short center vs current put/call reversal, with Oct F late17.68.",
+      "caveat": "The Monday tape alone cannot establish retained net short after possible closing."
+    },
+    {
+      "id": "mz-nov18-25to35-call",
+      "low": 25,
+      "high": 35,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "hypothesized Nov short-call supply and wing monetizers"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-2026-11-18-25",
+        "lvl-2026-11-18-35"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Nov25C OI+10k and Nov35C OI+39k after Friday sales; filtered tape misses part of latter growth.",
+      "caveat": "Supply attribution incomplete, no dealer positions inferred."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-10-14",
+      "label": "14 ОКТЯБРЯ 2026",
+      "expiration": "2026-10-14",
+      "dte": 16,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Малый календарный put-комплекс на 26/28; самостоятельного направленного вывода нет.",
+        "key_points": []
+      },
+      "flow_aggregate": {
+        "gross_premium": 174000,
+        "contracts": 180,
+        "reported_transaction_delta_usd": -4000,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0,
+          "unclassified_premium": 0
+        },
+        "puts": {
+          "bought": 96000,
+          "sold": 78000,
+          "net": 18000,
+          "unclassified_premium": 0
+        },
+        "known_side_net_premium": 18000,
+        "unclassified_aggressor": {
+          "count": 0,
+          "gross_premium": 0,
+          "reported_delta_usd": 0
+        },
+        "forward_based_moneyness": true
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-21",
+      "label": "ОКТЯБРЬ 2026",
+      "expiration": "2026-10-21",
+      "dte": 23,
+      "forward": 17.68,
+      "reference_price": null,
+      "summary": {
+        "headline": "Основная активность дня. Зона форварда17.5–18 тестировалась; 20C двухсторонний, 21/25C продаются/перестраиваются.",
+        "key_points": [
+          "Oct F briefly17.955 but late~17.68",
+          "Oct17.5C/P Friday OI+3k/+3k confirms Friday short synthetic; Monday reverse flow is not yet OI-confirmed",
+          "Oct25C Friday BUY22.5k followed by OI-17k: predominantly short-cover, not fresh long build"
+        ]
+      },
+      "flow_aggregate": {
+        "gross_premium": 16073000,
+        "contracts": 143991,
+        "reported_transaction_delta_usd": -636000,
+        "calls": {
+          "bought": 4827000,
+          "sold": 4616000,
+          "net": 211000,
+          "unclassified_premium": 0
+        },
+        "puts": {
+          "bought": 2590000,
+          "sold": 4040000,
+          "net": -1450000,
+          "unclassified_premium": 0
+        },
+        "known_side_net_premium": -1239000,
+        "unclassified_aggressor": {
+          "count": 0,
+          "gross_premium": 0,
+          "reported_delta_usd": 0
+        },
+        "forward_based_moneyness": true,
+        "near_forward": {
+          "forward": 17.68,
+          "distance_points": 2.5,
+          "gross_premium": 13581000,
+          "calls": {
+            "bought": 4306000,
+            "sold": 2645000,
+            "net": 1661000,
+            "unclassified_premium": 0
+          },
+          "puts": {
+            "bought": 2590000,
+            "sold": 4040000,
+            "net": -1450000,
+            "unclassified_premium": 0
+          }
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-2026-10-21-17p5",
+          "price": 17.5,
+          "range_low": 17.5,
+          "range_high": 18.0,
+          "role": [
+            "main_pivot",
+            "inventory_center",
+            "volatility_center"
+          ],
+          "label": "ОКТ 17.5: ПИВОТ / СИНТЕТИК",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "testing",
+          "flow": {
+            "call_buy": 1372000,
+            "call_sell": 604000,
+            "net_calls": 768000,
+            "put_buy": 1414000,
+            "put_sell": 453000,
+            "net_puts": 961000,
+            "gross": 3843000
+          },
+          "interpretation": "Пятничный short17.5 OI-confirmed: C+3k/P+3k; понедельник показывает BUY17.5C и SELL17.5P в конце, то есть вероятное закрытие/реверс старого риска. Октябрьский late F~17.68.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct21-175-movement-20cap",
+              "str-oct-nov-outward-rotation"
+            ],
+            "notes": [
+              "Пятничный short17.5 OI-confirmed: C+3k/P+3k; понедельник показывает BUY17.5C и SELL17.5P в конце, то есть вероятное закрытие/реверс старого риска. Октябрьский late F~17.68."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 48000,
+              "new": 51000,
+              "delta": 3000
+            },
+            "put": {
+              "previous": 64000,
+              "new": 67000,
+              "delta": 3000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-10-21-17",
+          "price": 17.0,
+          "range_low": 17.0,
+          "range_high": 17.0,
+          "role": [
+            "put_risk_acceptance",
+            "conditional_floor"
+          ],
+          "label": "ОКТ 17P: НИЖНЯЯ НОГА",
+          "strength": null,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 258000,
+            "call_sell": 177000,
+            "net_calls": 81000,
+            "put_buy": 1049000,
+            "put_sell": 0,
+            "net_puts": 1049000,
+            "gross": 1484000
+          },
+          "interpretation": "BUY17P9999 против SELL20P9999. При opening credit put spread условный lower break-even~17.64.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct21-20p17p-credit"
+            ],
+            "notes": [
+              "BUY17P9999 против SELL20P9999. При opening credit put spread условный lower break-even~17.64."
+            ]
+          }
+        },
+        {
+          "id": "lvl-2026-10-21-20",
+          "price": 20.0,
+          "range_low": 20.0,
+          "range_high": 20.0,
+          "role": [
+            "inventory_center",
+            "transition",
+            "upside_demand"
+          ],
+          "label": "ОКТ20: БОЛЬШОЙ BATTLEFIELD",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "flow": {
+            "call_buy": 2676000,
+            "call_sell": 1644000,
+            "net_calls": 1032000,
+            "put_buy": 0,
+            "put_sell": 3447000,
+            "net_puts": -3447000,
+            "gross": 7767000
+          },
+          "interpretation": "Starting OI427k после пятничного+10k, Monday CALL volume~43k, две стороны; BUY20C10k с SELL25C10k. Чистая long/short роль не доказана.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct21-20c25c-debit"
+            ],
+            "notes": [
+              "Starting OI427k после пятничного+10k, Monday CALL volume~43k, две стороны; BUY20C10k с SELL25C10k. Чистая long/short роль не доказана."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 417000,
+              "new": 427000,
+              "delta": 10000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-10-21-21",
+          "price": 21.0,
+          "range_low": 21.0,
+          "range_high": 21.0,
+          "role": [
+            "transition",
+            "call_supply"
+          ],
+          "label": "ОКТ21: СНИЖЕНИЕ КОРРЕКЦИОННОГО ХЕДЖА",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 1171000,
+            "net_calls": -1171000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 1171000
+          },
+          "interpretation": "OI по 21C снизился на4k после пятничной продажи; сегодня SELL-skew около13.6k. Может быть дальнейшая монетизация старых calls.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct21-175-movement-20cap"
+            ],
+            "notes": [
+              "OI по 21C снизился на4k после пятничной продажи; сегодня SELL-skew около13.6k. Может быть дальнейшая монетизация старых calls."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 144000,
+              "new": 140000,
+              "delta": -4000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-10-21-22",
+          "price": 22.0,
+          "range_low": 22.0,
+          "range_high": 22.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "ОКТ22: ИСТОРИЧЕСКИ ПОДТВЕРЖДЕННАЯ SUPPLY",
+          "strength": null,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "historical",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "net_calls": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 0
+          },
+          "interpretation": "Более ранние крупные OI confirmations (+48k,+18k) после SELL. В нынешнем фильтрованном профиле строки нет; нет доказательства нулевого OI.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Более ранние крупные OI confirmations (+48k,+18k) после SELL. В нынешнем фильтрованном профиле строки нет; нет доказательства нулевого OI."
+            ]
+          }
+        },
+        {
+          "id": "lvl-2026-10-21-25",
+          "price": 25.0,
+          "range_low": 25.0,
+          "range_high": 25.0,
+          "role": [
+            "complex_zone",
+            "transition"
+          ],
+          "label": "ОКТ25: ЗОНА СМЕНЫ РОЛИ",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "testing",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 574000,
+            "net_calls": -574000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 574000
+          },
+          "interpretation": "После пятничного BUY22.5k OI упал17k: преимущественно снятие старых shorts. Сегодня SELL25C11k; новая short-supply ещё не подтверждена.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct21-20c25c-debit"
+            ],
+            "notes": [
+              "После пятничного BUY22.5k OI упал17k: преимущественно снятие старых shorts. Сегодня SELL25C11k; новая short-supply ещё не подтверждена."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 224000,
+              "new": 207000,
+              "delta": -17000
+            }
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-oct21-20p17p-credit",
+          "timestamp": "2026-09-28T16:40:29+03:00",
+          "expiration": "2026-10-21",
+          "type": "put_credit_spread",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 9999,
+              "premium": 3200000,
+              "reported_delta_usd": 11000000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 17.0,
+              "contracts": 9999,
+              "premium": 840000,
+              "reported_delta_usd": -6500000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 4040000,
+          "net_premium": -2360000,
+          "reported_transaction_delta_usd": 4500000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            17,
+            17.64,
+            20
+          ],
+          "reference_forward": 17.65,
+          "interpretation": "Равноразмерный put credit spread. При гипотетическом opening credit ~2.36 п., нижний breakeven ~17.64; ограниченный риск дальнейшей нормализации VIX ниже17. Ограничение убытка обеспечивает купленный17P. Направление сделки не подтверждает opening.",
+          "competing_hypotheses": [
+            "opening ограниченного short put spread",
+            "closing/roll ранее набранных путов"
+          ],
+          "ui_title": "Октябрь 20P/17P: ограниченное принятие риска",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 16:40:29 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        },
+        {
+          "id": "str-oct21-175-movement-20cap",
+          "timestamp": "2026-09-28T17:10:28+03:00",
+          "expiration": "2026-10-21",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 17.5,
+              "contracts": 3744,
+              "premium": 524000,
+              "reported_delta_usd": 3652000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 17.5,
+              "contracts": 4212,
+              "premium": 527000,
+              "reported_delta_usd": -3300000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 11700,
+              "premium": 1118000,
+              "reported_delta_usd": -7400000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 2169000,
+          "net_premium": -67000,
+          "reported_transaction_delta_usd": -7048000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            17.5,
+            20
+          ],
+          "reference_forward": 17.655,
+          "interpretation": "Куплены центральные17.5C/P, продано20C в двух клипах по5850: покупка движения около центра с монетизацией умеренного роста; BUY17.5C также может закрывать пятничный OI-confirmed short call.",
+          "competing_hypotheses": [
+            "long movement плюс верхняя call-supply",
+            "частичный close старого short17.5 synthetic"
+          ],
+          "ui_title": "Октябрь: движение17.5 с продажей20C",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 17:10:28 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        },
+        {
+          "id": "str-oct21-18p20c-stress",
+          "timestamp": "2026-09-28T17:52:31+03:00",
+          "expiration": "2026-10-21",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.0,
+              "contracts": 5244,
+              "premium": 782000,
+              "reported_delta_usd": -4419000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 380,
+              "premium": 53000,
+              "reported_delta_usd": -361000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 13800,
+              "premium": 1507000,
+              "reported_delta_usd": 9379000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 2342000,
+          "net_premium": 2236000,
+          "reported_transaction_delta_usd": 4599000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18,
+            20
+          ],
+          "reference_forward": 17.955,
+          "interpretation": "При VIX16.41 / F~17.955 видны BUY18P~5.24k, BUY20C13.8k и SELL18C380. Это двухсторонний защитный пакет с сильной колл-ногой20; нестандартные размеры понижают уверенность в едином комплексе.",
+          "competing_hypotheses": [
+            "новый двусторонний hedge",
+            "ролл старого центрального риска"
+          ],
+          "ui_title": "Октябрь: 18P плюс коррекционный20C",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 17:52:31 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        },
+        {
+          "id": "str-oct21-20c25c-debit",
+          "timestamp": "2026-09-28T19:35:08+03:00",
+          "expiration": "2026-10-21",
+          "type": "call_debit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 10000,
+              "premium": 950000,
+              "reported_delta_usd": 6300000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 25.0,
+              "contracts": 10000,
+              "premium": 520000,
+              "reported_delta_usd": -3300000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1470000,
+          "net_premium": 430000,
+          "reported_transaction_delta_usd": 3000000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20,
+            25
+          ],
+          "reference_forward": 17.7,
+          "interpretation": "Точный 10k:10k call debit spread, примерный дебет0.43 п. При opening breakeven20.43, стоимость ограничена выше25. Пятничный BUY25C привёл к снижению OI17k: сегодняшняя продажа25C может быть новым short-cap либо повторной перестройкой.",
+          "competing_hypotheses": [
+            "fresh call debit spread",
+            "closing/roll 25C и корректировка hedge"
+          ],
+          "ui_title": "Октябрь 20C/25C: умеренный стресс",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 19:35:08 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-oct21-20p17p-credit",
+          "low": 17,
+          "high": 20,
+          "type": "spread_max_value_zone",
+          "beneficiaries": [
+            "hypothetical opening short Oct20P/long Oct17P credit spread"
+          ],
+          "source_structure_ids": [
+            "str-oct21-20p17p-credit"
+          ],
+          "source_level_ids": [
+            "lvl-2026-10-21-17",
+            "lvl-global-oct17p5-18"
+          ],
+          "basis": "derived",
+          "confidence": "high",
+          "description": "Conditional opening payoff: credit2.36, breakeven17.64, profit max at settlement VIX≥20, maximum loss0.64 at VIX≤17.",
+          "caveat": "Opening/closing unconfirmed; the zone is payoff geometry, not a VIX forecast."
+        },
+        {
+          "id": "mz-oct21-20c25c",
+          "low": 20,
+          "high": 25,
+          "type": "spread_max_value_zone",
+          "beneficiaries": [
+            "hypothetical opening long Oct20C/short Oct25C"
+          ],
+          "source_structure_ids": [
+            "str-oct21-20c25c-debit"
+          ],
+          "source_level_ids": [
+            "lvl-2026-10-21-20",
+            "lvl-2026-10-21-25"
+          ],
+          "basis": "derived",
+          "confidence": "high",
+          "description": "Conditional opening payoff: debit0.43, breakeven20.43, maximum capped payoff at settlement≥25.",
+          "caveat": "Prior Oct25C BUY turned out to be predominantly short-covering; new opening unknown."
+        },
+        {
+          "id": "mz-oct21-17p5-center",
+          "low": 17.5,
+          "high": 18,
+          "type": "complex_inventory_zone",
+          "beneficiaries": [
+            "previously OI-confirmed Oct17.5 synthetic short if retained",
+            "center-restructure participants"
+          ],
+          "source_structure_ids": [
+            "str-oct21-175-movement-20cap",
+            "str-oct-nov-outward-rotation"
+          ],
+          "source_level_ids": [
+            "lvl-global-oct17p5-18"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "OI-confirmed prior short center vs current put/call reversal, with Oct F late17.68.",
+          "caveat": "The Monday tape alone cannot establish retained net short after possible closing."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-10-28",
+      "label": "28 ОКТЯБРЯ 2026",
+      "expiration": "2026-10-28",
+      "dte": 30,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Нога небольшого календарного путового комплекса против Oct14; собственный forward не восстановлен.",
+        "key_points": []
+      },
+      "flow_aggregate": {
+        "gross_premium": 173000,
+        "contracts": 180,
+        "reported_transaction_delta_usd": 5000,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0,
+          "unclassified_premium": 0
+        },
+        "puts": {
+          "bought": 78000,
+          "sold": 95000,
+          "net": -17000,
+          "unclassified_premium": 0
+        },
+        "known_side_net_premium": -17000,
+        "unclassified_aggressor": {
+          "count": 0,
+          "gross_premium": 0,
+          "reported_delta_usd": 0
+        },
+        "forward_based_moneyness": true
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "НОЯБРЬ 2026",
+      "expiration": "2026-11-18",
+      "dte": 51,
+      "forward": 18.39,
+      "reference_price": null,
+      "summary": {
+        "headline": "Положительная reported delta около +$20.05M; крупный reverse synthetic18.5 близок к закрытию подтвержденной пятничной short-VIX позиции.",
+        "key_points": [
+          "Nov reports +$20.05M delta and dominates total +$11.56M",
+          "22:23 BUY18.5C/SELL18.5P nearly exact reversal of Friday OI-confirmed synthetic short",
+          "Nov F late18.39 vs Friday~18.44; no persistent forward extension"
+        ]
+      },
+      "flow_aggregate": {
+        "gross_premium": 8942000,
+        "contracts": 55922,
+        "reported_transaction_delta_usd": 20050000,
+        "calls": {
+          "bought": 4383000,
+          "sold": 1789000,
+          "net": 2594000,
+          "unclassified_premium": 530000
+        },
+        "puts": {
+          "bought": 333000,
+          "sold": 1907000,
+          "net": -1574000,
+          "unclassified_premium": 0
+        },
+        "known_side_net_premium": 1020000,
+        "unclassified_aggressor": {
+          "count": 1,
+          "gross_premium": 530000,
+          "reported_delta_usd": 2400000
+        },
+        "forward_based_moneyness": true,
+        "near_forward": {
+          "forward": 18.39,
+          "distance_points": 2.5,
+          "gross_premium": 6065000,
+          "calls": {
+            "bought": 3143000,
+            "sold": 935000,
+            "net": 2208000,
+            "unclassified_premium": 0
+          },
+          "puts": {
+            "bought": 333000,
+            "sold": 1654000,
+            "net": -1321000,
+            "unclassified_premium": 0
+          }
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-2026-11-18-18p5",
+          "price": 18.5,
+          "range_low": 18.5,
+          "range_high": 18.5,
+          "role": [
+            "volatility_center",
+            "transition"
+          ],
+          "label": "НОЯ18.5: REVERSAL SYNTHETIC",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "testing",
+          "flow": {
+            "call_buy": 1390000,
+            "call_sell": 424000,
+            "net_calls": 966000,
+            "put_buy": 333000,
+            "put_sell": 1465000,
+            "net_puts": -1132000,
+            "gross": 3612000
+          },
+          "interpretation": "Friday SELL18.5C/BUY18.5P подтверждён OI C+4k/P+5k. Monday BUY18.5C~5.1k/SELL18.5P4.76k выглядит как close или role flip.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov18-185-reversal"
+            ],
+            "notes": [
+              "Friday SELL18.5C/BUY18.5P подтверждён OI C+4k/P+5k. Monday BUY18.5C~5.1k/SELL18.5P4.76k выглядит как close или role flip."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 13000,
+              "new": 17000,
+              "delta": 4000
+            },
+            "put": {
+              "previous": 12000,
+              "new": 17000,
+              "delta": 5000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-11-18-20",
+          "price": 20.0,
+          "range_low": 20.0,
+          "range_high": 20.0,
+          "role": [
+            "complex_zone",
+            "upside_demand"
+          ],
+          "label": "НОЯ20C: ПОПЫТКА REBUILD",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 1245000,
+            "call_sell": 184000,
+            "net_calls": 1061000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 1429000
+          },
+          "interpretation": "После Friday SELL10k OI упал5k. Monday BUY20C~6.8k vs SELL1k: rebuild hedge или short cover.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "После Friday SELL10k OI упал5k. Monday BUY20C~6.8k vs SELL1k: rebuild hedge или short cover."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 147000,
+              "new": 142000,
+              "delta": -5000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-11-18-25",
+          "price": 25.0,
+          "range_low": 25.0,
+          "range_high": 25.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "НОЯ25C: ПОДТВЕРЖДЕННЫЙ CAP",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 121000,
+            "call_sell": 0,
+            "net_calls": 121000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 121000
+          },
+          "interpretation": "OI +10k после пятничного SELL около10k. Слой short-call supply подтверждён, Monday continuation ограничена.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "OI +10k после пятничного SELL около10k. Слой short-call supply подтверждён, Monday continuation ограничена."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 175000,
+              "new": 185000,
+              "delta": 10000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-11-18-29",
+          "price": 29.0,
+          "range_low": 27.0,
+          "range_high": 33.0,
+          "role": [
+            "upside_demand",
+            "tail_zone"
+          ],
+          "label": "НОЯ29/33: ДАЛЬНЯЯ КОРРЕКЦИОННАЯ ЗАЩИТА",
+          "strength": null,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 769000,
+            "call_sell": 0,
+            "net_calls": 769000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 1299000
+          },
+          "interpretation": "BUY29C3.5k в межэкспирационном пакете; также BUY33C6k. Opening не подтверждён.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct-nov-outward-rotation"
+            ],
+            "notes": [
+              "BUY29C3.5k в межэкспирационном пакете; также BUY33C6k. Opening не подтверждён."
+            ]
+          }
+        },
+        {
+          "id": "lvl-2026-11-18-35",
+          "price": 35.0,
+          "range_low": 35.0,
+          "range_high": 35.0,
+          "role": [
+            "call_supply",
+            "tail_zone"
+          ],
+          "label": "НОЯ35C: КРУПНЫЙ UPPER-TAIL INVENTORY",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 131000,
+            "net_calls": -131000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 131000
+          },
+          "interpretation": "OI299k→338k (+39k) после Friday sell-skew. Рост превосходит видимый пятничный объём, полный знак неизвестных сделок не реконструируется.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "OI299k→338k (+39k) после Friday sell-skew. Рост превосходит видимый пятничный объём, полный знак неизвестных сделок не реконструируется."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 299000,
+              "new": 338000,
+              "delta": 39000
+            }
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-nov18-185short-33tail",
+          "timestamp": "2026-09-28T17:08:52+03:00",
+          "expiration": "2026-11-18",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.5,
+              "contracts": 1080,
+              "premium": 227000,
+              "reported_delta_usd": -1100000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.5,
+              "contracts": 1080,
+              "premium": 238000,
+              "reported_delta_usd": -884000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 33.0,
+              "contracts": 6000,
+              "premium": 450000,
+              "reported_delta_usd": 2000000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 915000,
+          "net_premium": 461000,
+          "reported_transaction_delta_usd": 16000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18.5,
+            33
+          ],
+          "reference_forward": 18.49,
+          "interpretation": "Продан synthetic18.5 в размере1080:1080, дополнительно куплен33C6k. Срединный short может финансировать дальнее хвостовое крыло; общий complex ID отсутствует.",
+          "competing_hypotheses": [
+            "новый short center + long tail",
+            "частичная реконфигурация пятничного шорта"
+          ],
+          "ui_title": "Ноябрь: short18.5 с33C",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 17:08:52 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        },
+        {
+          "id": "str-nov18-185-reversal",
+          "timestamp": "2026-09-28T22:23:39+03:00",
+          "expiration": "2026-11-18",
+          "type": "synthetic_long",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 18.5,
+              "contracts": 5100,
+              "premium": 1071000,
+              "reported_delta_usd": 5144000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 18.5,
+              "contracts": 4760,
+              "premium": 1000000,
+              "reported_delta_usd": 3900000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 23.5,
+              "contracts": 1000,
+              "premium": 129000,
+              "reported_delta_usd": -614000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 2200000,
+          "net_premium": -58000,
+          "reported_transaction_delta_usd": 8430000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "close_candidate",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18.5,
+            23.5
+          ],
+          "reference_forward": 18.39,
+          "interpretation": "Видно 4760 парных BUY18.5C/SELL18.5P плюс340 дополнительных BUY18.5C, а также SELL23.5C1k. Пятничный противоположный synthetic ~4.6k был подтверждён OI +4k/+5k. Сильная competing hypothesis = закрытие старого short, не автоматический fresh long.",
+          "competing_hypotheses": [
+            "CLOSE прежнего подтвержденного synthetic-short",
+            "новая противоположная позиция другого участника",
+            "expiry/strike restructure"
+          ],
+          "ui_title": "Ноябрь 18.5: почти точный reverse-match",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 22:23:39 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        },
+        {
+          "id": "str-nov18-20c27c-unknown",
+          "timestamp": "2026-09-28T16:41:28+03:00",
+          "expiration": "2026-11-18",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 20.0,
+              "contracts": 5000,
+              "premium": 925000,
+              "reported_delta_usd": 4300000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": null,
+              "strike": 27.0,
+              "contracts": 5000,
+              "premium": 530000,
+              "reported_delta_usd": 2400000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1455000,
+          "net_premium": null,
+          "reported_transaction_delta_usd": 6700000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "low",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            20,
+            27
+          ],
+          "reference_forward": 18.49,
+          "interpretation": "BUY20C5k и 27C5k с неопределённым aggressor; reported delta по27C положительная, но её нельзя использовать для подстановки неизвестного BUY/SELL.",
+          "competing_hypotheses": [
+            "двухногая call-комбинация неизвестной направленности"
+          ],
+          "ui_title": "Ноябрь 20/27C: неопределённая вторая нога",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 16:41:28 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "ДЕКАБРЬ 2026",
+      "expiration": "2026-12-16",
+      "dte": 79,
+      "forward": 18.81,
+      "reference_price": null,
+      "summary": {
+        "headline": "Центр19 частично монетизируют и добавляют купленный30C; прежний deferred synthetic19 получил лишь частичное подтверждение следующим OI.",
+        "key_points": [
+          "Earlier Dec19 synthetic forward exposure was partially OI-confirmed",
+          "Current SELL19C/SELL19P +BUY30C suggests center monetization / tail rotation",
+          "Dec F~18.81 after Friday~18.88"
+        ]
+      },
+      "flow_aggregate": {
+        "gross_premium": 3468000,
+        "contracts": 17370,
+        "reported_transaction_delta_usd": -1766000,
+        "calls": {
+          "bought": 936000,
+          "sold": 1407000,
+          "net": -471000,
+          "unclassified_premium": 0
+        },
+        "puts": {
+          "bought": 92000,
+          "sold": 505000,
+          "net": -413000,
+          "unclassified_premium": 528000
+        },
+        "known_side_net_premium": -884000,
+        "unclassified_aggressor": {
+          "count": 2,
+          "gross_premium": 528000,
+          "reported_delta_usd": -586000
+        },
+        "forward_based_moneyness": true,
+        "near_forward": {
+          "forward": 18.81,
+          "distance_points": 2.5,
+          "gross_premium": 1288000,
+          "calls": {
+            "bought": 113000,
+            "sold": 682000,
+            "net": -569000,
+            "unclassified_premium": 0
+          },
+          "puts": {
+            "bought": 92000,
+            "sold": 401000,
+            "net": -309000,
+            "unclassified_premium": 0
+          }
+        }
+      },
+      "levels": [
+        {
+          "id": "lvl-2026-12-16-19",
+          "price": 19.0,
+          "range_low": 19.0,
+          "range_high": 19.0,
+          "role": [
+            "inventory_center",
+            "volatility_center",
+            "transition"
+          ],
+          "label": "ДЕК19: РАНЕЕ RETAINED SYNTHETIC",
+          "strength": null,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "testing",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 626000,
+            "net_calls": -626000,
+            "put_buy": 92000,
+            "put_sell": 401000,
+            "net_puts": -309000,
+            "gross": 1119000
+          },
+          "interpretation": "Следующий OI пятницы по Dec19C/P +2k/+1k. Monday SELL19C и mixed put flow, возможна частичная монетизация прежней длинной synthetic позиции.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-dec16-19-straddle-short30tail"
+            ],
+            "notes": [
+              "Следующий OI пятницы по Dec19C/P +2k/+1k. Monday SELL19C и mixed put flow, возможна частичная монетизация прежней длинной synthetic позиции."
+            ]
+          },
+          "last_oi_confirmation": {
+            "call": {
+              "previous": 24000,
+              "new": 26000,
+              "delta": 2000
+            },
+            "put": {
+              "previous": 36000,
+              "new": 37000,
+              "delta": 1000
+            }
+          }
+        },
+        {
+          "id": "lvl-2026-12-16-25",
+          "price": 25.0,
+          "range_low": 25.0,
+          "range_high": 25.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "ДЕК25: ТЕКУЩАЯ ПРОДАЖА CALL",
+          "strength": null,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 304000,
+            "net_calls": -304000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 304000
+          },
+          "interpretation": "SELL25C2k в 17:20 связан по времени с центром19.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-dec16-19center25supply"
+            ],
+            "notes": [
+              "SELL25C2k в 17:20 связан по времени с центром19."
+            ]
+          }
+        },
+        {
+          "id": "lvl-2026-12-16-30",
+          "price": 30.0,
+          "range_low": 30.0,
+          "range_high": 30.0,
+          "role": [
+            "tail_zone",
+            "upside_demand"
+          ],
+          "label": "ДЕК30: КУПЛЕННОЕ КРЫЛО",
+          "strength": null,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 684000,
+            "call_sell": 0,
+            "net_calls": 684000,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 684000
+          },
+          "interpretation": "BUY30C6k против проданного 19C/19P по1.5k; выпуклость в дальнем крыле, не самостоятельный target VIX.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-dec16-19-straddle-short30tail"
+            ],
+            "notes": [
+              "BUY30C6k против проданного 19C/19P по1.5k; выпуклость в дальнем крыле, не самостоятельный target VIX."
+            ]
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-dec16-19-straddle-short30tail",
+          "timestamp": "2026-09-28T17:08:52+03:00",
+          "expiration": "2026-12-16",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 19.0,
+              "contracts": 1500,
+              "premium": 371000,
+              "reported_delta_usd": -1600000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 19.0,
+              "contracts": 1500,
+              "premium": 401000,
+              "reported_delta_usd": 1200000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 30.0,
+              "contracts": 6000,
+              "premium": 684000,
+              "reported_delta_usd": 2800000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1456000,
+          "net_premium": -88000,
+          "reported_transaction_delta_usd": 2400000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            19,
+            30
+          ],
+          "reference_forward": 18.81,
+          "interpretation": "Равное SELL19C1500 / SELL19P1500 против BUY30C6000 (1:1:4). Возможны продажа центрального движения и покупка дальнего крыла либо монетизация части ранее OI-confirmed длинного Dec19 synthetic. Крайний верхний payoff не следует считать немедленной целью VIX.",
+          "competing_hypotheses": [
+            "new short straddle + 4x long call tail",
+            "close/monetize ранее подтвержденный long19C",
+            "roll deferred protection вверх"
+          ],
+          "ui_title": "Декабрь: продажа центра19 +30C",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 17:08:52 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        },
+        {
+          "id": "str-dec16-19center25supply",
+          "timestamp": "2026-09-28T17:20:56+03:00",
+          "expiration": "2026-12-16",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 19.0,
+              "contracts": 1020,
+              "premium": 255000,
+              "reported_delta_usd": -1059000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 19.0,
+              "contracts": 340,
+              "premium": 92000,
+              "reported_delta_usd": -279000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 25.0,
+              "contracts": 2000,
+              "premium": 304000,
+              "reported_delta_usd": -1300000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 651000,
+          "net_premium": -467000,
+          "reported_transaction_delta_usd": -2638000,
+          "bias": "bearish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            19,
+            25
+          ],
+          "reference_forward": 18.81,
+          "interpretation": "SELL19C1020, BUY19P340, SELL25C2k. Продажа среднего/верхнего VIX с put demand; нестандартные размеры указывают на restructuring либо несколько независимых ордеров.",
+          "competing_hypotheses": [
+            "deferred downside-VIX restructure",
+            "частичная продажа/монетизация старого Dec19C"
+          ],
+          "ui_title": "Декабрь: 19C/19P и продажа25C",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 17:20:56 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "ЯНВАРЬ 2027",
+      "expiration": "2027-01-20",
+      "dte": 114,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Виден крупный 15P BUY против 14P с неизвестным aggressor, поэтому направленная интерпретация ограничена.",
+        "key_points": []
+      },
+      "flow_aggregate": {
+        "gross_premium": 1129000,
+        "contracts": 31010,
+        "reported_transaction_delta_usd": -6287000,
+        "calls": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0,
+          "unclassified_premium": 0
+        },
+        "puts": {
+          "bought": 450000,
+          "sold": 178000,
+          "net": 272000,
+          "unclassified_premium": 501000
+        },
+        "known_side_net_premium": 272000,
+        "unclassified_aggressor": {
+          "count": 2,
+          "gross_premium": 501000,
+          "reported_delta_usd": -3606000
+        },
+        "forward_based_moneyness": true
+      },
+      "levels": [
+        {
+          "id": "lvl-2027-01-20-14",
+          "price": 14.0,
+          "range_low": 14.0,
+          "range_high": 14.0,
+          "role": [
+            "downside_protection",
+            "complex_zone"
+          ],
+          "label": "ЯНВ14P: НЕИЗВЕСТНЫЙ AGGRESSOR",
+          "strength": null,
+          "basis": "observed",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "net_calls": 0,
+            "put_buy": 0,
+            "put_sell": 0,
+            "net_puts": 0,
+            "gross": 420000
+          },
+          "interpretation": "20k Jan14P напечатаны рядом с BUY15P10k; стороне14P присвоено null. OI~5.5k vs volume20k.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-jan27-15p14p-unknown"
+            ],
+            "notes": [
+              "20k Jan14P напечатаны рядом с BUY15P10k; стороне14P присвоено null. OI~5.5k vs volume20k."
+            ]
+          }
+        },
+        {
+          "id": "lvl-2027-01-20-15",
+          "price": 15.0,
+          "range_low": 15.0,
+          "range_high": 15.0,
+          "role": [
+            "downside_protection"
+          ],
+          "label": "ЯНВ15P: BUY10K",
+          "strength": null,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "flow": {
+            "call_buy": 0,
+            "call_sell": 0,
+            "net_calls": 0,
+            "put_buy": 450000,
+            "put_sell": 0,
+            "net_puts": 450000,
+            "gross": 450000
+          },
+          "interpretation": "Видна покупка15P10k, но пакетный directional смысл зависит от неизвестной стороны14P.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-jan27-15p14p-unknown"
+            ],
+            "notes": [
+              "Видна покупка15P10k, но пакетный directional смысл зависит от неизвестной стороны14P."
+            ]
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-jan27-15p14p-unknown",
+          "timestamp": "2026-09-28T17:13:23+03:00",
+          "expiration": "2027-01-20",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 15.0,
+              "contracts": 10000,
+              "premium": 450000,
+              "reported_delta_usd": -2700000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": null,
+              "strike": 14.0,
+              "contracts": 20000,
+              "premium": 420000,
+              "reported_delta_usd": -3200000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 870000,
+          "net_premium": null,
+          "reported_transaction_delta_usd": -5900000,
+          "bias": "mixed",
+          "basis": "inferred",
+          "confidence": "low",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            14,
+            15
+          ],
+          "reference_forward": null,
+          "interpretation": "BUY Jan15P10k @0.45 и Jan14P20k @0.21 с отсутствующим aggressor. Размеры 1:2, но сторона14P неизвестна: запрещено утверждать, что это профинансированный put ratio. По Jan14P starting OI~5.5k и текущему volume20k свежий оборот неизбежен, удержание ждёт следующего OI.",
+          "competing_hypotheses": [
+            "1:2 put ratio, ТОЛЬКО если Jan14P действительно SELL",
+            "покупка двух серий путов",
+            "closing/roll предыдущего downside VIX inventory"
+          ],
+          "ui_title": "Январь 15P/14P: неподтверждённое ратио",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": [
+              "Идентифицировано по времени 17:13:23 и размерной геометрии; ID комплекса отсутствует."
+            ]
+          }
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "ФЕВРАЛЬ 2027",
+      "expiration": "2027-02-17",
+      "dte": 142,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Единственный небольшой принт; недостаточно оснований для самостоятельного бука.",
+        "key_points": []
+      },
+      "flow_aggregate": {
+        "gross_premium": 53000,
+        "contracts": 199,
+        "reported_transaction_delta_usd": 195000,
+        "calls": {
+          "bought": 53000,
+          "sold": 0,
+          "net": 53000,
+          "unclassified_premium": 0
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 0,
+          "net": 0,
+          "unclassified_premium": 0
+        },
+        "known_side_net_premium": 53000,
+        "unclassified_aggressor": {
+          "count": 0,
+          "gross_premium": 0,
+          "reported_delta_usd": 0
+        },
+        "forward_based_moneyness": true
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-vix-normalization",
+      "name": "Продолжение сжатия VIX",
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 17.5,
+          "description": "Oct21 forward устойчиво ниже17.5–17.6"
+        },
+        {
+          "type": "accept_below",
+          "level": 15.7,
+          "description": "Spot VIX снижается ниже~15.7"
+        }
+      ],
+      "route": [
+        17.5,
+        17.0,
+        16.5
+      ],
+      "route_basis": "October expiry forward for the first level; any spot VIX reference is separate. Subsequent points are conditional VIX zones, not guaranteed targets.",
+      "invalidations": [
+        "Oct forward снова принимается выше18",
+        "Spot VIX устойчиво возвращается выше16.5"
+      ],
+      "interpretation": "Восстановление carry и нормализации; для SPX режим становится менее напряжённым только при согласованном падении spot и monthly forwards."
+    },
+    {
+      "id": "sc-vix-stress-expansion",
+      "name": "Устойчивое расширение VIX",
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 18,
+          "description": "Oct21 forward удерживается выше18–18.5"
+        },
+        {
+          "type": "accept_above",
+          "level": 16.5,
+          "description": "Spot VIX подтверждает рост в район16.5–17"
+        }
+      ],
+      "route": [
+        18,
+        20,
+        21,
+        22,
+        25
+      ],
+      "route_basis": "Monthly VIX forward / option positioning strike map, not a prediction of actual cash VIX settlement.",
+      "invalidations": [
+        "Возврат Oct forward ниже17.5–17.6",
+        "Снижение spot VIX ниже15.7"
+      ],
+      "interpretation": "Согласованное превышение forward+spot даёт повод проверить, поглощается ли прежде накопленный short-vol inventory; уровень20 это battlefield, зона22 имеет исторически подтвержденную call supply."
+    },
+    {
+      "id": "sc-vix-two-sided",
+      "name": "Центральный двухсторонний режим",
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "triggers": [
+        {
+          "type": "hold_below",
+          "level": 18,
+          "description": "Oct forward не удерживает пробой18"
+        },
+        {
+          "type": "hold_above",
+          "level": 17.5,
+          "description": "Oct forward остаётся в зоне17.5–18"
+        }
+      ],
+      "route": [
+        17.5,
+        17.75,
+        18
+      ],
+      "route_basis": "October forward center only.",
+      "invalidations": [
+        "Устойчивая месячная кривая выше18.5",
+        "Синхронное падение spot и forward ниже нижних границ"
+      ],
+      "interpretation": "Возможны повторные тесты central short-vol inventory без устойчивого directional преимущества по одной transaction delta."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 136,
+    "deduplicated_rows": 136,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "trade_id_coverage": 0.0,
+    "complex_order_id_coverage": 0.0,
+    "side_quality": "mixed",
+    "missing_aggressor_rows": 5,
+    "missing_aggressor_premium_usd": 1559000,
+    "missing_aggressor_reported_delta_usd": -1792000,
+    "multileg_quality": "timestamp_and_size_only",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "next_session_oi_available_for_current_tape": false,
+    "oi_comparison_trade_date": "2026-09-25",
+    "premium_source": "Rounded human-readable premium column normalized to numeric USD (precision approximately $1K per print).",
+    "caveats": [
+      "Cash VIX spot sampled from tape, not an independent synchronized close.",
+      "VIX moneyness assessed against expiry-specific forward from synchronous same-strike call/put mid; unresolved expiry forwards remain null.",
+      "Five rows have unknown aggressor; raw signed delta kept as reported and unknown sides excluded from known-side net premium.",
+      "Current OI profile confirms prior Friday Sep25 flows, not Sep28 opening/closing.",
+      "Some profile volume materially exceeds $50k filtered tape volume, hence missing-side transactions cannot be reconstructed.",
+      "Trade and complex order IDs absent; timestamp/ratio multileg matches are hypotheses.",
+      "Raw timestamp contains inconsistent 2026-09-29 ISO date prefix and 09-28 trade-day suffix; economic session assigned using the suffix.",
+      "No dealer inventory, full market position, or deterministic SPX forecast inferred."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
