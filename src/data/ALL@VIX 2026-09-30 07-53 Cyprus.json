@@ -1,0 +1,1285 @@
+{
+  "schema_version": "1.0",
+  "category": "VIX",
+  "snapshot_name": "ALL@VIX 2026-09-30 07-53 Cyprus",
+  "session": {
+    "underlying": "VIX",
+    "expiration": null,
+    "dte": null,
+    "trade_date": "2026-09-29",
+    "snapshot_time": "2026-09-30T07:53:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "all_session_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-09-30-vix-all-50k-flow.csv",
+      "2026-09-30-vix-all-50k-contract.csv",
+      "2026-09-29-vix-all-50k-contract.csv"
+    ],
+    "notes": [
+      "All 101 tape rows carry trailing internal trade-day marker 09-29.",
+      "The visible timestamp prefix is inconsistent with the internal trade-day marker; trade_date uses the internal session marker.",
+      "VIX moneyness and regime levels are interpreted against expiry-specific forwards where available."
+    ]
+  },
+  "market_state": {
+    "spot": 16.05,
+    "spot_change_from_previous_snapshot": -0.02,
+    "regime": "range_carry_with_deferred_tail_protection",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 17.75,
+    "upper_decision_level": 18.0,
+    "lower_decision_level": 17.5,
+    "reference_basis": "Oct21 VIX forward",
+    "oct_forward_late": 17.68,
+    "nov_forward_late": 18.33,
+    "interpretation": "Spot VIX remains elevated near 16, but October and November forwards failed to expand. Central movement is being sold while selective deferred tail protection remains."
+  },
+  "summary": {
+    "headline": "Диапазон и carry восстанавливаются вокруг повышенного spot VIX, а месячная кривая поглощает стресс",
+    "key_points": [
+      "Reported VIX delta is nearly flat at -$0.05M, but three missing-aggressor rows contribute -$9.9M; excluding them leaves +$9.85M.",
+      "Known-side premium is net sold by about $6.98M, with both calls and puts net sold.",
+      "October late forward is about 17.68, essentially unchanged from Monday; November softened to about 18.33.",
+      "Nov18 short straddle and repeated short-synthetic/risk-financing packages support a range/carry read.",
+      "Tail protection persists through selective Nov/Dec35C buying, while 22-29C supply monetizes more realistic stress."
+    ],
+    "daily_note": "Main front pivot remains Oct F 17.5-18. Acceptance above 18-18.5 with spot VIX above 16.5-17 would challenge carry; acceptance below 17.5-17.6 with spot VIX below about 15.7 would confirm cleaner normalization."
+  },
+  "flow_aggregate": {
+    "gross_premium": 26655000,
+    "calls": {
+      "bought": 5804000,
+      "sold": 8992000,
+      "net": -3188000
+    },
+    "puts": {
+      "bought": 2327000,
+      "sold": 6122000,
+      "net": -3795000
+    },
+    "unknown_side_premium": 3410000,
+    "transaction_delta_usd": -48000,
+    "contracts": 288489,
+    "known_side_net_premium": -6983000,
+    "unknown_side_reported_delta_usd": -9900000,
+    "delta_ex_unknown_side_usd": 9852000,
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-jan-205416-range-complex",
+      "dominant_premium": 5134000,
+      "dominant_share": 0.1926,
+      "result": {
+        "transaction_delta_ex_dominant_usd": 8652000,
+        "transaction_delta_ex_unknown_side_usd": 9852000
+      },
+      "changes_interpretation": true,
+      "comment": "Headline delta is non-robust. Known-side premium selling and structure geometry are more informative than the raw signed-delta total."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-front-17p5-18",
+      "price": 17.75,
+      "range_low": 17.5,
+      "range_high": 18.0,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "volatility_center"
+      ],
+      "label": "FRONT VIX PIVOT / RANGE CENTER",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "reference_price": 17.68,
+      "reference_basis": "Oct21 forward late",
+      "interpretation": "Repeated synthetic and straddle activity cluster around 17.5-18. The October forward ended near 17.68.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-xexp-200256-normalization",
+          "str-nov18-short-straddle"
+        ],
+        "notes": [
+          "Main regime boundary remains 17.5-18."
+        ]
+      }
+    },
+    {
+      "id": "lvl-20-battlefield",
+      "price": 20.0,
+      "range_low": 19.5,
+      "range_high": 20.5,
+      "role": [
+        "transition",
+        "complex_zone",
+        "upside_demand"
+      ],
+      "label": "20 TRANSITION / INVENTORY BATTLEFIELD",
+      "strength": 0.85,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "interpretation": "Oct20C carries very large OI and continued fresh inventory growth, while current tape is net call-buying at 20.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-xexp-200256-normalization"
+        ],
+        "notes": [
+          "Oct20C OI reached about 443k after a +16k prior-session increase."
+        ]
+      }
+    },
+    {
+      "id": "lvl-22-25-call-supply",
+      "price": 23.5,
+      "range_low": 22.0,
+      "range_high": 25.0,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "22-25 ORDINARY STRESS SUPPLY",
+      "strength": 0.9,
+      "basis": "inferred",
+      "confidence": "high",
+      "state": "active",
+      "interpretation": "22C remains a historically confirmed supply zone and Oct25C received an almost exact +11k OI confirmation after Monday's SELL11k. Tuesday again sold 22C and substantial Nov25C.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-oct-185642-22-28-supply",
+          "str-xexp-225154-range-carry"
+        ],
+        "notes": [
+          "Stress transit remains 18 -> 20 -> 22 -> 25."
+        ]
+      }
+    },
+    {
+      "id": "lvl-35-tail-conflict",
+      "price": 35.0,
+      "range_low": 35.0,
+      "range_high": 37.0,
+      "role": [
+        "tail_zone",
+        "complex_zone"
+      ],
+      "label": "35-37 TAIL REVERSAL / MONETIZATION ZONE",
+      "strength": 0.8,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "testing",
+      "interpretation": "Existing Nov35 short-call inventory meets large Tuesday Nov/Dec35C buying. The current buying may be short covering, fresh tail hedging, or both.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-xexp-35c-tail-buy"
+        ],
+        "notes": [
+          "Nov35C prior short supply was OI-confirmed; Tuesday bought about 14.8k Nov35C and 7.1k Dec35C."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-09-29T13:26:18+03:00",
+      "end": "2026-09-29T19:11:15+03:00",
+      "spot_open": 16.08,
+      "spot_high": 16.32,
+      "spot_low": 15.81,
+      "spot_close": 16.27,
+      "calls": {
+        "bought": 1530000,
+        "sold": 3098000,
+        "net": -1568000
+      },
+      "puts": {
+        "bought": 826000,
+        "sold": 3379000,
+        "net": -2553000
+      },
+      "gross_premium": 10643000,
+      "transaction_delta_usd": 2735000,
+      "unknown_side_premium": 1810000,
+      "regime": "range_building",
+      "events": [
+        "Nov18 short straddle near forward",
+        "Oct six-leg financed correction complex",
+        "Oct22/28 call supply"
+      ]
+    },
+    {
+      "start": "2026-09-29T19:32:14+03:00",
+      "end": "2026-09-29T21:41:26+03:00",
+      "spot_open": 16.22,
+      "spot_high": 16.41,
+      "spot_low": 15.92,
+      "spot_close": 15.92,
+      "calls": {
+        "bought": 3817000,
+        "sold": 4157000,
+        "net": -340000
+      },
+      "puts": {
+        "bought": 1257000,
+        "sold": 2066000,
+        "net": -809000
+      },
+      "gross_premium": 12897000,
+      "transaction_delta_usd": 2759000,
+      "unknown_side_premium": 1600000,
+      "regime": "two_sided_inventory",
+      "events": [
+        "Cross-expiry short-VIX normalization package",
+        "Repeated Nov/Dec35C tail buying",
+        "January ambiguous range complex"
+      ]
+    },
+    {
+      "start": "2026-09-29T22:26:27+03:00",
+      "end": "2026-09-29T23:11:28+03:00",
+      "spot_open": 16.01,
+      "spot_high": 16.06,
+      "spot_low": 16.01,
+      "spot_close": 16.05,
+      "calls": {
+        "bought": 457000,
+        "sold": 1737000,
+        "net": -1280000
+      },
+      "puts": {
+        "bought": 244000,
+        "sold": 677000,
+        "net": -433000
+      },
+      "gross_premium": 3115000,
+      "transaction_delta_usd": -5542000,
+      "regime": "late_supply",
+      "events": [
+        "Cross-expiry 16P/25C range-carry package",
+        "Late Oct18 movement sale"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-xexp-200256-normalization",
+      "timestamp": "2026-09-29T20:02:56+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 18.0,
+          "contracts": 4320,
+          "premium": 566000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 18.0,
+          "contracts": 4320,
+          "premium": 661000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 20.0,
+          "contracts": 12000,
+          "premium": 1200000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 18.5,
+          "contracts": 2760,
+          "premium": 580000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 18.5,
+          "contracts": 2760,
+          "premium": 596000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 16.0,
+          "contracts": 12000,
+          "premium": 732000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 4335000,
+      "net_premium": 579000,
+      "bias": "short_vol_with_capped_stress_risk",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        16.0,
+        18.0,
+        18.5,
+        20.0
+      ],
+      "interpretation": "Short-synthetic-like exposure around the October and November forwards is paired with Oct20C protection and Nov16P financing. Economic read favors normalization/carry rather than the near-zero package delta.",
+      "ui_title": "Oct/Nov Forward Normalization Package"
+    },
+    {
+      "id": "str-xexp-35c-tail-buy",
+      "timestamp": "2026-09-29T19:59:56+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 35.0,
+          "contracts": 14842,
+          "premium": 935000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-12-16",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 35.0,
+          "contracts": 7134,
+          "premium": 609000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1544000,
+      "net_premium": 1544000,
+      "bias": "tail_protection_or_short_cover",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        35.0
+      ],
+      "interpretation": "Two repeated approximately 2:1 Nov/Dec35C purchase fingerprints. Because Nov35 already carried confirmed short inventory, current buying may be covering or fresh tail protection.",
+      "ui_title": "Nov/Dec 35C Tail Reversal"
+    },
+    {
+      "id": "str-xexp-225154-range-carry",
+      "timestamp": "2026-09-29T22:51:54+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-21",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 16.0,
+          "contracts": 7500,
+          "premium": 244000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-21",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 25.0,
+          "contracts": 7500,
+          "premium": 383000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 16.0,
+          "contracts": 7500,
+          "premium": 473000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-11-18",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 25.0,
+          "contracts": 10000,
+          "premium": 1129000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 2229000,
+      "net_premium": -1741000,
+      "bias": "range_carry",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        16.0,
+        25.0
+      ],
+      "interpretation": "Moderate stress is sold in October and November, November low-VIX put risk is accepted, while October receives nearer downside-VIX protection.",
+      "ui_title": "Oct/Nov 16P-25C Range Carry"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-front-17p5-18",
+      "low": 17.5,
+      "high": 18.0,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "short straddles",
+        "synthetic-short-like books"
+      ],
+      "source_structure_ids": [
+        "str-xexp-200256-normalization",
+        "str-nov18-short-straddle"
+      ],
+      "source_level_ids": [
+        "lvl-front-17p5-18"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Repeated center trades and late Oct forward near17.68 favor monetization if the front curve stays inside17.5-18.",
+      "caveat": "Not payoff-precise without confirmed opening/closing and complex-order linkage."
+    },
+    {
+      "id": "mz-call-supply-22-25",
+      "low": 22.0,
+      "high": 25.0,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "short-call inventory",
+        "range/carry books"
+      ],
+      "source_structure_ids": [
+        "str-oct-185642-22-28-supply",
+        "str-xexp-225154-range-carry"
+      ],
+      "source_level_ids": [
+        "lvl-22-25-call-supply"
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "description": "Repeated selling and prior OI confirmation make22-25 the main ordinary-stress monetization zone.",
+      "caveat": "The zone is a supply boundary, not a VIX price target."
+    },
+    {
+      "id": "mz-tail-35-45",
+      "low": 35.0,
+      "high": 45.0,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "tail hedges",
+        "short-tail inventory"
+      ],
+      "source_structure_ids": [
+        "str-xexp-35c-tail-buy"
+      ],
+      "source_level_ids": [
+        "lvl-35-tail-conflict"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Large prior short-tail inventory is meeting new deferred call buying, creating a tail role-conflict zone.",
+      "caveat": "Next OI is needed to separate short covering from fresh long-tail opening."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-10-21",
+      "label": "OCT 2026",
+      "expiration": "2026-10-21",
+      "dte": 22,
+      "forward": 17.68,
+      "reference_price": null,
+      "summary": {
+        "headline": "Front range center at17.5-18 with strong20C battlefield and renewed22-29 call supply"
+      },
+      "flow_aggregate": {
+        "gross_premium": 8827000,
+        "calls": {
+          "bought": 3063000,
+          "sold": 2537000,
+          "net": 526000
+        },
+        "puts": {
+          "bought": 1419000,
+          "sold": 1808000,
+          "net": -389000
+        },
+        "transaction_delta_usd": 7336000,
+        "contracts": 136788
+      },
+      "levels": [
+        {
+          "id": "lvl-oct-17p5-18-center",
+          "price": 17.75,
+          "range_low": 17.5,
+          "range_high": 18.0,
+          "role": [
+            "main_pivot",
+            "inventory_center",
+            "volatility_center"
+          ],
+          "label": "OCT FRONT CENTER",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Oct forward ended near17.68; short-synthetic18 and late movement-sale activity keep17.5-18 as the front pivot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-xexp-200256-normalization"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct-20-battlefield",
+          "price": 20.0,
+          "range_low": 19.5,
+          "range_high": 20.5,
+          "role": [
+            "transition",
+            "upside_demand",
+            "complex_zone"
+          ],
+          "label": "OCT20 INVENTORY BATTLEFIELD",
+          "strength": 0.9,
+          "basis": "derived",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "OI about443k; Tuesday tape net bought20C while Monday added substantial new inventory.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-xexp-200256-normalization"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-oct-22-29-supply",
+          "price": 25.0,
+          "range_low": 22.0,
+          "range_high": 29.0,
+          "role": [
+            "call_supply",
+            "potential_cap",
+            "tail_zone"
+          ],
+          "label": "OCT22-29 STRESS SUPPLY",
+          "strength": 0.9,
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "SELL22C8k, SELL28C8k and SELL29C10.2k monetize moderate/upper stress; Oct25 already carries OI-confirmed fresh short supply.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-oct-185642-22-28-supply"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-oct-172012-six-leg",
+          "timestamp": "2026-09-29T17:20:12+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "buy",
+              "strike": 18.0,
+              "contracts": 1830,
+              "premium": 307000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 17.5,
+              "contracts": 1830,
+              "premium": 231000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.5,
+              "contracts": 1830,
+              "premium": 110000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 19.5,
+              "contracts": 1830,
+              "premium": 178000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 21.5,
+              "contracts": 1830,
+              "premium": 137000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 25.0,
+              "contracts": 1830,
+              "premium": 90000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1053000,
+          "net_premium": 371000,
+          "bias": "asymmetric_correction_hedge",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            16.5,
+            17.5,
+            18.0,
+            19.5,
+            21.5,
+            25.0
+          ],
+          "interpretation": "Correction calls and18P are financed through lower put sales, explicitly accepting deeper low-VIX risk.",
+          "ui_title": "Oct Six-Leg Financed Correction Hedge"
+        },
+        {
+          "id": "str-oct-185642-22-28-supply",
+          "timestamp": "2026-09-29T18:56:42+03:00",
+          "type": "call_credit_spread",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 22.0,
+              "contracts": 8000,
+              "premium": 592000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 28.0,
+              "contracts": 8000,
+              "premium": 304000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 896000,
+          "net_premium": -896000,
+          "bias": "short_vol",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            22.0,
+            28.0
+          ],
+          "interpretation": "Equal-size call sales reinforce ordinary and upper-stress supply; this is supply geometry, not a target map.",
+          "ui_title": "Oct22C/28C Call Supply"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-oct-22-29",
+          "low": 22.0,
+          "high": 29.0,
+          "type": "call_supply_monetization",
+          "beneficiaries": [
+            "short-call inventory"
+          ],
+          "source_structure_ids": [
+            "str-oct-185642-22-28-supply"
+          ],
+          "source_level_ids": [
+            "lvl-oct-22-29-supply"
+          ],
+          "basis": "inferred",
+          "confidence": "high",
+          "description": "Repeated call selling monetizes stress above the20 transition.",
+          "caveat": "Opening of Tuesday prints awaits next OI."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-11-18",
+      "label": "NOV 2026",
+      "expiration": "2026-11-18",
+      "dte": 50,
+      "forward": 18.33,
+      "reference_price": null,
+      "summary": {
+        "headline": "Movement sale around18-18.5 with heavy16P financing and25C supply, while35C flips toward buying"
+      },
+      "flow_aggregate": {
+        "gross_premium": 10372000,
+        "calls": {
+          "bought": 1857000,
+          "sold": 3454000,
+          "net": -1597000
+        },
+        "puts": {
+          "bought": 772000,
+          "sold": 2479000,
+          "net": -1707000
+        },
+        "unknown_side_premium": 1810000,
+        "transaction_delta_usd": -2478000,
+        "contracts": 99106
+      },
+      "levels": [
+        {
+          "id": "lvl-nov-18-18p5-center",
+          "price": 18.25,
+          "range_low": 18.0,
+          "range_high": 18.5,
+          "role": [
+            "inventory_center",
+            "volatility_center",
+            "complex_zone"
+          ],
+          "label": "NOV18-18.5 TWO-SIDED CENTER",
+          "strength": 0.95,
+          "basis": "derived",
+          "confidence": "high",
+          "state": "active",
+          "interpretation": "Short straddle at18 and repeated synthetic flips at18.5 make this a genuine two-sided inventory center.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov18-short-straddle"
+            ],
+            "notes": [
+              "Nov18.5 C/P OI both reached about24k after Monday's opposite-side opening."
+            ]
+          }
+        },
+        {
+          "id": "lvl-nov-25-supply",
+          "price": 25.0,
+          "range_low": 25.0,
+          "range_high": 25.0,
+          "role": [
+            "call_supply",
+            "potential_cap"
+          ],
+          "label": "NOV25 CALL SUPPLY",
+          "strength": 0.9,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Net visible SELL25C is about15.5k contracts after offsetting1k BUY.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-nov25-call-supply"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-nov-35-tail",
+          "price": 35.0,
+          "range_low": 35.0,
+          "range_high": 37.0,
+          "role": [
+            "tail_zone",
+            "complex_zone"
+          ],
+          "label": "NOV35-37 TAIL CONFLICT",
+          "strength": 0.85,
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "testing",
+          "interpretation": "Large existing short-tail inventory meets strong current35C buying while37C remains sold.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-xexp-35c-tail-buy"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-nov18-short-straddle",
+          "timestamp": "2026-09-29T17:05:20+03:00",
+          "type": "short_straddle",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 2500,
+              "premium": 543000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 18.0,
+              "contracts": 2500,
+              "premium": 463000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1006000,
+          "net_premium": -1006000,
+          "bias": "range",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            18.0
+          ],
+          "interpretation": "Direct movement sale near the November forward; credit about4.02 points with rough standalone expiry breakevens13.98 and22.02.",
+          "ui_title": "Nov18 Short Straddle"
+        },
+        {
+          "id": "str-nov25-call-supply",
+          "timestamp": "2026-09-29T22:51:54+03:00",
+          "type": "single_leg",
+          "legs": [
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 25.0,
+              "contracts": 16469,
+              "premium": 1865000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "buy",
+              "strike": 25.0,
+              "contracts": 1000,
+              "premium": 115000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1980000,
+          "net_premium": -1750000,
+          "bias": "short_vol",
+          "basis": "derived",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            25.0
+          ],
+          "interpretation": "Strong net transaction-level selling at25; next OI is required to separate fresh cap supply from closing.",
+          "ui_title": "Nov25 Call Supply"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-nov-18-range",
+          "low": 18.0,
+          "high": 18.5,
+          "type": "pin_decay",
+          "beneficiaries": [
+            "short straddle inventory",
+            "two-sided synthetic inventory"
+          ],
+          "source_structure_ids": [
+            "str-nov18-short-straddle"
+          ],
+          "source_level_ids": [
+            "lvl-nov-18-18p5-center"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Movement selling is concentrated near the November forward.",
+          "caveat": "The center also contains opposite synthetic inventory, so pinning is not guaranteed."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-12-16",
+      "label": "DEC 2026",
+      "expiration": "2026-12-16",
+      "dte": 78,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Deferred protection persists through35C/40C/23C demand while lower puts and45C help finance the layer"
+      },
+      "flow_aggregate": {
+        "gross_premium": 1703000,
+        "calls": {
+          "bought": 884000,
+          "sold": 51000,
+          "net": 833000
+        },
+        "puts": {
+          "bought": 136000,
+          "sold": 632000,
+          "net": -496000
+        },
+        "transaction_delta_usd": 5011000,
+        "contracts": 13240
+      },
+      "levels": [
+        {
+          "id": "lvl-dec-35-tail-demand",
+          "price": 35.0,
+          "range_low": 35.0,
+          "range_high": 40.0,
+          "role": [
+            "tail_zone",
+            "upside_demand"
+          ],
+          "label": "DEC35-40 DEFERRED TAIL DEMAND",
+          "strength": 0.8,
+          "basis": "observed",
+          "confidence": "medium",
+          "state": "active",
+          "interpretation": "Dec35C was bought in repeated cross-expiry packages;40C also bought while45C was sold.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-xexp-35c-tail-buy"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [],
+      "monetization_zones": [
+        {
+          "id": "mz-dec-35-45-tail",
+          "low": 35.0,
+          "high": 45.0,
+          "type": "complex_inventory_zone",
+          "beneficiaries": [
+            "deferred tail hedges",
+            "extreme-wing sellers"
+          ],
+          "source_structure_ids": [
+            "str-xexp-35c-tail-buy"
+          ],
+          "source_level_ids": [
+            "lvl-dec-35-tail-demand"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Tail convexity is retained around35-40 while more extreme45C continuation is monetized.",
+          "caveat": "December forward is unresolved from the visible tape."
+        }
+      ]
+    },
+    {
+      "id": "exp-2027-01-20",
+      "label": "JAN 2027",
+      "expiration": "2027-01-20",
+      "dte": 113,
+      "forward": 19.51,
+      "reference_price": null,
+      "summary": {
+        "headline": "Large premium-selling complex around16P/20C/20P/40C; central20P aggressor is missing"
+      },
+      "flow_aggregate": {
+        "gross_premium": 5134000,
+        "calls": {
+          "bought": 0,
+          "sold": 2500000,
+          "net": -2500000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 1034000,
+          "net": -1034000
+        },
+        "unknown_side_premium": 1600000,
+        "transaction_delta_usd": -8700000,
+        "contracts": 35880
+      },
+      "levels": [
+        {
+          "id": "lvl-jan-20-center",
+          "price": 20.0,
+          "range_low": 20.0,
+          "range_high": 20.0,
+          "role": [
+            "inventory_center",
+            "complex_zone"
+          ],
+          "label": "JAN20 AMBIGUOUS CENTER",
+          "strength": 0.85,
+          "basis": "inferred",
+          "confidence": "low",
+          "state": "unconfirmed",
+          "interpretation": "20C is sold but the equal-size20P aggressor is missing. The package may be synthetic-short-like, but that classification is not proven.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-jan-205416-range-complex"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-jan-205416-range-complex",
+          "timestamp": "2026-09-29T20:54:16+03:00",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "option_type": "put",
+              "side": "sell",
+              "strike": 16.0,
+              "contracts": 13000,
+              "premium": 1034000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 20.0,
+              "contracts": 4940,
+              "premium": 1400000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "put",
+              "side": "unknown",
+              "strike": 20.0,
+              "contracts": 4940,
+              "premium": 1600000,
+              "trade_ids": []
+            },
+            {
+              "option_type": "call",
+              "side": "sell",
+              "strike": 40.0,
+              "contracts": 13000,
+              "premium": 1100000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 5134000,
+          "net_premium": null,
+          "bias": "range_or_short_vol_candidate",
+          "basis": "inferred",
+          "confidence": "low",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            16.0,
+            20.0,
+            40.0
+          ],
+          "interpretation": "Known legs sell16P,20C and40C. If the missing20P side were BUY, the center would be synthetic-short-like, but that side is unresolved.",
+          "ui_title": "Jan16P/20/40 Range Complex"
+        }
+      ],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-02-17",
+      "label": "FEB 2027",
+      "expiration": "2027-02-17",
+      "dte": 141,
+      "forward": 19.95,
+      "reference_price": null,
+      "summary": {
+        "headline": "Small far-dated premium sale at20 and30; secondary to the October-November book"
+      },
+      "flow_aggregate": {
+        "gross_premium": 470000,
+        "calls": {
+          "bought": 0,
+          "sold": 374000,
+          "net": -374000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 96000,
+          "net": -96000
+        },
+        "transaction_delta_usd": -1172000,
+        "contracts": 2275
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2027-04-21",
+      "label": "APR 2027",
+      "expiration": "2027-04-21",
+      "dte": 204,
+      "forward": null,
+      "reference_price": null,
+      "summary": {
+        "headline": "Very small far-dated18P/45C selling; not material for the current regime"
+      },
+      "flow_aggregate": {
+        "gross_premium": 149000,
+        "calls": {
+          "bought": 0,
+          "sold": 76000,
+          "net": -76000
+        },
+        "puts": {
+          "bought": 0,
+          "sold": 73000,
+          "net": -73000
+        },
+        "transaction_delta_usd": -45000,
+        "contracts": 1200
+      },
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-range-base",
+      "name": "Range / carry holds",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 17.5,
+          "description": "October forward remains above lower range boundary"
+        },
+        {
+          "type": "hold_below",
+          "level": 18.0,
+          "description": "October forward remains below upper range boundary"
+        }
+      ],
+      "route": [
+        17.5,
+        17.75,
+        18.0
+      ],
+      "invalidations": [
+        "Sustained acceptance outside17.5-18 with confirming spot-VIX move"
+      ],
+      "interpretation": "Range/carry structures monetize movement while deferred tail hedges remain in place."
+    },
+    {
+      "id": "sc-normalization",
+      "name": "Cleaner normalization",
+      "bias": "bullish_spx_conditional",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 17.5,
+          "description": "October forward accepts below17.5-17.6"
+        },
+        {
+          "type": "iv_compress",
+          "level": 15.7,
+          "description": "Spot VIX eases below about15.7"
+        }
+      ],
+      "route": [
+        17.5,
+        17.0,
+        16.0
+      ],
+      "invalidations": [
+        "October forward reclaims18"
+      ],
+      "interpretation": "Lower front forward plus spot-VIX compression would confirm stronger carry normalization and a more comfortable SPX volatility regime."
+    },
+    {
+      "id": "sc-stress",
+      "name": "Front stress re-expands",
+      "bias": "bearish_spx_conditional",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 18.0,
+          "description": "October forward accepts above18"
+        },
+        {
+          "type": "accept_above",
+          "level": 18.5,
+          "description": "Stronger confirmation above18.5 with spot VIX above16.5-17"
+        }
+      ],
+      "route": [
+        18.0,
+        20.0,
+        22.0,
+        25.0
+      ],
+      "invalidations": [
+        "Failure back below18 and renewed forward compression"
+      ],
+      "interpretation": "Acceptance above the front range would pressure short-vol inventory and activate the established stress transit through20,22 and25."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 101,
+    "deduplicated_rows": 101,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_coverage": 0.9703,
+    "side_quality": "mixed",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "trade_ids_available": false,
+    "complex_order_ids_available": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Three rows have missing aggressor and carry about $3.41M premium and -$9.9M reported signed delta.",
+      "Several large prints are probable multileg packages, but complex_order_id is unavailable.",
+      "Current contract profile confirms the prior session's OI changes, not Tuesday's opening/closing.",
+      "Visible tape is filtered at $50k+ and is not the full VIX market position.",
+      "Some profile volume exceeds visible tape volume on the same strike, so unobserved below-filter or split activity exists."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
