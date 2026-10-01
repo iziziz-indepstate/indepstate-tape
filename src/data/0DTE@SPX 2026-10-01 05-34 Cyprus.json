@@ -1,0 +1,950 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-10-01 05:34 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-10-01",
+    "dte": 0,
+    "snapshot_time": "2026-10-01T05:34:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight_baseline",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-10-01-spx-1dte-50k-flow(1).csv",
+      "2026-10-01-spx-1dte-50k-contract(1).csv"
+    ]
+  },
+  "market_state": {
+    "spot": 7663.9,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "range",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7675,
+    "upper_decision_level": 7700,
+    "lower_decision_level": 7640
+  },
+  "summary": {
+    "headline": "Supportive residual visible book, but fresh ETH flow shifts the short-vol center lower toward 7650-7675",
+    "key_points": [
+      "Full visible tape carries positive signed transaction delta, but fresh ETH-marked flow is approximately delta-neutral to slightly negative.",
+      "Short-vol inventory migrated from a 7700 short-straddle-like center to 7675 and then toward the 7640P/7660C range-selling package.",
+      "Near-spot call premium is strongest at 7680-7690, while 7700-7735 contains meaningful call supply.",
+      "7640 is the main lower conditional risk-acceptance boundary; a confirmed break with fresh put buying would shift focus toward 7615-7600."
+    ],
+    "daily_note": "First stateful baseline snapshot for the 2026-10-01 0DTE session; subsequent dumps should be compared against this book rather than analyzed from zero."
+  },
+  "flow_aggregate": {
+    "gross_premium": 63035000,
+    "signed_delta_usd": 921656000,
+    "calls": {
+      "bought": 18519000,
+      "sold": 20795000,
+      "net": -2276000
+    },
+    "puts": {
+      "bought": 8362000,
+      "sold": 14602000,
+      "net": -6240000
+    },
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 9025000,
+        "sold": 6741000,
+        "net": 2284000
+      },
+      "puts": {
+        "bought": 3718000,
+        "sold": 4763000,
+        "net": -1045000
+      },
+      "gross_premium": 24247000,
+      "signed_delta_usd": 469900000
+    },
+    "otm": {
+      "calls": {
+        "bought": 11678000,
+        "sold": 9895000,
+        "net": 1783000
+      },
+      "puts": {
+        "bought": 2042000,
+        "sold": 2831000,
+        "net": -789000
+      },
+      "gross_premium": 26446000,
+      "signed_delta_usd": 486600000
+    },
+    "source_subsets": {
+      "eth_marked": {
+        "rows": 112,
+        "calls": {
+          "bought": 3135000,
+          "sold": 4002000,
+          "net": -867000
+        },
+        "puts": {
+          "bought": 2418000,
+          "sold": 3302000,
+          "net": -884000
+        },
+        "gross_premium": 12857000,
+        "signed_delta_usd": -24872000
+      }
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_premium": 1800000,
+      "dominant_share": 0.028556,
+      "result": {
+        "net_calls": -2276000,
+        "net_puts": -4440000,
+        "signed_delta_usd": 721656000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest single print (300x sold 7750P) does not change the broad positive-delta residual-book interpretation.",
+      "dominant_package": {
+        "source_timestamp_raw": "2026-10-01 22:37:38, 09-30",
+        "gross_premium": 1863000,
+        "result": {
+          "net_calls": -2339000,
+          "net_puts": -4440000,
+          "signed_delta_usd": 701656000
+        },
+        "changes_interpretation": false
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7750-upper-synthetic",
+      "price": 7750,
+      "range_low": 7745,
+      "range_high": 7750,
+      "role": [
+        "complex_zone",
+        "upside_demand"
+      ],
+      "label": "UPPER SYNTHETIC / RISK NODE",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 86.1,
+      "flow": {
+        "call_buy": 527000,
+        "call_sell": 281000,
+        "put_buy": 851000,
+        "put_sell": 2939000,
+        "net_calls": 246000,
+        "net_puts": -2088000,
+        "gross": 4598000,
+        "signed_delta_usd": 307500000
+      },
+      "interpretation": "Large synthetic-long-like and short-put-like packages create positive transaction delta at 7750, but the strike is an inventory node rather than a confirmed upside target.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-synthetic-150",
+          "str-7750-ratio-risk"
+        ],
+        "notes": [
+          "Opening/closing is unknown."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7710-7735-call-supply",
+      "price": 7722.5,
+      "range_low": 7710,
+      "range_high": 7735,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "complex_zone"
+      ],
+      "label": "UPPER CALL SUPPLY / FRICTION",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 58.6,
+      "flow": {
+        "call_buy": 1613000,
+        "call_sell": 2868000,
+        "put_buy": 317000,
+        "put_sell": 265000,
+        "net_calls": -1255000,
+        "net_puts": 52000,
+        "gross": 5063000,
+        "signed_delta_usd": -241200000
+      },
+      "interpretation": "Net call selling dominates this upper corridor; acceptance through it would require absorption rather than merely touching the strikes.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7710-7735-call-supply"
+        ],
+        "notes": [
+          "Includes notable sold-call packages at 7710 and 7735."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700-upper-pivot",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "inventory_center",
+        "call_supply",
+        "transition"
+      ],
+      "label": "FORMER PIN / UPPER DECISION LEVEL",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 36.1,
+      "flow": {
+        "call_buy": 1690000,
+        "call_sell": 2402000,
+        "put_buy": 1186000,
+        "put_sell": 2160000,
+        "net_calls": -712000,
+        "net_puts": -974000,
+        "gross": 7438000,
+        "signed_delta_usd": -23200000
+      },
+      "interpretation": "7700 carries the largest gross visible premium and an earlier short-straddle package, but later flow makes it more of an upper decision level than the freshest pin center.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7700-short-straddle",
+          "str-7700-7675-put-debit"
+        ],
+        "notes": [
+          "Largest combined strike by gross visible premium."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7680-7690-call-demand",
+      "price": 7685,
+      "range_low": 7680,
+      "range_high": 7690,
+      "role": [
+        "upside_demand",
+        "reclaim_support",
+        "transition"
+      ],
+      "label": "NEAR-SPOT CALL DEMAND / RECLAIM CORRIDOR",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 21.1,
+      "flow": {
+        "call_buy": 2756000,
+        "call_sell": 957000,
+        "put_buy": 1110000,
+        "put_sell": 690000,
+        "net_calls": 1799000,
+        "net_puts": 420000,
+        "gross": 5513000,
+        "signed_delta_usd": 205800000
+      },
+      "interpretation": "This corridor contains the clearest near-spot premium demand for calls and acts as the first upside reclaim zone below 7700.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7690-7665-put-debit"
+        ],
+        "notes": [
+          "Near-spot call net premium is positive across 7680-7690."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7675-main-pin",
+      "price": 7675,
+      "range_low": 7670,
+      "range_high": 7680,
+      "role": [
+        "main_pivot",
+        "pin",
+        "volatility_center"
+      ],
+      "label": "MAIN SHORT-VOL / PIN CANDIDATE",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 11.1,
+      "flow": {
+        "call_buy": 1152000,
+        "call_sell": 725000,
+        "put_buy": 376000,
+        "put_sell": 1049000,
+        "net_calls": 427000,
+        "net_puts": -673000,
+        "gross": 3302000,
+        "signed_delta_usd": 156800000
+      },
+      "interpretation": "The freshest clean short-straddle package is centered at 7675, consistent with the observed downward migration of short-vol inventory from 7700.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7675-short-straddle"
+        ],
+        "notes": [
+          "Pinning is conditional; no RTH price confirmation yet."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7650-7660-lower-center",
+      "price": 7655,
+      "range_low": 7650,
+      "range_high": 7660,
+      "role": [
+        "inventory_center",
+        "transition",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER MOVING INVENTORY CENTER",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -8.9,
+      "flow": {
+        "call_buy": 1165000,
+        "call_sell": 2902000,
+        "put_buy": 1198000,
+        "put_sell": 1188000,
+        "net_calls": -1737000,
+        "net_puts": 10000,
+        "gross": 6453000,
+        "signed_delta_usd": -203900000
+      },
+      "interpretation": "Fresh ETH structures migrated the range-selling center toward roughly 7650-7660; this is the immediate lower battlefield around the reference spot.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7640p-7660c-short-strangle"
+        ],
+        "notes": [
+          "Call selling is heavy here, while put premium is near balanced in aggregate."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7640-conditional-floor",
+      "price": 7640,
+      "range_low": 7635,
+      "range_high": 7645,
+      "role": [
+        "put_risk_acceptance",
+        "conditional_floor",
+        "breakdown_trigger"
+      ],
+      "label": "LOWER RISK-ACCEPTANCE / BREAKDOWN LEVEL",
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -23.9,
+      "flow": {
+        "call_buy": 851000,
+        "call_sell": 471000,
+        "put_buy": 0,
+        "put_sell": 521000,
+        "net_calls": 380000,
+        "net_puts": -521000,
+        "gross": 1843000,
+        "signed_delta_usd": 153900000
+      },
+      "interpretation": "Visible put selling is concentrated at 7640, making it a conditional floor. Acceptance below it would invalidate the stabilizing reading and expose lower references.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7640p-7660c-short-strangle"
+        ],
+        "notes": [
+          "Floor interpretation remains conditional on opening status and RTH price action."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7600-7620-lower-zone",
+      "price": 7610,
+      "range_low": 7600,
+      "range_high": 7620,
+      "role": [
+        "conditional_floor",
+        "tail_zone",
+        "transition"
+      ],
+      "label": "LOWER STABILIZATION / NEXT ROUTE ZONE",
+      "basis": "derived",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": -53.9,
+      "flow": {
+        "call_buy": 607000,
+        "call_sell": 291000,
+        "put_buy": 136000,
+        "put_sell": 351000,
+        "net_calls": 316000,
+        "net_puts": -215000,
+        "gross": 1385000,
+        "signed_delta_usd": 70500000
+      },
+      "interpretation": "This lower cluster is the next visible tape reference if 7640 fails, but evidence is materially weaker than at 7640-7700.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Lower-confidence zone derived from smaller visible premium clusters."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7700-short-straddle",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 22:53:44, 09-30",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 154,
+          "premium": 199000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7700,
+          "contracts": 154,
+          "premium": 527000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 726000,
+      "net_premium": null,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7700
+      ],
+      "interpretation": "Short-straddle-like package with about 47.10 points of combined option premium; hypothetical expiry breakevens are about 7652.9 and 7747.1 if this was an opening package.",
+      "ui_title": "7700 Short Straddle-like"
+    },
+    {
+      "id": "str-7675-short-straddle",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 23:36:04, 09-30",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 152,
+          "premium": 248000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 152,
+          "premium": 392000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 640000,
+      "net_premium": null,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7675
+      ],
+      "interpretation": "Fresh ETH short-straddle-like package with about 42.10 points of combined premium; hypothetical expiry breakevens are about 7632.9 and 7717.1.",
+      "ui_title": "7675 Fresh Short Straddle-like"
+    },
+    {
+      "id": "str-7640p-7660c-short-strangle",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 23:52:20, 09-30",
+      "type": "short_strangle",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7640,
+          "contracts": 86,
+          "premium": 107000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7660,
+          "contracts": 86,
+          "premium": 203000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 310000,
+      "net_premium": null,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7640,
+        7660
+      ],
+      "interpretation": "Short-strangle-like package with about 36.0 points of combined premium, placing hypothetical expiry breakevens near 7604 and 7696 if opening.",
+      "ui_title": "7640P / 7660C Short Strangle-like"
+    },
+    {
+      "id": "str-7700-7675-put-debit",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 23:06:57, 09-30",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 100,
+          "premium": 487000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 100,
+          "premium": 320000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 807000,
+      "net_premium": 167000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7675,
+        7700
+      ],
+      "interpretation": "Put-debit-spread-like package; hypothetical debit is about 16.69 points and expiry breakeven about 7683.3. Because spot was already below/near the lower strike, monetization or closing remains a serious alternative to fresh bearish opening.",
+      "ui_title": "7700/7675 Put Debit-like"
+    },
+    {
+      "id": "str-7690-7665-put-debit",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 23:13:07, 09-30",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7690,
+          "contracts": 56,
+          "premium": 223000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7665,
+          "contracts": 56,
+          "premium": 140000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 363000,
+      "net_premium": 83000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7665,
+        7690
+      ],
+      "interpretation": "Put-debit-spread-like package with about 14.84 points of debit and a hypothetical expiry breakeven near 7675.2; opening versus monetization is unresolved.",
+      "ui_title": "7690/7665 Put Debit-like"
+    },
+    {
+      "id": "str-7750-synthetic-150",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 18:22:42, 09-30",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 150,
+          "premium": 136000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 150,
+          "premium": 716000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 852000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "interpretation": "Synthetic-long-like package. The call-put price difference implies a synthetic forward near 7711.3, close to the approximately 7709.15 underlying observed on the print.",
+      "ui_title": "7750 Synthetic Long-like 150x"
+    },
+    {
+      "id": "str-7750-ratio-risk",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 22:37:38, 09-30",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 200,
+          "premium": 63000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7750,
+          "contracts": 300,
+          "premium": 1800000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1863000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750
+      ],
+      "interpretation": "Ratio package consistent with roughly 200 synthetic-long units plus an additional 100 short puts, but without complex-order linkage it remains an unknown complex/risk-acceptance package.",
+      "ui_title": "7750 Ratio Synthetic / Short-Put-like"
+    },
+    {
+      "id": "str-7710-7735-call-supply",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 17:54:10, 09-30",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7710,
+          "contracts": 250,
+          "premium": 752000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7735,
+          "contracts": 250,
+          "premium": 427000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1179000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7710,
+        7735
+      ],
+      "interpretation": "Same-timestamp sold-call package concentrated at 7710 and 7735. It supports the upper call-supply interpretation, but may still be part of a larger complex or closing flow.",
+      "ui_title": "7710-7735 Call Supply Package"
+    },
+    {
+      "id": "str-7630-7640-call-credit",
+      "timestamp": null,
+      "source_timestamp_raw": "2026-10-01 16:49:24, 09-30",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7630,
+          "contracts": 118,
+          "premium": 889000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7640,
+          "contracts": 118,
+          "premium": 788000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1677000,
+      "net_premium": -101000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7630,
+        7640
+      ],
+      "interpretation": "Deep-ITM call-credit-spread-like package. Its payoff geometry makes roll/closing/financing a meaningful competing hypothesis, so it is not treated as clean fresh directional evidence.",
+      "ui_title": "7630/7640 Deep-ITM Call Credit-like"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7650-7675",
+      "low": 7650,
+      "high": 7675,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "range sellers"
+      ],
+      "source_structure_ids": [
+        "str-7675-short-straddle",
+        "str-7640p-7660c-short-strangle"
+      ],
+      "source_level_ids": [
+        "lvl-7675-main-pin",
+        "lvl-7650-7660-lower-center"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Fresh short-vol packages migrated the likely decay center down from 7700 toward 7650-7675.",
+      "caveat": "Opening/closing is unknown and no RTH price acceptance has occurred yet."
+    },
+    {
+      "id": "mz-call-supply-7700-7735",
+      "low": 7700,
+      "high": 7735,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "short calls",
+        "upper-range premium sellers"
+      ],
+      "source_structure_ids": [
+        "str-7700-short-straddle",
+        "str-7710-7735-call-supply"
+      ],
+      "source_level_ids": [
+        "lvl-7700-upper-pivot",
+        "lvl-7710-7735-call-supply"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Repeated sold-call premium creates an upper friction and monetization corridor from 7700 through 7735.",
+      "caveat": "The zone is conditional; strong acceptance above it would weaken the cap interpretation."
+    },
+    {
+      "id": "mz-lower-7640-7660",
+      "low": 7640,
+      "high": 7660,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "range sellers",
+        "put-risk sellers if opening"
+      ],
+      "source_structure_ids": [
+        "str-7640p-7660c-short-strangle"
+      ],
+      "source_level_ids": [
+        "lvl-7640-conditional-floor",
+        "lvl-7650-7660-lower-center"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "This is the immediate lower inventory zone where fresh ETH range selling is concentrated.",
+      "caveat": "Loss of 7640 with fresh put buying would invalidate the stabilizing interpretation."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "Range / moving pin",
+      "bias": "neutral",
+      "priority": null,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7640,
+          "description": "Lower conditional risk-acceptance zone holds"
+        },
+        {
+          "type": "hold_below",
+          "level": 7700,
+          "description": "Upper call-supply remains unabsorbed"
+        }
+      ],
+      "route": [
+        7640,
+        7650,
+        7675,
+        7700
+      ],
+      "invalidations": [
+        "Sustained acceptance above 7700 with new call buying",
+        "Sustained acceptance below 7640 with new put buying"
+      ],
+      "interpretation": "Baseline overnight regime is range/decay with the short-vol center migrating lower toward 7650-7675."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside acceptance",
+      "bias": "bullish",
+      "priority": null,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Reclaim and hold above the former pin / upper decision level"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7710,
+          "description": "Near-spot call demand expands rather than being met by more call supply"
+        }
+      ],
+      "route": [
+        7700,
+        7710,
+        7735,
+        7750
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7680-7690"
+      ],
+      "interpretation": "Acceptance above 7700 would force the tape to work through the 7710-7735 call-supply corridor before 7750 becomes relevant."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside acceptance",
+      "bias": "bearish",
+      "priority": null,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7640,
+          "description": "Break the lower risk-acceptance boundary"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7640,
+          "description": "Fresh downside demand confirms that existing put spreads are not merely monetization"
+        }
+      ],
+      "route": [
+        7640,
+        7615,
+        7600
+      ],
+      "invalidations": [
+        "Reclaim of 7660 followed by hold back above 7675"
+      ],
+      "interpretation": "Below 7640, the current range-selling read weakens and the next visible tape route shifts toward 7615-7600."
+    },
+    {
+      "id": "sc-failed-downside",
+      "name": "Failed downside / reclaim",
+      "bias": "bullish",
+      "priority": null,
+      "triggers": [
+        {
+          "type": "failed_reclaim",
+          "level": 7640,
+          "description": "Flush below 7640 does not sustain and downside demand fails to broaden"
+        },
+        {
+          "type": "reclaim",
+          "level": 7660,
+          "description": "Price re-enters the lower inventory center"
+        }
+      ],
+      "route": [
+        7660,
+        7675,
+        7685,
+        7700
+      ],
+      "invalidations": [
+        "Renewed acceptance below 7640 with expanding put demand"
+      ],
+      "interpretation": "A failed break of 7640 followed by reclaim of 7660 would favor a return toward the 7675 pin and the 7680-7690 reclaim corridor."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 524,
+    "deduplicated_rows": 524,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "timestamp_quality": "ambiguous",
+    "source_timezone_labels": {
+      "Asia/Nicosia": 412,
+      "ETH": 112
+    },
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening or closing.",
+      "Most visible premium is flagged Spread or Block Spread; complex-order IDs are not available.",
+      "Source timestamp strings contain an additional date fragment and mixed timezone labels, so flow_timeline is intentionally left empty rather than fabricating ISO timestamps.",
+      "Several large deep-ITM prints are plausible roll, closing, box, or financing legs and are not treated as clean fresh directional evidence.",
+      "Visible premium-filtered tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
