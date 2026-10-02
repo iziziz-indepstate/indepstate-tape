@@ -1,0 +1,913 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-10-02 05:22 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-10-02",
+    "dte": 0,
+    "snapshot_time": "2026-10-02T05:22:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight_with_prior_rth_context",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-10-02-spx-1dte-50k-flow.csv",
+      "2026-10-02-spx-1dte-50k-contract.csv"
+    ],
+    "data_cutoff": "2026-10-01T23:56:23+03:00",
+    "note": "The source filename says 1DTE because trades were executed on Oct 1; the expiration is Oct 2, so this is the Oct 2 0DTE book."
+  },
+  "market_state": {
+    "spot": 7667.45,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "pinning",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7672.5,
+    "upper_decision_level": 7725,
+    "lower_decision_level": 7625
+  },
+  "summary": {
+    "headline": "Overnight pin/range centered at 7670-7675, with bought wings toward 7620-7625 and 7720-7725",
+    "key_points": [
+      "ETH premium is almost balanced: calls +$0.203M net, puts -$0.186M net.",
+      "Near spot (+/-30 points) premium is sold on both calls and puts, consistent with center-volatility supply.",
+      "Explicit short straddles appeared at 7675 and then 7670; their breakevens cluster near 7620-7625 and 7720-7725.",
+      "Outside the center, 7700-7725 calls were bought while downside structures were also bought around 7620/7615.",
+      "Several ETH prints reverse late-RTH flow, so unwind/restructure is a material competing explanation for part of the tape."
+    ],
+    "daily_note": "Base case is pin/chop inside the 7625-7725 outer structure unless price is accepted beyond a boundary with fresh follow-through flow."
+  },
+  "flow_aggregate": {
+    "gross_premium": 5205170,
+    "calls": {
+      "bought": 1484184,
+      "sold": 1281194,
+      "net": 202990
+    },
+    "puts": {
+      "bought": 1127065,
+      "sold": 1312727,
+      "net": -185662
+    },
+    "signed_delta": 101500000,
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 306382,
+        "sold": 864579,
+        "net": -558197
+      },
+      "puts": {
+        "bought": 599889,
+        "sold": 938401,
+        "net": -338512
+      },
+      "gross_premium": 2709251,
+      "signed_delta": -29400000
+    },
+    "otm": {
+      "calls": {
+        "bought": 1424632,
+        "sold": 1206224,
+        "net": 218408
+      },
+      "puts": {
+        "bought": 608190,
+        "sold": 689988,
+        "net": -81798
+      },
+      "gross_premium": 3929034,
+      "signed_delta": 81800000
+    },
+    "rth_context": {
+      "gross_premium": 113791904,
+      "calls": {
+        "bought": 21171012,
+        "sold": 24520256,
+        "net": -3349244
+      },
+      "puts": {
+        "bought": 31582368,
+        "sold": 36518268,
+        "net": -4935900
+      },
+      "signed_delta": 69926000
+    },
+    "full_visible_tape": {
+      "gross_premium": 118997074,
+      "calls": {
+        "bought": 22655196,
+        "sold": 25801450,
+        "net": -3146254
+      },
+      "puts": {
+        "bought": 32709433,
+        "sold": 37830995,
+        "net": -5121562
+      },
+      "signed_delta": 171426000
+    },
+    "leave_one_out": {
+      "largest_eth_package": {
+        "structure_id": "str-7685-broken-wing-call-fly",
+        "gross_premium": 755346,
+        "gross_share": 0.1451,
+        "net_premium": -12090,
+        "signed_delta": -2000000,
+        "changes_interpretation": false,
+        "comment": "Removing the largest linked package leaves the overnight aggregate nearly unchanged."
+      },
+      "exclude_short_straddles": {
+        "calls_net": 465521,
+        "puts_net": 77487,
+        "signed_delta": 101500000,
+        "changes_interpretation": true,
+        "comment": "Without the 7675/7670 short straddles, the remaining ETH tape becomes net premium buying; the center-volatility sale is therefore analytically important."
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7620-7625",
+      "price": 7622.5,
+      "range_low": 7620,
+      "range_high": 7625,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger",
+        "transition"
+      ],
+      "label": "LOWER 0DTE DECISION / BOUGHT DOWNSIDE",
+      "strength": 0.9,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -44.95,
+      "interpretation": "Lower breakevens of the 7670/7675 short straddles overlap with a bought 7620/7615 put spread and large 7625 put OI.",
+      "contract_context": {
+        "7625_put_oi": 6000,
+        "7625_put_volume": 2800
+      },
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7620-7615-put-debit",
+          "str-7675-short-straddle",
+          "str-7670-short-straddle"
+        ],
+        "notes": [
+          "Below 7615 the central range is materially broken."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7650-7655",
+      "price": 7652.5,
+      "range_low": 7650,
+      "range_high": 7655,
+      "role": [
+        "conditional_floor",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "INTERMEDIATE SUPPORT / RESTRUCTURE ZONE",
+      "strength": 0.68,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -14.95,
+      "interpretation": "A 7655/7650 put-credit package appeared overnight, but it closely reverses a late-RTH 7655/7650 put-debit package, so support is conditional rather than fresh-positioning proof.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7655-7650-put-credit-reversal"
+        ],
+        "notes": [
+          "Strong within-dump reverse-match versus the 22:59 package."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7670-7675",
+      "price": 7672.5,
+      "range_low": 7670,
+      "range_high": 7675,
+      "role": [
+        "main_pivot",
+        "pin",
+        "inventory_center",
+        "volatility_center"
+      ],
+      "label": "MAIN OVERNIGHT PIN / VOLATILITY CENTER",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 5.05,
+      "interpretation": "Short straddles were printed at 7675 and later 7670 while spot remained nearby; call volume at these strikes is very high relative to existing OI.",
+      "contract_context": {
+        "7670_call_oi": 415,
+        "7670_call_volume": 1900,
+        "7675_call_oi": 764,
+        "7675_call_volume": 1600
+      },
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7675-short-straddle",
+          "str-7670-short-straddle"
+        ],
+        "notes": [
+          "The center migrated five points lower as spot softened."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7685-7700",
+      "price": 7692.5,
+      "range_low": 7685,
+      "range_high": 7700,
+      "role": [
+        "complex_zone",
+        "transition",
+        "upside_demand"
+      ],
+      "label": "UPPER TRANSITION / 7685 FLY + 7700 CALL DEMAND",
+      "strength": 0.86,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 25.05,
+      "interpretation": "A 7675/7685/7700 broken-wing call butterfly monetizes near 7685 and weakens above about 7696.3, while separate 7700 call buying creates an upside test zone.",
+      "contract_context": {
+        "7700_call_oi": 5900,
+        "7700_call_volume": 5700,
+        "7700_put_oi": 4800,
+        "7700_put_volume": 1700
+      },
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7685-broken-wing-call-fly"
+        ],
+        "notes": [
+          "The 7685 center also has a strong reverse-match to late-RTH bought calls, consistent with restructure/churn."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720-7725",
+      "price": 7722.5,
+      "range_low": 7720,
+      "range_high": 7725,
+      "role": [
+        "upside_demand",
+        "transition",
+        "potential_cap"
+      ],
+      "label": "UPPER 0DTE DECISION / STRADDLE BREAKEVEN",
+      "strength": 0.91,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 55.05,
+      "interpretation": "The upper breakevens of the short straddles cluster here, while 7720/7725 calls were bought and a 7725/7730 call-debit spread was opened transactionally.",
+      "contract_context": {
+        "7725_call_oi": 3600,
+        "7725_put_oi": 3200,
+        "7725_put_total_premium": 13000000
+      },
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7725-7730-call-debit",
+          "str-7675-short-straddle",
+          "str-7670-short-straddle"
+        ],
+        "notes": [
+          "Acceptance above 7725-7730 would invalidate the clean central-range reading."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7586-tail",
+      "price": 7586.4,
+      "range_low": 7585,
+      "range_high": 7588,
+      "role": [
+        "tail_zone",
+        "breakdown_trigger"
+      ],
+      "label": "PUT-RATIO LOWER BREAKEVEN / TAIL RISK",
+      "strength": 0.58,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -81.05,
+      "interpretation": "The 7655/7620 1x2 put-ratio package stops benefiting below roughly 7586.4; a deeper break would expose the short lower-put tail.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7655-7620-put-ratio"
+        ],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-10-01T22:30:00+03:00",
+      "end": "2026-10-01T23:00:00+03:00",
+      "spot_open": 7675.5,
+      "spot_high": 7681.95,
+      "spot_low": 7663.5,
+      "spot_close": 7665.2,
+      "calls": {
+        "net": -404019
+      },
+      "puts": {
+        "net": -836731
+      },
+      "gross_premium": 14423064,
+      "signed_delta": 30334000,
+      "regime": "late_rth_restructure",
+      "events": [
+        "Heavy 7670-7675 call churn",
+        "7700 put selling",
+        "7650-7665 put-spread reversals"
+      ]
+    },
+    {
+      "start": "2026-10-01T23:00:00+03:00",
+      "end": "2026-10-01T23:30:00+03:00",
+      "spot_open": 7670.45,
+      "spot_high": 7675.2,
+      "spot_low": 7670.45,
+      "spot_close": 7674.5,
+      "calls": {
+        "net": -19491
+      },
+      "puts": {
+        "net": 249510
+      },
+      "gross_premium": 3360795,
+      "signed_delta": -17700000,
+      "regime": "two_sided_wing_build",
+      "events": [
+        "7685 broken-wing call fly",
+        "7620/7615 put debit",
+        "7725/7730 call debit"
+      ]
+    },
+    {
+      "start": "2026-10-01T23:30:00+03:00",
+      "end": "2026-10-01T23:56:23+03:00",
+      "spot_open": 7672.45,
+      "spot_high": 7672.45,
+      "spot_low": 7667.45,
+      "spot_close": 7667.45,
+      "calls": {
+        "net": 222481
+      },
+      "puts": {
+        "net": -435172
+      },
+      "gross_premium": 1844375,
+      "signed_delta": 119200000,
+      "regime": "pin_with_supportive_transaction_delta",
+      "events": [
+        "7675 short straddles",
+        "7670 short straddle",
+        "7700 call buying",
+        "7660 put selling"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7675-short-straddle",
+      "timestamp": "2026-10-01T23:31:41+03:00",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 71,
+          "premium": 175083
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 71,
+          "premium": 179917
+        }
+      ],
+      "gross_premium": 355000,
+      "net_premium": 355000,
+      "net_debit_credit": "credit",
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7625,
+        7675,
+        7725
+      ],
+      "payoff": {
+        "credit_points": 50.0,
+        "lower_breakeven": 7625.0,
+        "upper_breakeven": 7725.0
+      },
+      "interpretation": "Explicit center-volatility sale around 7675; position state remains unknown without OI change.",
+      "ui_title": "7675 Short Straddle"
+    },
+    {
+      "id": "str-7670-short-straddle",
+      "timestamp": "2026-10-01T23:46:14+03:00",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7670,
+          "contracts": 34,
+          "premium": 87448
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7670,
+          "contracts": 34,
+          "premium": 83232
+        }
+      ],
+      "gross_premium": 170680,
+      "net_premium": 170680,
+      "net_debit_credit": "credit",
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7619.8,
+        7670,
+        7720.2
+      ],
+      "payoff": {
+        "credit_points": 50.2,
+        "lower_breakeven": 7619.8,
+        "upper_breakeven": 7720.2
+      },
+      "interpretation": "A second short-vol center five points lower, consistent with a migrating overnight pin.",
+      "ui_title": "7670 Short Straddle"
+    },
+    {
+      "id": "str-7685-broken-wing-call-fly",
+      "timestamp": "2026-10-01T23:06:56+03:00",
+      "type": "broken_wing_butterfly",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7675,
+          "contracts": 93,
+          "premium": 239382
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7685,
+          "contracts": 186,
+          "premium": 383718
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7700,
+          "contracts": 93,
+          "premium": 132246
+        }
+      ],
+      "gross_premium": 755346,
+      "net_premium": 12090,
+      "net_debit_credit": "credit",
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7675,
+        7685,
+        7696.3,
+        7700
+      ],
+      "payoff": {
+        "credit_points_per_1x": 1.3,
+        "max_value_center": 7685,
+        "upper_breakeven": 7696.3
+      },
+      "interpretation": "Pin/monetization geometry centered at 7685, but the short 7685 call leg closely reverses late-RTH 7685 call buying.",
+      "ui_title": "7675/7685/7700 Broken-Wing Call Fly"
+    },
+    {
+      "id": "str-7655-7620-put-ratio",
+      "timestamp": "2026-10-01T23:09:12+03:00",
+      "type": "ratio_put_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7655,
+          "contracts": 40,
+          "premium": 69400
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7620,
+          "contracts": 80,
+          "premium": 63840
+        }
+      ],
+      "gross_premium": 133240,
+      "net_premium": -5560,
+      "net_debit_credit": "debit",
+      "bias": "bearish_conditional",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7653.61,
+        7620,
+        7586.39
+      ],
+      "payoff": {
+        "debit_points_per_1x": 1.39,
+        "upper_breakeven": 7653.61,
+        "max_value_center": 7620,
+        "lower_breakeven": 7586.39
+      },
+      "interpretation": "Targets a controlled decline toward 7620 while financing it by selling the crash tail below 7620.",
+      "ui_title": "7655/7620 1x2 Put Ratio"
+    },
+    {
+      "id": "str-7655-7650-put-credit-reversal",
+      "timestamp": "2026-10-01T23:14:34+03:00",
+      "type": "put_credit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7655,
+          "contracts": 77,
+          "premium": 129129
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7650,
+          "contracts": 77,
+          "premium": 116424
+        }
+      ],
+      "gross_premium": 245553,
+      "net_premium": 12705,
+      "net_debit_credit": "credit",
+      "bias": "bullish_conditional",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7650,
+        7653.35,
+        7655
+      ],
+      "payoff": {
+        "credit_points": 1.65,
+        "breakeven": 7653.35
+      },
+      "interpretation": "Transactionally supportive above 7655, but it almost exactly reverses the 22:59 7655/7650 put-debit package and is better treated as unwind/restructure until OI confirms.",
+      "ui_title": "7655/7650 Put Credit Reversal"
+    },
+    {
+      "id": "str-7725-7730-call-debit",
+      "timestamp": "2026-10-01T23:19:15+03:00",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7725,
+          "contracts": 136,
+          "premium": 97648
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7730,
+          "contracts": 136,
+          "premium": 82688
+        }
+      ],
+      "gross_premium": 180336,
+      "net_premium": -14960,
+      "net_debit_credit": "debit",
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7725,
+        7726.1,
+        7730
+      ],
+      "payoff": {
+        "debit_points": 1.1,
+        "breakeven": 7726.1
+      },
+      "interpretation": "Defined-risk upside realization package above the outer short-straddle boundary.",
+      "ui_title": "7725/7730 Call Debit"
+    },
+    {
+      "id": "str-7620-7615-put-debit",
+      "timestamp": "2026-10-01T23:19:26+03:00",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7620,
+          "contracts": 232,
+          "premium": 179336
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7615,
+          "contracts": 232,
+          "premium": 157296
+        }
+      ],
+      "gross_premium": 336632,
+      "net_premium": -22040,
+      "net_debit_credit": "debit",
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7615,
+        7619.05,
+        7620
+      ],
+      "payoff": {
+        "debit_points": 0.95,
+        "breakeven": 7619.05
+      },
+      "interpretation": "Defined-risk downside protection/realization directly under the range floor.",
+      "ui_title": "7620/7615 Put Debit"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7670-7675",
+      "low": 7670,
+      "high": 7675,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "short straddles"
+      ],
+      "source_structure_ids": [
+        "str-7675-short-straddle",
+        "str-7670-short-straddle"
+      ],
+      "source_level_ids": [
+        "lvl-7670-7675"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Main overnight decay center.",
+      "caveat": "Opening/closing is unknown."
+    },
+    {
+      "id": "mz-7685-fly",
+      "low": 7683,
+      "high": 7687,
+      "type": "spread_max_value_zone",
+      "beneficiaries": [
+        "7675/7685/7700 broken-wing call fly"
+      ],
+      "source_structure_ids": [
+        "str-7685-broken-wing-call-fly"
+      ],
+      "source_level_ids": [
+        "lvl-7685-7700"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Local call-fly monetization center around 7685.",
+      "caveat": "May be a restructure of late-RTH 7685 call inventory."
+    },
+    {
+      "id": "mz-downside-7620",
+      "low": 7615,
+      "high": 7625,
+      "type": "downside_convexity",
+      "beneficiaries": [
+        "7620/7615 put debit",
+        "7655/7620 put ratio near its max-value center"
+      ],
+      "source_structure_ids": [
+        "str-7620-7615-put-debit",
+        "str-7655-7620-put-ratio"
+      ],
+      "source_level_ids": [
+        "lvl-7620-7625"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Downside realization zone immediately outside the short-straddle range.",
+      "caveat": "Below about 7586 the put-ratio tail becomes adverse."
+    },
+    {
+      "id": "mz-upside-7725",
+      "low": 7720,
+      "high": 7730,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "7725/7730 call debit",
+        "long call wing demand"
+      ],
+      "source_structure_ids": [
+        "str-7725-7730-call-debit"
+      ],
+      "source_level_ids": [
+        "lvl-7720-7725"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Upside realization zone beyond the short-straddle upper breakevens.",
+      "caveat": "Requires acceptance above the range rather than a brief test."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base-pin",
+      "name": "Range / pin",
+      "bias": "neutral",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7625,
+          "description": "Remain above the lower outer boundary"
+        },
+        {
+          "type": "hold_below",
+          "level": 7725,
+          "description": "Remain below the upper outer boundary"
+        }
+      ],
+      "route": [
+        7625,
+        7655,
+        7670,
+        7675,
+        7685,
+        7700,
+        7725
+      ],
+      "invalidations": [
+        "Sustained acceptance below 7620",
+        "Sustained acceptance above 7730"
+      ],
+      "interpretation": "Inside the outer breakevens, the explicit short-straddle inventory favors chop/pin around 7670-7685."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Absorb the 7685-7700 transition"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7725,
+          "description": "Confirm that upper-wing demand is fresh"
+        }
+      ],
+      "route": [
+        7700,
+        7720,
+        7725,
+        7730,
+        7740
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7695-7700"
+      ],
+      "interpretation": "7700 is the first upside transition; 7720-7730 is the outer realization zone."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside realization",
+      "bias": "bearish",
+      "priority": 0.25,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7655,
+          "description": "Lose the intermediate support/restructure zone"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7620,
+          "description": "Confirm downside demand into the outer boundary"
+        }
+      ],
+      "route": [
+        7655,
+        7650,
+        7625,
+        7620,
+        7615,
+        7586.4
+      ],
+      "invalidations": [
+        "Reclaim and hold above 7670"
+      ],
+      "interpretation": "7620-7615 is the defined-risk downside zone; below about 7586 the 1x2 put-ratio tail becomes a different, more unstable regime."
+    },
+    {
+      "id": "sc-stateful",
+      "name": "Unwind / restructure confirmation",
+      "bias": "mixed",
+      "priority": 0.0,
+      "triggers": [
+        {
+          "type": "iv_compress",
+          "level": 7670,
+          "description": "Would be consistent with center-volatility monetization"
+        },
+        {
+          "type": "iv_expand",
+          "level": 7725,
+          "description": "Would support genuine wing realization rather than churn"
+        }
+      ],
+      "route": [],
+      "invalidations": [],
+      "interpretation": "Next-day OI at 7650-7665 and 7685-7700 is needed to distinguish fresh opening from the strong same-session reverse matches."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 870,
+    "deduplicated_rows": 870,
+    "duplicates_removed": 0,
+    "eth_rows": 50,
+    "rth_context_rows": 820,
+    "iv_coverage": 1.0,
+    "delta_coverage": 1.0,
+    "side_quality": "good",
+    "side_vs_mid_consistency": 1.0,
+    "multileg_quality": "mixed",
+    "spread_flagged_rows": 755,
+    "spread_flagged_share": 0.8678,
+    "eth_spread_flagged_rows": 30,
+    "eth_spread_flagged_share": 0.6,
+    "opening_closing_known": false,
+    "trade_ids_available": false,
+    "complex_order_ids_available": false,
+    "confidence": "medium",
+    "position_state_confidence": "low_to_medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Most of the full visible tape is spread-flagged and complex-order IDs are absent.",
+      "Several overnight packages have strong reverse matches to late-RTH flow.",
+      "The contract file contains current OI, not next-day OI change, so it cannot resolve opening versus closing.",
+      "Visible $50k+ tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}

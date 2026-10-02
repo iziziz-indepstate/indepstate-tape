@@ -1,0 +1,736 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-10-02 05-19 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "dte": null,
+    "snapshot_time": "2026-10-02T05:19:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry_stateful",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-10-02-weekly-50k-flow.csv",
+      "2026-10-02-weekly-50k-contract.csv",
+      "SPX_Weekly_2026-09-28_Update04_Position_Ledger.json"
+    ],
+    "source_session_date": "2026-10-01",
+    "source_timestamp_label": "ETH",
+    "source_timestamp_note": "Primary timestamp date is 2026-10-02 while the trailing session stamp is 10-01. Interpreted as the 2026-10-01 US trading session."
+  },
+  "market_state": {
+    "spot": 7667.45,
+    "spot_change_from_previous_snapshot": 3.05,
+    "regime": "mixed_range_with_near_spot_friction",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7685,
+    "upper_decision_level": 7700,
+    "lower_decision_level": 7645
+  },
+  "summary": {
+    "headline": "Friday book shifts from a 7725 cap to a lower 7670-7685 friction zone while 7700 remains the main inventory decision strike",
+    "key_points": [
+      "Yesterday's 7725C call-supply is being bought back: prior visible SELL about 1338 contracts versus current BUY about 1143, after OI rose from about 1.9k to 3.6k.",
+      "7685 is the strongest current near-spot adverse cluster: call selling plus put buying produces about -306M transaction delta at the strike.",
+      "7700 remains the largest practical decision strike with about 10.45M visible premium and about +251M transaction delta, but it sits above the last visible spot.",
+      "7650 protection returned after the prior session's put selling; lower risk acceptance is now more visible around 7645/7635/7625.",
+      "Raw session delta is about +160M, but near-spot plus/minus 30 points is about -242M. Removing the deep-ITM 7000C sale changes the total to about +338M."
+    ],
+    "daily_note": "Stateful change from Update 4: the prior 7725 upside cap is a close/unwind candidate, while immediate friction migrated down to 7670-7685 and downside protection returned at 7650."
+  },
+  "flow_aggregate": {
+    "gross_premium": 142881000,
+    "calls": {
+      "bought": 24884000,
+      "sold": 43358000,
+      "net": -18474000
+    },
+    "puts": {
+      "bought": 34369000,
+      "sold": 40270000,
+      "net": -5901000
+    },
+    "transaction_delta_notional": 159542000,
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 9778000,
+        "sold": 12617000,
+        "net": -2839000
+      },
+      "puts": {
+        "bought": 12422000,
+        "sold": 12960000,
+        "net": -538000
+      },
+      "gross_premium": 47777000,
+      "transaction_delta_notional": -242100000
+    },
+    "otm": {
+      "calls": {
+        "bought": 10253000,
+        "sold": 9501000,
+        "net": 752000
+      },
+      "puts": {
+        "bought": 9524000,
+        "sold": 10707000,
+        "net": -1183000
+      },
+      "gross_premium": 39985000,
+      "transaction_delta_notional": 328200000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_structure_id": "str-7000-deep-itm-call-package",
+      "dominant_premium": 15496000,
+      "dominant_share": 0.1085,
+      "result": {
+        "net_calls": -2978000,
+        "net_puts": -5901000,
+        "transaction_delta_notional": 338242000
+      },
+      "changes_interpretation": true,
+      "comment": "The deep-ITM 7000C sale explains most of the raw negative call-premium headline. Ex-package call flow is only modestly net sold; total transaction delta becomes more positive."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7625-lower-inventory",
+      "price": 7625,
+      "range_low": 7620,
+      "range_high": 7635,
+      "role": [
+        "conditional_floor",
+        "tail_zone",
+        "inventory_center"
+      ],
+      "label": "LOWER INVENTORY / 7625-7635",
+      "strength": 0.82,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -42.45,
+      "flow": {
+        "call_buy": 817000,
+        "call_sell": 1905000,
+        "put_buy": 2330000,
+        "put_sell": 3569000,
+        "net_calls": -1088000,
+        "net_puts": -1239000,
+        "gross": 8621000,
+        "transaction_delta_notional": 3400000
+      },
+      "interpretation": "Large lower put inventory and OI growth make 7625-7635 the first deeper downside inventory zone if 7645 fails.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "7625P OI comparison: {'previous': 933, 'current': None, 'change': None}",
+          "Current 7625 flow is two-sided with net put selling."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7645-7650-lower-battlefield",
+      "price": 7647.5,
+      "range_low": 7645,
+      "range_high": 7650,
+      "role": [
+        "downside_protection",
+        "conditional_floor",
+        "transition"
+      ],
+      "label": "LOWER BATTLEFIELD 7645-7650",
+      "strength": 0.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -19.95,
+      "flow": {
+        "call_buy": 2005000,
+        "call_sell": 2398000,
+        "put_buy": 2964000,
+        "put_sell": 2767000,
+        "net_calls": -393000,
+        "net_puts": 197000,
+        "gross": 10134000,
+        "transaction_delta_notional": -23500000
+      },
+      "interpretation": "7650 put protection returned while 7645 still shows put-risk acceptance; loss of the zone would activate 7635-7625.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Prior session 7650P was net sold; current session 7650P is net bought.",
+          "7650P OI comparison: {'previous': 2400, 'current': None, 'change': None}"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7670-7685-friction",
+      "price": 7677.5,
+      "range_low": 7670,
+      "range_high": 7685,
+      "role": [
+        "call_supply",
+        "downside_protection",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "NEAR-SPOT FRICTION 7670-7685",
+      "strength": 0.96,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 10.05,
+      "flow": {
+        "call_buy": 4418000,
+        "call_sell": 7238000,
+        "put_buy": 2953000,
+        "put_sell": 3066000,
+        "net_calls": -2820000,
+        "net_puts": -113000,
+        "gross": 17675000,
+        "transaction_delta_notional": -404000000
+      },
+      "interpretation": "This is the dominant immediate friction zone: heavy call selling, especially at 7670-7685, offsets lower put-risk acceptance.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7670-7675-late-call-supply"
+        ],
+        "notes": [
+          "7670-7685 aggregate transaction delta is about -404M.",
+          "7685 alone carries about -306M transaction delta from call selling plus put buying."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7700-main-decision",
+      "price": 7700,
+      "range_low": 7695,
+      "range_high": 7705,
+      "role": [
+        "main_pivot",
+        "inventory_center",
+        "put_risk_acceptance",
+        "transition"
+      ],
+      "label": "MAIN DECISION / 7700",
+      "strength": 0.98,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 32.55,
+      "flow": {
+        "call_buy": 2180000,
+        "call_sell": 1403000,
+        "put_buy": 2927000,
+        "put_sell": 3940000,
+        "net_calls": 777000,
+        "net_puts": -1013000,
+        "gross": 10450000,
+        "transaction_delta_notional": 250900000
+      },
+      "interpretation": "7700 remains the largest practical decision strike. Reclaim converts the book toward 7725-7750; failure below it keeps near-spot call supply in control.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Visible premium about 10.45M.",
+          "7700P OI comparison: {'previous': 1300, 'current': None, 'change': None}",
+          "7700C OI comparison: {'previous': 1100, 'current': None, 'change': None}"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7725-cap-unwind",
+      "price": 7725,
+      "range_low": 7720,
+      "range_high": 7725,
+      "role": [
+        "reclaim_support",
+        "upside_demand",
+        "transition",
+        "magnet"
+      ],
+      "label": "7725 CAP UNWIND / TRANSITION",
+      "strength": 0.91,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 57.55,
+      "flow": {
+        "call_buy": 845000,
+        "call_sell": 0,
+        "put_buy": 5456000,
+        "put_sell": 7158000,
+        "net_calls": 845000,
+        "net_puts": -1702000,
+        "gross": 13459000,
+        "transaction_delta_notional": 349900000
+      },
+      "interpretation": "The prior 7725 call cap is being bought back while puts are net sold. It becomes an upside transit zone after a confirmed 7700 reclaim.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7725-call-cap-unwind"
+        ],
+        "notes": [
+          "7725C OI comparison: {'previous': 909, 'current': None, 'change': None}",
+          "Previous session visible 7725C: about 1338 SELL vs 250 BUY; current session about 1143 BUY and no visible SELL."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7745-7750-upper-complex",
+      "price": 7747.5,
+      "range_low": 7745,
+      "range_high": 7750,
+      "role": [
+        "complex_zone",
+        "upside_monetization",
+        "potential_cap"
+      ],
+      "label": "UPPER COMPLEX 7745-7750",
+      "strength": 0.72,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 80.05,
+      "flow": {
+        "call_buy": 127000,
+        "call_sell": 171000,
+        "put_buy": 3830000,
+        "put_sell": 4213000,
+        "net_calls": -44000,
+        "net_puts": -383000,
+        "gross": 8341000,
+        "transaction_delta_notional": 18900000
+      },
+      "interpretation": "Heavy put-spread churn and residual call/put inventory make 7745-7750 the next monetization zone above 7725.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7720-7745-put-spread-churn"
+        ],
+        "notes": [
+          "Repeated opposite-side 7720/7745 put-spread packages were visible during the session."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7000-deep-itm-call-package",
+      "timestamp": "2026-10-02T16:31:46",
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7000,
+          "contracts": 233,
+          "premium": 15496000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 15496000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7000
+      ],
+      "interpretation": "Deep-ITM call sale dominates raw call premium but is not treated as clean directional call supply. Removing it leaves call premium only modestly net sold.",
+      "ui_title": "7000C Deep-ITM Package"
+    },
+    {
+      "id": "str-7725-call-cap-unwind",
+      "timestamp": null,
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7725,
+          "contracts": 1143,
+          "premium": 681000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 681000,
+      "net_premium": 681000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "probable_close",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7725
+      ],
+      "interpretation": "Current buying nearly reverses the prior session's large 7725C selling. The prior OI increase makes short-call opening yesterday plausible; today's flow is therefore a strong close/unwind candidate.",
+      "ui_title": "7725 Call-Cap Unwind"
+    },
+    {
+      "id": "str-7670-7675-late-call-supply",
+      "timestamp": "2026-10-02T22:43:24",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7670,
+          "contracts": 200,
+          "premium": 574000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7675,
+          "contracts": 200,
+          "premium": 518000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1092000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7670,
+        7675
+      ],
+      "interpretation": "Late paired call selling reinforces the immediate overhead friction just above the last visible spot.",
+      "ui_title": "7670-7675 Late Call Supply"
+    },
+    {
+      "id": "str-7720-7745-put-spread-churn",
+      "timestamp": null,
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7745,
+          "contracts": 314,
+          "premium": 3102000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7720,
+          "contracts": 370,
+          "premium": 2820000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 5922000,
+      "net_premium": null,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7720,
+        7745
+      ],
+      "interpretation": "Repeated opposite-side verticals at the same strikes suggest churn/monetization rather than a single fresh directional position.",
+      "ui_title": "7720-7745 Put-Spread Churn"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7645-7700-range",
+      "low": 7645,
+      "high": 7700,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "range inventory",
+        "short-put risk acceptance below",
+        "call supply above"
+      ],
+      "source_structure_ids": [
+        "str-7670-7675-late-call-supply"
+      ],
+      "source_level_ids": [
+        "lvl-7645-7650-lower-battlefield",
+        "lvl-7670-7685-friction",
+        "lvl-7700-main-decision"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The cleanest base case is a noisy 7645-7700 range until one boundary receives acceptance and fresh opening flow.",
+      "caveat": "The 7650 and 7685 roles are conflicted by protection versus risk-acceptance flow."
+    },
+    {
+      "id": "mz-7720-7750-upper",
+      "low": 7720,
+      "high": 7750,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "closed short-call inventory",
+        "put-spread monetization"
+      ],
+      "source_structure_ids": [
+        "str-7725-call-cap-unwind",
+        "str-7720-7745-put-spread-churn"
+      ],
+      "source_level_ids": [
+        "lvl-7725-cap-unwind",
+        "lvl-7745-7750-upper-complex"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "If 7700 is reclaimed, 7720-7750 becomes the principal upside transit and monetization zone.",
+      "caveat": "Acceptance above 7700 is required before this zone becomes active."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-09-28",
+      "label": "MON EXPIRED",
+      "expiration": "2026-09-28",
+      "dte": null,
+      "status": "expired",
+      "summary": {
+        "headline": "Monday expired with 7700 as the main conditional lower level and 7775-7800 as the upside realization area."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-29",
+      "label": "TUE EXPIRED",
+      "expiration": "2026-09-29",
+      "dte": null,
+      "status": "expired",
+      "summary": {
+        "headline": "Tuesday's earlier supportive 7675-7700 book was challenged by repeated 7700P/7650P buying and remained package-dependent."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-09-30",
+      "label": "WED EXPIRED",
+      "expiration": "2026-09-30",
+      "dte": null,
+      "status": "expired",
+      "summary": {
+        "headline": "Wednesday evolved into a two-sided convexity center around 7675-7700 before expiry."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-01",
+      "label": "THU EXPIRED",
+      "expiration": "2026-10-01",
+      "dte": null,
+      "status": "expired",
+      "summary": {
+        "headline": "Thursday became supportive below and capped above, with 7750 protection reversing and risk rolling lower into Friday."
+      },
+      "flow_aggregate": {},
+      "levels": [],
+      "structures": [],
+      "monetization_zones": []
+    },
+    {
+      "id": "exp-2026-10-02",
+      "label": "FRI 0DTE",
+      "expiration": "2026-10-02",
+      "dte": 0,
+      "status": "active",
+      "reference_price": 7667.45,
+      "summary": {
+        "headline": "Friday centers on 7670-7700: immediate call/put friction below a 7700 decision strike, while the old 7725 call cap is being unwound."
+      },
+      "flow_aggregate": {
+        "gross_premium": 142881000,
+        "calls": {
+          "bought": 24884000,
+          "sold": 43358000,
+          "net": -18474000
+        },
+        "puts": {
+          "bought": 34369000,
+          "sold": 40270000,
+          "net": -5901000
+        },
+        "transaction_delta_notional": 159542000
+      },
+      "levels": [
+        "lvl-7625-lower-inventory",
+        "lvl-7645-7650-lower-battlefield",
+        "lvl-7670-7685-friction",
+        "lvl-7700-main-decision",
+        "lvl-7725-cap-unwind",
+        "lvl-7745-7750-upper-complex"
+      ],
+      "structures": [
+        "str-7000-deep-itm-call-package",
+        "str-7725-call-cap-unwind",
+        "str-7670-7675-late-call-supply",
+        "str-7720-7745-put-spread-churn"
+      ],
+      "monetization_zones": [
+        "mz-7645-7700-range",
+        "mz-7720-7750-upper"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "Range / inventory resolution",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7645,
+          "description": "Lower battlefield holds"
+        },
+        {
+          "type": "hold_below",
+          "level": 7700,
+          "description": "7700 is not accepted"
+        }
+      ],
+      "route": [
+        7645,
+        7670,
+        7685,
+        7700
+      ],
+      "invalidations": [
+        "Acceptance above 7700",
+        "Acceptance below 7645"
+      ],
+      "interpretation": "Base case remains noisy inventory rotation inside 7645-7700 while 7670-7685 supplies friction."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7700,
+          "description": "Reclaim the main decision strike"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7725,
+          "description": "Former call cap continues to unwind instead of reloading"
+        }
+      ],
+      "route": [
+        7700,
+        7725,
+        7745,
+        7750
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7685"
+      ],
+      "interpretation": "A confirmed 7700 reclaim opens the old 7725 cap-unwind zone and then 7745-7750."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside protection realization",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7645,
+          "description": "Lower battlefield fails"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7650,
+          "description": "7650 protection continues to receive demand"
+        }
+      ],
+      "route": [
+        7645,
+        7635,
+        7625,
+        7600
+      ],
+      "invalidations": [
+        "Reclaim above 7650 and then 7670"
+      ],
+      "interpretation": "Failure of 7645-7650 activates the large 7625-7635 lower inventory before 7600."
+    },
+    {
+      "id": "sc-bearish-reversal",
+      "name": "Failed upside / reversal",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "failed_reclaim",
+          "level": 7700,
+          "description": "7700 test fails"
+        },
+        {
+          "type": "accept_below",
+          "level": 7685,
+          "description": "Return under the immediate friction zone"
+        }
+      ],
+      "route": [
+        7685,
+        7670,
+        7650,
+        7645
+      ],
+      "invalidations": [
+        "Acceptance above 7700"
+      ],
+      "interpretation": "A failed 7700 reclaim keeps the newly lowered 7670-7685 call-supply zone in control."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 953,
+    "deduplicated_rows": 953,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL does not prove opening/closing.",
+      "Trade IDs and complex-order IDs are absent.",
+      "The source timestamp date and trailing US session stamp differ; the tape is treated as the 2026-10-01 session.",
+      "The deep-ITM 7000C package materially distorts raw call-premium totals.",
+      "Visible tape is filtered at 50k premium and is not the full option market."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
