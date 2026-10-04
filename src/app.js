@@ -179,6 +179,44 @@ function validateDashboardData(data, snapshotPath) {
   }
 }
 
+function mapById(items) {
+  return new Map(asArray(items).filter((item) => item && typeof item === "object" && item.id).map((item) => [item.id, item]));
+}
+
+function resolveRefs(items, lookup) {
+  return asArray(items)
+    .map((item) => (typeof item === "string" ? lookup.get(item) : item))
+    .filter((item) => item && typeof item === "object");
+}
+
+function hydrateExpirationSlices(data) {
+  if (!Array.isArray(data.expiration_slices)) return data;
+
+  const levelsById = mapById(data.levels);
+  const structuresById = mapById(data.structures);
+  const zonesById = mapById(data.monetization_zones);
+
+  return {
+    ...data,
+    expiration_slices: data.expiration_slices.map((slice) => ({
+      ...slice,
+      levels: resolveRefs(slice.levels, levelsById),
+      structures: resolveRefs(slice.structures, structuresById),
+      monetization_zones: resolveRefs(slice.monetization_zones, zonesById),
+    })),
+  };
+}
+
+function uniqueById(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    if (!item?.id) return true;
+    if (seen.has(item.id)) return false;
+    seen.add(item.id);
+    return true;
+  });
+}
+
 function selectedKey() {
   if (!appState.selectedLevel) return null;
   return `${appState.selectedLevel.sliceId ?? "global"}:${appState.selectedLevel.levelId}`;
@@ -683,14 +721,12 @@ function formatLeg(leg) {
 
 function renderBooks(data) {
   const selected = findSelectedLevel();
-  const allStructures = [
+  const allStructures = uniqueById([
     ...asArray(data.structures),
     ...asArray(data.expiration_slices).flatMap((slice) => asArray(slice.structures).map((structure) => ({ ...structure, expiry_label: slice.label }))),
-  ];
+  ]);
   const linkedIds = selected ? getLinkedStructureIds(data, selected.level, selected.context) : null;
-  const contextStructures = selected
-    ? [...asArray(selected.context.structures), ...asArray(data.structures)]
-    : allStructures;
+  const contextStructures = selected ? uniqueById([...asArray(selected.context.structures), ...asArray(data.structures)]) : allStructures;
   const structures = selected ? contextStructures.filter((structure) => linkedIds.has(structure.id)) : allStructures;
 
   setText("structuresLabel", selected ? `${structures.length} linked` : "interpreted");
@@ -890,7 +926,7 @@ async function loadSnapshot(snapshotPath) {
 
     const data = await response.json();
     validateDashboardData(data, snapshotPath);
-    render(data);
+    render(hydrateExpirationSlices(data));
   } catch (error) {
     renderSnapshotError(error, snapshotPath);
   }
