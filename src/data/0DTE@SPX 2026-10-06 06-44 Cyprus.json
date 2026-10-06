@@ -1,0 +1,822 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-10-06 06:44 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-10-06",
+    "dte": 0,
+    "snapshot_time": "2026-10-06T06:44:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight_cumulative_0dte",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-10-06-spx-1dte-50k-flow.csv",
+      "2026-10-06-spx-1dte-50k-contract.csv"
+    ],
+    "source_trade_date": "2026-10-05",
+    "source_last_visible_trade_time": "2026-10-05T23:54:43+03:00",
+    "baseline_snapshot": true
+  },
+  "market_state": {
+    "spot": 7777.15,
+    "spot_change_from_previous_snapshot": null,
+    "regime": "range_pinning_defensive",
+    "bias": "mixed_defensive",
+    "confidence": "medium",
+    "main_pivot": 7775,
+    "upper_decision_level": 7790,
+    "lower_decision_level": 7760
+  },
+  "summary": {
+    "headline": "7775-7780 is the overnight inventory center; 7760 downside protection and 7790-7800 call supply define the immediate decision range",
+    "key_points": [
+      "Raw full-book flow is bearish-looking, but 88% of premium is spread/block-spread and single-leg calls are almost exactly balanced.",
+      "Post-RTH flow adds only about -$27k net call premium but +$316k net put buying, so the incremental overnight change is defensive rather than fresh broad call selling.",
+      "7775 short-straddle-like flow and a nearly hedged 7780 iron-fly-like package support pin/range mechanics.",
+      "Acceptance below 7760 activates 7750/7745 protection and then 7725/7700; acceptance above 7790-7800 needs fresh call buying to weaken the cap."
+    ],
+    "daily_note": "First overnight baseline for the 2026-10-06 expiry."
+  },
+  "flow_aggregate": {
+    "gross_premium": 51057000,
+    "calls": {
+      "bought": 17159000,
+      "sold": 22787000,
+      "net": -5628000
+    },
+    "puts": {
+      "bought": 6457000,
+      "sold": 4587000,
+      "net": 1870000
+    },
+    "signed_delta": -1413367000,
+    "near_spot": {
+      "distance_points": 30,
+      "calls": {
+        "bought": 4725000,
+        "sold": 8512000,
+        "net": -3787000
+      },
+      "puts": {
+        "bought": 5046000,
+        "sold": 2606000,
+        "net": 2440000
+      },
+      "gross_premium": 20889000,
+      "signed_delta": -1330500000
+    },
+    "otm": {
+      "calls": {
+        "bought": 1986000,
+        "sold": 2540000,
+        "net": -554000
+      },
+      "puts": {
+        "bought": 3815000,
+        "sold": 2542000,
+        "net": 1273000
+      },
+      "gross_premium": 10883000,
+      "signed_delta": -475000000
+    },
+    "post_rth_eth": {
+      "calls": {
+        "bought": 443000,
+        "sold": 470000,
+        "net": -27000
+      },
+      "puts": {
+        "bought": 742000,
+        "sold": 426000,
+        "net": 316000
+      },
+      "gross_premium": 2081000,
+      "signed_delta": -155624000
+    },
+    "single_leg_only": {
+      "gross_premium": 5921000,
+      "net_calls": -2000,
+      "net_puts": 625000,
+      "signed_delta": -189600000
+    },
+    "leave_one_out": {
+      "dominant_trade_id": null,
+      "dominant_trade_description": "240x 7725C SELL at 21:34:46 Cyprus, block-spread flagged",
+      "dominant_premium": 1400000,
+      "dominant_share": 0.0274,
+      "result": {
+        "net_calls": -4228000,
+        "net_puts": 1870000,
+        "signed_delta": -1254367000
+      },
+      "changes_interpretation": false,
+      "comment": "Removing the largest print reduces raw call selling but does not change its sign. The stronger sensitivity test is structural: single-leg calls are essentially flat, showing that the call-selling headline is complex-driven."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7775-7780-pin",
+      "price": 7777.5,
+      "range_low": 7775,
+      "range_high": 7780,
+      "role": [
+        "main_pivot",
+        "pin",
+        "inventory_center",
+        "volatility_center"
+      ],
+      "label": "OVERNIGHT PIN / INVENTORY CENTER 7775-7780",
+      "strength": 0.94,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 0.35,
+      "flow": {
+        "call_buy": 595000,
+        "call_sell": 2026000,
+        "put_buy": 890000,
+        "put_sell": 1041000,
+        "net_calls": -1431000,
+        "net_puts": -151000,
+        "gross": 4552000
+      },
+      "interpretation": "Post-RTH 7775 short-straddle-like flow and a late-RTH 7780 iron-fly-like package center the visible book near 7775-7780. The 7780 package is nearly fully hedged, so pinning is more defensible than a directional read.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7775-short-straddle",
+          "str-7780-iron-fly"
+        ],
+        "notes": [
+          "Latest visible spot 7777.15",
+          "Both packages are spread-flagged; opening/closing is unknown"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7790-7800-upper",
+      "price": 7795,
+      "range_low": 7790,
+      "range_high": 7800,
+      "role": [
+        "call_supply",
+        "potential_cap",
+        "transition"
+      ],
+      "label": "UPPER DECISION / CALL SUPPLY 7790-7800",
+      "strength": 0.88,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 17.85,
+      "flow": {
+        "call_buy": 284000,
+        "call_sell": 933000,
+        "put_buy": 1833000,
+        "put_sell": 734000,
+        "net_calls": -649000,
+        "net_puts": 1099000,
+        "gross": 3784000
+      },
+      "interpretation": "Visible calls are net sold in the 7790-7800 band while puts are net bought. Post-RTH 198x 7790C selling was only partially offset by a later 55x single-leg buy.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7790-call-supply"
+        ],
+        "notes": [
+          "7790C full-book net premium -$481k",
+          "7800P activity is heavily multileg and cannot be read as a standalone bearish bet"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7760-downside",
+      "price": 7760,
+      "range_low": 7758,
+      "range_high": 7762,
+      "role": [
+        "downside_protection",
+        "breakdown_trigger",
+        "transition"
+      ],
+      "label": "LOWER DECISION / DOWNSIDE PROTECTION 7760",
+      "strength": 0.91,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -17.15,
+      "flow": {
+        "call_buy": 364000,
+        "call_sell": 795000,
+        "put_buy": 977000,
+        "put_sell": 124000,
+        "net_calls": -431000,
+        "net_puts": 853000,
+        "gross": 2260000
+      },
+      "interpretation": "7760 has the clearest put-demand concentration near spot. A post-RTH 242x put buy reinforced a full-book net put-buy premium of about $853k at the strike.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Contract dump: 7760P volume about 1.3k versus opening OI 94; this proves turnover, not opening"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7745-7750-protection",
+      "price": 7747.5,
+      "range_low": 7745,
+      "range_high": 7750,
+      "role": [
+        "downside_protection",
+        "reclaim_support",
+        "complex_zone"
+      ],
+      "label": "SECONDARY PROTECTION 7745-7750",
+      "strength": 0.82,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -29.65,
+      "flow": {
+        "call_buy": 1047000,
+        "call_sell": 1287000,
+        "put_buy": 583000,
+        "put_sell": 254000,
+        "net_calls": -240000,
+        "net_puts": 329000,
+        "gross": 3171000
+      },
+      "interpretation": "Post-RTH 198x 7750/7745 put debit-spread-like flow defines a cheap protection band. Full-session 7750 is also a large complex call/put node.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-7745-put-debit"
+        ],
+        "notes": [
+          "If opening, the 5-point put spread cost about 1.00 SPX point and breaks even near 7749"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7725-ratio-zone",
+      "price": 7725,
+      "range_low": 7720,
+      "range_high": 7730,
+      "role": [
+        "complex_zone",
+        "put_risk_acceptance",
+        "conditional_floor"
+      ],
+      "label": "7725 COMPLEX / MODERATE-DIP MONETIZATION",
+      "strength": 0.79,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -52.15,
+      "flow": {
+        "call_buy": 2235000,
+        "call_sell": 4132000,
+        "put_buy": 0,
+        "put_sell": 461000,
+        "net_calls": -1897000,
+        "net_puts": -461000,
+        "gross": 6828000
+      },
+      "interpretation": "7725 is the largest premium node but is dominated by ITM call complexes and a 7750P/7725P 1x2 ratio. It is structural rather than a clean immediate support level.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7750-7725-put-ratio"
+        ],
+        "notes": [
+          "If the ratio opened near quoted prices, lower breakeven is about 7700.1"
+        ]
+      }
+    },
+    {
+      "id": "lvl-7845-tail-supply",
+      "price": 7845,
+      "range_low": 7840,
+      "range_high": 7850,
+      "role": [
+        "call_supply",
+        "tail_zone",
+        "potential_cap"
+      ],
+      "label": "UPPER TAIL SUPPLY 7845",
+      "strength": 0.55,
+      "basis": "observed",
+      "confidence": "low",
+      "state": "unconfirmed",
+      "distance_from_spot": 67.85,
+      "flow": {
+        "call_buy": 0,
+        "call_sell": 157000,
+        "put_buy": 0,
+        "put_sell": 0,
+        "net_calls": -157000,
+        "net_puts": 0,
+        "gross": 157000
+      },
+      "interpretation": "Two block-spread 7845C sale prints are visible. Because they are complex-flagged, this is a secondary friction level rather than a clean target or cap.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Contract volume around 2.6k versus opening OI 504 indicates heavy turnover"
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [
+    {
+      "start": "2026-10-05T04:15:20+03:00",
+      "end": "2026-10-05T15:57:36+03:00",
+      "spot_open": 7736.45,
+      "spot_high": 7736.45,
+      "spot_low": 7709.95,
+      "spot_close": 7716.45,
+      "calls": {
+        "bought": 357000,
+        "sold": 632000,
+        "net": -275000
+      },
+      "puts": {
+        "bought": 89000,
+        "sold": 152000,
+        "net": -63000
+      },
+      "gross_premium": 1230000,
+      "signed_delta": -33431000,
+      "regime": "pre_rth_build",
+      "events": []
+    },
+    {
+      "start": "2026-10-05T16:30:04+03:00",
+      "end": "2026-10-05T22:59:59+03:00",
+      "spot_open": 7728.15,
+      "spot_high": 7793.1,
+      "spot_low": 7727.95,
+      "spot_close": 7779.4,
+      "calls": {
+        "bought": 16359000,
+        "sold": 21685000,
+        "net": -5326000
+      },
+      "puts": {
+        "bought": 5626000,
+        "sold": 4009000,
+        "net": 1617000
+      },
+      "gross_premium": 47746000,
+      "signed_delta": -1224312000,
+      "regime": "complex_defensive",
+      "events": [
+        "7725/7750 call-spread activity",
+        "7780 iron-fly-like pin package",
+        "7750/7725 1x2 put ratio"
+      ]
+    },
+    {
+      "start": "2026-10-05T23:01:03+03:00",
+      "end": "2026-10-05T23:54:43+03:00",
+      "spot_open": 7777.35,
+      "spot_high": 7778.15,
+      "spot_low": 7776.85,
+      "spot_close": 7777.15,
+      "calls": {
+        "bought": 443000,
+        "sold": 470000,
+        "net": -27000
+      },
+      "puts": {
+        "bought": 742000,
+        "sold": 426000,
+        "net": 316000
+      },
+      "gross_premium": 2081000,
+      "signed_delta": -155624000,
+      "regime": "range_defensive",
+      "events": [
+        "7775 short-straddle-like sale",
+        "7790 call supply",
+        "7750/7745 put spread",
+        "7760 put buying"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "str-7775-short-straddle",
+      "timestamp": "2026-10-05T23:02:17+03:00",
+      "type": "short_straddle",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7775,
+          "contracts": 98,
+          "premium": 162000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7775,
+          "contracts": 98,
+          "premium": 151000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 313000,
+      "net_premium": 313000,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7775
+      ],
+      "interpretation": "Same-time same-size call and put selling is short-straddle-like and supports a 7775 range/pin center. If opening at the observed prices, the expiry breakevens are roughly 7743 and 7807.",
+      "ui_title": "7775 Short Straddle-like"
+    },
+    {
+      "id": "str-7780-iron-fly",
+      "timestamp": "2026-10-05T22:14:28+03:00",
+      "type": "butterfly",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7775,
+          "contracts": 129,
+          "premium": 145000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7780,
+          "contracts": 129,
+          "premium": 168000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7780,
+          "contracts": 129,
+          "premium": 306000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7785,
+          "contracts": 129,
+          "premium": 268000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 887000,
+      "net_premium": 61275,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7775,
+        7780,
+        7785
+      ],
+      "interpretation": "A 5-point iron-fly-like package centered at 7780. Using the observed leg prices, credit is about 4.75 points against 5-point wings, making it nearly fully hedged; this is stronger evidence for pin/financing mechanics than directional conviction.",
+      "ui_title": "7780 Iron Fly-like / Pin"
+    },
+    {
+      "id": "str-7750-7725-put-ratio",
+      "timestamp": "2026-10-05T22:18:39+03:00",
+      "type": "ratio_put_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 499,
+          "premium": 258000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7725,
+          "contracts": 998,
+          "premium": 253000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 511000,
+      "net_premium": -4990,
+      "bias": "mixed",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750,
+        7725,
+        7700
+      ],
+      "interpretation": "Near-zero-cost 1x2 put ratio: benefits most from a moderate drop toward 7725 but becomes short downside below roughly 7700 if opening. This is protection/monetization with tail-risk acceptance, not a simple bearish put buy.",
+      "ui_title": "7750/7725 1x2 Put Ratio-like"
+    },
+    {
+      "id": "str-7750-7745-put-debit",
+      "timestamp": "2026-10-05T23:24:21+03:00",
+      "type": "put_debit_spread",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7750,
+          "contracts": 198,
+          "premium": 128000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7745,
+          "contracts": 198,
+          "premium": 109000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 237000,
+      "net_premium": -19800,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7750,
+        7745
+      ],
+      "interpretation": "A clean same-time 5-point put debit-spread-like package. If opening around a 1.00-point debit, breakeven is about 7749 and max value is reached at or below 7745.",
+      "ui_title": "7750/7745 Put Debit Spread-like"
+    },
+    {
+      "id": "str-7770-7775-call-debit",
+      "timestamp": "2026-10-05T23:01:03+03:00",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7770,
+          "contracts": 40,
+          "premium": 81000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7775,
+          "contracts": 40,
+          "premium": 69000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 150000,
+      "net_premium": -11400,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7770,
+        7775
+      ],
+      "interpretation": "Small bullish call-spread-like flow immediately after RTH. If opening, debit is about 2.85 points and breakeven about 7772.85.",
+      "ui_title": "7770/7775 Call Debit Spread-like"
+    },
+    {
+      "id": "str-7790-call-supply",
+      "timestamp": "2026-10-05T23:08:12+03:00",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7790,
+          "contracts": 198,
+          "premium": 182000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7790,
+          "contracts": 55,
+          "premium": 51000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 233000,
+      "net_premium": 131000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7790
+      ],
+      "interpretation": "Post-RTH 7790 call selling was partly offset by a later single-leg 55x call buy. Net visible premium still favors supply, but the large sale is spread-flagged.",
+      "ui_title": "7790 Call Supply / Partial Offset"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-pin-7775-7780",
+      "low": 7775,
+      "high": 7780,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short-vol inventory",
+        "balanced 0DTE books"
+      ],
+      "source_structure_ids": [
+        "str-7775-short-straddle",
+        "str-7780-iron-fly"
+      ],
+      "source_level_ids": [
+        "lvl-7775-7780-pin"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Two separate complex packages center inventory and decay around 7775-7780.",
+      "caveat": "Opening/closing is unknown and the 7780 package is nearly fully hedged."
+    },
+    {
+      "id": "mz-put-protection-7745-7760",
+      "low": 7745,
+      "high": 7760,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "long-put spreads",
+        "downside hedges"
+      ],
+      "source_structure_ids": [
+        "str-7750-7745-put-debit"
+      ],
+      "source_level_ids": [
+        "lvl-7760-downside",
+        "lvl-7745-7750-protection"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Put demand becomes materially more visible below 7760, with a defined 7750/7745 spread beneath.",
+      "caveat": "Several put prints are spread legs, so fresh opening protection is not proven."
+    },
+    {
+      "id": "mz-upper-supply-7790-7800",
+      "low": 7790,
+      "high": 7800,
+      "type": "call_supply_monetization",
+      "beneficiaries": [
+        "call sellers",
+        "range inventory"
+      ],
+      "source_structure_ids": [
+        "str-7790-call-supply"
+      ],
+      "source_level_ids": [
+        "lvl-7790-7800-upper"
+      ],
+      "basis": "derived",
+      "confidence": "medium",
+      "description": "Net call selling and two-sided put complexes create upper friction around 7790-7800.",
+      "caveat": "Fresh call buying above the band would weaken this interpretation."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-range",
+      "name": "Range / pin",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7760,
+          "description": "Keep downside protection from becoming directional"
+        },
+        {
+          "type": "hold_below",
+          "level": 7790,
+          "description": "Keep upper call supply intact"
+        }
+      ],
+      "route": [
+        7760,
+        7775,
+        7780,
+        7790
+      ],
+      "invalidations": [
+        "Acceptance below 7760",
+        "Acceptance above 7800 with fresh call buying"
+      ],
+      "interpretation": "Base case is chop/pin around 7775-7780 while price remains between 7760 and 7790-7800."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside protection realization",
+      "bias": "bearish",
+      "priority": 0.3,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7760,
+          "description": "Lose the main put-demand transition"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7750,
+          "description": "Confirm that protection is being added rather than monetized"
+        }
+      ],
+      "route": [
+        7760,
+        7750,
+        7745,
+        7725,
+        7700
+      ],
+      "invalidations": [
+        "Reclaim and hold above 7775"
+      ],
+      "interpretation": "Below 7760, visible protection becomes more relevant. The 7750/7745 spread is the first route, 7725 is a complex monetization node, and ~7700 is the lower breakeven area of the large 1x2 put ratio if that package is opening."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside acceptance",
+      "bias": "bullish",
+      "priority": 0.2,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7800,
+          "description": "Absorb the 7790-7800 upper supply band"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7800,
+          "description": "Require fresh call demand rather than only closing/roll flow"
+        }
+      ],
+      "route": [
+        7800,
+        7845
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7790"
+      ],
+      "interpretation": "A clean upside route requires acceptance above 7800 plus new call buying. 7845 is secondary block-spread friction, not a target guaranteed by the tape."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 442,
+    "deduplicated_rows": 440,
+    "duplicates_removed": 2,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "spread_or_block_share_rows": 0.8318,
+    "spread_or_block_share_premium": 0.884,
+    "contract_rows": 92,
+    "caveats": [
+      "BUY/SELL describes transaction side and does not prove opening/closing.",
+      "About 88% of visible premium is spread/block-spread flagged; raw directional aggregates are therefore complex-driven.",
+      "Complex-order IDs and next-day OI confirmation are absent.",
+      "The snapshot is cumulative for the 2026-10-06 expiry; the post-RTH ETH slice is separated explicitly.",
+      "Visible $50k+ tape is not the full option market."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
