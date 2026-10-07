@@ -1,0 +1,1368 @@
+{
+  "schema_version": "1.0",
+  "category": "1WEEK@SPX",
+  "snapshot_name": "1WEEK@SPX 2026-10-07 05-26 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": null,
+    "trade_date": "2026-10-06",
+    "week_start": "2026-10-05",
+    "week_end": "2026-10-09",
+    "snapshot_time": "2026-10-07T05:26:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "weekly_multi_expiry",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "SPX-contract-2026-10-07_05-25-16.csv",
+      "SPX-tape-2026-10-07_05-24-50.csv"
+    ],
+    "previous_snapshot": "1WEEK@SPX 2026-10-06 06:45 Cyprus"
+  },
+  "market_state": {
+    "spot": 7827.75,
+    "spot_change_from_previous_snapshot": 50.6,
+    "regime": "mixed_to_bullish_upward_convexity_with_friday_protection_roll",
+    "bias": "mixed",
+    "confidence": "medium",
+    "main_pivot": 7825,
+    "upper_decision_level": 7850,
+    "lower_decision_level": 7800
+  },
+  "summary": {
+    "headline": "The weekly book migrated higher again: 7800 is confirmed inventory, 7825 is the new cross-expiry hedge/pivot center, and OI confirms real Friday call convexity at 7800/7840/7880.",
+    "key_points": [
+      "Prior Friday call convexity is now OI-confirmed: 7800C +~2600, 7840C +~4181, 7880C +~2068, while lower 7725C and 7770C OI declined.",
+      "Downside protection is not disappearing; 692 Wednesday 7825 puts were sold while exactly 692 Friday 7825 puts were bought, extending the hedge to Friday.",
+      "The prior Tue-to-Wed 7770C roll was confirmed by about +677 OI, but current Wednesday 7770C flow is net sold, indicating monetization as spot moved higher.",
+      "Thursday's old deep-ITM 7730C inventory saw about -1800 OI; fresh risk shifted toward 7825/7830/7840 calls.",
+      "Wednesday 7850C demand is large but fragile: removing two dominant buys flips Wednesday transaction delta from +$136M to about -$345M.",
+      "Friday now contains both bullish structures around 7840-7900 and explicit protection at 7825/7900, so upside asymmetry is stronger but still conditional."
+    ],
+    "daily_note": "Stateful update after the Tuesday 2026-10-06 session."
+  },
+  "flow_aggregate": {
+    "gross_premium": 135940000,
+    "calls": {
+      "bought": 55724000,
+      "sold": 47777000,
+      "net": 7947000
+    },
+    "puts": {
+      "bought": 17615000,
+      "sold": 14824000,
+      "net": 2791000
+    },
+    "signed_delta_transaction": 1074463000,
+    "leave_one_out": {
+      "wednesday_7850_main_buys": {
+        "premium": 1816000,
+        "delta_effect": 481000000,
+        "wednesday_delta_all": 135818000,
+        "wednesday_delta_ex_package": -345182000,
+        "changes_interpretation": true
+      },
+      "friday_7825_put_roll_leg": {
+        "premium": 1900000,
+        "friday_net_puts_all": 2309000,
+        "friday_net_puts_ex_roll": 409000,
+        "friday_delta_all": 55580000,
+        "friday_delta_ex_roll": 322580000,
+        "changes_interpretation": true
+      },
+      "thursday_7825_7830_block": {
+        "premium": 4282000,
+        "thursday_net_calls_all": 6462000,
+        "thursday_net_calls_ex_package": 2180000,
+        "thursday_delta_all": 883065000,
+        "thursday_delta_ex_package": 321065000,
+        "changes_interpretation": false
+      }
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-week-7800",
+      "price": 7800,
+      "role": [
+        "lower_decision_level",
+        "reclaim_support",
+        "inventory_center"
+      ],
+      "label": "7800 CONFIRMED INVENTORY / LOWER DECISION",
+      "basis": "inferred",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -27.75,
+      "flow": {
+        "call_buy": 3761000,
+        "call_sell": 3442000,
+        "put_buy": 1127000,
+        "put_sell": 991000,
+        "net_calls": 319000,
+        "net_puts": 136000,
+        "gross": 9321000
+      },
+      "interpretation": "Open interest expanded at 7800 across the remaining expiries. The level is now below spot and acts as the lower edge of the migrated weekly book.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-week-7825",
+      "price": 7825,
+      "role": [
+        "main_pivot",
+        "transition",
+        "downside_protection"
+      ],
+      "label": "7825 NEW WEEKLY PIVOT / HEDGE-ROLL CENTER",
+      "basis": "inferred",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -2.75,
+      "flow": {
+        "call_buy": 4785000,
+        "call_sell": 1954000,
+        "put_buy": 3496000,
+        "put_sell": 2509000,
+        "net_calls": 2831000,
+        "net_puts": 987000,
+        "gross": 12744000
+      },
+      "interpretation": "The exact 692-lot Wed-to-Fri put roll plus heavy Friday put demand and Thursday call buying make 7825 the central cross-expiry decision level.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-week-7840",
+      "price": 7840,
+      "role": [
+        "upside_demand",
+        "convexity_zone"
+      ],
+      "label": "7840 OI-CONFIRMED UPSIDE CONVEXITY",
+      "basis": "inferred",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 12.25,
+      "flow": {
+        "call_buy": 3111000,
+        "call_sell": 1207000,
+        "put_buy": 752000,
+        "put_sell": 1230000,
+        "net_calls": 1904000,
+        "net_puts": -478000,
+        "gross": 6300000
+      },
+      "interpretation": "Friday 7840C OI rose from about 619 to 4,800 after the prior call complex; fresh Friday and Thursday call buying continues at this strike.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-week-7850",
+      "price": 7850,
+      "role": [
+        "upper_decision_level",
+        "transition",
+        "complex_zone"
+      ],
+      "label": "7850 ACTIVE UPSIDE / SYNTHETIC ZONE",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "testing",
+      "distance_from_spot": 22.25,
+      "flow": {
+        "call_buy": 4822000,
+        "call_sell": 2843000,
+        "put_buy": 1181000,
+        "put_sell": 1964000,
+        "net_calls": 1979000,
+        "net_puts": -783000,
+        "gross": 10810000
+      },
+      "interpretation": "Large Wednesday call buying and a 250x250 Friday buy-call/sell-put synthetic-long-like package make 7850 the immediate upper decision zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    },
+    {
+      "id": "lvl-week-7900",
+      "price": 7900,
+      "role": [
+        "complex_zone",
+        "tail_zone",
+        "upside_realization"
+      ],
+      "label": "7900 CONVEXITY / PROTECTION CONFLICT",
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 72.25,
+      "flow": {
+        "call_buy": 973000,
+        "call_sell": 579000,
+        "put_buy": 3394000,
+        "put_sell": 0,
+        "net_calls": 394000,
+        "net_puts": 3394000,
+        "gross": 4946000
+      },
+      "interpretation": "The strike carries both upper-call convexity and a same-size package buying Wed/Fri puts while selling Friday calls. Direction becomes highly structure-dependent here.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": []
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-fri-upper-call-roll-confirmed",
+      "timestamp": "stateful OI update through 2026-10-06",
+      "type": "roll",
+      "legs": [],
+      "gross_premium": null,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "derived",
+      "confidence": "high",
+      "opening_status": "probable_open",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7800,
+        7840,
+        7880
+      ],
+      "interpretation": "Prior Friday call complex is materially confirmed by OI migration: 7800C +~2600, 7840C +~4181 and 7880C +~2068, while lower 7725C and 7770C OI fell. This is consistent with an upward roll of open call convexity.",
+      "ui_title": "Friday upper-call convexity confirmed by OI"
+    },
+    {
+      "id": "str-7825p-wed-fri-roll",
+      "timestamp": "2026-10-06 23:13:03",
+      "type": "roll",
+      "legs": [
+        {
+          "expiration": "2026-10-07",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7825,
+          "contracts": 692,
+          "premium": 1100000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-09",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7825,
+          "contracts": 692,
+          "premium": 1900000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 3000000,
+      "net_premium": 800000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7825
+      ],
+      "interpretation": "Exact same-time/same-size sale of Wednesday puts and purchase of Friday puts strongly suggests downside protection is being extended to Friday rather than removed.",
+      "ui_title": "7825P Wed-to-Fri protection roll"
+    },
+    {
+      "id": "str-wed-7850-call-demand",
+      "timestamp": "2026-10-06 18:45:59-18:46:05",
+      "type": "single_leg",
+      "legs": [
+        {
+          "expiration": "2026-10-07",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 1428,
+          "premium": 1742000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1742000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7850
+      ],
+      "interpretation": "Two very large buy prints six seconds apart create the dominant Wednesday upside demand. Removing them flips Wednesday transaction delta from positive to strongly negative.",
+      "ui_title": "Wednesday 7850C demand"
+    },
+    {
+      "id": "str-thu-7825-7830-call-block",
+      "timestamp": "2026-10-06 18:27:59",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-08",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7825,
+          "contracts": 625,
+          "premium": 2369000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-08",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7830,
+          "contracts": 562,
+          "premium": 1913000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 4282000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7825,
+        7830
+      ],
+      "interpretation": "Large block call buying shifts Thursday risk from the old 7705/7730 deep-ITM complex toward near-spot 7825/7830. Thursday remains call-positive even without this package.",
+      "ui_title": "Thursday 7825/7830 call block"
+    },
+    {
+      "id": "str-fri-7850-synthetic-long",
+      "timestamp": "2026-10-06 18:22:48",
+      "type": "synthetic_long",
+      "legs": [
+        {
+          "expiration": "2026-10-09",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 250,
+          "premium": 735000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-09",
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7850,
+          "contracts": 250,
+          "premium": 840000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1575000,
+      "net_premium": -105000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7850
+      ],
+      "interpretation": "Exact same-time/same-size buy-call/sell-put package is synthetic-long-like and adds strong positive transaction delta, conditional on opening state.",
+      "ui_title": "Friday 7850 synthetic-long-like"
+    },
+    {
+      "id": "str-fri-7850-7900-ratio",
+      "timestamp": "2026-10-06 17:15:08",
+      "type": "ratio_call_spread",
+      "legs": [
+        {
+          "expiration": "2026-10-09",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7850,
+          "contracts": 305,
+          "premium": 705000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-09",
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7900,
+          "contracts": 610,
+          "premium": 491000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1196000,
+      "net_premium": -214000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7850,
+        7900
+      ],
+      "interpretation": "Exact 1x2 call ratio/backspread for a net credit. If opening, it is not a simple bullish spread: the loss zone is roughly 7857-7943, with meaningful upside convexity only above about 7943 at expiry.",
+      "ui_title": "Friday 7850/7900 1x2 call backspread"
+    },
+    {
+      "id": "str-7900-protection-package",
+      "timestamp": "2026-10-06 19:05:14",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "expiration": "2026-10-07",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7900,
+          "contracts": 200,
+          "premium": 1200000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-09",
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7900,
+          "contracts": 200,
+          "premium": 1300000,
+          "trade_ids": []
+        },
+        {
+          "expiration": "2026-10-09",
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7900,
+          "contracts": 200,
+          "premium": 182000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 2682000,
+      "net_premium": null,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7900
+      ],
+      "interpretation": "Same-size package buys 7900 puts in Wednesday and Friday while selling Friday 7900 calls. It is a clear defensive counterweight to the upper-call convexity.",
+      "ui_title": "7900 cross-expiry protection package"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7800-7850-active",
+      "low": 7800,
+      "high": 7850,
+      "type": "complex_inventory_zone",
+      "beneficiaries": [
+        "rolled call convexity",
+        "near-spot call demand",
+        "Friday protection inventory"
+      ],
+      "source_structure_ids": [
+        "str-7825p-wed-fri-roll",
+        "str-wed-7850-call-demand",
+        "str-thu-7825-7830-call-block",
+        "str-fri-7850-synthetic-long"
+      ],
+      "source_level_ids": [
+        "lvl-week-7800",
+        "lvl-week-7825",
+        "lvl-week-7840",
+        "lvl-week-7850"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "The active weekly battlefield migrated upward again. 7800 is the lower inventory edge, 7825 the central hedge-roll pivot and 7850 the immediate upper decision level.",
+      "caveat": "Several headline prints are spread/block packages and new-session opening/closing awaits the next OI update."
+    },
+    {
+      "id": "mz-7900-7943-tail",
+      "low": 7900,
+      "high": 7943,
+      "type": "upside_monetization",
+      "beneficiaries": [
+        "upper-call convexity",
+        "1x2 ratio backspread"
+      ],
+      "source_structure_ids": [
+        "str-fri-7850-7900-ratio",
+        "str-7900-protection-package"
+      ],
+      "source_level_ids": [
+        "lvl-week-7900"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "7900 is a conflict zone. The 1x2 call backspread creates true upside convexity only above roughly 7943 at expiry, while separate 7900 put buying adds defensive pressure.",
+      "caveat": "The 7943 level is a package payoff estimate, not a forecast target."
+    }
+  ],
+  "expiration_slices": [
+    {
+      "id": "exp-2026-10-07",
+      "label": "WED 0DTE NEXT",
+      "expiration": "2026-10-07",
+      "reference_price": 7827.75,
+      "summary": {
+        "headline": "Wednesday is highly active and two-sided: 7850 call demand is strong, while front protection is being monetized/rolled and 7900 puts add counter-pressure."
+      },
+      "flow_aggregate": {
+        "gross_premium": 58933000,
+        "calls": {
+          "bought": 21978000,
+          "sold": 24541000,
+          "net": -2563000
+        },
+        "puts": {
+          "bought": 6371000,
+          "sold": 6043000,
+          "net": 328000
+        },
+        "signed_delta_transaction": 135818000
+      },
+      "levels": [
+        {
+          "id": "lvl-week-7800-2026-10-07",
+          "price": 7800,
+          "role": [
+            "reclaim_support",
+            "inventory_center",
+            "lower_decision_level"
+          ],
+          "label": "7800 CONFIRMED INVENTORY / LOWER DECISION",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -27.75,
+          "flow": {
+            "call_buy": 3761000,
+            "call_sell": 3442000,
+            "put_buy": 1127000,
+            "put_sell": 991000,
+            "net_calls": 319000,
+            "net_puts": 136000,
+            "gross": 9321000
+          },
+          "interpretation": "Open interest expanded at 7800 across the remaining expiries. The level is now below spot and acts as the lower edge of the migrated weekly book. Wednesday lower inventory edge; OI is elevated and the strike is below the active 7825-7850 conflict band.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7825-2026-10-07",
+          "price": 7825,
+          "role": [
+            "main_pivot",
+            "transition",
+            "downside_protection"
+          ],
+          "label": "7825 NEW WEEKLY PIVOT / HEDGE-ROLL CENTER",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -2.75,
+          "flow": {
+            "call_buy": 4785000,
+            "call_sell": 1954000,
+            "put_buy": 3496000,
+            "put_sell": 2509000,
+            "net_calls": 2831000,
+            "net_puts": 987000,
+            "gross": 12744000
+          },
+          "interpretation": "The exact 692-lot Wed-to-Fri put roll plus heavy Friday put demand and Thursday call buying make 7825 the central cross-expiry decision level. Wednesday leg of the 692-lot 7825P protection roll is being sold; this is the front-expiry side of the weekly hedge pivot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7850-2026-10-07",
+          "price": 7850,
+          "role": [
+            "upper_decision_level",
+            "upside_demand",
+            "complex_zone"
+          ],
+          "label": "7850 ACTIVE UPSIDE / SYNTHETIC ZONE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": 22.25,
+          "flow": {
+            "call_buy": 4822000,
+            "call_sell": 2843000,
+            "put_buy": 1181000,
+            "put_sell": 1964000,
+            "net_calls": 1979000,
+            "net_puts": -783000,
+            "gross": 10810000
+          },
+          "interpretation": "Large Wednesday call buying and a 250x250 Friday buy-call/sell-put synthetic-long-like package make 7850 the immediate upper decision zone. Dominant Wednesday upside demand is concentrated at 7850C; this is the immediate front-expiry decision level.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7900-2026-10-07",
+          "price": 7900,
+          "role": [
+            "downside_protection",
+            "complex_zone",
+            "tail_zone"
+          ],
+          "label": "7900 CONVEXITY / PROTECTION CONFLICT",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "distance_from_spot": 72.25,
+          "flow": {
+            "call_buy": 973000,
+            "call_sell": 579000,
+            "put_buy": 3394000,
+            "put_sell": 0,
+            "net_calls": 394000,
+            "net_puts": 3394000,
+            "gross": 4946000
+          },
+          "interpretation": "The strike carries both upper-call convexity and a same-size package buying Wed/Fri puts while selling Friday calls. Direction becomes highly structure-dependent here. Wednesday 7900P buying is part of a cross-expiry defensive package and caps a clean one-sided upside read.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-wed-7850-call-demand",
+          "timestamp": "2026-10-06 18:45:59-18:46:05",
+          "type": "single_leg",
+          "legs": [
+            {
+              "expiration": "2026-10-07",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7850,
+              "contracts": 1428,
+              "premium": 1742000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1742000,
+          "net_premium": null,
+          "bias": "bullish",
+          "basis": "observed",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7850
+          ],
+          "interpretation": "Two very large buy prints six seconds apart create the dominant Wednesday upside demand. Removing them flips Wednesday transaction delta from positive to strongly negative.",
+          "ui_title": "Wednesday 7850C demand"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-wed-7825-7850",
+          "low": 7825,
+          "high": 7850,
+          "type": "complex_inventory_zone",
+          "beneficiaries": [
+            "front-expiry call convexity",
+            "hedge-roll inventory"
+          ],
+          "source_structure_ids": [
+            "str-7825p-wed-fri-roll",
+            "str-wed-7850-call-demand"
+          ],
+          "source_level_ids": [
+            "lvl-week-7825-2026-10-07",
+            "lvl-week-7850-2026-10-07"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Wednesday's active battlefield runs from the 7825 hedge-roll center to 7850 call demand.",
+          "caveat": "Wednesday 7850 upside is leave-one-out sensitive."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-10-08",
+      "label": "THU",
+      "expiration": "2026-10-08",
+      "reference_price": 7827.75,
+      "summary": {
+        "headline": "Thursday risk migrated upward from the old deep-ITM 7705/7730 complex toward fresh 7825/7830/7840 call demand."
+      },
+      "flow_aggregate": {
+        "gross_premium": 19132000,
+        "calls": {
+          "bought": 10902000,
+          "sold": 4440000,
+          "net": 6462000
+        },
+        "puts": {
+          "bought": 1972000,
+          "sold": 1818000,
+          "net": 154000
+        },
+        "signed_delta_transaction": 883065000
+      },
+      "levels": [
+        {
+          "id": "lvl-week-7800-2026-10-08",
+          "price": 7800,
+          "role": [
+            "reclaim_support",
+            "inventory_center"
+          ],
+          "label": "7800 CONFIRMED INVENTORY / LOWER DECISION",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -27.75,
+          "flow": {
+            "call_buy": 3761000,
+            "call_sell": 3442000,
+            "put_buy": 1127000,
+            "put_sell": 991000,
+            "net_calls": 319000,
+            "net_puts": 136000,
+            "gross": 9321000
+          },
+          "interpretation": "Open interest expanded at 7800 across the remaining expiries. The level is now below spot and acts as the lower edge of the migrated weekly book. Thursday 7800 inventory remains relevant as the lower anchor of the migrated book.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7825-2026-10-08",
+          "price": 7825,
+          "role": [
+            "main_pivot",
+            "upside_demand",
+            "transition"
+          ],
+          "label": "7825 NEW WEEKLY PIVOT / HEDGE-ROLL CENTER",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -2.75,
+          "flow": {
+            "call_buy": 4785000,
+            "call_sell": 1954000,
+            "put_buy": 3496000,
+            "put_sell": 2509000,
+            "net_calls": 2831000,
+            "net_puts": 987000,
+            "gross": 12744000
+          },
+          "interpretation": "The exact 692-lot Wed-to-Fri put roll plus heavy Friday put demand and Thursday call buying make 7825 the central cross-expiry decision level. Fresh Thursday call demand starts at 7825 and overlaps the weekly hedge-roll pivot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7840-2026-10-08",
+          "price": 7840,
+          "role": [
+            "upside_demand",
+            "convexity_zone"
+          ],
+          "label": "7840 OI-CONFIRMED UPSIDE CONVEXITY",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 12.25,
+          "flow": {
+            "call_buy": 3111000,
+            "call_sell": 1207000,
+            "put_buy": 752000,
+            "put_sell": 1230000,
+            "net_calls": 1904000,
+            "net_puts": -478000,
+            "gross": 6300000
+          },
+          "interpretation": "Friday 7840C OI rose from about 619 to 4,800 after the prior call complex; fresh Friday and Thursday call buying continues at this strike. Thursday call demand extends toward 7840, confirming the upward migration of this expiry.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7850-2026-10-08",
+          "price": 7850,
+          "role": [
+            "upper_decision_level",
+            "transition"
+          ],
+          "label": "7850 ACTIVE UPSIDE / SYNTHETIC ZONE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": 22.25,
+          "flow": {
+            "call_buy": 4822000,
+            "call_sell": 2843000,
+            "put_buy": 1181000,
+            "put_sell": 1964000,
+            "net_calls": 1979000,
+            "net_puts": -783000,
+            "gross": 10810000
+          },
+          "interpretation": "Large Wednesday call buying and a 250x250 Friday buy-call/sell-put synthetic-long-like package make 7850 the immediate upper decision zone. Thursday's immediate upside decision area sits around 7850 even though the strongest explicit package is 7825/7830.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-thu-7825-7830-call-block",
+          "timestamp": "2026-10-06 18:27:59",
+          "type": "unknown_complex",
+          "legs": [
+            {
+              "expiration": "2026-10-08",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7825,
+              "contracts": 625,
+              "premium": 2369000,
+              "trade_ids": []
+            },
+            {
+              "expiration": "2026-10-08",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7830,
+              "contracts": 562,
+              "premium": 1913000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 4282000,
+          "net_premium": null,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "medium",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7825,
+            7830
+          ],
+          "interpretation": "Large block call buying shifts Thursday risk from the old 7705/7730 deep-ITM complex toward near-spot 7825/7830. Thursday remains call-positive even without this package.",
+          "ui_title": "Thursday 7825/7830 call block"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-thu-7825-7840",
+          "low": 7825,
+          "high": 7840,
+          "type": "vol_realization",
+          "beneficiaries": [
+            "Thursday call buyers",
+            "rolled upside inventory"
+          ],
+          "source_structure_ids": [
+            "str-thu-7825-7830-call-block"
+          ],
+          "source_level_ids": [
+            "lvl-week-7825-2026-10-08",
+            "lvl-week-7840-2026-10-08"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "Thursday's fresh call demand is concentrated in the 7825-7840 band.",
+          "caveat": "Opening status awaits the next OI update."
+        }
+      ]
+    },
+    {
+      "id": "exp-2026-10-09",
+      "label": "FRI",
+      "expiration": "2026-10-09",
+      "reference_price": 7827.75,
+      "summary": {
+        "headline": "Friday remains the strategic expiry: prior 7800/7840/7880 call convexity is OI-confirmed, while 7825 protection is extended into Friday and 7900 carries both upside-tail and bearish hedge structures."
+      },
+      "flow_aggregate": {
+        "gross_premium": 57875000,
+        "calls": {
+          "bought": 22844000,
+          "sold": 18796000,
+          "net": 4048000
+        },
+        "puts": {
+          "bought": 9272000,
+          "sold": 6963000,
+          "net": 2309000
+        },
+        "signed_delta_transaction": 55580000
+      },
+      "levels": [
+        {
+          "id": "lvl-week-7800-2026-10-09",
+          "price": 7800,
+          "role": [
+            "inventory_center",
+            "reclaim_support",
+            "upside_demand"
+          ],
+          "label": "7800 CONFIRMED INVENTORY / LOWER DECISION",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -27.75,
+          "flow": {
+            "call_buy": 3761000,
+            "call_sell": 3442000,
+            "put_buy": 1127000,
+            "put_sell": 991000,
+            "net_calls": 319000,
+            "net_puts": 136000,
+            "gross": 9321000
+          },
+          "interpretation": "Open interest expanded at 7800 across the remaining expiries. The level is now below spot and acts as the lower edge of the migrated weekly book. Friday 7800C open interest expanded materially; this is confirmed open upside inventory.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7825-2026-10-09",
+          "price": 7825,
+          "role": [
+            "main_pivot",
+            "downside_protection",
+            "transition"
+          ],
+          "label": "7825 NEW WEEKLY PIVOT / HEDGE-ROLL CENTER",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": -2.75,
+          "flow": {
+            "call_buy": 4785000,
+            "call_sell": 1954000,
+            "put_buy": 3496000,
+            "put_sell": 2509000,
+            "net_calls": 2831000,
+            "net_puts": 987000,
+            "gross": 12744000
+          },
+          "interpretation": "The exact 692-lot Wed-to-Fri put roll plus heavy Friday put demand and Thursday call buying make 7825 the central cross-expiry decision level. Friday receives the 692-lot 7825P hedge roll from Wednesday, making 7825 the strategic cross-expiry protection pivot.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7840-2026-10-09",
+          "price": 7840,
+          "role": [
+            "upside_demand",
+            "convexity_zone"
+          ],
+          "label": "7840 OI-CONFIRMED UPSIDE CONVEXITY",
+          "basis": "inferred",
+          "confidence": "high",
+          "state": "active",
+          "distance_from_spot": 12.25,
+          "flow": {
+            "call_buy": 3111000,
+            "call_sell": 1207000,
+            "put_buy": 752000,
+            "put_sell": 1230000,
+            "net_calls": 1904000,
+            "net_puts": -478000,
+            "gross": 6300000
+          },
+          "interpretation": "Friday 7840C OI rose from about 619 to 4,800 after the prior call complex; fresh Friday and Thursday call buying continues at this strike. Friday 7840C OI expanded sharply and fresh call buying continues; this is the clearest confirmed upside-convexity node.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7850-2026-10-09",
+          "price": 7850,
+          "role": [
+            "upper_decision_level",
+            "complex_zone",
+            "upside_demand"
+          ],
+          "label": "7850 ACTIVE UPSIDE / SYNTHETIC ZONE",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "testing",
+          "distance_from_spot": 22.25,
+          "flow": {
+            "call_buy": 4822000,
+            "call_sell": 2843000,
+            "put_buy": 1181000,
+            "put_sell": 1964000,
+            "net_calls": 1979000,
+            "net_puts": -783000,
+            "gross": 10810000
+          },
+          "interpretation": "Large Wednesday call buying and a 250x250 Friday buy-call/sell-put synthetic-long-like package make 7850 the immediate upper decision zone. Friday carries both a synthetic-long-like package and the lower leg of a 7850/7900 ratio structure.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "id": "lvl-week-7900-2026-10-09",
+          "price": 7900,
+          "role": [
+            "complex_zone",
+            "tail_zone",
+            "upside_realization"
+          ],
+          "label": "7900 CONVEXITY / PROTECTION CONFLICT",
+          "basis": "inferred",
+          "confidence": "medium",
+          "state": "unconfirmed",
+          "distance_from_spot": 72.25,
+          "flow": {
+            "call_buy": 973000,
+            "call_sell": 579000,
+            "put_buy": 3394000,
+            "put_sell": 0,
+            "net_calls": 394000,
+            "net_puts": 3394000,
+            "gross": 4946000
+          },
+          "interpretation": "The strike carries both upper-call convexity and a same-size package buying Wed/Fri puts while selling Friday calls. Direction becomes highly structure-dependent here. Friday 7900 is a conflict zone: long calls/backspread convexity coexist with bought puts and sold calls in a defensive package.",
+          "evidence": {
+            "trade_ids": [],
+            "structure_ids": [
+              "str-7825p-wed-fri-roll",
+              "str-7900-protection-package"
+            ],
+            "notes": []
+          }
+        }
+      ],
+      "structures": [
+        {
+          "id": "str-fri-7850-synthetic-long",
+          "timestamp": "2026-10-06 18:22:48",
+          "type": "synthetic_long",
+          "legs": [
+            {
+              "expiration": "2026-10-09",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7850,
+              "contracts": 250,
+              "premium": 735000,
+              "trade_ids": []
+            },
+            {
+              "expiration": "2026-10-09",
+              "option_type": "put",
+              "side": "sell",
+              "strike": 7850,
+              "contracts": 250,
+              "premium": 840000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1575000,
+          "net_premium": -105000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7850
+          ],
+          "interpretation": "Exact same-time/same-size buy-call/sell-put package is synthetic-long-like and adds strong positive transaction delta, conditional on opening state.",
+          "ui_title": "Friday 7850 synthetic-long-like"
+        },
+        {
+          "id": "str-fri-7850-7900-ratio",
+          "timestamp": "2026-10-06 17:15:08",
+          "type": "ratio_call_spread",
+          "legs": [
+            {
+              "expiration": "2026-10-09",
+              "option_type": "call",
+              "side": "sell",
+              "strike": 7850,
+              "contracts": 305,
+              "premium": 705000,
+              "trade_ids": []
+            },
+            {
+              "expiration": "2026-10-09",
+              "option_type": "call",
+              "side": "buy",
+              "strike": 7900,
+              "contracts": 610,
+              "premium": 491000,
+              "trade_ids": []
+            }
+          ],
+          "gross_premium": 1196000,
+          "net_premium": -214000,
+          "bias": "bullish",
+          "basis": "inferred",
+          "confidence": "high",
+          "opening_status": "unknown",
+          "complex_order_confirmed": false,
+          "key_levels": [
+            7850,
+            7900
+          ],
+          "interpretation": "Exact 1x2 call ratio/backspread for a net credit. If opening, it is not a simple bullish spread: the loss zone is roughly 7857-7943, with meaningful upside convexity only above about 7943 at expiry.",
+          "ui_title": "Friday 7850/7900 1x2 call backspread"
+        }
+      ],
+      "monetization_zones": [
+        {
+          "id": "mz-fri-7800-7850",
+          "low": 7800,
+          "high": 7850,
+          "type": "complex_inventory_zone",
+          "beneficiaries": [
+            "Friday call convexity",
+            "Friday hedge inventory"
+          ],
+          "source_structure_ids": [
+            "str-fri-upper-call-roll-confirmed",
+            "str-7825p-wed-fri-roll",
+            "str-fri-7850-synthetic-long"
+          ],
+          "source_level_ids": [
+            "lvl-week-7800-2026-10-09",
+            "lvl-week-7825-2026-10-09",
+            "lvl-week-7840-2026-10-09",
+            "lvl-week-7850-2026-10-09"
+          ],
+          "basis": "inferred",
+          "confidence": "high",
+          "description": "Friday is the strategic expiry: confirmed 7800/7840 upside inventory overlaps with rolled 7825 downside protection and 7850 bullish structures.",
+          "caveat": "The book remains two-sided despite the stronger upside asymmetry."
+        },
+        {
+          "id": "mz-fri-7900-7943",
+          "low": 7900,
+          "high": 7943,
+          "type": "upside_monetization",
+          "beneficiaries": [
+            "1x2 call backspread",
+            "upper-tail convexity"
+          ],
+          "source_structure_ids": [
+            "str-fri-7850-7900-ratio",
+            "str-7900-protection-package"
+          ],
+          "source_level_ids": [
+            "lvl-week-7900-2026-10-09"
+          ],
+          "basis": "inferred",
+          "confidence": "medium",
+          "description": "7900 is a conflict/transition node; the 1x2 call backspread becomes meaningfully convex only above roughly 7943 at expiry.",
+          "caveat": "7943 is a package payoff threshold, not a forecast target."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Higher conflict / convexity band",
+      "bias": "mixed",
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7800,
+          "description": "Keep the newly confirmed inventory zone below spot."
+        },
+        {
+          "type": "hold_below",
+          "level": 7850,
+          "description": "Remain below the immediate upside decision level."
+        }
+      ],
+      "route": [
+        7800,
+        7825,
+        7840,
+        7850
+      ],
+      "invalidations": [
+        "Acceptance above 7850 with fresh independent call buying",
+        "Acceptance below 7800 with renewed put demand"
+      ],
+      "interpretation": "Inside 7800-7850 the tape remains two-sided, with upside convexity and Friday protection coexisting."
+    },
+    {
+      "id": "sc-upside",
+      "name": "OI-confirmed upside realization",
+      "bias": "bullish",
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7850,
+          "description": "Clear the active near-spot call/synthetic zone."
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7850,
+          "description": "Fresh demand must extend beyond the known packages."
+        }
+      ],
+      "route": [
+        7850,
+        7880,
+        7900,
+        7943
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7825"
+      ],
+      "interpretation": "Acceptance above 7850 would bring the OI-confirmed 7880/7900 call convexity into play. The 1x2 backspread becomes truly convex only above roughly 7943 at expiry."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Friday protection activation",
+      "bias": "bearish",
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7800,
+          "description": "Lose the lower edge of the migrated weekly inventory."
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7825,
+          "description": "Broaden protection beyond the known 7825 calendar roll."
+        }
+      ],
+      "route": [
+        7825,
+        7800,
+        7775,
+        7750
+      ],
+      "invalidations": [
+        "Reclaim of 7825-7840 with put demand fading"
+      ],
+      "interpretation": "The downside route starts with loss of the 7825 hedge-roll pivot and then acceptance below 7800. Below that, fresh put demand would make 7775 and 7750 the next relevant zones."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 1101,
+    "deduplicated_rows": 1040,
+    "duplicates_removed": 61,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "BUY/SELL is transaction side and does not prove opening/closing.",
+      "No complex_order_id is available; structures are inferred from timestamp, size, strike geometry and stateful OI changes.",
+      "About 75% of visible premium is marked Spread; leg-by-leg directional reading is unsafe.",
+      "Current OI validates the prior session, not the new 2026-10-06 prints; the latter need the next OI update.",
+      "The tape timestamp/timezone metadata appears internally awkward relative to export time, so 7827.75 is treated as the file's latest-row reference rather than a verified external market close.",
+      "Visible tape is filtered at $50k premium and is not the full market book."
+    ],
+    "slice_population": {
+      "2026-10-07": {
+        "levels": 4,
+        "structures": 1,
+        "monetization_zones": 1
+      },
+      "2026-10-08": {
+        "levels": 4,
+        "structures": 1,
+        "monetization_zones": 1
+      },
+      "2026-10-09": {
+        "levels": 5,
+        "structures": 2,
+        "monetization_zones": 2
+      }
+    }
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
