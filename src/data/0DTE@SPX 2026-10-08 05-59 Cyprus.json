@@ -1,0 +1,805 @@
+{
+  "schema_version": "1.0",
+  "category": "0DTE@SPX",
+  "snapshot_name": "0DTE@SPX 2026-10-08 05-59 Cyprus",
+  "session": {
+    "underlying": "SPX",
+    "expiration": "2026-10-08",
+    "dte": 0,
+    "snapshot_time": "2026-10-08T05:59:00+03:00",
+    "timezone": "Asia/Nicosia",
+    "session_scope": "overnight",
+    "premium_filter_usd": 50000,
+    "contract_multiplier": 100,
+    "source_files": [
+      "2026-10-08-spx-1dte-50k-flow.csv",
+      "2026-10-08-spx-1dte-50k-contract.csv"
+    ],
+    "analysis_note": "Overnight baseline for 2026-10-08; filename source says 1DTE because prints were collected before the 0DTE RTH session."
+  },
+  "market_state": {
+    "spot": 7797.55,
+    "spot_change_from_previous_snapshot": null,
+    "observed_spot_range_in_tape": [
+      7764.05,
+      7830.35
+    ],
+    "regime": "range_conflict_with_supportive_late_tilt",
+    "bias": "mixed_to_supportive",
+    "confidence": "medium",
+    "main_pivot": 7800,
+    "upper_decision_level": 7825,
+    "lower_decision_level": 7770
+  },
+  "summary": {
+    "headline": "7800 is the overnight inventory pivot; raw put buying is dominated by complex 7850P churn",
+    "key_points": [
+      "Raw visible flow: calls net sold $1.778M, puts net bought $2.758M, signed delta +$194.074M.",
+      "The 17:54:31 7850P spread-tagged buy package is $4.254M; excluding it flips put flow to net sold $1.496M and lifts signed delta to +$562.074M.",
+      "Near spot (+/-30 points from 7797.55), puts are net sold $2.526M and calls are net bought $0.384M with +$598.9M signed delta.",
+      "Late raw-time flow is dominated by put selling around 7800/7850 and repeated call spreads around 7800.",
+      "Key map: 7825-7830 upper transition, 7800 pivot, 7770 lower decision, 7720 protection, 7630-7640 tail."
+    ],
+    "daily_note": "Baseline overnight snapshot; no prior 0DTE state is used."
+  },
+  "flow_aggregate": {
+    "gross_premium": 54906000,
+    "calls": {
+      "bought": 13668000,
+      "sold": 15446000,
+      "net": -1778000
+    },
+    "puts": {
+      "bought": 14207000,
+      "sold": 11449000,
+      "net": 2758000
+    },
+    "unclassified": {
+      "premium": 136000,
+      "rows": 1
+    },
+    "signed_delta": 194074000,
+    "near_spot": {
+      "distance_points": 30,
+      "reference_spot": 7797.55,
+      "calls": {
+        "bought": 5836000,
+        "sold": 5452000,
+        "net": 384000
+      },
+      "puts": {
+        "bought": 3781000,
+        "sold": 6307000,
+        "net": -2526000
+      },
+      "gross_premium": 21376000,
+      "signed_delta": 598900000
+    },
+    "otm": {
+      "calls": {
+        "bought": 3696000,
+        "sold": 3500000,
+        "net": 196000
+      },
+      "puts": {
+        "bought": 4651000,
+        "sold": 3831000,
+        "net": 820000
+      },
+      "gross_premium": 15678000,
+      "signed_delta": -86900000
+    },
+    "late_raw_time": {
+      "raw_hour_window": "20:00-23:59",
+      "calls": {
+        "bought": 6582000,
+        "sold": 6797000,
+        "net": -215000
+      },
+      "puts": {
+        "bought": 1968000,
+        "sold": 4740000,
+        "net": -2772000
+      },
+      "gross_premium": 20087000,
+      "signed_delta": 503742000,
+      "note": "Relative sequencing only; source timezone labels are mixed."
+    },
+    "leave_one_out": {
+      "dominant_structure_id": "str-7850p-buy-500",
+      "dominant_premium": 4254000,
+      "dominant_share": 0.0775,
+      "result": {
+        "net_calls": -1778000,
+        "net_puts": -1496000,
+        "signed_delta": 562074000
+      },
+      "changes_interpretation": true,
+      "comment": "Headline net put buying is package-driven; without the dominant 7850P package the residual tape is net put selling."
+    }
+  },
+  "levels": [
+    {
+      "id": "lvl-7800",
+      "price": 7800,
+      "range_low": 7795,
+      "range_high": 7805,
+      "role": [
+        "main_pivot",
+        "pin",
+        "inventory_center",
+        "complex_zone"
+      ],
+      "label": "7800 MAIN OVERNIGHT PIVOT / INVENTORY",
+      "strength": 0.95,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": 2.45,
+      "flow": {
+        "call_buy": 1509000,
+        "call_sell": 1707000,
+        "put_buy": 715000,
+        "put_sell": 1777000,
+        "net_calls": -198000,
+        "net_puts": -1062000,
+        "gross": 5708000,
+        "signed_delta": 232700000
+      },
+      "interpretation": "Largest near-spot two-sided node. Repeated call spreads coexist with heavy put selling; this favors a pivot/pin reading with a supportive late tilt rather than clean directional demand.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7800p-sale-549",
+          "str-7760-7805-call-debit",
+          "str-7800-7810-call-credit"
+        ],
+        "notes": [
+          "Near-spot flow around 7795-7805 has +$282.7M signed delta and net put selling."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7825-7830",
+      "price": 7827.5,
+      "range_low": 7825,
+      "range_high": 7830,
+      "role": [
+        "upside_demand",
+        "transition",
+        "potential_cap"
+      ],
+      "label": "7825-7830 UPSIDE TRANSITION",
+      "strength": 0.72,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": 29.95,
+      "flow": {
+        "call_buy": 811000,
+        "call_sell": 343000,
+        "put_buy": 563000,
+        "put_sell": 516000,
+        "net_calls": 468000,
+        "net_puts": 47000,
+        "gross": 2233000,
+        "signed_delta": 123500000
+      },
+      "interpretation": "Call buying is visible, including a 600x+600x block-spread-tagged package, but linkage is incomplete. Treat as an upside decision zone, not a confirmed breakout target.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7825-7830-call-block"
+        ],
+        "notes": [
+          "Contract aggregate shows high volume at 7825C/7830C."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7770",
+      "price": 7770,
+      "range_low": 7765,
+      "range_high": 7775,
+      "role": [
+        "lower_decision_level",
+        "downside_protection",
+        "transition"
+      ],
+      "label": "7770 LOWER DECISION / PROTECTION",
+      "strength": 0.86,
+      "basis": "derived",
+      "confidence": "high",
+      "state": "active",
+      "distance_from_spot": -27.55,
+      "flow": {
+        "call_buy": 295000,
+        "call_sell": 363000,
+        "put_buy": 1779000,
+        "put_sell": 866000,
+        "net_calls": -68000,
+        "net_puts": 913000,
+        "gross": 3303000,
+        "signed_delta": -172800000
+      },
+      "interpretation": "Net put buying and negative signed delta make 7770 the first meaningful downside-protection node. It is a trigger zone, not automatic support.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "462x 7770P buy for $969K is the largest visible single 7770 put print."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7720",
+      "price": 7720,
+      "range_low": 7715,
+      "range_high": 7725,
+      "role": [
+        "downside_protection",
+        "reclaim_support",
+        "transition"
+      ],
+      "label": "7720 DEEPER PROTECTION",
+      "strength": 0.78,
+      "basis": "derived",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": -77.55,
+      "flow": {
+        "call_buy": 1351000,
+        "call_sell": 1497000,
+        "put_buy": 600000,
+        "put_sell": 0,
+        "net_calls": -146000,
+        "net_puts": 600000,
+        "gross": 3448000,
+        "signed_delta": -176400000
+      },
+      "interpretation": "Visible 7720 puts are bought rather than sold, including a 950-contract same-price cluster. If 7770 fails with fresh put demand, 7720 is the next protection/realization zone.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [],
+        "notes": [
+          "Contract aggregate shows 3.7K volume and 3.7K OI at 7720P; opening/closing is unresolved."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7630-7640",
+      "price": 7635,
+      "range_low": 7630,
+      "range_high": 7640,
+      "role": [
+        "tail_zone",
+        "downside_protection"
+      ],
+      "label": "7630-7640 TAIL PROTECTION",
+      "strength": 0.67,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "unconfirmed",
+      "distance_from_spot": -162.55,
+      "flow": {
+        "call_buy": 400000,
+        "call_sell": 0,
+        "put_buy": 509000,
+        "put_sell": 0,
+        "net_calls": 400000,
+        "net_puts": 509000,
+        "gross": 909000,
+        "signed_delta": -100600000
+      },
+      "interpretation": "Large-contract cheap-put block activity marks the far-downside convexity zone. Exact package economics are incomplete because the block-spread flag indicates missing/filtered legs.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7630-7640-tail-complex"
+        ],
+        "notes": [
+          "Visible package includes 4,000x 7630P buys and 800x 7640P buys at the same timestamp."
+        ]
+      }
+    },
+    {
+      "id": "lvl-7850-complex",
+      "price": 7850,
+      "range_low": 7850,
+      "range_high": 7855,
+      "role": [
+        "complex_zone",
+        "inventory_center"
+      ],
+      "label": "7850 COMPLEX PUT CHURN",
+      "strength": 0.9,
+      "basis": "inferred",
+      "confidence": "medium",
+      "state": "active",
+      "distance_from_spot": 52.45,
+      "flow": {
+        "call_buy": 56000,
+        "call_sell": 0,
+        "put_buy": 6867000,
+        "put_sell": 2003000,
+        "net_calls": 56000,
+        "net_puts": 4864000,
+        "gross": 8926000,
+        "signed_delta": -351200000
+      },
+      "interpretation": "This is the dominant headline-distorting ITM put node. Large spread-tagged buys are followed by reverse-side sells with exact/near-exact sizes, making churn/partial unwind more plausible than clean fresh protection.",
+      "evidence": {
+        "trade_ids": [],
+        "structure_ids": [
+          "str-7850p-buy-500",
+          "str-7850p-reverse"
+        ],
+        "notes": [
+          "50x buy/sell, 98x vs 95x, and 100x buy/sell reverse-size pairs appear within the same dump."
+        ]
+      }
+    }
+  ],
+  "flow_timeline": [],
+  "structures": [
+    {
+      "id": "str-7850p-buy-500",
+      "timestamp": "raw: 2026-10-08 17:54:31, 10-07",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 400,
+          "premium": 3400000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 100,
+          "premium": 854000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 4254000,
+      "net_premium": null,
+      "bias": "unclear",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7850
+      ],
+      "interpretation": "Largest package in the visible tape. Spread flag proves it is not safe to read the leg as standalone bearish put demand; missing linked legs and later reverse prints make roll/unwind/churn a primary competing hypothesis.",
+      "ui_title": "7850P $4.254M Complex Buy Leg"
+    },
+    {
+      "id": "str-7850p-reverse",
+      "timestamp": "intraday sequence",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 100,
+          "premium": 830000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7850,
+          "contracts": 100,
+          "premium": 533000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 98,
+          "premium": 751000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7850,
+          "contracts": 95,
+          "premium": 482000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7850,
+          "contracts": 50,
+          "premium": 421000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7850,
+          "contracts": 50,
+          "premium": 259000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 3276000,
+      "net_premium": null,
+      "bias": "unclear",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7850
+      ],
+      "interpretation": "Exact and near-exact opposite-side size pairs are a strong same-session reversal signal. This supports partial unwind/churn as a competing explanation for the 7850P headline.",
+      "ui_title": "7850P Reverse-Size Churn"
+    },
+    {
+      "id": "str-7760-7805-call-debit",
+      "timestamp": "raw: 2026-10-08 22:48:01, 10-07",
+      "type": "call_debit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7760,
+          "contracts": 165,
+          "premium": 718000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7805,
+          "contracts": 165,
+          "premium": 218000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 936000,
+      "net_premium": 500000,
+      "bias": "bullish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7760,
+        7805
+      ],
+      "interpretation": "Clean same-size call vertical if the two legs are linked. Approximate debit is $500K; expiry breakeven is about 7790.3 and maximum value is reached above 7805. It adds late upside exposure but caps it tightly.",
+      "ui_title": "7760/7805 Call Debit Spread-like"
+    },
+    {
+      "id": "str-7705-7720-call-credit",
+      "timestamp": "raw: 2026-10-08 20:16:27, 10-07",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7705,
+          "contracts": 102,
+          "premium": 983000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7720,
+          "contracts": 102,
+          "premium": 837000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 1820000,
+      "net_premium": -146000,
+      "bias": "neutral",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "roll_or_restructure",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7705,
+        7720
+      ],
+      "interpretation": "The 15-point call credit spread is priced near its maximum width while spot is far above both strikes, leaving very little fresh-opening payoff. Financing/closing/roll mechanics are more natural than reading it as new bearish call supply.",
+      "ui_title": "7705/7720 Deep-ITM Call Vertical"
+    },
+    {
+      "id": "str-7800p-sale-549",
+      "timestamp": "raw: 2026-10-08 22:34:32, 10-07",
+      "type": "single_leg",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "sell",
+          "strike": 7800,
+          "contracts": 549,
+          "premium": 921000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 921000,
+      "net_premium": null,
+      "bias": "supportive",
+      "basis": "observed",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7800
+      ],
+      "interpretation": "Large late 7800P sale supports the pivot mechanically, but the Spread flag means this cannot be treated as confirmed opening short-put risk acceptance.",
+      "ui_title": "7800P 549x Sale Leg"
+    },
+    {
+      "id": "str-7825-7830-call-block",
+      "timestamp": "raw: 2026-10-08 17:14:17, 10-07",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7825,
+          "contracts": 600,
+          "premium": 229000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7830,
+          "contracts": 600,
+          "premium": 190000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 419000,
+      "net_premium": null,
+      "bias": "bullish",
+      "basis": "observed",
+      "confidence": "low",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7825,
+        7830
+      ],
+      "interpretation": "Large same-size call buys mark upper convexity interest, but both legs are Block Spread-tagged and the offsetting legs are not visible. Use this as an upper decision zone, not proof of fresh upside opening.",
+      "ui_title": "7825/7830 600x Call Block Legs"
+    },
+    {
+      "id": "str-7630-7640-tail-complex",
+      "timestamp": "raw: 2026-10-08 16:36:40, 10-07",
+      "type": "unknown_complex",
+      "legs": [
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7630,
+          "contracts": 4000,
+          "premium": 412000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "put",
+          "side": "buy",
+          "strike": 7640,
+          "contracts": 800,
+          "premium": 97000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 509000,
+      "net_premium": null,
+      "bias": "defensive",
+      "basis": "inferred",
+      "confidence": "medium",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7630,
+        7640
+      ],
+      "interpretation": "Cheap, high-contract tail-put activity marks far-downside convexity. Block Spread tags imply the visible legs are incomplete, so exact ratio and financing are unresolved.",
+      "ui_title": "7630-7640 Tail Put Complex"
+    },
+    {
+      "id": "str-7800-7810-call-credit",
+      "timestamp": "raw: 2026-10-08 22:50:20, 10-07",
+      "type": "call_credit_spread",
+      "legs": [
+        {
+          "option_type": "call",
+          "side": "sell",
+          "strike": 7800,
+          "contracts": 150,
+          "premium": 239000,
+          "trade_ids": []
+        },
+        {
+          "option_type": "call",
+          "side": "buy",
+          "strike": 7810,
+          "contracts": 150,
+          "premium": 170000,
+          "trade_ids": []
+        }
+      ],
+      "gross_premium": 409000,
+      "net_premium": -69000,
+      "bias": "bearish",
+      "basis": "inferred",
+      "confidence": "high",
+      "opening_status": "unknown",
+      "complex_order_confirmed": false,
+      "key_levels": [
+        7800,
+        7810
+      ],
+      "interpretation": "Same-size upper call credit spread adds local friction immediately above the pivot. It reinforces 7800-7810 as a cap/decision band unless absorbed.",
+      "ui_title": "7800/7810 Call Credit Spread-like"
+    }
+  ],
+  "monetization_zones": [
+    {
+      "id": "mz-7800-pin",
+      "low": 7795,
+      "high": 7805,
+      "type": "pin_decay",
+      "beneficiaries": [
+        "short put / short call spread inventory",
+        "balanced overnight books"
+      ],
+      "source_structure_ids": [
+        "str-7800p-sale-549",
+        "str-7760-7805-call-debit",
+        "str-7800-7810-call-credit"
+      ],
+      "source_level_ids": [
+        "lvl-7800"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "description": "Heavy two-sided activity with late put selling and repeated call spreads makes 7800 the strongest overnight inventory/pin center.",
+      "caveat": "Pinning is conditional and does not prove opening inventory."
+    },
+    {
+      "id": "mz-downside-7770-7720",
+      "low": 7720,
+      "high": 7770,
+      "type": "put_protection_activation",
+      "beneficiaries": [
+        "long put / downside convexity inventory"
+      ],
+      "source_structure_ids": [],
+      "source_level_ids": [
+        "lvl-7770",
+        "lvl-7720"
+      ],
+      "basis": "derived",
+      "confidence": "medium",
+      "description": "Fresh downside continuation would begin to realize visible put protection first at 7770 and then more clearly at 7720.",
+      "caveat": "Some put prints are spread-tagged; opening status is unknown."
+    }
+  ],
+  "expiration_slices": [],
+  "scenarios": [
+    {
+      "id": "sc-base",
+      "name": "Overnight range / inventory balance",
+      "bias": "mixed",
+      "priority": 0.5,
+      "triggers": [
+        {
+          "type": "hold_above",
+          "level": 7770,
+          "description": "Lower decision zone holds"
+        },
+        {
+          "type": "hold_below",
+          "level": 7825,
+          "description": "Upper transition is not cleanly accepted"
+        }
+      ],
+      "route": [
+        7770,
+        7800,
+        7825
+      ],
+      "invalidations": [
+        "Sustained acceptance outside 7770-7830 with fresh directional flow"
+      ],
+      "interpretation": "Base case is chop/pin around 7800 with a supportive late-flow tilt. The book is not cleanly bullish because call supply remains around 7800-7810 and downside protection exists below."
+    },
+    {
+      "id": "sc-upside",
+      "name": "Upside realization",
+      "bias": "bullish",
+      "priority": 0.28,
+      "triggers": [
+        {
+          "type": "accept_above",
+          "level": 7830,
+          "description": "Clear the 7825-7830 transition"
+        },
+        {
+          "type": "new_call_buying",
+          "level": 7830,
+          "description": "Fresh call demand independent of block-spread/roll mechanics"
+        }
+      ],
+      "route": [
+        7830,
+        7850
+      ],
+      "invalidations": [
+        "Failed acceptance back below 7820-7825",
+        "Renewed call selling at 7800-7810"
+      ],
+      "interpretation": "Acceptance above 7830 with fresh call demand converts the upper block-call interest into usable upside convexity. 7850 is a complex inventory zone, not an automatic target."
+    },
+    {
+      "id": "sc-downside",
+      "name": "Downside protection realization",
+      "bias": "bearish",
+      "priority": 0.22,
+      "triggers": [
+        {
+          "type": "accept_below",
+          "level": 7770,
+          "description": "Lose the first protection/decision node"
+        },
+        {
+          "type": "new_put_buying",
+          "level": 7770,
+          "description": "New put demand confirms rather than put selling/monetization"
+        }
+      ],
+      "route": [
+        7770,
+        7720,
+        7640,
+        7630
+      ],
+      "invalidations": [
+        "Reclaim of 7800 with renewed put selling",
+        "Failure of put demand to broaden"
+      ],
+      "interpretation": "Below 7770, the next visible protection is 7720. A failure there opens the far tail cluster at 7640-7630, but the current raw headline is not broad enough to call this the base case."
+    }
+  ],
+  "data_quality": {
+    "raw_rows": 418,
+    "deduplicated_rows": 418,
+    "duplicates_removed": 0,
+    "iv_coverage": 1.0,
+    "side_quality": "good",
+    "multileg_quality": "mixed",
+    "opening_closing_known": false,
+    "confidence": "medium",
+    "caveats": [
+      "305 rows are Spread-tagged and 16 are Block Spread-tagged; visible legs can be incomplete because of the $50K premium filter.",
+      "No trade_id/sequence or complex_order_id is populated, so package linkage is inferred from timestamps, sizes and flags.",
+      "One $136K put leg has aggressor side N/A.",
+      "Timestamp metadata mixes Asia/Nicosia and ETH labels and every row carries a '10-07' suffix; relative sequencing is usable, but exact normalized clock buckets are not.",
+      "BUY/SELL does not prove opening/closing; next-day OI is required to distinguish fresh risk from unwind/roll.",
+      "Visible tape is not the full market position."
+    ]
+  },
+  "optional_layers": {
+    "assumed_dealer_charm": null,
+    "greeks_levels": null
+  }
+}
